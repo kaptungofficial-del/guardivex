@@ -1,6 +1,7 @@
-﻿import React from "react"
+﻿import { useState } from "react"
 import { WebsiteNavbar } from "./WebsiteNavbar"
 import { VideoWalkthroughDemo } from "./VideoWalkthroughDemo"
+import { LiveChatWidget } from "./LiveChatWidget"
 import { BrandLogo } from "@/components/BrandLogo"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
@@ -21,9 +22,24 @@ interface WebsiteLayoutProps {
 }
 
 export function WebsiteLayout({ currentPage, onNavigate, onLogin }: WebsiteLayoutProps) {
+  const [isLiveChatOpen, setIsLiveChatOpen] = useState(false)
+  const [liveChatPrefill, setLiveChatPrefill] = useState<string | undefined>()
+
+  const handleOpenLiveChat = (prefill?: string) => {
+    if (prefill) {
+      setLiveChatPrefill(prefill)
+    }
+    setIsLiveChatOpen(true)
+  }
+
   return (
     <div className="min-h-screen bg-background">
-      <WebsiteNavbar currentPage={currentPage} onNavigate={onNavigate} onLogin={onLogin} />
+      <WebsiteNavbar
+        currentPage={currentPage}
+        onNavigate={onNavigate}
+        onLogin={onLogin}
+        onOpenLiveChat={handleOpenLiveChat}
+      />
       <main>
         {currentPage === "home" && <HomePage onNavigate={onNavigate} />}
         {currentPage === "product" && <ProductPage />}
@@ -223,6 +239,12 @@ export function WebsiteLayout({ currentPage, onNavigate, onLogin }: WebsiteLayou
           </div>
         </div>
       </footer>
+      <LiveChatWidget
+        isOpen={isLiveChatOpen}
+        onOpenChange={setIsLiveChatOpen}
+        prefillMessage={liveChatPrefill}
+        onPrefillConsumed={() => setLiveChatPrefill(undefined)}
+      />
     </div>
   )
 }

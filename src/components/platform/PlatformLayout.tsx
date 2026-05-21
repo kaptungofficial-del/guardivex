@@ -1,10 +1,15 @@
 ﻿import { useState } from "react"
 import { 
   Buildings, Devices, Bell, ShieldWarning, Gear, 
-  SquaresFour, Plugs, Key, Users, Monitor, List, X
+  SquaresFour, Plugs, Key, Users, Monitor, List, X, SignOut
 } from "@phosphor-icons/react"
 import { Badge } from "@/components/ui/badge"
 import { BrandLogo } from "@/components/BrandLogo"
+import {
+  ENTERPRISE_CONTROL_CLASS,
+  ENTERPRISE_HEADER_SURFACE_CLASS,
+  HeaderStatusBadge,
+} from "@/components/layout/HeaderPrimitives"
 import type { PlatformPageView, LicenseInfo } from "@/lib/types"
 import { cn } from "@/lib/utils"
 
@@ -62,6 +67,10 @@ export function PlatformLayout({ children, currentPage, onNavigate, onLogout, cr
     onNavigate(page)
     setSidebarOpen(false)
   }
+
+  const currentPageLabel = navSections
+    .flatMap((section) => section.items)
+    .find((item) => item.id === currentPage)?.label ?? "Platform"
 
   return (
     <div className="flex h-screen bg-background">
@@ -149,7 +158,7 @@ export function PlatformLayout({ children, currentPage, onNavigate, onLogout, cr
       </aside>
 
       <div className="flex-1 flex flex-col overflow-hidden w-full lg:w-auto">
-        <header className="h-14 sm:h-16 border-b border-border bg-card flex items-center justify-between px-3 sm:px-4 lg:px-6 shrink-0">
+        <header className={cn("h-16 sm:h-18 flex items-center justify-between px-3 sm:px-4 lg:px-6 shrink-0", ENTERPRISE_HEADER_SURFACE_CLASS)}>
           <div className="flex items-center gap-2 sm:gap-3 min-w-0">
             <button
               onClick={() => setSidebarOpen(true)}
@@ -158,16 +167,43 @@ export function PlatformLayout({ children, currentPage, onNavigate, onLogout, cr
             >
               <List size={20} weight="bold" className="sm:w-[22px] sm:h-[22px]" />
             </button>
-            <h2 className="font-heading font-bold text-sm sm:text-base lg:text-lg truncate">
-              guardivex Platform
-            </h2>
+            <div className="min-w-0">
+              <p className="text-[10px] sm:text-xs uppercase tracking-[0.12em] text-muted-foreground font-semibold truncate">
+                SOC Command Center
+              </p>
+              <h2 className="font-heading font-bold text-sm sm:text-base lg:text-lg truncate">
+                {currentPageLabel}
+              </h2>
+            </div>
+            <HeaderStatusBadge label="Operational" className="hidden md:inline-flex" />
           </div>
-          <button
-            onClick={onLogout}
-            className="text-xs sm:text-sm text-muted-foreground hover:text-foreground transition-colors shrink-0 px-2 sm:px-3 py-1.5 sm:py-2 hover:bg-secondary/50 rounded-md"
-          >
-            Logout
-          </button>
+
+          <div className="flex items-center gap-2 shrink-0">
+            <button
+              onClick={() => handleNavigate("alerts")}
+              className={cn("relative text-xs sm:text-sm", ENTERPRISE_CONTROL_CLASS)}
+              aria-label="Open alerts"
+              title="Open alerts"
+            >
+              <span className="inline-flex items-center gap-1.5">
+                <Bell size={14} weight="bold" />
+                <span className="hidden sm:inline">Alerts</span>
+              </span>
+              {criticalAlerts > 0 && (
+                <Badge className="absolute -top-2 -right-2 h-5 min-w-5 px-1 flex items-center justify-center text-[10px] bg-destructive text-destructive-foreground">
+                  {criticalAlerts}
+                </Badge>
+              )}
+            </button>
+
+            <button
+              onClick={onLogout}
+              className={cn("text-xs sm:text-sm", ENTERPRISE_CONTROL_CLASS)}
+            >
+              <SignOut size={14} weight="bold" />
+              <span className="hidden sm:inline">Logout</span>
+            </button>
+          </div>
         </header>
         <main className="flex-1 overflow-y-auto">
           {children}

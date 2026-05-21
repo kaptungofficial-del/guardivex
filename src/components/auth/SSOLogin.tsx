@@ -75,7 +75,8 @@ export function SSOLogin({ onSuccess }: SSOLoginProps) {
   return (
     <div className="space-y-6">
       <div>
-        <h3 className="text-lg font-heading font-semibold mb-4">Enterprise Single Sign-On</h3>
+        <h3 className="text-lg font-heading font-semibold mb-2">Enterprise Single Sign-On</h3>
+        <p className="text-sm text-muted-foreground mb-4">Use your organization identity provider to access the Guardivex command center.</p>
         <div className="grid grid-cols-1 gap-3">
           {ssoProviders.map((provider) => {
             const Icon = provider.icon
@@ -85,7 +86,7 @@ export function SSOLogin({ onSuccess }: SSOLoginProps) {
               <div key={provider.id}>
                 <Button
                   variant="outline"
-                  className="w-full h-12 justify-start gap-3 bg-background/50 hover:bg-background border-border hover:border-primary/50 transition-all"
+                  className="w-full h-12 justify-start gap-3 bg-background/60 hover:bg-background border-border/70 hover:border-primary/50 transition-all shadow-sm"
                   onClick={() => handleSSOLogin(provider.id)}
                   disabled={isLoading !== null && isLoading !== provider.id}
                 >
@@ -103,7 +104,7 @@ export function SSOLogin({ onSuccess }: SSOLoginProps) {
                 </Button>
 
                 {isActiveSAML && (
-                  <div className="mt-3 p-4 bg-secondary/30 rounded-lg border border-border/50 space-y-3 animate-in slide-in-from-top-2">
+                  <div className="mt-3 p-4 bg-secondary/30 rounded-lg border border-border/50 space-y-3 animate-in slide-in-from-top-2 shadow-sm">
                     <div className="space-y-2">
                       <Label htmlFor="saml-domain" className="text-sm font-medium">
                         Organization Domain

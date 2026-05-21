@@ -5,7 +5,7 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Checkbox } from "@/components/ui/checkbox"
-import { ThemeSwitcher } from "@/components/ThemeSwitcher"
+import { AuthShell } from "@/components/auth/AuthShell"
 import { toast } from "sonner"
 
 interface RegisterPageProps {
@@ -70,46 +70,13 @@ export function RegisterPage({ onRegister, onBackToLogin }: RegisterPageProps) {
   const strength = passwordStrength()
 
   return (
-    <div className="min-h-screen bg-background relative overflow-hidden">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_120%,oklch(0.55_0.18_195_/_0.15),transparent_50%)]" />
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,oklch(0.55_0.18_195_/_0.03)_1px,transparent_1px),linear-gradient(to_bottom,oklch(0.55_0.18_195_/_0.03)_1px,transparent_1px)] bg-[size:4rem_4rem]" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,oklch(0.55_0.18_195_/_0.08),transparent_50%)]" />
-
-      <div className="absolute top-3 left-3 sm:top-6 sm:left-6 z-10">
-        <button
-          onClick={onBackToLogin}
-          className="flex items-center gap-2 px-3 py-2 sm:gap-2.5 sm:px-4 sm:py-2.5 rounded-lg bg-card/40 backdrop-blur-sm border border-border/50 text-xs sm:text-sm text-foreground/80 hover:text-foreground hover:bg-card/60 hover:border-border transition-all duration-200 group shadow-sm hover:shadow-md active:scale-95"
-        >
-          <ArrowLeft size={16} className="transition-transform group-hover:-translate-x-1" weight="bold" />
-          <span className="font-medium hidden xs:inline">Back to Login</span>
-          <span className="font-medium xs:hidden">Back</span>
-        </button>
-      </div>
-
-      <div className="absolute top-3 right-3 sm:top-6 sm:right-6 z-10">
-        <ThemeSwitcher />
-      </div>
-
-      <div className="relative min-h-screen flex items-center justify-center p-4 sm:p-6 lg:p-8 pt-20 sm:pt-8">
-        <div className="w-full max-w-2xl space-y-6 sm:space-y-8">
-          <div className="flex flex-col items-center gap-4 sm:gap-6 text-center">
-            <div className="relative group">
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/30 via-accent/20 to-primary/10 rounded-2xl sm:rounded-3xl blur-xl sm:blur-2xl opacity-60 group-hover:opacity-100 transition-opacity duration-500" />
-              <div className="relative w-20 h-20 sm:w-24 sm:h-24 bg-gradient-to-br from-primary/20 to-accent/10 rounded-2xl sm:rounded-3xl flex items-center justify-center border border-primary/30 shadow-2xl shadow-primary/20 backdrop-blur-sm">
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent rounded-2xl sm:rounded-3xl" />
-                <ShieldCheck size={44} className="sm:hidden text-primary relative z-10" weight="duotone" />
-                <ShieldCheck size={52} className="hidden sm:block text-primary relative z-10" weight="duotone" />
-              </div>
-            </div>
-            <div className="space-y-2 sm:space-y-3">
-              <h1 className="text-2xl sm:text-3xl lg:text-4xl font-heading font-bold tracking-tight bg-gradient-to-br from-foreground via-foreground to-foreground/70 bg-clip-text">
-                Create Your Account
-              </h1>
-              <p className="text-xs sm:text-sm text-muted-foreground font-medium">Get started with guardivex Platform</p>
-            </div>
-          </div>
-
-          <Card className="bg-card/60 backdrop-blur-xl border-border/60 shadow-2xl shadow-black/10">
+    <AuthShell
+      backLabel="Back to Login"
+      onBack={onBackToLogin}
+      title="Provision a secure operator workspace."
+      subtitle="Create a guardivex account for your team and onboard your organization into the SOC command center with enterprise-grade access controls."
+    >
+      <Card className="bg-card/65 backdrop-blur-xl border-border/65 shadow-2xl shadow-black/15">
             <CardHeader className="space-y-2 sm:space-y-3 pb-4 sm:pb-6">
               <CardTitle className="text-xl sm:text-2xl font-heading font-bold text-center">Register</CardTitle>
               <CardDescription className="text-center text-xs sm:text-sm">
@@ -309,10 +276,8 @@ export function RegisterPage({ onRegister, onBackToLogin }: RegisterPageProps) {
                 </p>
               </div>
             </CardContent>
-          </Card>
-        </div>
-      </div>
-    </div>
+      </Card>
+    </AuthShell>
   )
 }
 

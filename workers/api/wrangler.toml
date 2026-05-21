@@ -1,0 +1,20 @@
+# guardivex API Worker — api.guardivex.com
+# Deploy: wrangler deploy (from workers/api/)
+# Docs:   https://developers.cloudflare.com/workers/
+
+name            = "guardivex-api"
+main            = "index.ts"
+compatibility_date = "2026-05-21"
+
+# Custom domain — configure after first deploy in the Cloudflare dashboard
+# routes = [{ pattern = "api.guardivex.com/*", custom_domain = true }]
+
+[vars]
+API_VERSION = "3.1"
+
+# JWT_SECRET must be set as a secret — never commit it to source control:
+#   wrangler secret put JWT_SECRET
+
+[observability]
+enabled = true
+head_sampling_rate = 1

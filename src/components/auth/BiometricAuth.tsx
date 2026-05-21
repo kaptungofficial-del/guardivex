@@ -5,6 +5,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Alert, AlertDescription } from "@/components/ui/alert"
 import { toast } from "sonner"
 import { usePersistentKV } from "@/hooks/use-persistent-kv"
+import { AuthShell } from "@/components/auth/AuthShell"
 
 interface BiometricAuthProps {
   email: string
@@ -240,66 +241,79 @@ export function BiometricAuth({ email, onVerified, onBack, onSkip }: BiometricAu
 
   if (!isSupported) {
     return (
-      <Card className="w-full max-w-md bg-card/50 backdrop-blur-sm border-border/50 shadow-xl">
-        <CardHeader className="space-y-2">
-          <div className="flex items-center gap-3">
-            <div className="w-12 h-12 bg-muted rounded-xl flex items-center justify-center">
-              <Warning size={24} className="text-muted-foreground" />
+      <AuthShell
+        backLabel="Back to Login"
+        onBack={onBack}
+        title="Use device-bound authentication where available."
+        subtitle="Biometric sign-in reduces credential friction while keeping verification tied to the operator device."
+      >
+        <Card className="w-full max-w-md mx-auto bg-card/65 backdrop-blur-xl border-border/65 shadow-2xl shadow-black/15">
+          <CardHeader className="space-y-2">
+            <div className="flex items-center gap-3">
+              <div className="w-12 h-12 bg-muted rounded-xl flex items-center justify-center">
+                <Warning size={24} className="text-muted-foreground" />
+              </div>
+              <div>
+                <CardTitle className="text-xl font-heading">Biometric Not Available</CardTitle>
+                <CardDescription>Your device doesn't support biometric authentication</CardDescription>
+              </div>
             </div>
-            <div>
-              <CardTitle className="text-xl font-heading">Biometric Not Available</CardTitle>
-              <CardDescription>Your device doesn't support biometric authentication</CardDescription>
-            </div>
-          </div>
-        </CardHeader>
-        <CardContent className="space-y-4">
-          {error && (
-            <Alert variant="destructive">
-              <AlertDescription>{error}</AlertDescription>
-            </Alert>
-          )}
-
-          <p className="text-sm text-muted-foreground">
-            Biometric authentication requires a device with fingerprint sensor or Face ID capability. You can continue with traditional authentication methods.
-          </p>
-
-          <div className="flex gap-3 pt-2">
-            <Button onClick={onBack} variant="outline" className="flex-1">
-              <ArrowLeft size={16} className="mr-2" />
-              Go Back
-            </Button>
-            {onSkip && (
-              <Button onClick={onSkip} className="flex-1">
-                Continue Without
-              </Button>
+          </CardHeader>
+          <CardContent className="space-y-4">
+            {error && (
+              <Alert variant="destructive">
+                <AlertDescription>{error}</AlertDescription>
+              </Alert>
             )}
-          </div>
-        </CardContent>
-      </Card>
+
+            <p className="text-sm text-muted-foreground">
+              Biometric authentication requires a device with fingerprint sensor or Face ID capability. You can continue with traditional authentication methods.
+            </p>
+
+            <div className="flex gap-3 pt-2">
+              <Button onClick={onBack} variant="outline" className="flex-1">
+                <ArrowLeft size={16} className="mr-2" />
+                Go Back
+              </Button>
+              {onSkip && (
+                <Button onClick={onSkip} className="flex-1">
+                  Continue Without
+                </Button>
+              )}
+            </div>
+          </CardContent>
+        </Card>
+      </AuthShell>
     )
   }
 
   return (
-    <Card className="w-full max-w-md bg-card/50 backdrop-blur-sm border-border/50 shadow-xl">
-      <CardHeader className="space-y-2">
-        <div className="flex items-center gap-3">
-          <div className="relative">
-            <div className="absolute inset-0 bg-primary/20 rounded-xl blur-lg animate-pulse" />
-            <div className="relative w-12 h-12 bg-gradient-to-br from-primary/30 to-accent/20 rounded-xl flex items-center justify-center border border-primary/40">
-              <Fingerprint size={24} weight="bold" className="text-primary" />
+    <AuthShell
+      backLabel="Back to Login"
+      onBack={onBack}
+      title="Authenticate with hardware-backed local identity."
+      subtitle="Use Face ID or fingerprint verification to accelerate sign-in while keeping biometric material on the operator device."
+    >
+      <Card className="w-full max-w-md mx-auto bg-card/65 backdrop-blur-xl border-border/65 shadow-2xl shadow-black/15">
+        <CardHeader className="space-y-2">
+          <div className="flex items-center gap-3">
+            <div className="relative">
+              <div className="absolute inset-0 bg-primary/20 rounded-xl blur-lg animate-pulse" />
+              <div className="relative w-12 h-12 bg-gradient-to-br from-primary/30 to-accent/20 rounded-xl flex items-center justify-center border border-primary/40">
+                <Fingerprint size={24} weight="bold" className="text-primary" />
+              </div>
+            </div>
+            <div>
+              <CardTitle className="text-xl font-heading">
+                {hasRegistered ? "Biometric Sign In" : "Set Up Biometric Auth"}
+              </CardTitle>
+              <CardDescription>
+                {hasRegistered ? "Use your biometric to sign in" : "Add fingerprint or Face ID for quick access"}
+              </CardDescription>
             </div>
           </div>
-          <div>
-            <CardTitle className="text-xl font-heading">
-              {hasRegistered ? "Biometric Sign In" : "Set Up Biometric Auth"}
-            </CardTitle>
-            <CardDescription>
-              {hasRegistered ? "Use your biometric to sign in" : "Add fingerprint or Face ID for quick access"}
-            </CardDescription>
-          </div>
-        </div>
-      </CardHeader>
-      <CardContent className="space-y-5">
+        </CardHeader>
+        <CardContent className="space-y-5">
         {error && (
           <Alert variant="destructive">
             <AlertDescription>{error}</AlertDescription>
@@ -431,8 +445,9 @@ export function BiometricAuth({ email, onVerified, onBack, onSkip }: BiometricAu
             <p>Your biometric data is stored securely on your device and never transmitted to our servers.</p>
           </div>
         </div>
-      </CardContent>
-    </Card>
+        </CardContent>
+      </Card>
+    </AuthShell>
   )
 }
 

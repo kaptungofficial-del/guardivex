@@ -3,6 +3,7 @@ import { ShieldCheck, ArrowLeft, CheckCircle } from "@phosphor-icons/react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { InputOTP, InputOTPGroup, InputOTPSlot } from "@/components/ui/input-otp"
+import { AuthShell } from "@/components/auth/AuthShell"
 import { toast } from "sonner"
 
 interface TwoFactorAuthProps {
@@ -57,27 +58,23 @@ export function TwoFactorAuth({ email, onVerified, onBack, method }: TwoFactorAu
   }
 
   return (
-    <div className="w-full max-w-md space-y-6">
-      <button
-        onClick={onBack}
-        className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-all duration-200 hover:gap-3 group"
-      >
-        <ArrowLeft size={16} className="transition-transform group-hover:-translate-x-1" />
-        <span>Back to login</span>
-      </button>
-
-      <div className="flex flex-col items-center gap-4 mb-8">
-        <div className="relative">
-          <div className="absolute inset-0 bg-primary/20 rounded-2xl blur-xl animate-pulse" />
-          <div className="relative w-20 h-20 bg-gradient-to-br from-primary/30 to-accent/20 rounded-2xl flex items-center justify-center border border-primary/40 shadow-lg shadow-primary/20">
-            <ShieldCheck size={44} weight="bold" className="text-primary" />
-          </div>
-        </div>
-      </div>
-
-      <Card className="bg-card/50 backdrop-blur-sm border-border/50 shadow-xl">
+    <AuthShell
+      backLabel="Back to Login"
+      onBack={onBack}
+      title="Verify operator identity before granting access."
+      subtitle="Enforce step-up authentication with a controlled second factor before opening access to the command center."
+    >
+      <Card className="w-full max-w-md mx-auto bg-card/65 backdrop-blur-xl border-border/65 shadow-2xl shadow-black/15">
         <CardHeader className="space-y-2 pb-6">
-          <CardTitle className="text-2xl font-heading">Two-Factor Authentication</CardTitle>
+          <div className="flex flex-col items-center gap-4 mb-2">
+            <div className="relative">
+              <div className="absolute inset-0 bg-primary/20 rounded-2xl blur-xl animate-pulse" />
+              <div className="relative w-20 h-20 bg-gradient-to-br from-primary/30 to-accent/20 rounded-2xl flex items-center justify-center border border-primary/40 shadow-lg shadow-primary/20">
+                <ShieldCheck size={44} weight="bold" className="text-primary" />
+              </div>
+            </div>
+          </div>
+          <CardTitle className="text-2xl font-heading text-center">Two-Factor Authentication</CardTitle>
           <CardDescription className="text-base">
             {method === "email" 
               ? `We've sent a 6-digit code to ${email}`
@@ -143,6 +140,6 @@ export function TwoFactorAuth({ email, onVerified, onBack, method }: TwoFactorAu
           </div>
         </CardContent>
       </Card>
-    </div>
+    </AuthShell>
   )
 }

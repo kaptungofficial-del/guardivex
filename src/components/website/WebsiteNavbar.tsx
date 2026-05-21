@@ -4,14 +4,19 @@ import { List, X, Phone, ChatCircle, CloudArrowDown, Circle, LinkedinLogo, Twitt
 import { useState, useRef, useEffect } from "react"
 import { ThemeSwitcher } from "@/components/ThemeSwitcher"
 import { BrandLogo } from "@/components/BrandLogo"
+import {
+  ENTERPRISE_COMMAND_STRIP_CLASS,
+  ENTERPRISE_CONTROL_CLASS,
+} from "@/components/layout/HeaderPrimitives"
 
 interface WebsiteNavbarProps {
   currentPage: string
   onNavigate: (page: string) => void
   onLogin: () => void
+  onOpenLiveChat: (prefill?: string) => void
 }
 
-export function WebsiteNavbar({ currentPage, onNavigate, onLogin }: WebsiteNavbarProps) {
+export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat }: WebsiteNavbarProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [productDropdownOpen, setProductDropdownOpen] = useState(false)
   const [enterpriseDropdownOpen, setEnterpriseDropdownOpen] = useState(false)
@@ -343,11 +348,11 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin }: WebsiteNavba
 
   return (
     <>
-      <div className="border-b border-border/20 bg-gradient-to-r from-card/40 via-card/60 to-card/40 backdrop-blur-xl">
+      <div className={ENTERPRISE_COMMAND_STRIP_CLASS}>
         <div className="max-w-[1400px] mx-auto px-3 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-9 sm:h-10 md:h-11">
             <div className="flex items-center gap-2 sm:gap-4 md:gap-6">
-              <div className="flex items-center gap-1.5 sm:gap-2 text-[10px] sm:text-[11px] font-semibold">
+              <div className="inline-flex items-center gap-1.5 sm:gap-2 text-[10px] sm:text-[11px] font-semibold px-2.5 py-1 rounded-md border border-success/25 bg-success/5">
                 <div className="relative flex items-center">
                   <Circle size={6} weight="fill" className="text-success drop-shadow-[0_0_4px_rgba(120,200,120,0.6)] sm:w-[7px] sm:h-[7px]" />
                   <div className="absolute inset-0">
@@ -357,6 +362,9 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin }: WebsiteNavba
                 <span className="text-success hidden min-[380px]:inline tracking-wide">All Systems Operational</span>
                 <span className="text-success min-[380px]:hidden tracking-wide">Live</span>
               </div>
+              <Badge variant="outline" className="hidden lg:inline-flex h-6 text-[10px] uppercase tracking-[0.1em] border-border/70 text-muted-foreground bg-background/60">
+                Enterprise Edition
+              </Badge>
               <div className="hidden md:flex items-center gap-2">
                 <div className="w-1 h-1 rounded-full bg-border/60" />
                 <a 
@@ -377,7 +385,10 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin }: WebsiteNavba
                 <span className="tracking-wide">1-800-SENTINEL</span>
                 <Badge variant="outline" className="text-[9px] px-2 py-0.5 h-4 ml-1 border-success/50 text-success font-bold tracking-wider bg-success/5">24/7</Badge>
               </a>
-              <button className="hidden lg:flex items-center gap-1.5 px-3 py-1.5 rounded-md text-muted-foreground hover:text-primary hover:bg-primary/8 transition-all text-[11px] font-bold group">
+              <button
+                onClick={() => onOpenLiveChat("I need help with my deployment")}
+                className={`${ENTERPRISE_CONTROL_CLASS} hidden lg:flex text-[11px] font-bold hover:text-primary hover:border-primary/40 hover:bg-primary/8 group`}
+              >
                 <ChatCircle size={14} weight="bold" className="group-hover:scale-110 transition-transform" />
                 <span className="tracking-wide">Live Chat</span>
               </button>
@@ -400,9 +411,9 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin }: WebsiteNavba
         </div>
       </div>
 
-      <nav className="border-b border-border/30 bg-background/95 backdrop-blur-2xl sticky top-0 z-50 shadow-lg shadow-black/5">
+      <nav className="border-b border-border/40 bg-background/95 backdrop-blur-2xl sticky top-0 z-50 shadow-lg shadow-black/5">
         <div className="max-w-[1400px] mx-auto px-3 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-14 sm:h-16 md:h-20">
+          <div className="flex items-center justify-between h-14 sm:h-16 md:h-[4.75rem]">
             <div className="flex items-center gap-3 sm:gap-8 md:gap-12">
               <button 
                 onClick={() => handleNavigate("home")} 
@@ -462,17 +473,14 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin }: WebsiteNavba
                         >
                           <button
                             onClick={() => handleNavigate(item.id)}
-                            className={`relative px-4 py-2 text-[13px] font-semibold rounded-md transition-all duration-200 flex items-center gap-1.5 ${
+                            className={`relative px-4 py-2 text-[13px] font-semibold rounded-md transition-all duration-200 flex items-center gap-1.5 border ${
                               currentPage === item.id
-                                ? "text-foreground"
-                                : "text-muted-foreground hover:text-foreground"
+                                ? "text-foreground border-primary/30 bg-primary/8"
+                                : "text-muted-foreground border-transparent hover:text-foreground hover:border-border/70 hover:bg-secondary/40"
                             }`}
                           >
                             <span className="relative z-10">{item.label}</span>
                             <CaretDown size={12} weight="bold" className={`transition-transform duration-200 ${isDropdownOpen ? 'rotate-180' : ''}`} />
-                            {currentPage === item.id && (
-                              <div className="absolute inset-0 bg-primary/8 rounded-md" />
-                            )}
                           </button>
                           
                           {isDropdownOpen && (
@@ -486,6 +494,11 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin }: WebsiteNavba
                                   <button
                                     key={feature.title}
                                     onClick={() => {
+                                      if (item.id === "support" && feature.title === "Live Chat") {
+                                        onOpenLiveChat("I need help with support")
+                                        setSupportDropdownOpen(false)
+                                        return
+                                      }
                                       handleNavigate(item.id)
                                       if (item.id === "product") setProductDropdownOpen(false)
                                       if (item.id === "enterprise") setEnterpriseDropdownOpen(false)
@@ -626,6 +639,12 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin }: WebsiteNavba
                             <button
                               key={feature.title}
                               onClick={() => {
+                                if (item.id === "support" && feature.title === "Live Chat") {
+                                  onOpenLiveChat("I need help with support")
+                                  setSupportDropdownOpen(false)
+                                  setMobileMenuOpen(false)
+                                  return
+                                }
                                 handleNavigate(item.id)
                                 if (item.id === "product") setProductDropdownOpen(false)
                                 if (item.id === "enterprise") setEnterpriseDropdownOpen(false)
