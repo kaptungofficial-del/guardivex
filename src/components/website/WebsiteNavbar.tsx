@@ -352,15 +352,15 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
         <div className="max-w-[1400px] mx-auto px-3 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-9 sm:h-10 md:h-11">
             <div className="flex items-center gap-2 sm:gap-4 md:gap-6">
-              <div className="inline-flex items-center gap-1.5 sm:gap-2 text-[10px] sm:text-[11px] font-semibold px-2.5 py-1 rounded-md border border-success/25 bg-success/5">
+              <div className="inline-flex items-center gap-1.5 sm:gap-2 text-[10px] sm:text-[11px] font-semibold px-2.5 py-1 rounded-md border border-primary/25 bg-primary/8">
                 <div className="relative flex items-center">
-                  <Circle size={6} weight="fill" className="text-success drop-shadow-[0_0_4px_rgba(120,200,120,0.6)] sm:w-[7px] sm:h-[7px]" />
+                  <Circle size={6} weight="fill" className="text-primary drop-shadow-[0_0_4px_rgba(60,140,255,0.55)] sm:w-[7px] sm:h-[7px]" />
                   <div className="absolute inset-0">
-                    <Circle size={6} weight="fill" className="text-success animate-ping opacity-60 sm:w-[7px] sm:h-[7px]" />
+                    <Circle size={6} weight="fill" className="text-primary animate-ping opacity-60 sm:w-[7px] sm:h-[7px]" />
                   </div>
                 </div>
-                <span className="text-success hidden min-[380px]:inline tracking-wide">All Systems Operational</span>
-                <span className="text-success min-[380px]:hidden tracking-wide">Live</span>
+                <span className="text-primary hidden min-[380px]:inline tracking-wide">All Systems Operational</span>
+                <span className="text-primary min-[380px]:hidden tracking-wide">Live</span>
               </div>
               <Badge variant="outline" className="hidden lg:inline-flex h-6 text-[10px] uppercase tracking-[0.1em] border-border/70 text-muted-foreground bg-background/60">
                 Enterprise Edition
@@ -383,7 +383,7 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
               >
                 <Phone size={14} weight="bold" className="group-hover:scale-110 transition-transform" />
                 <span className="tracking-wide">1-800-SENTINEL</span>
-                <Badge variant="outline" className="text-[9px] px-2 py-0.5 h-4 ml-1 border-success/50 text-success font-bold tracking-wider bg-success/5">24/7</Badge>
+                <Badge variant="outline" className="text-[9px] px-2 py-0.5 h-4 ml-1 border-accent/50 text-accent font-bold tracking-wider bg-accent/10">24/7</Badge>
               </a>
               <button
                 onClick={() => onOpenLiveChat("I need help with my deployment")}
