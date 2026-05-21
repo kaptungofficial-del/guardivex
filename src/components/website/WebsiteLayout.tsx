@@ -1,4 +1,4 @@
-﻿import { useState } from "react"
+﻿import { useEffect, useState } from "react"
 import { WebsiteNavbar } from "./WebsiteNavbar"
 import { VideoWalkthroughDemo } from "./VideoWalkthroughDemo"
 import { LiveChatWidget } from "./LiveChatWidget"
@@ -684,11 +684,11 @@ function SupportPage() {
 }
 
 function DashboardPreviewSection() {
-  const [activeEvent, setActiveEvent] = React.useState(0)
-  const [hoveredCard, setHoveredCard] = React.useState<number | null>(null)
-  const [clickedModule, setClickedModule] = React.useState<string | null>(null)
+  const [activeEvent, setActiveEvent] = useState(0)
+  const [hoveredCard, setHoveredCard] = useState<number | null>(null)
+  const [clickedModule, setClickedModule] = useState<string | null>(null)
 
-  React.useEffect(() => {
+  useEffect(() => {
     const interval = setInterval(() => {
       setActiveEvent((prev) => (prev + 1) % 5)
     }, 3000)
