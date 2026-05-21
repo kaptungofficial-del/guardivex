@@ -114,34 +114,34 @@ export function LoginPage({ onLogin, onBackToWebsite, onShowRegister, onShowPass
       title="Command and secure every site from one control plane."
       subtitle="Unified visibility across cameras, access control, alarms, networks, and incident response with enterprise-grade access controls."
     >
-      <Card className="bg-card/65 backdrop-blur-xl border-border/65 shadow-2xl shadow-black/15 max-h-[calc(100dvh-10rem)] lg:max-h-[calc(100dvh-7rem)] overflow-auto">
-            <CardHeader className="space-y-1.5 sm:space-y-2 pb-3 sm:pb-4">
+      <Card className="bg-card/65 backdrop-blur-xl border-border/65 shadow-2xl shadow-black/15">
+            <CardHeader className="space-y-2 sm:space-y-2.5 pb-4 sm:pb-5">
               <CardTitle className="text-xl sm:text-2xl font-heading font-bold">Sign In</CardTitle>
               <CardDescription className="text-sm sm:text-base text-muted-foreground">
                 Access your security operations center
               </CardDescription>
             </CardHeader>
-            <CardContent className="space-y-4 sm:space-y-5">
+            <CardContent className="space-y-5 sm:space-y-6">
               <Tabs defaultValue="credentials" className="w-full">
-                <TabsList className={`grid w-full ${biometricSupported ? 'grid-cols-3' : 'grid-cols-2'} mb-4 sm:mb-5 p-1 h-auto bg-muted/50`}>
-                  <TabsTrigger value="credentials" className="data-[state=active]:bg-background data-[state=active]:shadow-sm py-2.5 text-xs sm:text-sm">
+                <TabsList className={`grid w-full ${biometricSupported ? 'grid-cols-3' : 'grid-cols-2'} mb-5 sm:mb-6 p-1 h-auto bg-muted/50`}>
+                  <TabsTrigger value="credentials" className="data-[state=active]:bg-background data-[state=active]:shadow-sm py-2.5 sm:py-2.5 text-sm">
                     <Lock size={16} weight="bold" className="sm:mr-2" />
                     <span className="hidden sm:inline">Password</span>
                   </TabsTrigger>
                   {biometricSupported && (
-                    <TabsTrigger value="biometric" className="data-[state=active]:bg-background data-[state=active]:shadow-sm py-2.5 text-xs sm:text-sm">
+                    <TabsTrigger value="biometric" className="data-[state=active]:bg-background data-[state=active]:shadow-sm py-2.5 sm:py-2.5 text-sm">
                       <Fingerprint size={16} weight="bold" className="sm:mr-2" />
                       <span className="hidden sm:inline">Biometric</span>
                     </TabsTrigger>
                   )}
-                  <TabsTrigger value="sso" className="data-[state=active]:bg-background data-[state=active]:shadow-sm py-2.5 text-xs sm:text-sm">
+                  <TabsTrigger value="sso" className="data-[state=active]:bg-background data-[state=active]:shadow-sm py-2.5 sm:py-2.5 text-sm">
                     <CheckCircle size={16} weight="bold" className="sm:mr-2" />
                     <span className="hidden sm:inline">SSO</span>
                   </TabsTrigger>
                 </TabsList>
                 
                 <TabsContent value="credentials" className="mt-0">
-                  <form onSubmit={handleSubmit} className="space-y-3.5 sm:space-y-4">
+                  <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-5">
                     <div className="space-y-2">
                       <Label htmlFor="email" className="text-sm font-semibold text-foreground/90">
                         Email Address
@@ -223,7 +223,7 @@ export function LoginPage({ onLogin, onBackToWebsite, onShowRegister, onShowPass
 
                     <Button 
                       type="submit" 
-                      className="w-full h-11 sm:h-12 bg-primary hover:bg-primary/90 text-primary-foreground font-semibold shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/35 active:scale-[0.98] transition-all duration-200 text-base mt-4 sm:mt-5 touch-manipulation"
+                      className="w-full h-11 sm:h-12 bg-primary hover:bg-primary/90 text-primary-foreground font-semibold shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/35 active:scale-[0.98] transition-all duration-200 text-base mt-5 sm:mt-6 touch-manipulation"
                       disabled={isLoading}
                     >
                       {isLoading ? (
@@ -242,7 +242,7 @@ export function LoginPage({ onLogin, onBackToWebsite, onShowRegister, onShowPass
                     </Button>
 
                     {onShowRegister && (
-                      <div className="pt-3 sm:pt-4 text-center border-t border-border/50">
+                      <div className="pt-4 sm:pt-5 text-center border-t border-border/50">
                         <p className="text-xs sm:text-sm text-muted-foreground">
                           Don't have an account? <button type="button" onClick={onShowRegister} className="text-primary hover:text-primary/80 transition-colors font-semibold hover:underline active:scale-95">Create Account</button>
                         </p>
@@ -325,7 +325,7 @@ export function LoginPage({ onLogin, onBackToWebsite, onShowRegister, onShowPass
                 </TabsContent>
               </Tabs>
 
-              <div className="pt-3 sm:pt-4 border-t border-border/50">
+              <div className="pt-4 sm:pt-5 border-t border-border/50">
                 <div className="flex items-center justify-center gap-2 px-3 sm:px-4 py-2.5 sm:py-3 bg-muted/30 rounded-lg border border-border/40">
                   <span className="flex items-center gap-1.5 sm:gap-2">
                     <span className="relative flex h-2 w-2 sm:h-2.5 sm:w-2.5">
@@ -334,15 +334,13 @@ export function LoginPage({ onLogin, onBackToWebsite, onShowRegister, onShowPass
                     </span>
                     <span className="text-[10px] sm:text-xs font-semibold text-success">Demo Mode Active</span>
                   </span>
-                  <span className="text-[10px] sm:text-xs text-muted-foreground">.</span>
-                  <span className="text-[10px] sm:text-xs text-muted-foreground hidden xs:inline">Use any credentials</span>
-                  <span className="text-[10px] sm:text-xs text-muted-foreground xs:hidden">Any credentials</span>
+                  <span className="text-[10px] sm:text-xs text-muted-foreground">Use any credentials</span>
                 </div>
               </div>
             </CardContent>
           </Card>
 
-            <div className="hidden sm:block text-center space-y-1.5 sm:space-y-2">
+            <div className="text-center space-y-1.5 sm:space-y-2.5">
               <p className="text-[10px] sm:text-xs text-muted-foreground font-medium flex items-center justify-center gap-1.5 sm:gap-2">
                 <Lock size={12} weight="bold" className="text-primary" />
                 <span className="hidden sm:inline">Protected by enterprise-grade encryption</span>
@@ -350,7 +348,7 @@ export function LoginPage({ onLogin, onBackToWebsite, onShowRegister, onShowPass
               </p>
               <div className="flex items-center justify-center gap-3 sm:gap-4 text-[10px] sm:text-xs text-muted-foreground/70">
                 <span className="font-mono">v3.2.1</span>
-                <span>.</span>
+                <span aria-hidden="true">|</span>
                 <span className="flex items-center gap-1 sm:gap-1.5">
                   <span className="w-1.5 h-1.5 bg-success rounded-full"></span>
                   Server Online

@@ -33,12 +33,12 @@ export function AuthShell({ backLabel, onBack, title, subtitle, children }: Auth
         <ThemeSwitcher />
       </div>
 
-      <div className="relative min-h-dvh flex items-center justify-center p-3 sm:p-4 lg:p-5">
-        <div className="w-full max-w-6xl grid grid-cols-1 lg:grid-cols-[1.05fr_0.95fr] gap-4 lg:gap-6 items-stretch">
+      <div className="relative min-h-dvh flex items-center justify-center p-4 sm:p-5 lg:p-6">
+        <div className="w-full max-w-7xl grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_minmax(520px,560px)] gap-5 lg:gap-8 items-stretch">
           <section className="hidden lg:flex flex-col justify-between rounded-3xl border border-border/60 bg-card/40 backdrop-blur-xl p-8 xl:p-10 shadow-2xl shadow-black/10">
             <div className="space-y-6">
               <div className="flex items-center gap-4">
-                <BrandMark className="w-16 h-16" />
+                <BrandMark className="w-14 h-14 shrink-0" />
                 <div>
                   <h1 className="text-3xl font-heading font-bold tracking-tight">guardivex</h1>
                   <p className="text-sm text-muted-foreground">Enterprise Security Platform</p>
@@ -74,12 +74,12 @@ export function AuthShell({ backLabel, onBack, title, subtitle, children }: Auth
             <p className="text-xs text-muted-foreground">SOC 2 Type II . ISO 27001 . GDPR-ready controls</p>
           </section>
 
-          <div className="space-y-3 sm:space-y-4">
-            <div className="lg:hidden flex flex-col items-center gap-2 text-center">
-              <BrandMark className="w-16 h-16 sm:w-20 sm:h-20" />
+          <div className="space-y-4 sm:space-y-5 lg:w-[560px] lg:justify-self-end">
+            <div className="lg:hidden flex flex-col items-center gap-2.5 text-center">
+              <BrandMark className="w-20 h-20 sm:w-24 sm:h-24" />
               <div>
-                <h1 className="text-2xl sm:text-3xl font-heading font-bold tracking-tight">guardivex</h1>
-                <p className="text-xs sm:text-sm text-muted-foreground">Enterprise Security Platform</p>
+                <h1 className="text-3xl sm:text-4xl font-heading font-bold tracking-tight">guardivex</h1>
+                <p className="text-sm text-muted-foreground">Enterprise Security Platform</p>
               </div>
             </div>
             {children}
