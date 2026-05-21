@@ -9,8 +9,16 @@ import { useState, useEffect } from "react"
 import { WebsiteLayout } from "@/components/website/WebsiteLayout"
 import { getSubdomainUrl } from "@/hooks/use-subdomain"
 
+const AUTH_PATHS = new Set(["/login", "/register", "/reset-password"])
+
 export function WwwApp() {
   const [currentPath, setCurrentPath] = useState(window.location.pathname)
+
+  useEffect(() => {
+    if (AUTH_PATHS.has(currentPath)) {
+      window.location.href = getSubdomainUrl("app", currentPath)
+    }
+  }, [currentPath])
 
   useEffect(() => {
     const handlePopState = () => setCurrentPath(window.location.pathname)
@@ -33,6 +41,10 @@ export function WwwApp() {
   }
 
   const websitePage = currentPath === "/" ? "home" : currentPath.slice(1)
+
+  if (AUTH_PATHS.has(currentPath)) {
+    return null
+  }
 
   return (
     <WebsiteLayout
