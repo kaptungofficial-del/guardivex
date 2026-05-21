@@ -232,7 +232,7 @@ export function AppSubdomain() {
     if (currentPath === "/") {
       navigate(isAuthenticated ? "/dashboard" : "/login")
     }
-  }, [isAuthenticated, currentPath]) // eslint-disable-line react-hooks/exhaustive-deps
+  }, [isAuthenticated, currentPath])
 
   const navigate = (path: string) => {
     setIsNavigating(true)

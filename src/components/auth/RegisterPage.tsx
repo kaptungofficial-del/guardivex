@@ -58,13 +58,13 @@ export function RegisterPage({ onRegister, onBackToLogin }: RegisterPageProps) {
 
   const passwordStrength = () => {
     const password = formData.password
-    if (password.length === 0) return { strength: 0, label: "" }
-    if (password.length < 8) return { strength: 25, label: "Weak", color: "bg-destructive" }
-    if (password.length < 12) return { strength: 50, label: "Fair", color: "bg-warning" }
+    if (password.length === 0) return { strength: 0, label: "", widthClass: "w-0" }
+    if (password.length < 8) return { strength: 25, label: "Weak", color: "bg-destructive", widthClass: "w-1/4" }
+    if (password.length < 12) return { strength: 50, label: "Fair", color: "bg-warning", widthClass: "w-1/2" }
     if (password.match(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])/)) {
-      return { strength: 100, label: "Strong", color: "bg-success" }
+      return { strength: 100, label: "Strong", color: "bg-success", widthClass: "w-full" }
     }
-    return { strength: 75, label: "Good", color: "bg-info" }
+    return { strength: 75, label: "Good", color: "bg-info", widthClass: "w-3/4" }
   }
 
   const strength = passwordStrength()
@@ -201,8 +201,7 @@ export function RegisterPage({ onRegister, onBackToLogin }: RegisterPageProps) {
                       </div>
                       <div className="h-2 bg-secondary rounded-full overflow-hidden">
                         <div 
-                          className={`h-full ${strength.color || 'bg-muted'} transition-all duration-300`}
-                          style={{ width: `${strength.strength}%` }}
+                          className={`h-full ${strength.color || 'bg-muted'} ${strength.widthClass || 'w-0'} transition-all duration-300`}
                         />
                       </div>
                     </div>
