@@ -40,7 +40,7 @@ export function AuthShell({ backLabel, onBack, title, subtitle, children }: Auth
               <div className="flex items-center gap-4">
                 <BrandMark className="w-14 h-14 shrink-0" />
                 <div>
-                  <h1 className="text-3xl font-heading font-bold tracking-tight">guardivex</h1>
+                  <h1 className="text-3xl font-heading font-bold tracking-tight">Guardivex</h1>
                   <p className="text-sm text-muted-foreground">Enterprise Security Platform</p>
                 </div>
               </div>
@@ -78,7 +78,7 @@ export function AuthShell({ backLabel, onBack, title, subtitle, children }: Auth
             <div className="lg:hidden flex flex-col items-center gap-2.5 text-center">
               <BrandMark className="w-20 h-20 sm:w-24 sm:h-24" />
               <div>
-                <h1 className="text-3xl sm:text-4xl font-heading font-bold tracking-tight">guardivex</h1>
+                <h1 className="text-3xl sm:text-4xl font-heading font-bold tracking-tight">Guardivex</h1>
                 <p className="text-sm text-muted-foreground">Enterprise Security Platform</p>
               </div>
             </div>

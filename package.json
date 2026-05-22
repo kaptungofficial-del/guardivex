@@ -6,8 +6,9 @@
     "scripts": {
         "dev": "vite",
         "kill": "fuser -k 5000/tcp",
+        "brand:check": "node scripts/check-branding.mjs",
         "build": "tsc -b --noCheck && vite build",
-        "lint": "eslint .",
+        "lint": "npm run brand:check && eslint .",
         "optimize": "vite optimize",
         "preview": "vite preview"
     },

@@ -23,7 +23,7 @@ const INITIAL_MESSAGES: ChatMessage[] = [
   {
     id: "welcome",
     sender: "agent",
-    text: "Hi! You are connected to guardivex support. Tell us what you need and we will get you sorted quickly.",
+    text: "Hi! You are connected to Guardivex support. Tell us what you need and we will get you sorted quickly.",
     timestamp: "now",
   },
 ]
@@ -108,16 +108,16 @@ export function LiveChatWidget({
 
   if (!isOpen) {
     return (
-      <div className="fixed right-4 bottom-4 z-[70] sm:right-6 sm:bottom-6">
+      <div className="fixed right-3 bottom-3 z-[70] sm:right-5 sm:bottom-5">
         <Button
           onClick={() => onOpenChange(true)}
-          className="h-12 px-4 rounded-full shadow-lg shadow-primary/25 gap-2"
+          className="h-10 px-3.5 rounded-full shadow-lg shadow-primary/20 gap-1.5"
           aria-label="Open live chat"
           title="Open live chat"
         >
-          <ChatCircle size={20} weight="fill" />
-          <span className="font-semibold">Live Chat</span>
-          <Badge variant="secondary" className="ml-1 px-2 py-0 h-5 text-[10px]">
+          <ChatCircle size={18} weight="fill" />
+          <span className="font-semibold text-sm">Live Chat</span>
+          <Badge variant="secondary" className="ml-0.5 px-1.5 py-0 h-4 text-[9px]">
             Online
           </Badge>
         </Button>
@@ -126,17 +126,17 @@ export function LiveChatWidget({
   }
 
   return (
-    <div className="fixed right-3 bottom-3 z-[70] w-[calc(100vw-1.5rem)] sm:w-[390px] sm:right-6 sm:bottom-6">
+    <div className="fixed right-3 bottom-3 z-[70] w-[calc(100vw-1.5rem)] sm:w-[312px] sm:right-5 sm:bottom-5">
       <div className="rounded-xl border border-border bg-card shadow-2xl overflow-hidden">
-        <div className="px-4 py-3 border-b border-border bg-card/80 backdrop-blur-sm flex items-center justify-between">
+        <div className="px-3.5 py-2.5 border-b border-border bg-card/80 backdrop-blur-sm flex items-center justify-between">
           <div className="flex items-center gap-2">
             <div className="relative flex items-center">
               <Circle size={8} weight="fill" className="text-success" />
               <Circle size={8} weight="fill" className="text-success absolute animate-ping opacity-60" />
             </div>
             <div>
-              <p className="text-sm font-semibold">guardivex Support</p>
-              <p className="text-xs text-muted-foreground">Average response under 2 min</p>
+              <p className="text-[13px] font-semibold">Guardivex Support</p>
+              <p className="text-[11px] text-muted-foreground">Average response under 2 min</p>
             </div>
           </div>
           <Button
@@ -150,14 +150,14 @@ export function LiveChatWidget({
           </Button>
         </div>
 
-        <div ref={scrollContainerRef} className="h-[320px] overflow-y-auto px-4 py-3 space-y-3 bg-background/50">
+        <div ref={scrollContainerRef} className="h-[256px] overflow-y-auto px-3.5 py-2.5 space-y-2.5 bg-background/50">
           {messages.map((message) => (
             <div
               key={message.id}
               className={`flex ${message.sender === "user" ? "justify-end" : "justify-start"}`}
             >
               <div
-                className={`max-w-[85%] rounded-lg px-3 py-2 text-sm ${
+                className={`max-w-[85%] rounded-lg px-2.5 py-1.5 text-[13px] ${
                   message.sender === "user"
                     ? "bg-primary text-primary-foreground"
                     : "bg-card border border-border"
@@ -165,7 +165,7 @@ export function LiveChatWidget({
               >
                 <p>{message.text}</p>
                 <p
-                  className={`mt-1 text-[10px] ${
+                  className={`mt-1 text-[9px] ${
                     message.sender === "user" ? "text-primary-foreground/80" : "text-muted-foreground"
                   }`}
                 >
@@ -176,20 +176,20 @@ export function LiveChatWidget({
           ))}
           {isTyping && (
             <div className="flex justify-start">
-              <div className="bg-card border border-border rounded-lg px-3 py-2 text-xs text-muted-foreground">
+              <div className="bg-card border border-border rounded-lg px-2.5 py-1.5 text-[11px] text-muted-foreground">
                 Agent is typing...
               </div>
             </div>
           )}
         </div>
 
-        <div className="px-3 py-2 border-t border-border bg-card/70">
+        <div className="px-2.5 py-2 border-t border-border bg-card/70">
           <div className="flex flex-wrap gap-1.5 mb-2">
             {QUICK_REPLIES.map((reply) => (
               <button
                 key={reply}
                 onClick={() => sendMessage(reply)}
-                className="text-xs px-2 py-1 rounded-full border border-border hover:border-primary/40 hover:bg-primary/5 transition-colors"
+                className="text-[11px] px-2 py-0.5 rounded-full border border-border hover:border-primary/40 hover:bg-primary/5 transition-colors"
               >
                 {reply}
               </button>
@@ -206,7 +206,7 @@ export function LiveChatWidget({
               value={draft}
               onChange={(e) => setDraft(e.target.value)}
               placeholder="Type your message"
-              className="h-10 flex-1 rounded-md border border-border bg-background px-3 text-sm outline-none focus:ring-2 focus:ring-primary/30"
+              className="h-9 flex-1 rounded-md border border-border bg-background px-2.5 text-[13px] outline-none focus:ring-2 focus:ring-primary/30"
             />
             <Button type="submit" size="icon" disabled={!canSend} aria-label="Send message" title="Send message">
               <PaperPlaneTilt size={16} weight="fill" />

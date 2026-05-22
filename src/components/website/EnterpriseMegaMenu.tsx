@@ -111,7 +111,7 @@ const menuSections = [
 
 const featuredContent = {
   title: "Enterprise Deployment Guide",
-  description: "Learn how to deploy guardivex across your organization with on-premises or hybrid cloud architecture.",
+  description: "Learn how to deploy Guardivex across your organization with on-premises or hybrid cloud architecture.",
   features: [
     "On-premises installation",
     "High availability clustering",

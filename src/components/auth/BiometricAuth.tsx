@@ -87,7 +87,7 @@ export function BiometricAuth({ email, onVerified, onBack, onSkip }: BiometricAu
       const publicKeyOptions: PublicKeyCredentialCreationOptions = {
         challenge,
         rp: {
-          name: "guardivex Security Platform",
+          name: "Guardivex Security Platform",
           id: window.location.hostname,
         },
         user: {

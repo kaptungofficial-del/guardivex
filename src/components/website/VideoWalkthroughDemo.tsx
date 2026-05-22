@@ -187,6 +187,21 @@ export function VideoWalkthroughDemo() {
     return step.highlight === section
   }
 
+  const deviceHealthWidthClass = (health: number) => {
+    if (health >= 98) return "w-full"
+    if (health >= 95) return "w-11/12"
+    if (health >= 90) return "w-10/12"
+    if (health >= 80) return "w-9/12"
+    return "w-8/12"
+  }
+
+  const analyticsWidthClass = (value: string) => {
+    if (value === "68%") return "w-8/12"
+    if (value === "42%") return "w-5/12"
+    if (value === "31%") return "w-4/12"
+    return "w-6/12"
+  }
+
   return (
     <section className="container mx-auto px-6 py-16 border-t border-border bg-gradient-to-b from-background via-card/5 to-background relative overflow-hidden">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(120,200,240,0.03),transparent_70%)]" />
@@ -197,7 +212,7 @@ export function VideoWalkthroughDemo() {
             <Cube size={14} weight="duotone" className="animate-spin-slow" />
             <span className="ml-2">Automated Product Tour</span>
           </Badge>
-          <h2 className="text-3xl font-heading font-bold mb-3">See guardivex in Action</h2>
+          <h2 className="text-3xl font-heading font-bold mb-3">See Guardivex in Action</h2>
           <p className="text-base text-muted-foreground">
             Watch an automated walkthrough of the SOC Command Center's key features
           </p>
@@ -230,9 +245,10 @@ export function VideoWalkthroughDemo() {
                 <span className="text-xs text-muted-foreground">Step {currentStep + 1} of {walkthroughSteps.length}</span>
               </div>
               <div className="w-full h-2 bg-muted/30 rounded-full overflow-hidden">
-                <div 
-                  className="h-full bg-primary transition-all duration-100 ease-linear rounded-full"
-                  style={{ width: `${progress}%` }}
+                <progress
+                  className="h-full w-full [&::-webkit-progress-bar]:bg-transparent [&::-webkit-progress-value]:bg-primary [&::-webkit-progress-value]:transition-all [&::-webkit-progress-value]:duration-100 [&::-moz-progress-bar]:bg-primary"
+                  max={100}
+                  value={progress}
                 />
               </div>
               <p className="text-xs text-muted-foreground mt-2">{step.description}</p>
@@ -249,7 +265,7 @@ export function VideoWalkthroughDemo() {
                 <div className="w-3 h-3 rounded-full bg-success/60 animate-pulse" />
               </div>
               <div className="flex-1 flex items-center justify-center gap-2">
-                <span className="text-xs text-muted-foreground font-mono">guardivex SOC Dashboard</span>
+                <span className="text-xs text-muted-foreground font-mono">Guardivex SOC Dashboard</span>
               </div>
               <Badge variant="outline" className="text-xs gap-1 border-success/30 text-success">
                 <Circle size={8} weight="fill" className="animate-pulse" />
@@ -376,11 +392,9 @@ export function VideoWalkthroughDemo() {
                             className={`h-2 rounded-full transition-all duration-1000 ${
                               device.health >= 98 ? 'bg-success' : 
                               device.health >= 90 ? 'bg-warning' : 'bg-destructive'
+                            } ${deviceHealthWidthClass(device.health)} ${
+                              device.health >= 98 ? 'shadow-[0_0_8px_rgba(120,200,120,0.5)]' : ''
                             }`}
-                            style={{ 
-                              width: `${device.health}%`,
-                              boxShadow: device.health >= 98 ? '0 0 8px rgba(120, 200, 120, 0.5)' : 'none'
-                            }}
                           />
                         </div>
                         <div className="text-xs text-muted-foreground mt-1 text-right">{device.health}%</div>
@@ -438,7 +452,7 @@ export function VideoWalkthroughDemo() {
                     Performance Analytics
                   </h3>
                 </div>
-                <div className="grid grid-cols-3 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                   {[
                     { label: "CPU Usage", value: "42%", color: "bg-success" },
                     { label: "Memory", value: "68%", color: "bg-warning" },
@@ -451,11 +465,9 @@ export function VideoWalkthroughDemo() {
                       </div>
                       <div className="w-full bg-muted/30 rounded-full h-2">
                         <div 
-                          className={`h-2 rounded-full ${stat.color} transition-all duration-1000`}
-                          style={{ 
-                            width: stat.value,
-                            animation: isHighlighted('analytics') ? 'pulse 2s infinite' : 'none'
-                          }}
+                          className={`h-2 rounded-full ${stat.color} ${analyticsWidthClass(stat.value)} transition-all duration-1000 ${
+                            isHighlighted('analytics') ? 'animate-pulse' : ''
+                          }`}
                         />
                       </div>
                     </div>

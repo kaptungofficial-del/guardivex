@@ -16,7 +16,7 @@ export function PublicWebsite({ onLogin }: PublicWebsiteProps) {
               <ShieldCheck size={24} weight="bold" className="text-primary" />
             </div>
             <div>
-              <h1 className="text-xl font-bold tracking-tight">guardivex</h1>
+              <h1 className="text-xl font-bold tracking-tight">Guardivex</h1>
               <p className="text-xs text-muted-foreground">Enterprise Security Platform</p>
             </div>
           </div>
@@ -116,7 +116,7 @@ export function PublicWebsite({ onLogin }: PublicWebsiteProps) {
 
       <footer className="border-t border-border bg-card/50 py-8">
         <div className="container mx-auto px-6 text-center text-sm text-muted-foreground">
-          <p>&copy; 2024 guardivex. Enterprise Security Infrastructure Platform.</p>
+          <p>&copy; 2024 Guardivex. Enterprise Security Infrastructure Platform.</p>
         </div>
       </footer>
     </div>

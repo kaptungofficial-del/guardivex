@@ -20,22 +20,9 @@ import {
   List,
   X,
   MagnifyingGlass,
-  ArrowSquareOut,
-  BookOpen,
-  Download,
-  Gear,
-  Terminal,
   ShieldCheck,
-  Cpu,
-  VideoCamera,
-  LockKey,
-  BellRinging,
-  ChartLineUp,
-  Package,
   Certificate,
-  Key,
   Code,
-  Question,
   ArrowLeft,
   ArrowRight,
   CheckCircle,
@@ -43,7 +30,6 @@ import {
   Info,
   Rocket,
   HardDrives,
-  CloudArrowUp,
   Desktop,
 } from "@phosphor-icons/react"
 
@@ -143,9 +129,9 @@ function ContentOverview() {
   return (
     <div className="max-w-3xl">
       <Badge variant="outline" className="mb-4 text-primary border-primary/30">Platform Docs v3.1</Badge>
-      <h1 className="text-4xl font-heading font-bold mb-4">guardivex Documentation</h1>
+      <h1 className="text-4xl font-heading font-bold mb-4">Guardivex Documentation</h1>
       <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-        guardivex is an enterprise security infrastructure platform for monitoring devices,
+        Guardivex is an enterprise security infrastructure platform for monitoring devices,
         cameras, NVRs, access control, alarms, and network health from a centralised SOC
         Command Center. Install on your own server for complete data sovereignty.
       </p>
@@ -211,7 +197,7 @@ function ContentInstallation() {
     <div className="max-w-3xl space-y-6">
       <PageHeader title="Installation" section="Getting Started" />
       <p className="text-muted-foreground">
-        guardivex can be installed via the interactive installer script, Docker Compose, or a
+        Guardivex can be installed via the interactive installer script, Docker Compose, or a
         manual bare-metal setup. The installer script is the fastest path.
       </p>
       <Section title="1. Download the installer">
@@ -222,7 +208,7 @@ function ContentInstallation() {
           {[
             "Choose installation directory (default: /opt/guardivex)",
             "Set a postgres password and admin credentials",
-            "Optionally enable guardivex Cloud relay",
+            "Optionally enable Guardivex Cloud relay",
             "Confirm license key (skip for 30-day trial)",
           ].map((step, i) => (
             <li key={i} className="flex items-start gap-2">
@@ -250,7 +236,7 @@ function ContentQuickStart() {
       <Callout type="info" title="Estimated time: 15 minutes.">
         This guide gets a single-site deployment with 10 test devices running from scratch.
       </Callout>
-      <Section title="Step 1 — Install guardivex">
+      <Section title="Step 1 — Install Guardivex">
         <CodeBlock language="bash">{`curl -fsSL https://install.guardivex.com/setup.sh | sudo bash`}</CodeBlock>
       </Section>
       <Section title="Step 2 — Create your first site">
@@ -263,7 +249,7 @@ function ContentQuickStart() {
         <p className="text-sm text-muted-foreground">
           Go to <strong>Devices → Add Device</strong>. Select the device type (camera, NVR, access
           reader, alarm panel, or network switch), enter the IP address, and assign it to a site.
-          guardivex will poll the device for health every 30 seconds.
+          Guardivex will poll the device for health every 30 seconds.
         </p>
       </Section>
       <Section title="Step 4 — Configure alert rules">
@@ -287,7 +273,7 @@ function ContentApiAuth() {
     <div className="max-w-3xl space-y-6">
       <PageHeader title="Authentication" section="API Reference" />
       <p className="text-muted-foreground">
-        The guardivex REST API uses short-lived JWT access tokens (15 min) paired with
+        The Guardivex REST API uses short-lived JWT access tokens (15 min) paired with
         rotating refresh tokens (7 days). All API traffic must use HTTPS.
       </p>
       <Section title="Obtain a token">
@@ -341,8 +327,8 @@ function ContentApiEndpoints() {
       <p className="text-muted-foreground">
         Base URL: <code className="text-xs bg-muted px-1.5 py-0.5 rounded">https://api.guardivex.com</code>
       </p>
-      <div className="border border-border rounded-lg overflow-hidden">
-        <table className="w-full text-sm">
+      <div className="border border-border rounded-lg overflow-x-auto">
+        <table className="min-w-[700px] w-full text-sm">
           <thead className="bg-muted/50">
             <tr>
               <th className="text-left px-4 py-2.5 font-semibold text-xs uppercase tracking-wide text-muted-foreground w-24">Method</th>
@@ -374,7 +360,7 @@ function ContentDeployDocker() {
     <div className="max-w-3xl space-y-6">
       <PageHeader title="Docker / Compose" section="Deployment" />
       <p className="text-muted-foreground">
-        The official Docker Compose stack includes guardivex core, PostgreSQL, Redis, and an
+        The official Docker Compose stack includes Guardivex core, PostgreSQL, Redis, and an
         Nginx TLS terminator. Bring your own certificate or use the built-in ACME (Let's Encrypt)
         integration.
       </p>
@@ -486,8 +472,8 @@ function Section({ title, children }: { title: string; children: React.ReactNode
 
 function RequirementTable({ rows }: { rows: [string, string][] }) {
   return (
-    <div className="border border-border rounded-lg overflow-hidden">
-      <table className="w-full text-sm">
+    <div className="border border-border rounded-lg overflow-x-auto">
+      <table className="min-w-[700px] w-full text-sm">
         <tbody>
           {rows.map(([key, value], i) => (
             <tr key={i} className={`border-t border-border first:border-t-0 ${i % 2 === 0 ? "" : "bg-muted/20"}`}>
@@ -560,7 +546,11 @@ function Sidebar({
   const toggle = (sectionId: string) => {
     setExpandedSections((prev) => {
       const next = new Set(prev)
-      next.has(sectionId) ? next.delete(sectionId) : next.add(sectionId)
+      if (next.has(sectionId)) {
+        next.delete(sectionId)
+      } else {
+        next.add(sectionId)
+      }
       return next
     })
   }
@@ -630,8 +620,8 @@ function TopBar({
 }) {
   return (
     <header className={`sticky top-0 z-50 ${ENTERPRISE_HEADER_SURFACE_CLASS}`}>
-      <div className="flex items-center justify-between h-14 sm:h-16 px-4 sm:px-6">
-        <div className="flex items-center gap-3">
+      <div className="max-w-[1400px] mx-auto flex items-center justify-between h-14 sm:h-16 px-3 sm:px-6 gap-2 sm:gap-4">
+        <div className="flex items-center gap-2 sm:gap-3 min-w-0">
           <button
             onClick={onMobileToggle}
             className="lg:hidden p-1.5 text-muted-foreground hover:text-foreground rounded-md hover:bg-muted/40 transition-colors"
@@ -640,24 +630,30 @@ function TopBar({
           >
             {mobileOpen ? <X size={18} weight="bold" /> : <List size={18} weight="bold" />}
           </button>
-          <a href={getSubdomainUrl("www", "/")} className="flex items-center gap-2 group">
+          <a
+            href={getSubdomainUrl("www", "/")}
+            className="flex items-center gap-1.5 sm:gap-2 group min-w-0"
+            aria-label="Go to Guardivex website"
+            title="Go to Guardivex website"
+          >
             <BrandLogo
               subtitle="Docs"
-              markClassName="w-8 h-8"
-              titleClassName="text-sm font-bold"
-              subtitleClassName="text-[10px] tracking-widest"
+              className="gap-0.5 sm:gap-1"
+              markClassName="w-7 h-7 sm:w-8 sm:h-8"
+              titleClassName="text-[15px] sm:text-base font-semibold tracking-tight"
+              subtitleClassName="hidden sm:block text-[9px] tracking-[0.18em] mt-0.5"
             />
           </a>
-          <Badge variant="outline" className="hidden sm:flex text-xs text-muted-foreground border-border">
+          <Badge variant="outline" className="hidden md:flex text-[11px] text-muted-foreground border-border">
             v3.1
           </Badge>
-          <HeaderStatusBadge label="Docs Online" className="hidden md:inline-flex" />
+          <HeaderStatusBadge label="Docs Online" className="hidden lg:inline-flex" />
         </div>
 
-        <div className="flex items-center gap-2">
-          <div className={ENTERPRISE_SEARCH_SHELL_CLASS}>
+        <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
+          <div className={`${ENTERPRISE_SEARCH_SHELL_CLASS} hidden md:flex w-[210px] lg:w-[260px]`}>
             <MagnifyingGlass size={14} weight="bold" />
-            <span className="text-xs">Search docs…</span>
+            <span className="text-xs font-medium">Search docs...</span>
             <kbd className="ml-2 text-[10px] font-mono bg-background border border-border rounded px-1">
               ⌘K
             </kbd>
@@ -666,7 +662,7 @@ function TopBar({
           <Button
             size="sm"
             variant="outline"
-            className="hidden sm:flex gap-1.5 text-xs h-9 border-border/70 hover:border-primary/40 hover:bg-primary/8"
+            className="hidden md:flex gap-1.5 text-xs h-9 border-border/70 hover:border-primary/40 hover:bg-primary/8"
             onClick={() => { window.location.href = getSubdomainUrl("app", "/login") }}
           >
             Sign In
@@ -698,7 +694,7 @@ export function DocsLayout() {
   }
 
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <div className="min-h-screen bg-background text-foreground font-body antialiased">
       <TopBar mobileOpen={mobileOpen} onMobileToggle={() => setMobileOpen((v) => !v)} />
 
       {/* Mobile sidebar overlay */}
@@ -743,7 +739,7 @@ export function DocsLayout() {
           </div>
 
           <footer className="mt-8 pb-8 text-xs text-muted-foreground">
-            © 2026 guardivex Technologies, Inc. — docs.guardivex.com
+            © 2026 Guardivex Technologies, Inc. — docs.guardivex.com
           </footer>
         </main>
       </div>

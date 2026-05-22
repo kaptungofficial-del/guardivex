@@ -53,15 +53,15 @@ export function WebsiteLayout({ currentPage, onNavigate, onLogin }: WebsiteLayou
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(120,200,240,0.03),transparent_50%)]" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(120,200,240,0.02),transparent_50%)]" />
         
-        <div className="relative container mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-12 md:py-16">
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-12 md:py-16">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-10 sm:gap-12 md:gap-14 mb-10 sm:mb-12">
             <div className="lg:col-span-2 space-y-6">
               <div className="flex items-center gap-3.5">
                 <BrandLogo
-                  subtitle="Security Platform"
+                  subtitle="SECURITY PLATFORM"
                   markClassName="w-16 h-16"
-                  titleClassName="text-xl"
-                  subtitleClassName="text-[11px] tracking-[0.16em] mt-1.5"
+                  titleClassName="text-xl font-extrabold tracking-[-0.02em]"
+                  subtitleClassName="text-[10px] tracking-[0.14em] mt-1.5 text-muted-foreground/80"
                 />
               </div>
               <p className="text-sm text-muted-foreground max-w-md leading-relaxed">
@@ -205,7 +205,7 @@ export function WebsiteLayout({ currentPage, onNavigate, onLogin }: WebsiteLayou
           <div className="pt-8 sm:pt-10 border-t border-border/30">
             <div className="flex flex-col md:flex-row items-center justify-between gap-4 sm:gap-6 mb-6 sm:mb-8">
               <div className="text-xs sm:text-sm text-muted-foreground text-center md:text-left order-2 md:order-1">
-                Â© 2024 guardivex Technologies, Inc. All rights reserved.
+                &copy; 2024 Guardivex Technologies, Inc. All rights reserved.
               </div>
               <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 md:gap-8 text-xs text-muted-foreground font-medium order-1 md:order-2">
                 <span className="hover:text-primary transition-colors cursor-pointer hover:underline decoration-primary decoration-2 underline-offset-4">
@@ -251,26 +251,31 @@ export function WebsiteLayout({ currentPage, onNavigate, onLogin }: WebsiteLayou
 
 function HomePage({ onNavigate }: { onNavigate: (page: string) => void }) {
   return (
-    <div>
-      <section className="container mx-auto px-4 sm:px-6 pt-10 md:pt-14 pb-12 md:pb-16 text-center">
-        <div className="max-w-4xl mx-auto w-full">
-          <div className="inline-block px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs sm:text-sm font-medium mb-4 sm:mb-5">
-            Unified SOC Command Center Â· Security Platform
+    <div className="relative guardivex-home-typography">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-7 sm:pt-10 lg:pt-12 pb-8 sm:pb-11 lg:pb-12 text-center relative overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_15%,rgba(37,99,235,0.10),transparent_54%)] dark:bg-[radial-gradient(circle_at_50%_15%,rgba(56,189,248,0.16),transparent_52%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_120%,rgba(59,130,246,0.05),transparent_52%)] dark:bg-[radial-gradient(circle_at_50%_120%,rgba(14,165,233,0.08),transparent_50%)]" />
+        <div className="absolute inset-0 opacity-[0.06] dark:opacity-[0.1] bg-[linear-gradient(rgba(125,211,252,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(125,211,252,0.08)_1px,transparent_1px)] bg-[size:34px_34px]" />
+        <div className="absolute left-1/2 top-14 -translate-x-1/2 h-[320px] w-[320px] sm:h-[380px] sm:w-[380px] rounded-full border border-primary/10 dark:border-cyan-400/10" />
+        <div className="absolute left-1/2 top-20 -translate-x-1/2 h-[250px] w-[250px] sm:h-[300px] sm:w-[300px] rounded-full border border-primary/8 dark:border-cyan-400/8" />
+        <div className="relative max-w-4xl mx-auto w-full">
+          <div className="inline-flex items-center px-3.5 sm:px-4 py-1.5 rounded-full bg-primary/8 dark:bg-cyan-400/10 border border-primary/25 dark:border-cyan-300/25 text-primary dark:text-cyan-300 text-[11px] sm:text-xs font-semibold mb-3 sm:mb-4 tracking-[0.01em]">
+            Unified SOC Command Center &middot; Security Platform
           </div>
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold font-heading mb-4 md:mb-5 leading-tight px-2">
-            guardivex Security Platform
+          <h1 className="bg-transparent mx-auto max-w-[14ch] text-[clamp(2rem,5.8vw,4rem)] font-[700] font-heading tracking-[-0.024em] text-balance text-foreground dark:text-slate-100 mb-3 sm:mb-4 leading-[1.02]">
+            Enterprise Security Platform
           </h1>
-          <p className="text-sm sm:text-base md:text-lg text-muted-foreground mb-6 md:mb-8 max-w-3xl mx-auto leading-relaxed px-2">
+          <p className="text-[clamp(0.98rem,1.15vw,1.125rem)] text-muted-foreground dark:text-slate-300 mb-5 sm:mb-7 max-w-[52ch] mx-auto leading-[1.58] text-pretty">
             Install on your own server to monitor security devices, cameras, NVRs, access control, alarms, networks, and system health from one SOC Command Center.
           </p>
-          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center px-4">
-            <Button size="lg" variant="outline" className="border-primary/30 hover:bg-primary/10 w-full sm:w-auto h-12">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 max-w-3xl mx-auto px-2">
+            <Button size="lg" variant="outline" className="border-primary/30 dark:border-cyan-300/35 bg-background/60 dark:bg-slate-900/40 text-foreground dark:text-slate-100 hover:bg-primary/10 dark:hover:bg-cyan-500/12 hover:border-primary/45 dark:hover:border-cyan-300/55 w-full h-10 sm:h-11 text-sm font-semibold shadow-[0_0_0_1px_rgba(59,130,246,0.1)_inset] dark:shadow-[0_0_0_1px_rgba(6,182,212,0.12)_inset]">
               Request Demo
             </Button>
-            <Button size="lg" onClick={() => onNavigate("download")} className="bg-primary text-primary-foreground hover:bg-primary/90 w-full sm:w-auto h-12">
+            <Button size="lg" onClick={() => onNavigate("download")} className="bg-gradient-to-r from-primary via-sky-500 to-cyan-500 dark:from-cyan-400 dark:via-cyan-500 dark:to-sky-500 text-primary-foreground dark:text-slate-950 hover:brightness-105 w-full h-10 sm:h-11 text-sm font-semibold shadow-[0_10px_28px_-14px_rgba(59,130,246,0.65)] dark:shadow-[0_10px_28px_-14px_rgba(34,211,238,0.9)] border border-primary/45 dark:border-cyan-300/60">
               Download Trial
             </Button>
-            <Button size="lg" variant="outline" className="w-full sm:w-auto h-12">
+            <Button size="lg" variant="outline" className="w-full h-10 sm:h-11 text-sm font-semibold border-border dark:border-slate-500/45 text-foreground dark:text-slate-200 bg-background/70 dark:bg-slate-950/35 hover:border-primary/40 dark:hover:border-cyan-300/45 hover:bg-secondary/70 dark:hover:bg-slate-900/65">
               View Architecture
             </Button>
           </div>
@@ -281,32 +286,32 @@ function HomePage({ onNavigate }: { onNavigate: (page: string) => void }) {
 
       <VideoWalkthroughDemo />
 
-      <section className="container mx-auto px-4 sm:px-6 py-8 md:py-12 border-t border-border">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-7 md:py-10 border-t border-border/60">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
-          <Card>
+          <Card className="bg-card/70 dark:bg-slate-950/55 border-border dark:border-slate-700/60">
             <CardHeader className="p-4 sm:p-6">
               <Monitor size={32} className="text-primary mb-2 sm:mb-3" weight="duotone" />
-              <CardTitle className="text-base sm:text-lg">Self-Hosted Control</CardTitle>
-              <CardDescription className="text-sm">
+              <CardTitle className="text-base sm:text-lg text-foreground dark:text-slate-100">Self-Hosted Control</CardTitle>
+              <CardDescription className="text-sm text-muted-foreground dark:text-slate-300">
                 Install on your own server infrastructure with complete data sovereignty and control
               </CardDescription>
             </CardHeader>
           </Card>
-          <Card>
+          <Card className="bg-card/70 dark:bg-slate-950/55 border-border dark:border-slate-700/60">
             <CardHeader className="p-4 sm:p-6">
               <ShieldCheck size={32} className="text-primary mb-2 sm:mb-3" weight="duotone" />
-              <CardTitle className="text-base sm:text-lg">SOC Command Center</CardTitle>
-              <CardDescription className="text-sm">
+              <CardTitle className="text-base sm:text-lg text-foreground dark:text-slate-100">SOC Command Center</CardTitle>
+              <CardDescription className="text-sm text-muted-foreground dark:text-slate-300">
                 Built-in security operations center for monitoring devices, alerts, and incidents
               </CardDescription>
             </CardHeader>
           </Card>
-          <Card>
+          <Card className="bg-card/70 dark:bg-slate-950/55 border-border dark:border-slate-700/60">
             <CardHeader className="p-4 sm:p-6">
               <CloudArrowDown size={32} className="text-primary mb-2 sm:mb-3" weight="duotone" />
-              <CardTitle className="text-base sm:text-lg">Optional Cloud Services</CardTitle>
-              <CardDescription className="text-sm">
-                Connect to guardivex Cloud for licensing, updates, support, and remote access
+              <CardTitle className="text-base sm:text-lg text-foreground dark:text-slate-100">Optional Cloud Services</CardTitle>
+              <CardDescription className="text-sm text-muted-foreground dark:text-slate-300">
+                Connect to Guardivex Cloud for licensing, updates, support, and remote access
               </CardDescription>
             </CardHeader>
           </Card>
@@ -320,10 +325,10 @@ function HomePage({ onNavigate }: { onNavigate: (page: string) => void }) {
       <FeatureGridSection />
       <PricingSection onNavigate={onNavigate} />
 
-      <section className="container mx-auto px-4 sm:px-6 py-8 md:py-12">
-        <div className="bg-card border border-border rounded-lg p-6 sm:p-8 md:p-10 text-center">
-          <h2 className="text-xl sm:text-2xl md:text-3xl font-heading font-bold mb-2 sm:mb-3">Trusted by Enterprise Security Teams</h2>
-          <p className="text-sm sm:text-base text-muted-foreground mb-6 sm:mb-8">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-10">
+        <div className="bg-card/70 dark:bg-slate-950/65 border border-border dark:border-slate-700/60 rounded-lg p-6 sm:p-8 md:p-10 text-center">
+          <h2 className="text-xl sm:text-2xl md:text-3xl font-heading font-bold text-foreground dark:text-slate-100 mb-2 sm:mb-3">Trusted by Enterprise Security Teams</h2>
+          <p className="text-sm sm:text-base text-muted-foreground dark:text-slate-300 mb-6 sm:mb-8">
             Join organizations monitoring thousands of devices across multiple sites
           </p>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-8 max-w-3xl mx-auto">
@@ -351,7 +356,7 @@ function ProductPage() {
   ]
 
   return (
-    <div className="container mx-auto px-6 py-16">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
       <div className="max-w-3xl mx-auto text-center mb-16">
         <h1 className="text-4xl font-heading font-bold mb-4">Product Features</h1>
         <p className="text-xl text-muted-foreground">
@@ -380,19 +385,19 @@ function ProductPage() {
             <div>
               <h4 className="font-semibold mb-2">Minimum</h4>
               <ul className="text-sm text-muted-foreground space-y-1">
-                <li>â€¢ 4 CPU cores</li>
-                <li>â€¢ 8 GB RAM</li>
-                <li>â€¢ 100 GB storage</li>
-                <li>â€¢ Windows Server 2019+ or Linux</li>
+                <li>&bull; 4 CPU cores</li>
+                <li>&bull; 8 GB RAM</li>
+                <li>&bull; 100 GB storage</li>
+                <li>&bull; Windows Server 2019+ or Linux</li>
               </ul>
             </div>
             <div>
               <h4 className="font-semibold mb-2">Recommended</h4>
               <ul className="text-sm text-muted-foreground space-y-1">
-                <li>â€¢ 8+ CPU cores</li>
-                <li>â€¢ 16+ GB RAM</li>
-                <li>â€¢ 500+ GB SSD storage</li>
-                <li>â€¢ Dedicated server hardware</li>
+                <li>&bull; 8+ CPU cores</li>
+                <li>&bull; 16+ GB RAM</li>
+                <li>&bull; 500+ GB SSD storage</li>
+                <li>&bull; Dedicated server hardware</li>
               </ul>
             </div>
           </div>
@@ -404,7 +409,7 @@ function ProductPage() {
 
 function EnterprisePage() {
   return (
-    <div className="container mx-auto px-6 py-16">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
       <div className="max-w-3xl mx-auto text-center mb-16">
         <h1 className="text-4xl font-heading font-bold mb-4">Enterprise Solutions</h1>
         <p className="text-xl text-muted-foreground">
@@ -450,9 +455,9 @@ function EnterprisePage() {
 
 function DownloadPage() {
   return (
-    <div className="container mx-auto px-6 py-16">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
       <div className="max-w-3xl mx-auto text-center mb-16">
-        <h1 className="text-4xl font-heading font-bold mb-4">Download guardivex</h1>
+        <h1 className="text-4xl font-heading font-bold mb-4">Download Guardivex</h1>
         <p className="text-xl text-muted-foreground">
           Install on your own infrastructure for complete control
         </p>
@@ -511,7 +516,7 @@ function DownloadPage() {
           </div>
           <div>
             <div className="font-semibold text-foreground mb-2">3. Activate your license</div>
-            <p>Enter your license key or connect to guardivex Cloud for activation</p>
+            <p>Enter your license key or connect to Guardivex Cloud for activation</p>
           </div>
           <div>
             <div className="font-semibold text-foreground mb-2">4. Configure integrations</div>
@@ -525,7 +530,7 @@ function DownloadPage() {
 
 function LicensingPage() {
   return (
-    <div className="container mx-auto px-6 py-16">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
       <div className="max-w-3xl mx-auto text-center mb-16">
         <h1 className="text-4xl font-heading font-bold mb-4">Licensing Options</h1>
         <p className="text-xl text-muted-foreground">
@@ -598,11 +603,11 @@ function LicensingPage() {
 
 function DocumentationPage() {
   return (
-    <div className="container mx-auto px-6 py-16">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
       <div className="max-w-3xl mx-auto text-center mb-16">
         <h1 className="text-4xl font-heading font-bold mb-4">Documentation</h1>
         <p className="text-xl text-muted-foreground">
-          Complete guides and API reference for guardivex
+          Complete guides and API reference for Guardivex
         </p>
       </div>
 
@@ -629,7 +634,7 @@ function DocumentationPage() {
 
 function SupportPage() {
   return (
-    <div className="container mx-auto px-6 py-16">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
       <div className="max-w-3xl mx-auto text-center mb-16">
         <h1 className="text-4xl font-heading font-bold mb-4">Support</h1>
         <p className="text-xl text-muted-foreground">
@@ -640,7 +645,7 @@ function SupportPage() {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
         {[
           { title: "Knowledge Base", desc: "Search our comprehensive knowledge base for articles and guides", availability: "Available 24/7" },
-          { title: "Community Forum", desc: "Connect with other guardivex users and share experiences", availability: "Community-moderated" },
+          { title: "Community Forum", desc: "Connect with other Guardivex users and share experiences", availability: "Community-moderated" },
           { title: "Enterprise Support", desc: "24/7 priority support with guaranteed response times", availability: "Enterprise plans only" },
         ].map((channel, i) => (
           <Card key={i}>
@@ -709,7 +714,7 @@ function DashboardPreviewSection() {
       label: "Security Score", 
       value: 87, 
       badge: "Good", 
-      badgeColor: "success",
+      badgeClass: "bg-success/20 text-success border-success/30",
       gradient: "from-primary/10 to-primary/5",
       border: "border-primary/20",
       iconColor: "text-primary",
@@ -720,7 +725,7 @@ function DashboardPreviewSection() {
       label: "Critical Alerts", 
       value: 8, 
       badge: "High", 
-      badgeColor: "destructive",
+      badgeClass: "bg-destructive/20 text-destructive border-destructive/30",
       gradient: "from-destructive/10 to-destructive/5",
       border: "border-destructive/20",
       iconColor: "text-destructive",
@@ -731,7 +736,7 @@ function DashboardPreviewSection() {
       label: "Devices Online", 
       value: "1,247", 
       badge: "Live", 
-      badgeColor: "success",
+      badgeClass: "bg-success/20 text-success border-success/30",
       gradient: "from-success/10 to-success/5",
       border: "border-success/20",
       iconColor: "text-success",
@@ -742,7 +747,7 @@ function DashboardPreviewSection() {
       label: "Sites Monitored", 
       value: 23, 
       badge: "Active", 
-      badgeColor: "accent",
+      badgeClass: "bg-accent/20 text-accent border-accent/30",
       gradient: "from-accent/10 to-accent/5",
       border: "border-accent/20",
       iconColor: "text-accent",
@@ -767,8 +772,9 @@ function DashboardPreviewSection() {
   ]
 
   return (
-    <section className="container mx-auto px-4 sm:px-6 py-12 md:py-16 border-t border-border bg-gradient-to-b from-background via-card/10 to-background relative overflow-hidden">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_120%,rgba(120,200,240,0.05),transparent_50%)]" />
+    <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-14 border-t border-border/60 bg-gradient-to-b from-background via-card/20 to-background dark:from-slate-950/85 dark:via-slate-950/65 dark:to-slate-950/40 relative overflow-hidden">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_120%,rgba(37,99,235,0.08),transparent_54%)] dark:bg-[radial-gradient(circle_at_50%_120%,rgba(56,189,248,0.15),transparent_52%)]" />
+      <div className="absolute inset-0 opacity-[0.08] dark:opacity-[0.14] bg-[linear-gradient(rgba(56,189,248,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(56,189,248,0.08)_1px,transparent_1px)] bg-[size:26px_26px]" />
       
       <div className="relative z-10">
         <div className="max-w-3xl mx-auto text-center mb-8 md:mb-10">
@@ -776,15 +782,15 @@ function DashboardPreviewSection() {
             <Circle size={8} weight="fill" className="animate-pulse" />
             <span className="ml-2">Live Demo Preview</span>
           </Badge>
-          <h2 className="text-2xl sm:text-3xl font-heading font-bold mb-2 sm:mb-3 px-2">Enterprise SOC Command Center</h2>
-          <p className="text-sm sm:text-base text-muted-foreground px-2">
+          <h2 className="text-2xl sm:text-3xl font-heading font-bold text-foreground dark:text-slate-100 mb-2 sm:mb-3 px-2">Enterprise SOC Command Center</h2>
+          <p className="text-sm sm:text-base text-muted-foreground dark:text-slate-300 px-2">
             Real-time monitoring and threat detection across your entire security infrastructure
           </p>
         </div>
 
-        <div className="max-w-7xl mx-auto">
-          <div className="rounded-xl overflow-hidden border-2 border-border/50 shadow-2xl bg-gradient-to-br from-card via-background to-card backdrop-blur-sm transition-all duration-300 hover:border-primary/30 hover:shadow-primary/10">
-            <div className="bg-card/80 backdrop-blur-sm border-b border-border/50 px-3 sm:px-4 py-2 sm:py-3 flex items-center gap-2 sm:gap-3">
+        <div className="w-full">
+          <div className="rounded-xl overflow-hidden border border-border/70 dark:border-slate-600/60 shadow-2xl bg-gradient-to-br from-card/95 via-background/95 to-card/95 dark:from-slate-900/95 dark:via-slate-900/90 dark:to-slate-950/95 backdrop-blur-sm transition-all duration-300 hover:border-cyan-300/30 hover:shadow-cyan-500/10">
+            <div className="bg-card/80 dark:bg-slate-900/80 backdrop-blur-sm border-b border-border/60 dark:border-slate-700/60 px-3 sm:px-4 py-2 sm:py-3 flex items-center gap-2 sm:gap-3">
               <div className="flex gap-1.5">
                 <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-destructive/60 hover:bg-destructive transition-colors cursor-pointer" />
                 <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-warning/60 hover:bg-warning transition-colors cursor-pointer" />
@@ -792,7 +798,7 @@ function DashboardPreviewSection() {
               </div>
               <div className="flex-1 flex items-center justify-center gap-2">
                 <Monitor size={14} className="text-muted-foreground hidden sm:block" weight="duotone" />
-                <span className="text-[10px] sm:text-xs text-muted-foreground font-mono">guardivex Security Platform</span>
+                <span className="text-[10px] sm:text-xs text-muted-foreground dark:text-slate-400 font-mono">Guardivex Security Platform</span>
               </div>
               <div className="flex items-center gap-2">
                 <Badge variant="outline" className="text-[10px] sm:text-xs gap-1 border-success/30 text-success">
@@ -802,13 +808,13 @@ function DashboardPreviewSection() {
               </div>
             </div>
 
-            <div className="p-4 sm:p-6 md:p-8 space-y-4 sm:space-y-6">
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
+            <div className="p-4 sm:p-6 md:p-8 space-y-5 sm:space-y-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-3 sm:gap-4">
                 {statusCards.map((card, i) => (
                   <div
                     key={i}
-                    className={`bg-gradient-to-br ${card.gradient} ${card.hoverGradient} rounded-lg p-4 border ${card.border} transition-all duration-300 cursor-pointer ${
-                      hoveredCard === i ? 'scale-105 shadow-lg ring-2 ring-primary/30' : ''
+                    className={`bg-gradient-to-br ${card.gradient} ${card.hoverGradient} rounded-lg p-4 border ${card.border} transition-all duration-300 cursor-pointer min-h-[132px] ${
+                      hoveredCard === i ? 'shadow-lg ring-2 ring-primary/30 -translate-y-0.5' : ''
                     }`}
                     onMouseEnter={() => setHoveredCard(i)}
                     onMouseLeave={() => setHoveredCard(null)}
@@ -820,7 +826,7 @@ function DashboardPreviewSection() {
                         className={`${card.iconColor} transition-transform duration-300 ${hoveredCard === i ? 'scale-110' : ''}`} 
                         weight="duotone" 
                       />
-                      <Badge className={`text-xs bg-${card.badgeColor}/20 text-${card.badgeColor} border-${card.badgeColor}/30`}>
+                      <Badge className={`text-xs ${card.badgeClass}`}>
                         {card.badge}
                       </Badge>
                     </div>
@@ -830,16 +836,16 @@ function DashboardPreviewSection() {
                     <div className="text-xs text-muted-foreground">{card.label}</div>
                     {clickedModule === `status-${i}` && (
                       <div className="mt-2 text-xs text-primary font-medium animate-pulse">
-                        âœ“ Module active
+                        Module active
                       </div>
                     )}
                   </div>
                 ))}
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
                 <div 
-                  className="md:col-span-2 bg-card/50 rounded-lg border border-border/50 p-4 hover:border-primary/30 transition-all duration-300 cursor-pointer hover:shadow-lg"
+                  className="lg:col-span-2 bg-card/55 dark:bg-slate-900/55 rounded-lg border border-border/60 dark:border-slate-700/60 p-4 hover:border-cyan-300/30 transition-all duration-300 cursor-pointer hover:shadow-lg"
                   onClick={() => setClickedModule('alerts')}
                 >
                   <div className="flex items-center justify-between mb-4">
@@ -856,10 +862,10 @@ function DashboardPreviewSection() {
                     {events.slice(0, 4).map((event, i) => (
                       <div 
                         key={i} 
-                        className={`flex items-start gap-3 p-3 bg-background/50 rounded border transition-all duration-500 ${
+                        className={`flex items-start gap-3 p-3 bg-background/55 dark:bg-slate-950/55 rounded border transition-all duration-500 ${
                           i === activeEvent % 4 
                             ? 'border-primary/50 shadow-md scale-[1.02] bg-primary/5' 
-                            : 'border-border/30 hover:border-border/70'
+                            : 'border-border/50 dark:border-slate-700/50 hover:border-border dark:hover:border-slate-500/70'
                         }`}
                       >
                         <event.icon 
@@ -881,13 +887,13 @@ function DashboardPreviewSection() {
                   </div>
                   {clickedModule === 'alerts' && (
                     <div className="mt-3 p-2 bg-primary/10 border border-primary/30 rounded text-xs text-primary text-center font-medium">
-                      âœ“ Click to view full alert dashboard
+                      Click to view full alert dashboard
                     </div>
                   )}
                 </div>
 
                 <div 
-                  className="bg-card/50 rounded-lg border border-border/50 p-4 hover:border-primary/30 transition-all duration-300 cursor-pointer hover:shadow-lg"
+                  className="bg-card/55 dark:bg-slate-900/55 rounded-lg border border-border/60 dark:border-slate-700/60 p-4 hover:border-cyan-300/30 transition-all duration-300 cursor-pointer hover:shadow-lg"
                   onClick={() => setClickedModule('devices')}
                 >
                   <div className="flex items-center justify-between mb-4">
@@ -901,7 +907,7 @@ function DashboardPreviewSection() {
                     {devices.map((device, i) => (
                       <div 
                         key={i} 
-                        className="p-2 bg-background/50 rounded border border-border/30 hover:border-primary/30 transition-all duration-300 hover:scale-[1.02] group"
+                        className="p-2 bg-background/55 dark:bg-slate-950/55 rounded border border-border/50 dark:border-slate-700/50 hover:border-cyan-300/30 transition-all duration-300 hover:scale-[1.02] group"
                       >
                         <div className="flex items-center gap-2 mb-2">
                           <device.icon size={16} className="text-primary group-hover:scale-110 transition-transform" weight="duotone" />
@@ -934,14 +940,14 @@ function DashboardPreviewSection() {
                   </div>
                   {clickedModule === 'devices' && (
                     <div className="mt-3 p-2 bg-primary/10 border border-primary/30 rounded text-xs text-primary text-center font-medium">
-                      âœ“ Click to view device registry
+                      Click to view device registry
                     </div>
                   )}
                 </div>
               </div>
 
               <div 
-                className="bg-card/50 rounded-lg border border-border/50 p-4 hover:border-primary/30 transition-all duration-300 cursor-pointer hover:shadow-lg"
+                className="bg-card/55 dark:bg-slate-900/55 rounded-lg border border-border/60 dark:border-slate-700/60 p-4 hover:border-cyan-300/30 transition-all duration-300 cursor-pointer hover:shadow-lg"
                 onClick={() => setClickedModule('sites')}
               >
                 <div className="flex items-center justify-between mb-4">
@@ -951,7 +957,7 @@ function DashboardPreviewSection() {
                   </h3>
                   <Badge variant="outline" className="text-xs">23 Sites</Badge>
                 </div>
-                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
+                <div className="grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-6 gap-3">
                   {siteHealth.map((site, i) => (
                     <div 
                       key={i} 
@@ -974,7 +980,7 @@ function DashboardPreviewSection() {
                 </div>
                 {clickedModule === 'sites' && (
                   <div className="mt-3 p-2 bg-primary/10 border border-primary/30 rounded text-xs text-primary text-center font-medium">
-                    âœ“ Click to view site management
+                    Click to view site management
                   </div>
                 )}
               </div>
@@ -982,12 +988,12 @@ function DashboardPreviewSection() {
           </div>
 
           <div className="mt-8 text-center">
-            <p className="text-sm text-muted-foreground mb-4 font-medium">
-              <span className="inline-block px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary">
+            <p className="text-sm text-muted-foreground dark:text-slate-300 mb-4 font-medium">
+              <span className="inline-block px-3 py-1 rounded-full bg-primary/10 dark:bg-cyan-400/10 border border-primary/30 dark:border-cyan-300/30 text-primary dark:text-cyan-200">
                 Interactive Demo - Hover over cards and click modules to explore
               </span>
             </p>
-            <div className="flex flex-wrap gap-3 justify-center text-xs text-muted-foreground">
+            <div className="flex flex-wrap gap-3 justify-center text-xs text-muted-foreground dark:text-slate-300">
               {[
                 "Real-time monitoring",
                 "Threat detection",
@@ -998,7 +1004,7 @@ function DashboardPreviewSection() {
               ].map((feature, i) => (
                 <div 
                   key={i}
-                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-card/50 border border-border/50 hover:border-primary/30 hover:bg-primary/5 transition-all duration-300 cursor-pointer"
+                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-card/55 dark:bg-slate-900/55 border border-border/60 dark:border-slate-700/60 hover:border-cyan-300/35 hover:bg-cyan-500/8 transition-all duration-300 cursor-pointer"
                 >
                   <CheckCircle size={14} className="text-success" weight="fill" />
                   <span>{feature}</span>
@@ -1023,7 +1029,7 @@ function PlatformOverviewSection() {
   ]
 
   return (
-    <section className="container mx-auto px-6 py-12 border-t border-border">
+    <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 border-t border-border">
       <div className="max-w-3xl mx-auto text-center mb-10">
         <h2 className="text-3xl font-heading font-bold mb-3">Platform Overview</h2>
         <p className="text-base text-muted-foreground">
@@ -1048,7 +1054,7 @@ function PlatformOverviewSection() {
 
 function ArchitectureDiagramSection() {
   return (
-    <section className="container mx-auto px-6 py-12 border-t border-border">
+    <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 border-t border-border">
       <div className="max-w-3xl mx-auto text-center mb-10">
         <h2 className="text-3xl font-heading font-bold mb-3">Enterprise Architecture</h2>
         <p className="text-base text-muted-foreground">
@@ -1058,37 +1064,40 @@ function ArchitectureDiagramSection() {
 
       <div className="max-w-5xl mx-auto">
         <Card className="bg-card/50">
-          <CardContent className="p-8 md:p-10">
-            <div className="flex items-center justify-between gap-8">
+          <CardContent className="p-4 sm:p-6 md:p-10">
+            <div className="flex flex-col md:flex-row items-center justify-between gap-5 md:gap-8 overflow-hidden">
               <div className="flex-1 text-center">
-                <div className="w-20 h-20 mx-auto bg-primary/10 rounded-xl flex items-center justify-center mb-4 border border-primary/20">
-                  <Buildings size={40} className="text-primary" weight="duotone" />
+                <div className="w-16 h-16 sm:w-20 sm:h-20 mx-auto bg-primary/10 rounded-xl flex items-center justify-center mb-3 sm:mb-4 border border-primary/20">
+                  <Buildings size={32} className="text-primary sm:hidden" weight="duotone" />
+                  <Buildings size={40} className="text-primary hidden sm:block" weight="duotone" />
                 </div>
-                <h3 className="font-heading font-semibold text-lg mb-2">Client Infrastructure</h3>
+                <h3 className="font-heading font-semibold text-base sm:text-lg mb-2">Client Infrastructure</h3>
                 <p className="text-sm text-muted-foreground">Cameras, NVRs, Access Control, Alarms, Network Devices</p>
               </div>
 
-              <div className="flex items-center gap-2">
+              <div className="hidden md:flex items-center gap-2" aria-hidden="true">
                 <ArrowRight size={32} className="text-muted-foreground" />
               </div>
 
               <div className="flex-1 text-center">
-                <div className="w-20 h-20 mx-auto bg-accent/10 rounded-xl flex items-center justify-center mb-4 border border-accent/20">
-                  <HardDrives size={40} className="text-accent" weight="duotone" />
+                <div className="w-16 h-16 sm:w-20 sm:h-20 mx-auto bg-accent/10 rounded-xl flex items-center justify-center mb-3 sm:mb-4 border border-accent/20">
+                  <HardDrives size={32} className="text-accent sm:hidden" weight="duotone" />
+                  <HardDrives size={40} className="text-accent hidden sm:block" weight="duotone" />
                 </div>
-                <h3 className="font-heading font-semibold text-lg mb-2">guardivex Platform</h3>
+                <h3 className="font-heading font-semibold text-base sm:text-lg mb-2">Guardivex Platform</h3>
                 <p className="text-sm text-muted-foreground">Self-hosted security platform on your infrastructure</p>
               </div>
 
-              <div className="flex items-center gap-2">
+              <div className="hidden md:flex items-center gap-2" aria-hidden="true">
                 <ArrowRight size={32} className="text-muted-foreground" />
               </div>
 
               <div className="flex-1 text-center">
-                <div className="w-20 h-20 mx-auto bg-success/10 rounded-xl flex items-center justify-center mb-4 border border-success/20">
-                  <CloudCheck size={40} className="text-success" weight="duotone" />
+                <div className="w-16 h-16 sm:w-20 sm:h-20 mx-auto bg-success/10 rounded-xl flex items-center justify-center mb-3 sm:mb-4 border border-success/20">
+                  <CloudCheck size={32} className="text-success sm:hidden" weight="duotone" />
+                  <CloudCheck size={40} className="text-success hidden sm:block" weight="duotone" />
                 </div>
-                <h3 className="font-heading font-semibold text-lg mb-2">guardivex Cloud</h3>
+                <h3 className="font-heading font-semibold text-base sm:text-lg mb-2">Guardivex Cloud</h3>
                 <p className="text-sm text-muted-foreground">Optional licensing, updates, support & remote access</p>
               </div>
             </div>
@@ -1108,7 +1117,7 @@ function DeploymentOptionsSection() {
   ]
 
   return (
-    <section className="container mx-auto px-6 py-12 border-t border-border">
+    <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 border-t border-border">
       <div className="max-w-3xl mx-auto text-center mb-10">
         <h2 className="text-3xl font-heading font-bold mb-3">Deployment Options</h2>
         <p className="text-base text-muted-foreground">
@@ -1146,7 +1155,7 @@ function DownloadFlowSection({ onNavigate }: { onNavigate: (page: string) => voi
   ]
 
   return (
-    <section className="container mx-auto px-6 py-12 border-t border-border bg-card/20">
+    <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 border-t border-border bg-card/20">
       <div className="max-w-3xl mx-auto text-center mb-10">
         <h2 className="text-3xl font-heading font-bold mb-3">Get Started in Minutes</h2>
         <p className="text-base text-muted-foreground">
@@ -1198,7 +1207,7 @@ function FeatureGridSection() {
   ]
 
   return (
-    <section className="container mx-auto px-6 py-12 border-t border-border">
+    <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 border-t border-border">
       <div className="max-w-3xl mx-auto text-center mb-10">
         <h2 className="text-3xl font-heading font-bold mb-3">Monitor Everything</h2>
         <p className="text-base text-muted-foreground">
@@ -1254,7 +1263,7 @@ function PricingSection({ onNavigate }: { onNavigate: (page: string) => void }) 
   ]
 
   return (
-    <section className="container mx-auto px-6 py-12 border-t border-border bg-card/20">
+    <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 border-t border-border bg-card/20">
       <div className="max-w-3xl mx-auto text-center mb-10">
         <h2 className="text-3xl font-heading font-bold mb-3">Flexible Licensing</h2>
         <p className="text-base text-muted-foreground">

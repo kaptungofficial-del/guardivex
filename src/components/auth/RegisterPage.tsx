@@ -74,7 +74,7 @@ export function RegisterPage({ onRegister, onBackToLogin }: RegisterPageProps) {
       backLabel="Back to Login"
       onBack={onBackToLogin}
       title="Provision a secure operator workspace."
-      subtitle="Create a guardivex account for your team and onboard your organization into the SOC command center with enterprise-grade access controls."
+      subtitle="Create a Guardivex account for your team and onboard your organization into the SOC command center with enterprise-grade access controls."
     >
       <Card className="bg-card/65 backdrop-blur-xl border-border/65 shadow-2xl shadow-black/15">
             <CardHeader className="space-y-2 sm:space-y-3 pb-4 sm:pb-6">

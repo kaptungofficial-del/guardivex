@@ -89,8 +89,9 @@ export function PlatformLayout({ children, currentPage, onNavigate, onLogout, cr
           <div className="flex items-center justify-between">
             <BrandLogo
               subtitle="Security Platform"
-              className="gap-2 sm:gap-2.5"
+              className="gap-1 sm:gap-1.5"
               markClassName="w-11 h-11 sm:w-12 sm:h-12"
+              imgClassName="-mr-1"
               titleClassName="text-base sm:text-lg"
               subtitleClassName="text-[10px] sm:text-xs tracking-normal mt-0.5"
             />

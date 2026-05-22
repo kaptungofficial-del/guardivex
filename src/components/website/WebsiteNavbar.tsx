@@ -349,18 +349,18 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
   return (
     <>
       <div className={ENTERPRISE_COMMAND_STRIP_CLASS}>
-        <div className="max-w-[1400px] mx-auto px-3 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-9 sm:h-10 md:h-11">
             <div className="flex items-center gap-2 sm:gap-4 md:gap-6">
-              <div className="inline-flex items-center gap-1.5 sm:gap-2 text-[10px] sm:text-[11px] font-semibold px-2.5 py-1 rounded-md border border-primary/25 bg-primary/8">
+              <div className="inline-flex items-center gap-1.5 sm:gap-2 text-[10px] sm:text-[11px] font-semibold px-2.5 py-1 rounded-md border border-success/25 bg-success/8">
                 <div className="relative flex items-center">
-                  <Circle size={6} weight="fill" className="text-primary drop-shadow-[0_0_4px_rgba(60,140,255,0.55)] sm:w-[7px] sm:h-[7px]" />
+                  <Circle size={6} weight="fill" className="text-success drop-shadow-[0_0_4px_rgba(120,200,120,0.6)] sm:w-[7px] sm:h-[7px]" />
                   <div className="absolute inset-0">
-                    <Circle size={6} weight="fill" className="text-primary animate-ping opacity-60 sm:w-[7px] sm:h-[7px]" />
+                    <Circle size={6} weight="fill" className="text-success animate-ping opacity-60 sm:w-[7px] sm:h-[7px]" />
                   </div>
                 </div>
-                <span className="text-primary hidden min-[380px]:inline tracking-wide">All Systems Operational</span>
-                <span className="text-primary min-[380px]:hidden tracking-wide">Live</span>
+                <span className="text-success hidden min-[380px]:inline tracking-wide">All Systems Operational</span>
+                <span className="text-success min-[380px]:hidden tracking-wide">Live</span>
               </div>
               <Badge variant="outline" className="hidden lg:inline-flex h-6 text-[10px] uppercase tracking-[0.1em] border-border/70 text-muted-foreground bg-background/60">
                 Enterprise Edition
@@ -411,27 +411,28 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
         </div>
       </div>
 
-      <nav className="border-b border-border/40 bg-background/95 backdrop-blur-2xl sticky top-0 z-50 shadow-lg shadow-black/5">
-        <div className="max-w-[1400px] mx-auto px-3 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-14 sm:h-16 md:h-[4.75rem]">
-            <div className="flex items-center gap-3 sm:gap-8 md:gap-12">
+      <nav className="sticky top-0 z-50 border-b border-border/35 bg-background/78 dark:border-border/35 dark:bg-[linear-gradient(to_right,rgba(3,10,18,0.74),rgba(6,18,30,0.68),rgba(3,10,18,0.74))] backdrop-blur-3xl shadow-[0_8px_22px_-18px_rgba(8,15,23,0.45)] dark:shadow-[0_10px_30px_-20px_rgba(0,0,0,0.8)]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-14 sm:h-[3.7rem] lg:h-[4rem] gap-3 sm:gap-4">
+            <div className="flex items-center gap-2.5 lg:gap-8 min-w-0">
               <button 
                 onClick={() => handleNavigate("home")} 
                 aria-label="Go to home"
                 title="Go to home"
-                className="flex items-center gap-2 sm:gap-2.5 md:gap-3 group py-2"
+                className="flex items-center gap-1.5 group py-1 min-w-0"
               >
                 <BrandLogo
-                  subtitle="Security Platform"
-                  className="gap-1 sm:gap-1.5 md:gap-2"
-                  markClassName="w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 transition-transform duration-300 group-hover:scale-105"
-                  textContainerClassName="gap-0.5 sm:gap-1"
-                  titleClassName="text-base sm:text-xl md:text-[22px] text-foreground group-hover:text-primary transition-colors"
-                  subtitleClassName="text-[8px] sm:text-[10px] md:text-[11px] tracking-[0.08em] sm:tracking-[0.12em] md:tracking-[0.14em] leading-none mt-0"
+                  subtitle="SECURITY PLATFORM"
+                  className="gap-0.5"
+                  markClassName="h-10 w-10 sm:h-11 sm:w-11 lg:h-12 lg:w-12"
+                  imgClassName="pr-0.5"
+                  textContainerClassName="gap-0"
+                  titleClassName="text-[17px] sm:text-[20px] lg:text-[21px] text-foreground group-hover:text-primary transition-colors font-extrabold tracking-[-0.025em]"
+                  subtitleClassName="hidden sm:block text-[8.5px] lg:text-[9px] text-muted-foreground/80 tracking-[0.14em] leading-none mt-0.5"
                 />
               </button>
               
-              <div className="hidden lg:flex items-center gap-1">
+              <div className="hidden lg:flex items-center gap-2.5 xl:gap-3">
                 {navItems.map((item) => {
                   const isDropdownOpen = item.id === "product" ? productDropdownOpen : 
                                         item.id === "enterprise" ? enterpriseDropdownOpen :
@@ -473,7 +474,7 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
                         >
                           <button
                             onClick={() => handleNavigate(item.id)}
-                            className={`relative px-4 py-2 text-[13px] font-semibold rounded-md transition-all duration-200 flex items-center gap-1.5 border ${
+                            className={`relative px-4 xl:px-[1.1rem] py-2 text-[12.5px] xl:text-[13.5px] tracking-[0.01em] font-medium rounded-md transition-all duration-200 flex items-center gap-1.5 border whitespace-nowrap ${
                               currentPage === item.id
                                 ? "text-foreground border-primary/30 bg-primary/8"
                                 : "text-muted-foreground border-transparent hover:text-foreground hover:border-border/70 hover:bg-secondary/40"
@@ -540,7 +541,7 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
                       ) : (
                         <button
                           onClick={() => handleNavigate(item.id)}
-                          className={`relative px-4 py-2 text-[13px] font-semibold rounded-md transition-all duration-200 ${
+                          className={`relative px-4 xl:px-[1.1rem] py-2 text-[12.5px] xl:text-[13.5px] tracking-[0.01em] font-medium rounded-md transition-all duration-200 whitespace-nowrap ${
                             currentPage === item.id
                               ? "text-foreground"
                               : "text-muted-foreground hover:text-foreground"
@@ -558,21 +559,21 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
               </div>
             </div>
 
-            <div className="flex items-center gap-2 sm:gap-3 md:gap-4">
+            <div className="flex items-center gap-2 sm:gap-2.5 lg:gap-3 shrink-0">
               <ThemeSwitcher />
               <Button 
                 onClick={() => handleNavigate("download")}
                 variant="outline"
                 size="default"
-                className="hidden md:flex items-center gap-2 h-10 sm:h-11 px-4 sm:px-6 border-border hover:border-primary/50 hover:bg-primary/8 font-bold text-sm group transition-all duration-200 rounded-lg"
+                className="hidden xl:flex items-center gap-2 h-10 px-4 border-border hover:border-primary/50 hover:bg-primary/8 font-bold text-sm group transition-all duration-200 rounded-lg"
               >
                 <CloudArrowDown size={17} weight="bold" className="group-hover:scale-110 transition-transform sm:w-[18px] sm:h-[18px]" />
-                <span className="hidden lg:inline">Download</span>
+                <span>Download Trial</span>
               </Button>
               <Button 
                 onClick={handleLoginClick}
                 size="default"
-                className="h-10 px-4 sm:h-11 sm:px-7 bg-gradient-to-r from-primary via-primary to-primary/95 text-primary-foreground hover:from-primary/95 hover:via-primary/95 hover:to-primary/90 font-bold text-xs sm:text-sm shadow-lg shadow-primary/30 hover:shadow-xl hover:shadow-primary/40 transition-all duration-200 group rounded-lg border border-primary/20"
+                className="h-11 sm:h-11 px-3 sm:px-4 bg-gradient-to-r from-primary via-primary to-primary/95 text-primary-foreground hover:from-primary/95 hover:via-primary/95 hover:to-primary/90 font-bold text-xs sm:text-sm shadow-lg shadow-primary/30 hover:shadow-xl hover:shadow-primary/40 transition-all duration-200 group rounded-lg border border-primary/20"
               >
                 <span>Sign In</span>
                 <ArrowRight size={15} weight="bold" className="ml-1 sm:ml-1.5 group-hover:translate-x-1 transition-transform sm:w-[17px] sm:h-[17px]" />
@@ -593,7 +594,7 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
       {mobileMenuOpen && (
         <div className="lg:hidden fixed inset-0 top-[calc(2.25rem+3.5rem)] sm:top-[calc(2.5rem+4rem)] md:top-[calc(2.75rem+5rem)] z-40 bg-background/98 backdrop-blur-2xl overflow-y-auto">
           <div className="h-full">
-            <div className="max-w-[1400px] mx-auto px-3 sm:px-6 py-4 sm:py-6 md:py-8">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 py-4 sm:py-6 md:py-8">
               <div className="flex flex-col gap-1.5 sm:gap-2">
                 {navItems.map((item) => {
                   const isDropdownOpen = item.id === "product" ? productDropdownOpen : 
@@ -621,7 +622,7 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
                             handleNavigate(item.id)
                           }
                         }}
-                        className={`w-full px-4 sm:px-6 py-3 sm:py-4 text-left text-sm sm:text-base font-semibold rounded-lg transition-all flex items-center justify-between active:scale-98 ${
+                        className={`w-full px-4 sm:px-6 py-3 sm:py-4 text-left text-sm sm:text-base tracking-[0.01em] font-medium rounded-lg transition-all flex items-center justify-between active:scale-98 ${
                           currentPage === item.id
                             ? "text-foreground bg-primary/8 border border-primary/20"
                             : "text-muted-foreground hover:text-foreground hover:bg-accent/40 active:bg-accent/50"

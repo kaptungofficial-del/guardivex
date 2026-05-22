@@ -14,7 +14,7 @@
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.15 0.015 250);
   
-  --primary: oklch(0.62 0.2 235);
+  --primary: oklch(0.58 0.13 230);
   --primary-foreground: oklch(0.98 0.005 250);
   
   --secondary: oklch(0.92 0.010 250);
@@ -23,7 +23,7 @@
   --muted: oklch(0.94 0.010 250);
   --muted-foreground: oklch(0.45 0.010 250);
   
-  --accent: oklch(0.66 0.18 205);
+  --accent: oklch(0.72 0.09 205);
   --accent-foreground: oklch(0.98 0.005 250);
   
   --destructive: oklch(0.58 0.24 25);
@@ -40,7 +40,7 @@
   
   --border: oklch(0.88 0.010 250);
   --input: oklch(0.88 0.010 250);
-  --ring: oklch(0.62 0.2 235);
+  --ring: oklch(0.58 0.13 230);
 
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
@@ -50,7 +50,7 @@
 
   --sidebar: oklch(0.985 0 0);
   --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.62 0.2 235);
+  --sidebar-primary: oklch(0.58 0.13 230);
   --sidebar-primary-foreground: oklch(0.985 0 0);
   --sidebar-accent: oklch(0.97 0 0);
   --sidebar-accent-foreground: oklch(0.205 0 0);
@@ -70,7 +70,7 @@
   --popover: oklch(0.13 0.015 250);
   --popover-foreground: oklch(0.95 0.005 250);
   
-  --primary: oklch(0.72 0.18 225);
+  --primary: oklch(0.67 0.12 225);
   --primary-foreground: oklch(0.10 0.015 250);
   
   --secondary: oklch(0.20 0.015 250);
@@ -79,7 +79,7 @@
   --muted: oklch(0.20 0.015 250);
   --muted-foreground: oklch(0.50 0.010 250);
   
-  --accent: oklch(0.72 0.18 205);
+  --accent: oklch(0.68 0.1 205);
   --accent-foreground: oklch(0.98 0.005 250);
   
   --destructive: oklch(0.58 0.24 25);
@@ -96,7 +96,7 @@
   
   --border: oklch(0.22 0.015 250);
   --input: oklch(0.22 0.015 250);
-  --ring: oklch(0.72 0.18 225);
+  --ring: oklch(0.67 0.12 225);
 
   --chart-1: oklch(0.488 0.243 264.376);
   --chart-2: oklch(0.696 0.17 162.48);
@@ -156,10 +156,48 @@
 
 body {
   font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
+}
+
+.guardivex-home-typography {
+  letter-spacing: -0.005em;
+}
+
+.guardivex-home-typography :where(h1, h2, h3) {
+  overflow-wrap: normal;
+  word-break: normal;
+}
+
+.guardivex-home-typography :where(h1) {
+  font-weight: 700;
+  line-height: 1.02;
+  letter-spacing: -0.024em;
+}
+
+.guardivex-home-typography :where(h2) {
+  font-size: clamp(1.5rem, 1.1rem + 1.5vw, 2.35rem);
+  font-weight: 660;
+  line-height: 1.14;
+  letter-spacing: -0.018em;
+}
+
+.guardivex-home-typography :where(h3) {
+  font-size: clamp(1.05rem, 0.95rem + 0.42vw, 1.35rem);
+  font-weight: 620;
+  line-height: 1.2;
+  letter-spacing: -0.012em;
+}
+
+.guardivex-home-typography :where(p) {
+  font-size: clamp(0.95rem, 0.92rem + 0.2vw, 1.05rem);
+  line-height: 1.62;
+  overflow-wrap: anywhere;
 }
 
 @keyframes spin-slow {

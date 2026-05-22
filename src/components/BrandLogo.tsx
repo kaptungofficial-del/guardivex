@@ -2,7 +2,7 @@
 import { ShieldCheck } from "@phosphor-icons/react"
 import { cn } from "@/lib/utils"
 
-const DEFAULT_BRAND_NAME = "guardivex"
+const DEFAULT_BRAND_NAME = "Guardivex"
 const DEFAULT_LOGO_URL = import.meta.env.VITE_BRAND_LOGO_URL || "/logo.png"
 
 interface BrandMarkProps {
@@ -23,12 +23,12 @@ export function BrandMark({
   const [imageFailed, setImageFailed] = useState(false)
 
   return (
-    <div className={cn("relative", className)}>
+    <div className={cn("relative shrink-0 overflow-hidden", className)}>
       {!imageFailed ? (
         <img
           src={src}
           alt={alt}
-          className={cn("h-full w-full object-contain brightness-75 contrast-105 dark:brightness-100 dark:contrast-100", imgClassName)}
+          className={cn("block h-full w-full max-h-full max-w-full object-contain brightness-75 contrast-105 dark:brightness-100 dark:contrast-100", imgClassName)}
           onError={() => setImageFailed(true)}
         />
       ) : (
@@ -64,12 +64,12 @@ export function BrandLogo({
   subtitleClassName,
 }: BrandLogoProps) {
   return (
-    <div className={cn("flex items-center gap-1", className)}>
-      <BrandMark src={src} className={markClassName} imgClassName={imgClassName} />
-      <div className={cn("flex flex-col", textContainerClassName)}>
-        <span className={cn("font-heading font-bold text-lg leading-none tracking-tight", titleClassName)}>{title}</span>
+    <div className={cn("flex min-w-0 items-center gap-0.5", className)}>
+      <BrandMark src={src} className={cn("h-10 w-10 sm:h-11 sm:w-11", markClassName)} imgClassName={imgClassName} />
+      <div className={cn("flex min-w-0 flex-col", textContainerClassName)}>
+        <span className={cn("font-heading font-extrabold text-lg leading-none tracking-[-0.02em]", titleClassName)}>{title}</span>
         {subtitle ? (
-          <span className={cn("text-[11px] text-muted-foreground font-bold tracking-[0.16em] mt-1 uppercase", subtitleClassName)}>{subtitle}</span>
+          <span className={cn("text-[10px] text-muted-foreground/85 font-semibold tracking-[0.14em] mt-1 uppercase", subtitleClassName)}>{subtitle}</span>
         ) : null}
       </div>
     </div>
