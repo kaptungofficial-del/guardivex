@@ -1,4 +1,4 @@
-import { Moon, Sun, Monitor } from "@phosphor-icons/react"
+import { Moon, Sun } from "@phosphor-icons/react"
 import { Button } from "@/components/ui/button"
 import {
   DropdownMenu,
@@ -13,8 +13,7 @@ export function ThemeSwitcher() {
 
   const getIcon = () => {
     if (theme === "light") return <Sun className="h-5 w-5" />
-    if (theme === "dark") return <Moon className="h-5 w-5" />
-    return <Monitor className="h-5 w-5" />
+    return <Moon className="h-5 w-5" />
   }
 
   return (
@@ -43,13 +42,6 @@ export function ThemeSwitcher() {
         >
           <Moon className="h-4 w-4" />
           <span>Dark</span>
-        </DropdownMenuItem>
-        <DropdownMenuItem
-          onClick={() => setTheme("system")}
-          className="cursor-pointer gap-2"
-        >
-          <Monitor className="h-4 w-4" />
-          <span>System</span>
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>

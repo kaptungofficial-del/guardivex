@@ -254,7 +254,7 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
   const handleMouseLeave = () => {
     dropdownTimeoutRef.current = setTimeout(() => {
       setProductDropdownOpen(false)
-    }, 150)
+    }, 220)
   }
   
   const handleEnterpriseMouseEnter = () => {
@@ -267,7 +267,7 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
   const handleEnterpriseMouseLeave = () => {
     enterpriseTimeoutRef.current = setTimeout(() => {
       setEnterpriseDropdownOpen(false)
-    }, 150)
+    }, 220)
   }
   
   const handleDocsMouseEnter = () => {
@@ -280,7 +280,7 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
   const handleDocsMouseLeave = () => {
     docsTimeoutRef.current = setTimeout(() => {
       setDocsDropdownOpen(false)
-    }, 150)
+    }, 220)
   }
   
   const handleSupportMouseEnter = () => {
@@ -293,7 +293,7 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
   const handleSupportMouseLeave = () => {
     supportTimeoutRef.current = setTimeout(() => {
       setSupportDropdownOpen(false)
-    }, 150)
+    }, 220)
   }
   
   const handleLicensingMouseEnter = () => {
@@ -306,7 +306,7 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
   const handleLicensingMouseLeave = () => {
     licensingTimeoutRef.current = setTimeout(() => {
       setLicensingDropdownOpen(false)
-    }, 150)
+    }, 220)
   }
   
   useEffect(() => {
@@ -464,9 +464,10 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
                                      item.id === "documentation" ? handleDocsMouseLeave :
                                      item.id === "support" ? handleSupportMouseLeave :
                                      item.id === "licensing" ? handleLicensingMouseLeave : undefined
-                  const dropdownPositionClass = item.id === "support"
-                    ? "right-0"
-                    : "left-1/2 -translate-x-1/2"
+                  const isRightAlignedDropdown = item.id === "support" || item.id === "documentation" || item.id === "licensing"
+                  const dropdownPositionClass = isRightAlignedDropdown
+                    ? "right-0 left-auto origin-top-right"
+                    : "left-1/2 -translate-x-1/2 origin-top"
                   
                   return (
                     <div key={item.id} className="relative">
@@ -488,21 +489,44 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
                           </button>
                           
                           {isDropdownOpen && (
-                            <div className={`absolute top-full mt-2 ${dropdownPositionClass} w-[min(720px,calc(100vw-2rem))] max-w-[720px] bg-card/98 dark:bg-slate-950/95 backdrop-blur-xl border border-border/60 dark:border-slate-800 rounded-2xl shadow-2xl shadow-black/20 p-6 z-50 overflow-hidden`}>
-                              <div className="mb-4">
-                                <h3 className="text-sm font-bold text-foreground mb-1">{dropdownTitle}</h3>
-                                <p className="text-xs text-muted-foreground dark:text-slate-300">{dropdownSubtitle}</p>
-                              </div>
-                              <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                                {dropdownData.map((feature) => (
+                            <div className={`absolute top-full ${dropdownPositionClass} z-50 pt-2`}>
+                              <div className="w-[min(680px,calc(100vw-2rem))] max-w-[680px] bg-card/98 dark:bg-slate-950/95 backdrop-blur-xl border border-border/60 dark:border-slate-800 rounded-2xl shadow-2xl shadow-black/20 p-6 overflow-hidden">
+                                <div className="mb-4">
+                                  <h3 className="text-sm font-bold text-foreground mb-1">{dropdownTitle}</h3>
+                                  <p className="text-xs text-muted-foreground dark:text-slate-300">{dropdownSubtitle}</p>
+                                </div>
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                                  {dropdownData.map((feature) => (
+                                    <button
+                                      key={feature.title}
+                                      onClick={() => {
+                                        if (item.id === "support" && feature.title === "Live Chat") {
+                                          onOpenLiveChat("I need help with support")
+                                          setSupportDropdownOpen(false)
+                                          return
+                                        }
+                                        handleNavigate(item.id)
+                                        if (item.id === "product") setProductDropdownOpen(false)
+                                        if (item.id === "enterprise") setEnterpriseDropdownOpen(false)
+                                        if (item.id === "documentation") setDocsDropdownOpen(false)
+                                        if (item.id === "support") setSupportDropdownOpen(false)
+                                        if (item.id === "licensing") setLicensingDropdownOpen(false)
+                                      }}
+                                      className="flex items-start gap-3 p-3 rounded-lg hover:bg-accent/40 transition-all duration-200 text-left group"
+                                    >
+                                      <div className={`w-10 h-10 rounded-lg bg-gradient-to-br from-${feature.color.split('-')[1]}-500/10 to-${feature.color.split('-')[1]}-600/5 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-200`}>
+                                        <feature.icon size={20} weight="bold" className={feature.color} />
+                                      </div>
+                                      <div className="flex-1 min-w-0">
+                                        <div className="text-sm font-semibold text-foreground mb-0.5 break-words">{feature.title}</div>
+                                        <div className="text-xs text-muted-foreground dark:text-slate-300 leading-relaxed break-words">{feature.description}</div>
+                                      </div>
+                                    </button>
+                                  ))}
+                                </div>
+                                <div className="mt-4 pt-4 border-t border-border/40">
                                   <button
-                                    key={feature.title}
                                     onClick={() => {
-                                      if (item.id === "support" && feature.title === "Live Chat") {
-                                        onOpenLiveChat("I need help with support")
-                                        setSupportDropdownOpen(false)
-                                        return
-                                      }
                                       handleNavigate(item.id)
                                       if (item.id === "product") setProductDropdownOpen(false)
                                       if (item.id === "enterprise") setEnterpriseDropdownOpen(false)
@@ -510,33 +534,12 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
                                       if (item.id === "support") setSupportDropdownOpen(false)
                                       if (item.id === "licensing") setLicensingDropdownOpen(false)
                                     }}
-                                    className="flex items-start gap-3 p-3 rounded-lg hover:bg-accent/40 transition-all duration-200 text-left group"
+                                    className="w-full flex items-center justify-center gap-2 py-2.5 px-4 bg-primary/8 hover:bg-primary/12 rounded-lg text-sm font-semibold text-primary transition-all duration-200 group"
                                   >
-                                    <div className={`w-10 h-10 rounded-lg bg-gradient-to-br from-${feature.color.split('-')[1]}-500/10 to-${feature.color.split('-')[1]}-600/5 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-200`}>
-                                      <feature.icon size={20} weight="bold" className={feature.color} />
-                                    </div>
-                                    <div className="flex-1 min-w-0">
-                                      <div className="text-sm font-semibold text-foreground mb-0.5 break-words">{feature.title}</div>
-                                      <div className="text-xs text-muted-foreground dark:text-slate-300 leading-relaxed break-words">{feature.description}</div>
-                                    </div>
+                                    <span>View All {dropdownTitle}</span>
+                                    <ArrowRight size={14} weight="bold" className="group-hover:translate-x-0.5 transition-transform" />
                                   </button>
-                                ))}
-                              </div>
-                              <div className="mt-4 pt-4 border-t border-border/40">
-                                <button
-                                  onClick={() => {
-                                    handleNavigate(item.id)
-                                    if (item.id === "product") setProductDropdownOpen(false)
-                                    if (item.id === "enterprise") setEnterpriseDropdownOpen(false)
-                                    if (item.id === "documentation") setDocsDropdownOpen(false)
-                                    if (item.id === "support") setSupportDropdownOpen(false)
-                                    if (item.id === "licensing") setLicensingDropdownOpen(false)
-                                  }}
-                                  className="w-full flex items-center justify-center gap-2 py-2.5 px-4 bg-primary/8 hover:bg-primary/12 rounded-lg text-sm font-semibold text-primary transition-all duration-200 group"
-                                >
-                                  <span>View All {dropdownTitle}</span>
-                                  <ArrowRight size={14} weight="bold" className="group-hover:translate-x-0.5 transition-transform" />
-                                </button>
+                                </div>
                               </div>
                             </div>
                           )}
