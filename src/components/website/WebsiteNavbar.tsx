@@ -350,8 +350,8 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
     <>
       <div className={ENTERPRISE_COMMAND_STRIP_CLASS}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-9 sm:h-10 md:h-11">
-            <div className="flex items-center gap-2 sm:gap-4 md:gap-6">
+          <div className="flex items-center justify-between h-8 sm:h-9 md:h-10">
+            <div className="flex items-center gap-2 sm:gap-3 md:gap-4">
               <div className="inline-flex items-center gap-1.5 sm:gap-2 text-[10px] sm:text-[11px] font-semibold px-2.5 py-1 rounded-md border border-success/25 bg-success/8">
                 <div className="relative flex items-center">
                   <Circle size={6} weight="fill" className="text-success drop-shadow-[0_0_4px_rgba(120,200,120,0.6)] sm:w-[7px] sm:h-[7px]" />
@@ -362,24 +362,24 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
                 <span className="text-success hidden min-[380px]:inline tracking-wide">All Systems Operational</span>
                 <span className="text-success min-[380px]:hidden tracking-wide">Live</span>
               </div>
-              <Badge variant="outline" className="hidden lg:inline-flex h-6 text-[10px] uppercase tracking-[0.1em] border-border/70 text-muted-foreground bg-background/60">
+              <Badge variant="outline" className="hidden lg:inline-flex h-6 text-[10px] uppercase tracking-[0.1em] border-border/70 text-muted-foreground dark:text-slate-300 bg-background/60">
                 Enterprise Edition
               </Badge>
-              <div className="hidden md:flex items-center gap-2">
+              <div className="hidden md:flex items-center gap-1.5">
                 <div className="w-1 h-1 rounded-full bg-border/60" />
                 <a 
                   href="mailto:sales@guardivex"
-                  className="flex items-center gap-1.5 text-muted-foreground hover:text-primary transition-colors text-[11px] font-semibold group"
+                  className="flex items-center gap-1.5 text-muted-foreground dark:text-slate-300 hover:text-primary dark:hover:text-white transition-colors text-[11px] font-semibold group"
                 >
                   <EnvelopeSimple size={14} weight="bold" className="group-hover:scale-110 transition-transform" />
                   <span className="hidden lg:inline">sales@guardivex</span>
                 </a>
               </div>
             </div>
-            <div className="flex items-center gap-1.5 sm:gap-3 md:gap-5">
+            <div className="flex items-center gap-1.5 sm:gap-2.5 md:gap-4">
               <a
                 href="tel:1-800-SENTINEL"
-                className="hidden xl:flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors text-[11px] font-bold group"
+                className="hidden xl:flex items-center gap-2 text-muted-foreground dark:text-slate-300 hover:text-foreground dark:hover:text-white transition-colors text-[11px] font-bold group"
               >
                 <Phone size={14} weight="bold" className="group-hover:scale-110 transition-transform" />
                 <span className="tracking-wide">1-800-SENTINEL</span>
@@ -387,19 +387,19 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
               </a>
               <button
                 onClick={() => onOpenLiveChat("I need help with my deployment")}
-                className={`${ENTERPRISE_CONTROL_CLASS} hidden lg:flex text-[11px] font-bold hover:text-primary hover:border-primary/40 hover:bg-primary/8 group`}
+                className={`${ENTERPRISE_CONTROL_CLASS} hidden lg:flex text-[11px] font-bold dark:text-slate-300 hover:text-primary dark:hover:text-white hover:border-primary/40 hover:bg-primary/8 group`}
               >
                 <ChatCircle size={14} weight="bold" className="group-hover:scale-110 transition-transform" />
                 <span className="tracking-wide">Live Chat</span>
               </button>
-              <div className="hidden sm:flex items-center gap-1.5 sm:gap-2 pl-2 sm:pl-3 ml-2 sm:ml-3 border-l border-border/30">
+              <div className="hidden sm:flex items-center gap-1.5 sm:gap-2 pl-2 sm:pl-2.5 ml-2 sm:ml-2.5 border-l border-border/30">
                 {socialLinks.map((social) => (
                   <a
                     key={social.label}
                     href={social.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-6 h-6 sm:w-7 sm:h-7 flex items-center justify-center rounded-lg text-muted-foreground hover:text-primary hover:bg-primary/10 border border-transparent hover:border-primary/20 transition-all duration-200 group"
+                    className="w-6 h-6 sm:w-7 sm:h-7 flex items-center justify-center rounded-lg text-muted-foreground dark:text-slate-300 hover:text-primary dark:hover:text-white hover:bg-primary/10 border border-transparent hover:border-primary/20 transition-all duration-200 group"
                     aria-label={social.label}
                   >
                     <social.icon size={13} weight="fill" className="group-hover:scale-110 transition-transform sm:w-[14px] sm:h-[14px]" />
@@ -413,7 +413,7 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
 
       <nav className="sticky top-0 z-50 border-b border-border/35 bg-background/78 dark:border-border/35 dark:bg-[linear-gradient(to_right,rgba(3,10,18,0.74),rgba(6,18,30,0.68),rgba(3,10,18,0.74))] backdrop-blur-3xl shadow-[0_8px_22px_-18px_rgba(8,15,23,0.45)] dark:shadow-[0_10px_30px_-20px_rgba(0,0,0,0.8)]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-14 sm:h-[3.7rem] lg:h-[4rem] gap-3 sm:gap-4">
+          <div className="flex items-center justify-between h-[3.15rem] sm:h-[3.35rem] lg:h-[3.6rem] gap-3 sm:gap-4">
             <div className="flex items-center gap-2.5 lg:gap-8 min-w-0">
               <button 
                 onClick={() => handleNavigate("home")} 
@@ -428,7 +428,7 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
                   imgClassName="pr-0.5"
                   textContainerClassName="gap-0"
                   titleClassName="text-[17px] sm:text-[20px] lg:text-[21px] text-foreground group-hover:text-primary transition-colors font-extrabold tracking-[-0.025em]"
-                  subtitleClassName="hidden sm:block text-[8.5px] lg:text-[9px] text-muted-foreground/80 tracking-[0.14em] leading-none mt-0.5"
+                  subtitleClassName="hidden sm:block text-[8.5px] lg:text-[9px] text-muted-foreground/80 dark:text-slate-400 tracking-[0.14em] leading-none mt-0.5"
                 />
               </button>
               
@@ -477,7 +477,7 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
                             className={`relative px-4 xl:px-[1.1rem] py-2 text-[12.5px] xl:text-[13.5px] tracking-[0.01em] font-medium rounded-md transition-all duration-200 flex items-center gap-1.5 border whitespace-nowrap ${
                               currentPage === item.id
                                 ? "text-foreground border-primary/30 bg-primary/8"
-                                : "text-muted-foreground border-transparent hover:text-foreground hover:border-border/70 hover:bg-secondary/40"
+                                : "text-muted-foreground dark:text-slate-300 border-transparent hover:text-foreground dark:hover:text-white hover:border-border/70 hover:bg-secondary/40"
                             }`}
                           >
                             <span className="relative z-10">{item.label}</span>
@@ -488,7 +488,7 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
                             <div className="absolute top-full left-0 mt-2 w-[720px] bg-card/98 backdrop-blur-2xl border border-border/60 rounded-xl shadow-2xl shadow-black/20 p-6 z-50">
                               <div className="mb-4">
                                 <h3 className="text-sm font-bold text-foreground mb-1">{dropdownTitle}</h3>
-                                <p className="text-xs text-muted-foreground">{dropdownSubtitle}</p>
+                                <p className="text-xs text-muted-foreground dark:text-slate-300">{dropdownSubtitle}</p>
                               </div>
                               <div className="grid grid-cols-2 gap-3">
                                 {dropdownData.map((feature) => (
@@ -514,7 +514,7 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
                                     </div>
                                     <div className="flex-1 min-w-0">
                                       <div className="text-sm font-semibold text-foreground mb-0.5">{feature.title}</div>
-                                      <div className="text-xs text-muted-foreground">{feature.description}</div>
+                                      <div className="text-xs text-muted-foreground dark:text-slate-300">{feature.description}</div>
                                     </div>
                                   </button>
                                 ))}
@@ -544,7 +544,7 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
                           className={`relative px-4 xl:px-[1.1rem] py-2 text-[12.5px] xl:text-[13.5px] tracking-[0.01em] font-medium rounded-md transition-all duration-200 whitespace-nowrap ${
                             currentPage === item.id
                               ? "text-foreground"
-                              : "text-muted-foreground hover:text-foreground"
+                              : "text-muted-foreground dark:text-slate-300 hover:text-foreground dark:hover:text-white"
                           }`}
                         >
                           <span className="relative z-10">{item.label}</span>
@@ -573,7 +573,7 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
               <Button 
                 onClick={handleLoginClick}
                 size="default"
-                className="h-11 sm:h-11 px-3 sm:px-4 bg-gradient-to-r from-primary via-primary to-primary/95 text-primary-foreground hover:from-primary/95 hover:via-primary/95 hover:to-primary/90 font-bold text-xs sm:text-sm shadow-lg shadow-primary/30 hover:shadow-xl hover:shadow-primary/40 transition-all duration-200 group rounded-lg border border-primary/20"
+                className="h-11 sm:h-10 px-3 sm:px-4 bg-gradient-to-r from-primary via-primary to-primary/95 text-primary-foreground hover:from-primary/95 hover:via-primary/95 hover:to-primary/90 font-bold text-xs sm:text-sm shadow-lg shadow-primary/30 hover:shadow-xl hover:shadow-primary/40 transition-all duration-200 group rounded-lg border border-primary/20"
               >
                 <span>Sign In</span>
                 <ArrowRight size={15} weight="bold" className="ml-1 sm:ml-1.5 group-hover:translate-x-1 transition-transform sm:w-[17px] sm:h-[17px]" />
@@ -625,7 +625,7 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
                         className={`w-full px-4 sm:px-6 py-3 sm:py-4 text-left text-sm sm:text-base tracking-[0.01em] font-medium rounded-lg transition-all flex items-center justify-between active:scale-98 ${
                           currentPage === item.id
                             ? "text-foreground bg-primary/8 border border-primary/20"
-                            : "text-muted-foreground hover:text-foreground hover:bg-accent/40 active:bg-accent/50"
+                            : "text-muted-foreground dark:text-slate-300 hover:text-foreground dark:hover:text-white hover:bg-accent/40 active:bg-accent/50"
                         }`}
                       >
                         <span>{item.label}</span>
@@ -660,7 +660,7 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
                               </div>
                               <div className="flex-1 min-w-0">
                                 <div className="text-xs sm:text-sm font-semibold text-foreground mb-0.5">{feature.title}</div>
-                                <div className="text-[11px] sm:text-xs text-muted-foreground leading-snug">{feature.description}</div>
+                                <div className="text-[11px] sm:text-xs text-muted-foreground dark:text-slate-300 leading-snug">{feature.description}</div>
                               </div>
                             </button>
                           ))}
@@ -688,7 +688,7 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
                       href={social.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="w-10 h-10 sm:w-11 sm:h-11 flex items-center justify-center rounded-lg text-muted-foreground hover:text-primary hover:bg-primary/5 active:bg-primary/10 border border-border/40 hover:border-primary/30 transition-all duration-200 active:scale-95"
+                      className="w-10 h-10 sm:w-11 sm:h-11 flex items-center justify-center rounded-lg text-muted-foreground dark:text-slate-300 hover:text-primary dark:hover:text-white hover:bg-primary/5 active:bg-primary/10 border border-border/40 hover:border-primary/30 transition-all duration-200 active:scale-95"
                       aria-label={social.label}
                     >
                       <social.icon size={18} weight="bold" className="sm:w-5 sm:h-5" />
@@ -698,7 +698,7 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
                 
                 <div className="text-center space-y-2.5 sm:space-y-3 pt-3 sm:pt-4">
                   <div className="text-xs sm:text-sm font-semibold text-foreground">Need assistance?</div>
-                  <div className="text-[11px] sm:text-xs text-muted-foreground space-y-1.5">
+                  <div className="text-[11px] sm:text-xs text-muted-foreground dark:text-slate-300 space-y-1.5">
                     <div className="font-semibold">Call 1-800-SENTINEL (24/7)</div>
                     <div>sales@guardivex</div>
                   </div>

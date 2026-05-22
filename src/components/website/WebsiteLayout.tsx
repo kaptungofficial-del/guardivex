@@ -61,10 +61,10 @@ export function WebsiteLayout({ currentPage, onNavigate, onLogin }: WebsiteLayou
                   subtitle="SECURITY PLATFORM"
                   markClassName="w-16 h-16"
                   titleClassName="text-xl font-extrabold tracking-[-0.02em]"
-                  subtitleClassName="text-[10px] tracking-[0.14em] mt-1.5 text-muted-foreground/80"
+                  subtitleClassName="text-[10px] tracking-[0.14em] mt-1.5 text-muted-foreground/80 dark:text-slate-300"
                 />
               </div>
-              <p className="text-sm text-muted-foreground max-w-md leading-relaxed">
+              <p className="text-sm text-muted-foreground dark:text-slate-300 max-w-md leading-relaxed">
                 Enterprise-grade security infrastructure platform delivering comprehensive device monitoring, intelligent threat detection, and rapid incident response across unlimited sites.
               </p>
               <div className="flex flex-col gap-3.5">
@@ -100,7 +100,7 @@ export function WebsiteLayout({ currentPage, onNavigate, onLogin }: WebsiteLayou
                     href={social.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-10 h-10 flex items-center justify-center rounded-lg text-muted-foreground hover:text-primary hover:bg-primary/10 border border-border/40 hover:border-primary/40 transition-all duration-200 group hover:scale-110"
+                    className="w-10 h-10 flex items-center justify-center rounded-lg text-muted-foreground dark:text-slate-300 hover:text-primary dark:hover:text-white hover:bg-primary/10 border border-border/40 hover:border-primary/40 transition-all duration-200 group hover:scale-110"
                     aria-label={social.label}
                   >
                     <social.icon size={19} weight="fill" className="group-hover:scale-110 transition-transform" />
@@ -114,28 +114,28 @@ export function WebsiteLayout({ currentPage, onNavigate, onLogin }: WebsiteLayou
               <div className="flex flex-col gap-3 sm:gap-3.5">
                 <button 
                   onClick={() => onNavigate("product")}
-                  className="text-sm text-muted-foreground hover:text-primary hover:translate-x-1 transition-all text-left font-medium group flex items-center gap-2"
+                  className="text-sm text-muted-foreground dark:text-slate-300 hover:text-primary dark:hover:text-white hover:translate-x-1 transition-all text-left font-medium group flex items-center gap-2"
                 >
                   <span className="w-1 h-1 rounded-full bg-border group-hover:bg-primary transition-colors shrink-0" />
                   Features
                 </button>
                 <button 
                   onClick={() => onNavigate("enterprise")}
-                  className="text-sm text-muted-foreground hover:text-primary hover:translate-x-1 transition-all text-left font-medium group flex items-center gap-2"
+                  className="text-sm text-muted-foreground dark:text-slate-300 hover:text-primary dark:hover:text-white hover:translate-x-1 transition-all text-left font-medium group flex items-center gap-2"
                 >
                   <span className="w-1 h-1 rounded-full bg-border group-hover:bg-primary transition-colors shrink-0" />
                   Enterprise Solutions
                 </button>
                 <button 
                   onClick={() => onNavigate("download")}
-                  className="text-sm text-muted-foreground hover:text-primary hover:translate-x-1 transition-all text-left font-medium group flex items-center gap-2"
+                  className="text-sm text-muted-foreground dark:text-slate-300 hover:text-primary dark:hover:text-white hover:translate-x-1 transition-all text-left font-medium group flex items-center gap-2"
                 >
                   <span className="w-1 h-1 rounded-full bg-border group-hover:bg-primary transition-colors shrink-0" />
                   Download
                 </button>
                 <button 
                   onClick={() => onNavigate("licensing")}
-                  className="text-sm text-muted-foreground hover:text-primary hover:translate-x-1 transition-all text-left font-medium group flex items-center gap-2"
+                  className="text-sm text-muted-foreground dark:text-slate-300 hover:text-primary dark:hover:text-white hover:translate-x-1 transition-all text-left font-medium group flex items-center gap-2"
                 >
                   <span className="w-1 h-1 rounded-full bg-border group-hover:bg-primary transition-colors shrink-0" />
                   Pricing & Licensing
@@ -148,27 +148,27 @@ export function WebsiteLayout({ currentPage, onNavigate, onLogin }: WebsiteLayou
               <div className="flex flex-col gap-3 sm:gap-3.5">
                 <button 
                   onClick={() => onNavigate("documentation")}
-                  className="text-sm text-muted-foreground hover:text-primary hover:translate-x-1 transition-all text-left font-medium group flex items-center gap-2"
+                  className="text-sm text-muted-foreground dark:text-slate-300 hover:text-primary dark:hover:text-white hover:translate-x-1 transition-all text-left font-medium group flex items-center gap-2"
                 >
                   <span className="w-1 h-1 rounded-full bg-border group-hover:bg-primary transition-colors shrink-0" />
                   Documentation
                 </button>
                 <button 
                   onClick={() => onNavigate("support")}
-                  className="text-sm text-muted-foreground hover:text-primary hover:translate-x-1 transition-all text-left font-medium group flex items-center gap-2"
+                  className="text-sm text-muted-foreground dark:text-slate-300 hover:text-primary dark:hover:text-white hover:translate-x-1 transition-all text-left font-medium group flex items-center gap-2"
                 >
                   <span className="w-1 h-1 rounded-full bg-border group-hover:bg-primary transition-colors shrink-0" />
                   Support Center
                 </button>
-                <span className="text-sm text-muted-foreground hover:text-primary hover:translate-x-1 transition-all cursor-pointer font-medium group flex items-center gap-2">
+                <span className="text-sm text-muted-foreground dark:text-slate-300 hover:text-primary dark:hover:text-white hover:translate-x-1 transition-all cursor-pointer font-medium group flex items-center gap-2">
                   <span className="w-1 h-1 rounded-full bg-border group-hover:bg-primary transition-colors shrink-0" />
                   API Reference
                 </span>
-                <span className="text-sm text-muted-foreground hover:text-primary hover:translate-x-1 transition-all cursor-pointer font-medium group flex items-center gap-2">
+                <span className="text-sm text-muted-foreground dark:text-slate-300 hover:text-primary dark:hover:text-white hover:translate-x-1 transition-all cursor-pointer font-medium group flex items-center gap-2">
                   <span className="w-1 h-1 rounded-full bg-border group-hover:bg-primary transition-colors shrink-0" />
                   Community Forum
                 </span>
-                <span className="text-sm text-muted-foreground hover:text-primary hover:translate-x-1 transition-all cursor-pointer font-medium group flex items-center gap-2">
+                <span className="text-sm text-muted-foreground dark:text-slate-300 hover:text-primary dark:hover:text-white hover:translate-x-1 transition-all cursor-pointer font-medium group flex items-center gap-2">
                   <span className="w-1 h-1 rounded-full bg-border group-hover:bg-primary transition-colors shrink-0" />
                   System Status
                 </span>
@@ -178,23 +178,23 @@ export function WebsiteLayout({ currentPage, onNavigate, onLogin }: WebsiteLayou
             <div>
               <h4 className="font-heading font-bold text-[13px] uppercase tracking-[0.15em] mb-4 sm:mb-5 text-foreground">Company</h4>
               <div className="flex flex-col gap-3 sm:gap-3.5">
-                <span className="text-sm text-muted-foreground hover:text-primary hover:translate-x-1 transition-all cursor-pointer font-medium group flex items-center gap-2">
+                <span className="text-sm text-muted-foreground dark:text-slate-300 hover:text-primary dark:hover:text-white hover:translate-x-1 transition-all cursor-pointer font-medium group flex items-center gap-2">
                   <span className="w-1 h-1 rounded-full bg-border group-hover:bg-primary transition-colors shrink-0" />
                   About Us
                 </span>
-                <span className="text-sm text-muted-foreground hover:text-primary hover:translate-x-1 transition-all cursor-pointer font-medium group flex items-center gap-2">
+                <span className="text-sm text-muted-foreground dark:text-slate-300 hover:text-primary dark:hover:text-white hover:translate-x-1 transition-all cursor-pointer font-medium group flex items-center gap-2">
                   <span className="w-1 h-1 rounded-full bg-border group-hover:bg-primary transition-colors shrink-0" />
                   Contact Sales
                 </span>
-                <span className="text-sm text-muted-foreground hover:text-primary hover:translate-x-1 transition-all cursor-pointer font-medium group flex items-center gap-2">
+                <span className="text-sm text-muted-foreground dark:text-slate-300 hover:text-primary dark:hover:text-white hover:translate-x-1 transition-all cursor-pointer font-medium group flex items-center gap-2">
                   <span className="w-1 h-1 rounded-full bg-border group-hover:bg-primary transition-colors shrink-0" />
                   Careers
                 </span>
-                <span className="text-sm text-muted-foreground hover:text-primary hover:translate-x-1 transition-all cursor-pointer font-medium group flex items-center gap-2">
+                <span className="text-sm text-muted-foreground dark:text-slate-300 hover:text-primary dark:hover:text-white hover:translate-x-1 transition-all cursor-pointer font-medium group flex items-center gap-2">
                   <span className="w-1 h-1 rounded-full bg-border group-hover:bg-primary transition-colors shrink-0" />
                   Partners
                 </span>
-                <span className="text-sm text-muted-foreground hover:text-primary hover:translate-x-1 transition-all cursor-pointer font-medium group flex items-center gap-2">
+                <span className="text-sm text-muted-foreground dark:text-slate-300 hover:text-primary dark:hover:text-white hover:translate-x-1 transition-all cursor-pointer font-medium group flex items-center gap-2">
                   <span className="w-1 h-1 rounded-full bg-border group-hover:bg-primary transition-colors shrink-0" />
                   Trust Center
                 </span>
@@ -204,20 +204,20 @@ export function WebsiteLayout({ currentPage, onNavigate, onLogin }: WebsiteLayou
           
           <div className="pt-8 sm:pt-10 border-t border-border/30">
             <div className="flex flex-col md:flex-row items-center justify-between gap-4 sm:gap-6 mb-6 sm:mb-8">
-              <div className="text-xs sm:text-sm text-muted-foreground text-center md:text-left order-2 md:order-1">
+              <div className="text-xs sm:text-sm text-muted-foreground dark:text-slate-300 text-center md:text-left order-2 md:order-1">
                 &copy; 2024 Guardivex Technologies, Inc. All rights reserved.
               </div>
-              <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 md:gap-8 text-xs text-muted-foreground font-medium order-1 md:order-2">
-                <span className="hover:text-primary transition-colors cursor-pointer hover:underline decoration-primary decoration-2 underline-offset-4">
+              <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 md:gap-8 text-xs text-muted-foreground dark:text-slate-300 font-medium order-1 md:order-2">
+                <span className="hover:text-primary dark:hover:text-white transition-colors cursor-pointer hover:underline decoration-primary decoration-2 underline-offset-4">
                   Privacy Policy
                 </span>
-                <span className="hover:text-primary transition-colors cursor-pointer hover:underline decoration-primary decoration-2 underline-offset-4">
+                <span className="hover:text-primary dark:hover:text-white transition-colors cursor-pointer hover:underline decoration-primary decoration-2 underline-offset-4">
                   Terms of Service
                 </span>
-                <span className="hover:text-primary transition-colors cursor-pointer hover:underline decoration-primary decoration-2 underline-offset-4 hidden sm:inline">
+                <span className="hover:text-primary dark:hover:text-white transition-colors cursor-pointer hover:underline decoration-primary decoration-2 underline-offset-4 hidden sm:inline">
                   Security
                 </span>
-                <span className="hover:text-primary transition-colors cursor-pointer hover:underline decoration-primary decoration-2 underline-offset-4 hidden sm:inline">
+                <span className="hover:text-primary dark:hover:text-white transition-colors cursor-pointer hover:underline decoration-primary decoration-2 underline-offset-4 hidden sm:inline">
                   Compliance
                 </span>
               </div>
@@ -252,30 +252,30 @@ export function WebsiteLayout({ currentPage, onNavigate, onLogin }: WebsiteLayou
 function HomePage({ onNavigate }: { onNavigate: (page: string) => void }) {
   return (
     <div className="relative guardivex-home-typography">
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-7 sm:pt-10 lg:pt-12 pb-8 sm:pb-11 lg:pb-12 text-center relative overflow-hidden">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 sm:pt-8 lg:pt-9 pb-6 sm:pb-8 lg:pb-9 text-center relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_15%,rgba(37,99,235,0.10),transparent_54%)] dark:bg-[radial-gradient(circle_at_50%_15%,rgba(56,189,248,0.16),transparent_52%)]" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_120%,rgba(59,130,246,0.05),transparent_52%)] dark:bg-[radial-gradient(circle_at_50%_120%,rgba(14,165,233,0.08),transparent_50%)]" />
         <div className="absolute inset-0 opacity-[0.06] dark:opacity-[0.1] bg-[linear-gradient(rgba(125,211,252,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(125,211,252,0.08)_1px,transparent_1px)] bg-[size:34px_34px]" />
-        <div className="absolute left-1/2 top-14 -translate-x-1/2 h-[320px] w-[320px] sm:h-[380px] sm:w-[380px] rounded-full border border-primary/10 dark:border-cyan-400/10" />
-        <div className="absolute left-1/2 top-20 -translate-x-1/2 h-[250px] w-[250px] sm:h-[300px] sm:w-[300px] rounded-full border border-primary/8 dark:border-cyan-400/8" />
+        <div className="absolute left-1/2 top-10 -translate-x-1/2 h-[300px] w-[300px] sm:h-[350px] sm:w-[350px] rounded-full border border-primary/10 dark:border-cyan-400/10" />
+        <div className="absolute left-1/2 top-16 -translate-x-1/2 h-[230px] w-[230px] sm:h-[280px] sm:w-[280px] rounded-full border border-primary/8 dark:border-cyan-400/8" />
         <div className="relative max-w-4xl mx-auto w-full">
           <div className="inline-flex items-center px-3.5 sm:px-4 py-1.5 rounded-full bg-primary/8 dark:bg-cyan-400/10 border border-primary/25 dark:border-cyan-300/25 text-primary dark:text-cyan-300 text-[11px] sm:text-xs font-semibold mb-3 sm:mb-4 tracking-[0.01em]">
             Unified SOC Command Center &middot; Security Platform
           </div>
-          <h1 className="bg-transparent mx-auto max-w-[14ch] text-[clamp(2rem,5.8vw,4rem)] font-[700] font-heading tracking-[-0.024em] text-balance text-foreground dark:text-slate-100 mb-3 sm:mb-4 leading-[1.02]">
+          <h1 className="bg-transparent mx-auto max-w-[14ch] text-[clamp(1.92rem,5.2vw,3.55rem)] font-[700] font-heading tracking-[-0.024em] text-balance text-foreground dark:text-slate-100 mb-2.5 sm:mb-3 leading-[1.02]">
             Enterprise Security Platform
           </h1>
-          <p className="text-[clamp(0.98rem,1.15vw,1.125rem)] text-muted-foreground dark:text-slate-300 mb-5 sm:mb-7 max-w-[52ch] mx-auto leading-[1.58] text-pretty">
+          <p className="text-[clamp(0.96rem,1.02vw,1.075rem)] text-muted-foreground dark:text-slate-300 mb-4 sm:mb-5 max-w-[50ch] mx-auto leading-[1.52] text-pretty">
             Install on your own server to monitor security devices, cameras, NVRs, access control, alarms, networks, and system health from one SOC Command Center.
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 max-w-3xl mx-auto px-2">
-            <Button size="lg" variant="outline" className="border-primary/30 dark:border-cyan-300/35 bg-background/60 dark:bg-slate-900/40 text-foreground dark:text-slate-100 hover:bg-primary/10 dark:hover:bg-cyan-500/12 hover:border-primary/45 dark:hover:border-cyan-300/55 w-full h-10 sm:h-11 text-sm font-semibold shadow-[0_0_0_1px_rgba(59,130,246,0.1)_inset] dark:shadow-[0_0_0_1px_rgba(6,182,212,0.12)_inset]">
+            <Button size="lg" variant="outline" className="border-primary/30 dark:border-cyan-300/35 bg-background/60 dark:bg-slate-900/40 text-foreground dark:text-slate-100 hover:bg-primary/10 dark:hover:bg-cyan-500/12 hover:border-primary/45 dark:hover:border-cyan-300/55 w-full h-10 text-sm font-semibold shadow-[0_0_0_1px_rgba(59,130,246,0.1)_inset] dark:shadow-[0_0_0_1px_rgba(6,182,212,0.12)_inset]">
               Request Demo
             </Button>
-            <Button size="lg" onClick={() => onNavigate("download")} className="bg-gradient-to-r from-primary via-sky-500 to-cyan-500 dark:from-cyan-400 dark:via-cyan-500 dark:to-sky-500 text-primary-foreground dark:text-slate-950 hover:brightness-105 w-full h-10 sm:h-11 text-sm font-semibold shadow-[0_10px_28px_-14px_rgba(59,130,246,0.65)] dark:shadow-[0_10px_28px_-14px_rgba(34,211,238,0.9)] border border-primary/45 dark:border-cyan-300/60">
+            <Button size="lg" onClick={() => onNavigate("download")} className="bg-gradient-to-r from-primary via-sky-500 to-cyan-500 dark:from-cyan-400 dark:via-cyan-500 dark:to-sky-500 text-primary-foreground dark:text-slate-950 hover:brightness-105 w-full h-10 text-sm font-semibold shadow-[0_10px_28px_-14px_rgba(59,130,246,0.65)] dark:shadow-[0_10px_28px_-14px_rgba(34,211,238,0.9)] border border-primary/45 dark:border-cyan-300/60">
               Download Trial
             </Button>
-            <Button size="lg" variant="outline" className="w-full h-10 sm:h-11 text-sm font-semibold border-border dark:border-slate-500/45 text-foreground dark:text-slate-200 bg-background/70 dark:bg-slate-950/35 hover:border-primary/40 dark:hover:border-cyan-300/45 hover:bg-secondary/70 dark:hover:bg-slate-900/65">
+            <Button size="lg" variant="outline" className="w-full h-10 text-sm font-semibold border-border dark:border-slate-500/45 text-foreground dark:text-slate-200 bg-background/70 dark:bg-slate-950/35 hover:border-primary/40 dark:hover:border-cyan-300/45 hover:bg-secondary/70 dark:hover:bg-slate-900/65">
               View Architecture
             </Button>
           </div>
@@ -772,7 +772,7 @@ function DashboardPreviewSection() {
   ]
 
   return (
-    <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-14 border-t border-border/60 bg-gradient-to-b from-background via-card/20 to-background dark:from-slate-950/85 dark:via-slate-950/65 dark:to-slate-950/40 relative overflow-hidden">
+    <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-10 border-t border-border/60 bg-gradient-to-b from-background via-card/20 to-background dark:from-slate-950/85 dark:via-slate-950/65 dark:to-slate-950/40 relative overflow-hidden">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_120%,rgba(37,99,235,0.08),transparent_54%)] dark:bg-[radial-gradient(circle_at_50%_120%,rgba(56,189,248,0.15),transparent_52%)]" />
       <div className="absolute inset-0 opacity-[0.08] dark:opacity-[0.14] bg-[linear-gradient(rgba(56,189,248,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(56,189,248,0.08)_1px,transparent_1px)] bg-[size:26px_26px]" />
       
@@ -797,7 +797,7 @@ function DashboardPreviewSection() {
                 <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-success/60 hover:bg-success transition-colors cursor-pointer animate-pulse" />
               </div>
               <div className="flex-1 flex items-center justify-center gap-2">
-                <Monitor size={14} className="text-muted-foreground hidden sm:block" weight="duotone" />
+                <Monitor size={14} className="text-muted-foreground dark:text-slate-300 hidden sm:block" weight="duotone" />
                 <span className="text-[10px] sm:text-xs text-muted-foreground dark:text-slate-400 font-mono">Guardivex Security Platform</span>
               </div>
               <div className="flex items-center gap-2">
@@ -833,7 +833,7 @@ function DashboardPreviewSection() {
                     <div className={`text-2xl font-bold font-heading mb-1 transition-all duration-300 ${hoveredCard === i ? 'text-primary' : ''}`}>
                       {card.value}
                     </div>
-                    <div className="text-xs text-muted-foreground">{card.label}</div>
+                    <div className="text-xs text-muted-foreground dark:text-slate-300">{card.label}</div>
                     {clickedModule === `status-${i}` && (
                       <div className="mt-2 text-xs text-primary font-medium animate-pulse">
                         Module active
@@ -879,9 +879,9 @@ function DashboardPreviewSection() {
                         />
                         <div className="flex-1 min-w-0">
                           <div className="text-sm font-medium">{event.label}</div>
-                          <div className="text-xs text-muted-foreground truncate">{event.site}</div>
+                          <div className="text-xs text-muted-foreground dark:text-slate-300 truncate">{event.site}</div>
                         </div>
-                        <div className="text-xs text-muted-foreground whitespace-nowrap">{event.time}</div>
+                        <div className="text-xs text-muted-foreground dark:text-slate-300 whitespace-nowrap">{event.time}</div>
                       </div>
                     ))}
                   </div>
@@ -912,10 +912,10 @@ function DashboardPreviewSection() {
                         <div className="flex items-center gap-2 mb-2">
                           <device.icon size={16} className="text-primary group-hover:scale-110 transition-transform" weight="duotone" />
                           <span className="text-xs font-medium flex-1">{device.label}</span>
-                          <span className="text-xs text-muted-foreground">{device.count}</span>
+                          <span className="text-xs text-muted-foreground dark:text-slate-300">{device.count}</span>
                           <span className={`text-xs font-mono ${
                             device.trend.startsWith('+') ? 'text-success' : 
-                            device.trend.startsWith('-') ? 'text-destructive' : 'text-muted-foreground'
+                            device.trend.startsWith('-') ? 'text-destructive' : 'text-muted-foreground dark:text-slate-300'
                           }`}>
                             {device.trend}
                           </span>
@@ -934,7 +934,7 @@ function DashboardPreviewSection() {
                             }`}
                           />
                         </div>
-                        <div className="text-xs text-muted-foreground mt-1 text-right">{device.status}%</div>
+                        <div className="text-xs text-muted-foreground dark:text-slate-300 mt-1 text-right">{device.status}%</div>
                       </div>
                     ))}
                   </div>
@@ -968,13 +968,13 @@ function DashboardPreviewSection() {
                       }`}
                     >
                       <div className="text-xs font-medium mb-1 truncate" title={site.name}>{site.name}</div>
-                      <div className="text-xs text-muted-foreground mb-2">{site.devices} devices</div>
+                      <div className="text-xs text-muted-foreground dark:text-slate-300 mb-2">{site.devices} devices</div>
                       <div className={`w-full h-1 rounded-full mb-1 ${
                         site.status === 'healthy' ? 'bg-success' :
                         site.status === 'warning' ? 'bg-warning' :
                         'bg-destructive'
                       }`} />
-                      <div className="text-xs text-muted-foreground">{site.uptime}%</div>
+                      <div className="text-xs text-muted-foreground dark:text-slate-300">{site.uptime}%</div>
                     </div>
                   ))}
                 </div>
@@ -1032,7 +1032,7 @@ function PlatformOverviewSection() {
     <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 border-t border-border">
       <div className="max-w-3xl mx-auto text-center mb-10">
         <h2 className="text-3xl font-heading font-bold mb-3">Platform Overview</h2>
-        <p className="text-base text-muted-foreground">
+        <p className="text-base text-muted-foreground dark:text-slate-300">
           Comprehensive security infrastructure monitoring with enterprise-grade features
         </p>
       </div>
@@ -1057,7 +1057,7 @@ function ArchitectureDiagramSection() {
     <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 border-t border-border">
       <div className="max-w-3xl mx-auto text-center mb-10">
         <h2 className="text-3xl font-heading font-bold mb-3">Enterprise Architecture</h2>
-        <p className="text-base text-muted-foreground">
+        <p className="text-base text-muted-foreground dark:text-slate-300">
           Flexible deployment model with optional cloud connectivity
         </p>
       </div>
@@ -1072,11 +1072,11 @@ function ArchitectureDiagramSection() {
                   <Buildings size={40} className="text-primary hidden sm:block" weight="duotone" />
                 </div>
                 <h3 className="font-heading font-semibold text-base sm:text-lg mb-2">Client Infrastructure</h3>
-                <p className="text-sm text-muted-foreground">Cameras, NVRs, Access Control, Alarms, Network Devices</p>
+                <p className="text-sm text-muted-foreground dark:text-slate-300">Cameras, NVRs, Access Control, Alarms, Network Devices</p>
               </div>
 
               <div className="hidden md:flex items-center gap-2" aria-hidden="true">
-                <ArrowRight size={32} className="text-muted-foreground" />
+                <ArrowRight size={32} className="text-muted-foreground dark:text-slate-300" />
               </div>
 
               <div className="flex-1 text-center">
@@ -1085,11 +1085,11 @@ function ArchitectureDiagramSection() {
                   <HardDrives size={40} className="text-accent hidden sm:block" weight="duotone" />
                 </div>
                 <h3 className="font-heading font-semibold text-base sm:text-lg mb-2">Guardivex Platform</h3>
-                <p className="text-sm text-muted-foreground">Self-hosted security platform on your infrastructure</p>
+                <p className="text-sm text-muted-foreground dark:text-slate-300">Self-hosted security platform on your infrastructure</p>
               </div>
 
               <div className="hidden md:flex items-center gap-2" aria-hidden="true">
-                <ArrowRight size={32} className="text-muted-foreground" />
+                <ArrowRight size={32} className="text-muted-foreground dark:text-slate-300" />
               </div>
 
               <div className="flex-1 text-center">
@@ -1098,7 +1098,7 @@ function ArchitectureDiagramSection() {
                   <CloudCheck size={40} className="text-success hidden sm:block" weight="duotone" />
                 </div>
                 <h3 className="font-heading font-semibold text-base sm:text-lg mb-2">Guardivex Cloud</h3>
-                <p className="text-sm text-muted-foreground">Optional licensing, updates, support & remote access</p>
+                <p className="text-sm text-muted-foreground dark:text-slate-300">Optional licensing, updates, support & remote access</p>
               </div>
             </div>
           </CardContent>

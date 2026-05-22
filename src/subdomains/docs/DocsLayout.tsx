@@ -130,7 +130,7 @@ function ContentOverview() {
     <div className="max-w-3xl">
       <Badge variant="outline" className="mb-4 text-primary border-primary/30">Platform Docs v3.1</Badge>
       <h1 className="text-4xl font-heading font-bold mb-4">Guardivex Documentation</h1>
-      <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
+      <p className="text-lg text-muted-foreground dark:text-slate-300 mb-8 leading-relaxed">
         Guardivex is an enterprise security infrastructure platform for monitoring devices,
         cameras, NVRs, access control, alarms, and network health from a centralised SOC
         Command Center. Install on your own server for complete data sovereignty.
@@ -149,7 +149,7 @@ function ContentOverview() {
             <card.icon size={22} weight="duotone" className="text-primary mt-0.5 shrink-0 group-hover:scale-110 transition-transform" />
             <div>
               <div className="font-semibold text-sm">{card.title}</div>
-              <div className="text-xs text-muted-foreground mt-0.5">{card.desc}</div>
+              <div className="text-xs text-muted-foreground dark:text-slate-300 mt-0.5">{card.desc}</div>
             </div>
           </button>
         ))}
@@ -196,7 +196,7 @@ function ContentInstallation() {
   return (
     <div className="max-w-3xl space-y-6">
       <PageHeader title="Installation" section="Getting Started" />
-      <p className="text-muted-foreground">
+      <p className="text-muted-foreground dark:text-slate-300">
         Guardivex can be installed via the interactive installer script, Docker Compose, or a
         manual bare-metal setup. The installer script is the fastest path.
       </p>
@@ -204,7 +204,7 @@ function ContentInstallation() {
         <CodeBlock language="bash">{`curl -fsSL https://install.guardivex.com/setup.sh | sudo bash`}</CodeBlock>
       </Section>
       <Section title="2. Follow the interactive prompts">
-        <ul className="space-y-2 text-sm text-muted-foreground list-none">
+        <ul className="space-y-2 text-sm text-muted-foreground dark:text-slate-300 list-none">
           {[
             "Choose installation directory (default: /opt/guardivex)",
             "Set a postgres password and admin credentials",
@@ -240,26 +240,26 @@ function ContentQuickStart() {
         <CodeBlock language="bash">{`curl -fsSL https://install.guardivex.com/setup.sh | sudo bash`}</CodeBlock>
       </Section>
       <Section title="Step 2 — Create your first site">
-        <p className="text-sm text-muted-foreground">
+        <p className="text-sm text-muted-foreground dark:text-slate-300">
           Navigate to <strong>Sites → Add Site</strong>, enter a name and address, then save. A
           site represents a physical location and acts as the top-level container for devices.
         </p>
       </Section>
       <Section title="Step 3 — Add devices">
-        <p className="text-sm text-muted-foreground">
+        <p className="text-sm text-muted-foreground dark:text-slate-300">
           Go to <strong>Devices → Add Device</strong>. Select the device type (camera, NVR, access
           reader, alarm panel, or network switch), enter the IP address, and assign it to a site.
           Guardivex will poll the device for health every 30 seconds.
         </p>
       </Section>
       <Section title="Step 4 — Configure alert rules">
-        <p className="text-sm text-muted-foreground">
+        <p className="text-sm text-muted-foreground dark:text-slate-300">
           Open <strong>Alerts → Rules</strong> and enable the default ruleset. You can fine-tune
           severity thresholds and notification channels (email, webhook, SMS) per rule.
         </p>
       </Section>
       <Section title="Step 5 — Open the SOC dashboard">
-        <p className="text-sm text-muted-foreground">
+        <p className="text-sm text-muted-foreground dark:text-slate-300">
           Navigate to the <strong>SOC Command Center</strong>. You should see your site, all
           online devices, and live health metrics within a few seconds of setup.
         </p>
@@ -272,7 +272,7 @@ function ContentApiAuth() {
   return (
     <div className="max-w-3xl space-y-6">
       <PageHeader title="Authentication" section="API Reference" />
-      <p className="text-muted-foreground">
+      <p className="text-muted-foreground dark:text-slate-300">
         The Guardivex REST API uses short-lived JWT access tokens (15 min) paired with
         rotating refresh tokens (7 days). All API traffic must use HTTPS.
       </p>
@@ -324,16 +324,16 @@ function ContentApiEndpoints() {
   return (
     <div className="max-w-3xl space-y-6">
       <PageHeader title="Endpoints" section="API Reference" />
-      <p className="text-muted-foreground">
+      <p className="text-muted-foreground dark:text-slate-300">
         Base URL: <code className="text-xs bg-muted px-1.5 py-0.5 rounded">https://api.guardivex.com</code>
       </p>
       <div className="border border-border rounded-lg overflow-x-auto">
         <table className="min-w-[700px] w-full text-sm">
           <thead className="bg-muted/50">
             <tr>
-              <th className="text-left px-4 py-2.5 font-semibold text-xs uppercase tracking-wide text-muted-foreground w-24">Method</th>
-              <th className="text-left px-4 py-2.5 font-semibold text-xs uppercase tracking-wide text-muted-foreground">Path</th>
-              <th className="text-left px-4 py-2.5 font-semibold text-xs uppercase tracking-wide text-muted-foreground hidden sm:table-cell">Description</th>
+              <th className="text-left px-4 py-2.5 font-semibold text-xs uppercase tracking-wide text-muted-foreground dark:text-slate-300 w-24">Method</th>
+              <th className="text-left px-4 py-2.5 font-semibold text-xs uppercase tracking-wide text-muted-foreground dark:text-slate-300">Path</th>
+              <th className="text-left px-4 py-2.5 font-semibold text-xs uppercase tracking-wide text-muted-foreground dark:text-slate-300 hidden sm:table-cell">Description</th>
             </tr>
           </thead>
           <tbody>
@@ -345,7 +345,7 @@ function ContentApiEndpoints() {
                   </span>
                 </td>
                 <td className="px-4 py-2.5 font-mono text-xs">{ep.path}</td>
-                <td className="px-4 py-2.5 text-muted-foreground hidden sm:table-cell">{ep.desc}</td>
+                <td className="px-4 py-2.5 text-muted-foreground dark:text-slate-300 hidden sm:table-cell">{ep.desc}</td>
               </tr>
             ))}
           </tbody>
@@ -359,7 +359,7 @@ function ContentDeployDocker() {
   return (
     <div className="max-w-3xl space-y-6">
       <PageHeader title="Docker / Compose" section="Deployment" />
-      <p className="text-muted-foreground">
+      <p className="text-muted-foreground dark:text-slate-300">
         The official Docker Compose stack includes Guardivex core, PostgreSQL, Redis, and an
         Nginx TLS terminator. Bring your own certificate or use the built-in ACME (Let's Encrypt)
         integration.
@@ -393,7 +393,7 @@ function ContentGeneric({ title, section }: { title: string; section: string }) 
   return (
     <div className="max-w-3xl space-y-6">
       <PageHeader title={title} section={section} />
-      <p className="text-muted-foreground">
+      <p className="text-muted-foreground dark:text-slate-300">
         Documentation for this section is in progress. Check back soon or{" "}
         <a href="mailto:docs@guardivex.com" className="text-primary underline underline-offset-4">
           contribute to the docs
@@ -450,7 +450,7 @@ function PageHeader({
 }) {
   return (
     <div>
-      <p className="text-xs text-muted-foreground mb-2 uppercase tracking-wide">{section}</p>
+      <p className="text-xs text-muted-foreground dark:text-slate-300 mb-2 uppercase tracking-wide">{section}</p>
       <div className="flex items-center gap-3">
         <h1 className="text-3xl font-heading font-bold">{title}</h1>
         {badge && (
@@ -478,7 +478,7 @@ function RequirementTable({ rows }: { rows: [string, string][] }) {
           {rows.map(([key, value], i) => (
             <tr key={i} className={`border-t border-border first:border-t-0 ${i % 2 === 0 ? "" : "bg-muted/20"}`}>
               <td className="px-4 py-2.5 font-semibold text-foreground w-40 shrink-0">{key}</td>
-              <td className="px-4 py-2.5 text-muted-foreground">{value}</td>
+              <td className="px-4 py-2.5 text-muted-foreground dark:text-slate-300">{value}</td>
             </tr>
           ))}
         </tbody>
@@ -491,7 +491,7 @@ function CodeBlock({ children, language }: { children: string; language?: string
   return (
     <div className="rounded-lg overflow-hidden border border-border">
       {language && (
-        <div className="px-4 py-1.5 bg-muted/60 border-b border-border text-xs font-mono text-muted-foreground">
+        <div className="px-4 py-1.5 bg-muted/60 border-b border-border text-xs font-mono text-muted-foreground dark:text-slate-300">
           {language}
         </div>
       )}
@@ -522,7 +522,7 @@ function Callout({
       <Icon size={18} weight="fill" className={`${text} shrink-0 mt-0.5`} />
       <div className="text-sm">
         <span className={`font-semibold ${text}`}>{title}</span>{" "}
-        <span className="text-muted-foreground">{children}</span>
+        <span className="text-muted-foreground dark:text-slate-300">{children}</span>
       </div>
     </div>
   )
@@ -563,7 +563,7 @@ function Sidebar({
           <div key={section.id}>
             <button
               onClick={() => toggle(section.id)}
-              className="w-full flex items-center justify-between px-3 py-2 text-xs font-bold uppercase tracking-widest text-muted-foreground hover:text-foreground transition-colors rounded-md hover:bg-muted/30"
+              className="w-full flex items-center justify-between px-3 py-2 text-xs font-bold uppercase tracking-widest text-muted-foreground dark:text-slate-300 hover:text-foreground dark:hover:text-white transition-colors rounded-md hover:bg-muted/30"
             >
               <div className="flex items-center gap-2">
                 <section.icon size={14} weight="bold" />
@@ -586,7 +586,7 @@ function Sidebar({
                       className={`w-full text-left flex items-center justify-between px-2 py-1.5 text-sm rounded-md transition-colors ${
                         isActive
                           ? "bg-primary/10 text-primary font-semibold"
-                          : "text-muted-foreground hover:text-foreground hover:bg-muted/30"
+                          : "text-muted-foreground dark:text-slate-300 hover:text-foreground dark:hover:text-white hover:bg-muted/30"
                       }`}
                     >
                       <span>{item.label}</span>
@@ -624,7 +624,7 @@ function TopBar({
         <div className="flex items-center gap-2 sm:gap-3 min-w-0">
           <button
             onClick={onMobileToggle}
-            className="lg:hidden p-1.5 text-muted-foreground hover:text-foreground rounded-md hover:bg-muted/40 transition-colors"
+            className="lg:hidden p-1.5 text-muted-foreground dark:text-slate-300 hover:text-foreground dark:hover:text-white rounded-md hover:bg-muted/40 transition-colors"
             aria-label="Toggle sidebar"
             title="Toggle sidebar"
           >
@@ -644,7 +644,7 @@ function TopBar({
               subtitleClassName="hidden sm:block text-[9px] tracking-[0.18em] mt-0.5"
             />
           </a>
-          <Badge variant="outline" className="hidden md:flex text-[11px] text-muted-foreground border-border">
+          <Badge variant="outline" className="hidden md:flex text-[11px] text-muted-foreground dark:text-slate-300 border-border">
             v3.1
           </Badge>
           <HeaderStatusBadge label="Docs Online" className="hidden lg:inline-flex" />
@@ -721,7 +721,7 @@ export function DocsLayout() {
             {prevItem ? (
               <button
                 onClick={() => handleSelect(prevItem.id)}
-                className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors group"
+                className="flex items-center gap-2 text-sm text-muted-foreground dark:text-slate-300 hover:text-foreground dark:hover:text-white transition-colors group"
               >
                 <ArrowLeft size={15} weight="bold" className="group-hover:-translate-x-0.5 transition-transform" />
                 <span>{prevItem.label}</span>
@@ -730,7 +730,7 @@ export function DocsLayout() {
             {nextItem && (
               <button
                 onClick={() => handleSelect(nextItem.id)}
-                className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors group ml-auto"
+                className="flex items-center gap-2 text-sm text-muted-foreground dark:text-slate-300 hover:text-foreground dark:hover:text-white transition-colors group ml-auto"
               >
                 <span>{nextItem.label}</span>
                 <ArrowRight size={15} weight="bold" className="group-hover:translate-x-0.5 transition-transform" />
@@ -738,7 +738,7 @@ export function DocsLayout() {
             )}
           </div>
 
-          <footer className="mt-8 pb-8 text-xs text-muted-foreground">
+          <footer className="mt-8 pb-8 text-xs text-muted-foreground dark:text-slate-300">
             © 2026 Guardivex Technologies, Inc. — docs.guardivex.com
           </footer>
         </main>
@@ -746,3 +746,5 @@ export function DocsLayout() {
     </div>
   )
 }
+
+

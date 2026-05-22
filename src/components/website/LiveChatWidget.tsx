@@ -108,15 +108,15 @@ export function LiveChatWidget({
 
   if (!isOpen) {
     return (
-      <div className="fixed right-3 bottom-3 z-[70] sm:right-5 sm:bottom-5">
+      <div className="fixed right-2 bottom-2 z-[70] sm:right-4 sm:bottom-4">
         <Button
           onClick={() => onOpenChange(true)}
-          className="h-10 px-3.5 rounded-full shadow-lg shadow-primary/20 gap-1.5"
+          className="h-9 px-3 rounded-full shadow-lg shadow-primary/20 gap-1.5 dark:text-slate-100"
           aria-label="Open live chat"
           title="Open live chat"
         >
-          <ChatCircle size={18} weight="fill" />
-          <span className="font-semibold text-sm">Live Chat</span>
+          <ChatCircle size={16} weight="fill" />
+          <span className="font-semibold text-xs">Live Chat</span>
           <Badge variant="secondary" className="ml-0.5 px-1.5 py-0 h-4 text-[9px]">
             Online
           </Badge>
@@ -126,7 +126,7 @@ export function LiveChatWidget({
   }
 
   return (
-    <div className="fixed right-3 bottom-3 z-[70] w-[calc(100vw-1.5rem)] sm:w-[312px] sm:right-5 sm:bottom-5">
+    <div className="fixed right-2 bottom-2 z-[70] w-[calc(100vw-1rem)] sm:w-[292px] sm:right-4 sm:bottom-4">
       <div className="rounded-xl border border-border bg-card shadow-2xl overflow-hidden">
         <div className="px-3.5 py-2.5 border-b border-border bg-card/80 backdrop-blur-sm flex items-center justify-between">
           <div className="flex items-center gap-2">
@@ -135,8 +135,8 @@ export function LiveChatWidget({
               <Circle size={8} weight="fill" className="text-success absolute animate-ping opacity-60" />
             </div>
             <div>
-              <p className="text-[13px] font-semibold">Guardivex Support</p>
-              <p className="text-[11px] text-muted-foreground">Average response under 2 min</p>
+              <p className="text-[13px] font-semibold dark:text-slate-100">Guardivex Support</p>
+              <p className="text-[11px] text-muted-foreground dark:text-slate-300">Average response under 2 min</p>
             </div>
           </div>
           <Button
@@ -145,12 +145,13 @@ export function LiveChatWidget({
             onClick={() => onOpenChange(false)}
             aria-label="Close live chat"
             title="Close live chat"
+            className="dark:text-slate-300 dark:hover:text-white"
           >
             <X size={16} weight="bold" />
           </Button>
         </div>
 
-        <div ref={scrollContainerRef} className="h-[256px] overflow-y-auto px-3.5 py-2.5 space-y-2.5 bg-background/50">
+        <div ref={scrollContainerRef} className="h-[232px] overflow-y-auto px-3.5 py-2.5 space-y-2.5 bg-background/50">
           {messages.map((message) => (
             <div
               key={message.id}
@@ -160,13 +161,13 @@ export function LiveChatWidget({
                 className={`max-w-[85%] rounded-lg px-2.5 py-1.5 text-[13px] ${
                   message.sender === "user"
                     ? "bg-primary text-primary-foreground"
-                    : "bg-card border border-border"
+                    : "bg-card border border-border text-foreground dark:text-slate-100"
                 }`}
               >
                 <p>{message.text}</p>
                 <p
                   className={`mt-1 text-[9px] ${
-                    message.sender === "user" ? "text-primary-foreground/80" : "text-muted-foreground"
+                    message.sender === "user" ? "text-primary-foreground/80" : "text-muted-foreground dark:text-slate-400"
                   }`}
                 >
                   {message.timestamp}
@@ -176,7 +177,7 @@ export function LiveChatWidget({
           ))}
           {isTyping && (
             <div className="flex justify-start">
-              <div className="bg-card border border-border rounded-lg px-2.5 py-1.5 text-[11px] text-muted-foreground">
+              <div className="bg-card border border-border rounded-lg px-2.5 py-1.5 text-[11px] text-muted-foreground dark:text-slate-300">
                 Agent is typing...
               </div>
             </div>
@@ -189,7 +190,7 @@ export function LiveChatWidget({
               <button
                 key={reply}
                 onClick={() => sendMessage(reply)}
-                className="text-[11px] px-2 py-0.5 rounded-full border border-border hover:border-primary/40 hover:bg-primary/5 transition-colors"
+                className="text-[11px] px-2 py-0.5 rounded-full border border-border text-foreground dark:text-slate-300 dark:hover:text-white hover:border-primary/40 hover:bg-primary/5 transition-colors"
               >
                 {reply}
               </button>
@@ -206,7 +207,7 @@ export function LiveChatWidget({
               value={draft}
               onChange={(e) => setDraft(e.target.value)}
               placeholder="Type your message"
-              className="h-9 flex-1 rounded-md border border-border bg-background px-2.5 text-[13px] outline-none focus:ring-2 focus:ring-primary/30"
+              className="h-9 flex-1 rounded-md border border-border bg-background px-2.5 text-[13px] text-foreground dark:text-slate-100 placeholder:text-muted-foreground dark:placeholder:text-slate-400 outline-none focus:ring-2 focus:ring-primary/30"
             />
             <Button type="submit" size="icon" disabled={!canSend} aria-label="Send message" title="Send message">
               <PaperPlaneTilt size={16} weight="fill" />
