@@ -108,7 +108,7 @@ export function LiveChatWidget({
 
   if (!isOpen) {
     return (
-      <div className="fixed right-2 bottom-2 z-[70] sm:right-4 sm:bottom-4">
+      <div className="fixed right-1 bottom-1 z-[70] sm:right-5 sm:bottom-6">
         <Button
           onClick={() => onOpenChange(true)}
           className="h-9 px-3 rounded-full shadow-lg shadow-primary/20 gap-1.5 dark:text-slate-100"
@@ -126,7 +126,7 @@ export function LiveChatWidget({
   }
 
   return (
-    <div className="fixed right-2 bottom-2 z-[70] w-[calc(100vw-1rem)] sm:w-[292px] sm:right-4 sm:bottom-4">
+    <div className="fixed right-1 bottom-1 z-[70] w-[calc(100vw-1rem)] sm:w-[292px] sm:right-5 sm:bottom-6">
       <div className="rounded-xl border border-border bg-card shadow-2xl overflow-hidden">
         <div className="px-3.5 py-2.5 border-b border-border bg-card/80 backdrop-blur-sm flex items-center justify-between">
           <div className="flex items-center gap-2">

@@ -73,7 +73,11 @@ export function PlatformLayout({ children, currentPage, onNavigate, onLogout, cr
     .find((item) => item.id === currentPage)?.label ?? "Platform"
 
   return (
-    <div className="flex h-screen bg-background">
+    <div className="flex h-screen bg-background premium-shell overflow-hidden">
+      <div className="pointer-events-none absolute inset-0 -z-10">
+        <div className="glow-orb absolute -top-20 left-[-4rem] h-72 w-72 rounded-full bg-cyan-400/10" />
+        <div className="glow-orb absolute top-12 right-[-5rem] h-80 w-80 rounded-full bg-blue-500/10 [animation-delay:1.4s]" />
+      </div>
       {sidebarOpen && (
         <div 
           className="fixed inset-0 bg-background/80 backdrop-blur-sm z-40 lg:hidden"
@@ -82,7 +86,7 @@ export function PlatformLayout({ children, currentPage, onNavigate, onLogout, cr
       )}
 
       <aside className={cn(
-        "fixed lg:relative inset-y-0 left-0 z-50 w-64 sm:w-72 border-r border-border bg-card flex flex-col transition-transform duration-300 lg:translate-x-0",
+        "fixed lg:relative inset-y-0 left-0 z-50 w-64 sm:w-72 border-r border-cyan-300/14 bg-card/80 backdrop-blur-xl flex flex-col transition-transform duration-300 lg:translate-x-0",
         sidebarOpen ? "translate-x-0" : "-translate-x-full"
       )}>
         <div className="p-4 sm:p-6 border-b border-border">
@@ -159,7 +163,7 @@ export function PlatformLayout({ children, currentPage, onNavigate, onLogout, cr
       </aside>
 
       <div className="flex-1 flex flex-col overflow-hidden w-full lg:w-auto">
-        <header className={cn("h-16 sm:h-18 flex items-center justify-between px-3 sm:px-4 lg:px-6 shrink-0", ENTERPRISE_HEADER_SURFACE_CLASS)}>
+        <header className={cn("h-[3.75rem] sm:h-16 flex items-center justify-between px-3 sm:px-4 lg:px-6 shrink-0 m-2 sm:m-3 rounded-2xl", ENTERPRISE_HEADER_SURFACE_CLASS)}>
           <div className="flex items-center gap-2 sm:gap-3 min-w-0">
             <button
               onClick={() => setSidebarOpen(true)}
@@ -206,7 +210,7 @@ export function PlatformLayout({ children, currentPage, onNavigate, onLogout, cr
             </button>
           </div>
         </header>
-        <main className="flex-1 overflow-y-auto">
+        <main className="flex-1 overflow-y-auto px-2 sm:px-3 pb-3">
           {children}
         </main>
       </div>

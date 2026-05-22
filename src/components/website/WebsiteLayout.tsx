@@ -33,14 +33,18 @@ export function WebsiteLayout({ currentPage, onNavigate, onLogin }: WebsiteLayou
   }
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background premium-shell overflow-hidden">
+      <div className="pointer-events-none absolute inset-0 -z-10">
+        <div className="glow-orb absolute -top-24 left-[8%] h-64 w-64 rounded-full bg-cyan-400/12" />
+        <div className="glow-orb absolute -top-14 right-[10%] h-72 w-72 rounded-full bg-blue-500/12 [animation-delay:1.6s]" />
+      </div>
       <WebsiteNavbar
         currentPage={currentPage}
         onNavigate={onNavigate}
         onLogin={onLogin}
         onOpenLiveChat={handleOpenLiveChat}
       />
-      <main>
+      <main className="relative z-10">
         {currentPage === "home" && <HomePage onNavigate={onNavigate} />}
         {currentPage === "product" && <ProductPage />}
         {currentPage === "enterprise" && <EnterprisePage />}
@@ -252,32 +256,60 @@ export function WebsiteLayout({ currentPage, onNavigate, onLogin }: WebsiteLayou
 function HomePage({ onNavigate }: { onNavigate: (page: string) => void }) {
   return (
     <div className="relative guardivex-home-typography">
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 sm:pt-8 lg:pt-9 pb-6 sm:pb-8 lg:pb-9 text-center relative overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_15%,rgba(37,99,235,0.10),transparent_54%)] dark:bg-[radial-gradient(circle_at_50%_15%,rgba(56,189,248,0.16),transparent_52%)]" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_120%,rgba(59,130,246,0.05),transparent_52%)] dark:bg-[radial-gradient(circle_at_50%_120%,rgba(14,165,233,0.08),transparent_50%)]" />
-        <div className="absolute inset-0 opacity-[0.06] dark:opacity-[0.1] bg-[linear-gradient(rgba(125,211,252,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(125,211,252,0.08)_1px,transparent_1px)] bg-[size:34px_34px]" />
-        <div className="absolute left-1/2 top-10 -translate-x-1/2 h-[300px] w-[300px] sm:h-[350px] sm:w-[350px] rounded-full border border-primary/10 dark:border-cyan-400/10" />
-        <div className="absolute left-1/2 top-16 -translate-x-1/2 h-[230px] w-[230px] sm:h-[280px] sm:w-[280px] rounded-full border border-primary/8 dark:border-cyan-400/8" />
-        <div className="relative max-w-4xl mx-auto w-full">
-          <div className="inline-flex items-center px-3.5 sm:px-4 py-1.5 rounded-full bg-primary/8 dark:bg-cyan-400/10 border border-primary/25 dark:border-cyan-300/25 text-primary dark:text-cyan-300 text-[11px] sm:text-xs font-semibold mb-3 sm:mb-4 tracking-[0.01em]">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-7 sm:pt-9 lg:pt-10 pb-6 sm:pb-8 lg:pb-9 relative overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_14%,rgba(0,143,199,0.08),transparent_44%)] dark:bg-[radial-gradient(circle_at_18%_14%,rgba(56,189,248,0.2),transparent_40%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_86%_8%,rgba(0,143,199,0.07),transparent_40%)] dark:bg-[radial-gradient(circle_at_86%_8%,rgba(14,165,233,0.15),transparent_38%)]" />
+        <div className="absolute inset-0 opacity-[0.05] dark:opacity-[0.14] bg-[linear-gradient(rgba(125,211,252,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(125,211,252,0.08)_1px,transparent_1px)] bg-[size:34px_34px]" />
+        <div className="relative grid grid-cols-1 lg:grid-cols-[1.02fr_0.98fr] gap-5 lg:gap-7 items-center">
+          <div className="text-center lg:text-left">
+            <div className="inline-flex items-center px-3.5 sm:px-4 py-1.5 rounded-full bg-primary/8 dark:bg-cyan-400/10 border border-primary/25 dark:border-cyan-300/25 text-primary dark:text-cyan-300 text-[11px] sm:text-xs font-semibold mb-3 sm:mb-4 tracking-[0.01em]">
             Unified SOC Command Center &middot; Security Platform
+            </div>
+            <h1 className="bg-transparent mx-auto lg:mx-0 max-w-[14ch] text-[clamp(2.05rem,5.2vw,3.6rem)] font-[700] font-heading tracking-[-0.03em] text-balance text-foreground dark:text-slate-100 mb-2.5 sm:mb-3 leading-[1.02]">
+              Enterprise Security Platform
+            </h1>
+            <p className="text-[clamp(0.96rem,1.02vw,1.075rem)] text-muted-foreground dark:text-slate-300 mb-4 sm:mb-5 max-w-[54ch] mx-auto lg:mx-0 leading-[1.55] text-pretty">
+              Install on your own server to monitor security devices, cameras, NVRs, access control, alarms, networks, and system health from one SOC Command Center.
+            </p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 max-w-[46rem] mx-auto lg:mx-0 px-2 lg:px-0">
+              <Button size="lg" variant="outline" className="w-full h-10 text-sm">Request Demo</Button>
+              <Button size="lg" onClick={() => onNavigate("download")} className="w-full h-10 text-sm">Download Trial</Button>
+              <Button size="lg" variant="outline" className="w-full h-10 text-sm">View Architecture</Button>
+            </div>
           </div>
-          <h1 className="bg-transparent mx-auto max-w-[14ch] text-[clamp(1.92rem,5.2vw,3.55rem)] font-[700] font-heading tracking-[-0.024em] text-balance text-foreground dark:text-slate-100 mb-2.5 sm:mb-3 leading-[1.02]">
-            Enterprise Security Platform
-          </h1>
-          <p className="text-[clamp(0.96rem,1.02vw,1.075rem)] text-muted-foreground dark:text-slate-300 mb-4 sm:mb-5 max-w-[50ch] mx-auto leading-[1.52] text-pretty">
-            Install on your own server to monitor security devices, cameras, NVRs, access control, alarms, networks, and system health from one SOC Command Center.
-          </p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 max-w-3xl mx-auto px-2">
-            <Button size="lg" variant="outline" className="border-primary/30 dark:border-cyan-300/35 bg-background/60 dark:bg-slate-900/40 text-foreground dark:text-slate-100 hover:bg-primary/10 dark:hover:bg-cyan-500/12 hover:border-primary/45 dark:hover:border-cyan-300/55 w-full h-10 text-sm font-semibold shadow-[0_0_0_1px_rgba(59,130,246,0.1)_inset] dark:shadow-[0_0_0_1px_rgba(6,182,212,0.12)_inset]">
-              Request Demo
-            </Button>
-            <Button size="lg" onClick={() => onNavigate("download")} className="bg-gradient-to-r from-primary via-sky-500 to-cyan-500 dark:from-cyan-400 dark:via-cyan-500 dark:to-sky-500 text-primary-foreground dark:text-slate-950 hover:brightness-105 w-full h-10 text-sm font-semibold shadow-[0_10px_28px_-14px_rgba(59,130,246,0.65)] dark:shadow-[0_10px_28px_-14px_rgba(34,211,238,0.9)] border border-primary/45 dark:border-cyan-300/60">
-              Download Trial
-            </Button>
-            <Button size="lg" variant="outline" className="w-full h-10 text-sm font-semibold border-border dark:border-slate-500/45 text-foreground dark:text-slate-200 bg-background/70 dark:bg-slate-950/35 hover:border-primary/40 dark:hover:border-cyan-300/45 hover:bg-secondary/70 dark:hover:bg-slate-900/65">
-              View Architecture
-            </Button>
+
+          <div className="glass-panel rounded-2xl p-4 sm:p-5 md:p-6 text-left">
+            <div className="flex items-center justify-between mb-4">
+              <div className="inline-flex items-center gap-2 text-xs text-muted-foreground dark:text-slate-300">
+                <span className="inline-flex h-2.5 w-2.5 rounded-full bg-cyan-400 status-pulse" />
+                Live SOC Overview
+              </div>
+              <Badge variant="outline" className="border-primary/35 text-primary dark:text-cyan-200 bg-primary/8 dark:bg-cyan-500/10">Online</Badge>
+            </div>
+            <div className="grid grid-cols-2 gap-3 mb-3">
+              <div className="rounded-xl border border-border/75 bg-white/70 dark:border-cyan-300/20 dark:bg-slate-950/45 p-3">
+                <p className="text-[11px] text-muted-foreground dark:text-slate-400">Critical Alerts</p>
+                <p className="text-2xl font-heading font-bold text-foreground dark:text-cyan-100">8</p>
+              </div>
+              <div className="rounded-xl border border-border/75 bg-white/70 dark:border-cyan-300/20 dark:bg-slate-950/45 p-3">
+                <p className="text-[11px] text-muted-foreground dark:text-slate-400">Devices Online</p>
+                <p className="text-2xl font-heading font-bold text-foreground dark:text-cyan-100">1,247</p>
+              </div>
+            </div>
+            <div className="rounded-xl border border-border/75 bg-white/66 dark:border-cyan-300/16 dark:bg-slate-950/40 p-3 space-y-2">
+              <div className="flex items-center justify-between text-xs">
+                <span className="text-foreground/90 dark:text-slate-300">Building A - Lobby</span>
+                <span className="text-primary dark:text-cyan-300">Motion detected</span>
+              </div>
+              <div className="flex items-center justify-between text-xs">
+                <span className="text-foreground/90 dark:text-slate-300">Warehouse B - Switch Core</span>
+                <span className="text-amber-300">Latency spike</span>
+              </div>
+              <div className="flex items-center justify-between text-xs">
+                <span className="text-foreground/90 dark:text-slate-300">HQ South - Camera 12</span>
+                <span className="text-emerald-300">Restored</span>
+              </div>
+            </div>
           </div>
         </div>
       </section>
