@@ -464,6 +464,9 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
                                      item.id === "documentation" ? handleDocsMouseLeave :
                                      item.id === "support" ? handleSupportMouseLeave :
                                      item.id === "licensing" ? handleLicensingMouseLeave : undefined
+                  const dropdownPositionClass = item.id === "support"
+                    ? "right-0"
+                    : "left-1/2 -translate-x-1/2"
                   
                   return (
                     <div key={item.id} className="relative">
@@ -485,12 +488,12 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
                           </button>
                           
                           {isDropdownOpen && (
-                            <div className="absolute top-full left-0 mt-2 w-[720px] bg-card/98 backdrop-blur-2xl border border-border/60 rounded-xl shadow-2xl shadow-black/20 p-6 z-50">
+                            <div className={`absolute top-full mt-2 ${dropdownPositionClass} w-[min(720px,calc(100vw-2rem))] max-w-[720px] bg-card/98 dark:bg-slate-950/95 backdrop-blur-xl border border-border/60 dark:border-slate-800 rounded-2xl shadow-2xl shadow-black/20 p-6 z-50 overflow-hidden`}>
                               <div className="mb-4">
                                 <h3 className="text-sm font-bold text-foreground mb-1">{dropdownTitle}</h3>
                                 <p className="text-xs text-muted-foreground dark:text-slate-300">{dropdownSubtitle}</p>
                               </div>
-                              <div className="grid grid-cols-2 gap-3">
+                              <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                                 {dropdownData.map((feature) => (
                                   <button
                                     key={feature.title}
@@ -513,8 +516,8 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
                                       <feature.icon size={20} weight="bold" className={feature.color} />
                                     </div>
                                     <div className="flex-1 min-w-0">
-                                      <div className="text-sm font-semibold text-foreground mb-0.5">{feature.title}</div>
-                                      <div className="text-xs text-muted-foreground dark:text-slate-300">{feature.description}</div>
+                                      <div className="text-sm font-semibold text-foreground mb-0.5 break-words">{feature.title}</div>
+                                      <div className="text-xs text-muted-foreground dark:text-slate-300 leading-relaxed break-words">{feature.description}</div>
                                     </div>
                                   </button>
                                 ))}
