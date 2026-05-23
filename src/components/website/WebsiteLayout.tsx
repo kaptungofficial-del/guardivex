@@ -1,4 +1,4 @@
-﻿import { useEffect, useState } from "react"
+﻿import { useState } from "react"
 import { WebsiteNavbar } from "./WebsiteNavbar"
 import { VideoWalkthroughDemo } from "./VideoWalkthroughDemo"
 import { LiveChatWidget } from "./LiveChatWidget"
@@ -257,13 +257,13 @@ function HomePage({ onNavigate }: { onNavigate: (page: string) => void }) {
   return (
     <div className="relative guardivex-home-typography">
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-7 sm:pt-9 lg:pt-10 pb-6 sm:pb-8 lg:pb-9 relative overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_14%,rgba(0,143,199,0.08),transparent_44%)] dark:bg-[radial-gradient(circle_at_18%_14%,rgba(34,211,238,0.22),transparent_42%)]" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_86%_8%,rgba(0,143,199,0.07),transparent_40%)] dark:bg-[radial-gradient(circle_at_86%_8%,rgba(8,145,178,0.2),transparent_40%)]" />
-        <div className="absolute inset-0 dark:bg-[linear-gradient(180deg,rgba(2,8,18,0.6),rgba(4,10,24,0.82))]" />
-        <div className="absolute inset-0 opacity-[0.05] dark:opacity-[0.14] bg-[linear-gradient(rgba(125,211,252,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(125,211,252,0.08)_1px,transparent_1px)] bg-[size:34px_34px]" />
-        <div className="relative grid grid-cols-1 lg:grid-cols-[1.02fr_0.98fr] gap-5 lg:gap-7 items-center">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_14%,rgba(100,116,139,0.08),transparent_48%)] dark:bg-[radial-gradient(circle_at_18%_14%,rgba(71,85,105,0.2),transparent_48%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_86%_8%,rgba(100,116,139,0.06),transparent_44%)] dark:bg-[radial-gradient(circle_at_86%_8%,rgba(51,65,85,0.18),transparent_44%)]" />
+        <div className="absolute inset-0 dark:bg-[linear-gradient(180deg,rgba(3,8,20,0.62),rgba(2,6,16,0.88))]" />
+        <div className="absolute inset-0 opacity-[0.04] dark:opacity-[0.1] bg-[linear-gradient(rgba(148,163,184,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(148,163,184,0.08)_1px,transparent_1px)] bg-[size:34px_34px]" />
+        <div className="relative grid grid-cols-1 lg:grid-cols-1 gap-4 lg:gap-5 items-center">
           <div className="text-center lg:text-left">
-            <div className="inline-flex items-center px-3.5 sm:px-4 py-1.5 rounded-full bg-primary/8 dark:bg-cyan-400/10 border border-primary/25 dark:border-cyan-300/25 text-primary dark:text-cyan-300 text-[11px] sm:text-xs font-semibold mb-3 sm:mb-4 tracking-[0.01em]">
+            <div className="inline-flex items-center px-3.5 sm:px-4 py-1.5 rounded-sm bg-slate-200/70 dark:bg-slate-800/70 border border-slate-300 dark:border-slate-600 text-slate-700 dark:text-slate-200 text-[11px] sm:text-xs font-semibold mb-3 sm:mb-4 tracking-[0.01em]">
             Unified SOC Command Center &middot; Security Platform
             </div>
             <h1 className="bg-transparent mx-auto lg:mx-0 max-w-[14ch] text-[clamp(2.05rem,5.2vw,3.6rem)] font-[700] font-heading tracking-[-0.03em] text-balance text-foreground dark:text-slate-100 mb-2.5 sm:mb-3 leading-[1.02]">
@@ -272,44 +272,10 @@ function HomePage({ onNavigate }: { onNavigate: (page: string) => void }) {
             <p className="text-[clamp(0.96rem,1.02vw,1.075rem)] text-muted-foreground dark:text-slate-300 mb-4 sm:mb-5 max-w-[54ch] mx-auto lg:mx-0 leading-[1.55] text-pretty">
               Install on your own server to monitor security devices, cameras, NVRs, access control, alarms, networks, and system health from one SOC Command Center.
             </p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 max-w-[46rem] mx-auto lg:mx-0 px-2 lg:px-0">
-              <Button size="lg" variant="outline" className="w-full h-10 text-sm">Request Demo</Button>
-              <Button size="lg" onClick={() => onNavigate("download")} className="w-full h-10 text-sm">Download Trial</Button>
-              <Button size="lg" variant="outline" className="w-full h-10 text-sm">View Architecture</Button>
-            </div>
-          </div>
-
-          <div className="glass-panel rounded-2xl p-4 sm:p-5 md:p-6 text-left">
-            <div className="flex items-center justify-between mb-4">
-              <div className="inline-flex items-center gap-2 text-xs text-muted-foreground dark:text-slate-300">
-                <span className="inline-flex h-2.5 w-2.5 rounded-full bg-cyan-400 status-pulse" />
-                Live SOC Overview
-              </div>
-              <Badge variant="outline" className="border-primary/35 text-primary dark:text-cyan-200 bg-primary/8 dark:bg-cyan-500/10">Online</Badge>
-            </div>
-            <div className="grid grid-cols-2 gap-3 mb-3">
-              <div className="rounded-xl border border-border/75 bg-white/70 dark:border-cyan-300/20 dark:bg-slate-950/45 p-3">
-                <p className="text-[11px] text-muted-foreground dark:text-slate-400">Critical Alerts</p>
-                <p className="text-2xl font-heading font-bold text-foreground dark:text-cyan-100">8</p>
-              </div>
-              <div className="rounded-xl border border-border/75 bg-white/70 dark:border-cyan-300/20 dark:bg-slate-950/45 p-3">
-                <p className="text-[11px] text-muted-foreground dark:text-slate-400">Devices Online</p>
-                <p className="text-2xl font-heading font-bold text-foreground dark:text-cyan-100">1,247</p>
-              </div>
-            </div>
-            <div className="rounded-xl border border-border/75 bg-white/66 dark:border-cyan-300/16 dark:bg-slate-950/40 p-3 space-y-2">
-              <div className="flex items-center justify-between text-xs">
-                <span className="text-foreground/90 dark:text-slate-300">Building A - Lobby</span>
-                <span className="text-primary dark:text-cyan-300">Motion detected</span>
-              </div>
-              <div className="flex items-center justify-between text-xs">
-                <span className="text-foreground/90 dark:text-slate-300">Warehouse B - Switch Core</span>
-                <span className="text-amber-300">Latency spike</span>
-              </div>
-              <div className="flex items-center justify-between text-xs">
-                <span className="text-foreground/90 dark:text-slate-300">HQ South - Camera 12</span>
-                <span className="text-emerald-300">Restored</span>
-              </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2.5 sm:gap-3 max-w-[46rem] mx-auto lg:mx-0 px-2 lg:px-0">
+              <Button size="lg" variant="outline" className="w-full h-10 text-sm rounded-md border-slate-300 bg-white/80 text-slate-700 shadow-none hover:bg-slate-100 dark:border-slate-600 dark:bg-slate-900/75 dark:text-slate-200 dark:hover:bg-slate-800/85">Request Demo</Button>
+              <Button size="lg" onClick={() => onNavigate("download")} className="w-full h-10 text-sm rounded-md border border-slate-700 bg-slate-900 text-slate-100 shadow-none hover:bg-slate-800 dark:border-slate-400 dark:bg-slate-100 dark:text-slate-900 dark:hover:bg-white">Download Trial</Button>
+              <Button size="lg" variant="outline" className="w-full h-10 text-sm rounded-md border-slate-300 bg-white/80 text-slate-700 shadow-none hover:bg-slate-100 dark:border-slate-600 dark:bg-slate-900/75 dark:text-slate-200 dark:hover:bg-slate-800/85">View Architecture</Button>
             </div>
           </div>
         </div>
@@ -722,17 +688,6 @@ function SupportPage() {
 }
 
 function DashboardPreviewSection() {
-  const [activeEvent, setActiveEvent] = useState(0)
-  const [hoveredCard, setHoveredCard] = useState<number | null>(null)
-  const [clickedModule, setClickedModule] = useState<string | null>(null)
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setActiveEvent((prev) => (prev + 1) % 5)
-    }, 3000)
-    return () => clearInterval(interval)
-  }, [])
-
   const events = [
     { icon: Warning, label: "Motion detected", site: "Building A - Lobby", time: "Just now", severity: "high" },
     { icon: CheckCircle, label: "Device restored", site: "Building B - Camera 12", time: "2 min ago", severity: "success" },
@@ -805,147 +760,111 @@ function DashboardPreviewSection() {
   ]
 
   return (
-    <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-10 border-t border-border/60 bg-gradient-to-b from-background via-card/20 to-background dark:from-slate-950/85 dark:via-slate-950/65 dark:to-slate-950/40 relative overflow-hidden">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_120%,rgba(37,99,235,0.08),transparent_54%)] dark:bg-[radial-gradient(circle_at_50%_120%,rgba(56,189,248,0.15),transparent_52%)]" />
-      <div className="absolute inset-0 opacity-[0.08] dark:opacity-[0.14] bg-[linear-gradient(rgba(56,189,248,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(56,189,248,0.08)_1px,transparent_1px)] bg-[size:26px_26px]" />
+    <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-7 md:py-8 border-t border-border/60 bg-gradient-to-b from-background via-slate-100/20 to-background dark:from-slate-950/95 dark:via-slate-950/82 dark:to-slate-950/70 relative overflow-hidden">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_120%,rgba(71,85,105,0.08),transparent_56%)] dark:bg-[radial-gradient(circle_at_50%_120%,rgba(51,65,85,0.22),transparent_56%)]" />
+      <div className="absolute inset-0 opacity-[0.06] dark:opacity-[0.11] bg-[linear-gradient(rgba(148,163,184,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(148,163,184,0.08)_1px,transparent_1px)] bg-[size:24px_24px]" />
       
       <div className="relative z-10">
-        <div className="max-w-3xl mx-auto text-center mb-8 md:mb-10">
-          <Badge className="mb-3 sm:mb-4 bg-primary/10 text-primary border-primary/30 hover:bg-primary/20 transition-colors text-xs sm:text-sm">
-            <Circle size={8} weight="fill" className="animate-pulse" />
-            <span className="ml-2">Live Demo Preview</span>
+        <div className="max-w-3xl mx-auto text-center mb-6 md:mb-7">
+          <Badge className="mb-3 bg-slate-200 text-slate-700 border-slate-300 dark:bg-slate-800 dark:text-slate-200 dark:border-slate-600 text-xs">
+            <Circle size={8} weight="fill" className="text-slate-500 dark:text-slate-400" />
+            <span className="ml-2">SOC Console Snapshot</span>
           </Badge>
-          <h2 className="text-2xl sm:text-3xl font-heading font-bold text-foreground dark:text-slate-100 mb-2 sm:mb-3 px-2">Enterprise SOC Command Center</h2>
+          <h2 className="text-2xl sm:text-3xl font-heading font-bold text-foreground dark:text-slate-100 mb-2 px-2">Operational Security Command Console</h2>
           <p className="text-sm sm:text-base text-muted-foreground dark:text-slate-300 px-2">
-            Real-time monitoring and threat detection across your entire security infrastructure
+            Unified telemetry, alert triage, and site posture in a production-grade SOC interface.
           </p>
         </div>
 
         <div className="w-full">
-          <div className="rounded-xl overflow-hidden border border-border/70 dark:border-slate-600/60 shadow-2xl bg-gradient-to-br from-card/95 via-background/95 to-card/95 dark:from-slate-900/95 dark:via-slate-900/90 dark:to-slate-950/95 backdrop-blur-sm transition-all duration-300 hover:border-cyan-300/30 hover:shadow-cyan-500/10">
-            <div className="bg-card/80 dark:bg-slate-900/80 backdrop-blur-sm border-b border-border/60 dark:border-slate-700/60 px-3 sm:px-4 py-2 sm:py-3 flex items-center gap-2 sm:gap-3">
+          <div className="rounded-md overflow-hidden border border-slate-300 dark:border-slate-700 shadow-[0_22px_46px_-30px_rgba(15,23,42,0.85)] bg-gradient-to-br from-slate-50 via-white to-slate-100 dark:from-slate-900 dark:via-slate-900 dark:to-slate-950">
+            <div className="bg-slate-100 dark:bg-slate-900 border-b border-slate-300 dark:border-slate-700 px-3 sm:px-4 py-2.5 sm:py-3 flex items-center gap-2 sm:gap-3">
               <div className="flex gap-1.5">
-                <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-destructive/60 hover:bg-destructive transition-colors cursor-pointer" />
-                <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-warning/60 hover:bg-warning transition-colors cursor-pointer" />
-                <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-success/60 hover:bg-success transition-colors cursor-pointer animate-pulse" />
+                <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-slate-500/60" />
+                <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-slate-500/60" />
+                <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-slate-500/60" />
               </div>
               <div className="flex-1 flex items-center justify-center gap-2">
-                <Monitor size={14} className="text-muted-foreground dark:text-slate-300 hidden sm:block" weight="duotone" />
-                <span className="text-[10px] sm:text-xs text-muted-foreground dark:text-slate-400 font-mono">Guardivex Security Platform</span>
+                <Monitor size={14} className="text-slate-500 dark:text-slate-400 hidden sm:block" weight="duotone" />
+                <span className="text-[10px] sm:text-xs text-slate-600 dark:text-slate-400 font-mono">Guardivex SOC Console / Production Cluster</span>
               </div>
               <div className="flex items-center gap-2">
-                <Badge variant="outline" className="text-[10px] sm:text-xs gap-1 border-success/30 text-success">
-                  <Circle size={6} weight="fill" className="animate-pulse" />
+                <Badge variant="outline" className="text-[10px] sm:text-xs gap-1 border-slate-400 dark:border-slate-600 text-slate-600 dark:text-slate-300 rounded-sm">
+                  <Circle size={6} weight="fill" className="text-emerald-400" />
                   <span className="hidden xs:inline">Online</span>
                 </Badge>
               </div>
             </div>
 
-            <div className="p-4 sm:p-6 md:p-8 space-y-5 sm:space-y-6">
+            <div className="p-3 sm:p-4 md:p-5 space-y-4 sm:space-y-5">
               <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-3 sm:gap-4">
                 {statusCards.map((card, i) => (
                   <div
                     key={i}
-                    className={`bg-gradient-to-br ${card.gradient} ${card.hoverGradient} rounded-lg p-4 border ${card.border} transition-all duration-300 cursor-pointer min-h-[132px] ${
-                      hoveredCard === i ? 'shadow-lg ring-2 ring-primary/30 -translate-y-0.5' : ''
-                    }`}
-                    onMouseEnter={() => setHoveredCard(i)}
-                    onMouseLeave={() => setHoveredCard(null)}
-                    onClick={() => setClickedModule(`status-${i}`)}
+                    className="rounded-md p-3.5 border border-slate-300 bg-slate-50 dark:border-slate-700 dark:bg-slate-900/65 min-h-[118px]"
                   >
                     <div className="flex items-center justify-between mb-2">
-                      <card.icon 
-                        size={24} 
-                        className={`${card.iconColor} transition-transform duration-300 ${hoveredCard === i ? 'scale-110' : ''}`} 
-                        weight="duotone" 
-                      />
-                      <Badge className={`text-xs ${card.badgeClass}`}>
+                      <card.icon size={22} className="text-slate-600 dark:text-slate-300" weight="duotone" />
+                      <Badge className="text-[10px] rounded-sm bg-slate-200 text-slate-700 border-slate-300 dark:bg-slate-800 dark:text-slate-200 dark:border-slate-600">
                         {card.badge}
                       </Badge>
                     </div>
-                    <div className={`text-2xl font-bold font-heading mb-1 transition-all duration-300 ${hoveredCard === i ? 'text-primary' : ''}`}>
+                    <div className="text-2xl font-bold font-heading mb-1 text-foreground dark:text-slate-100">
                       {card.value}
                     </div>
-                    <div className="text-xs text-muted-foreground dark:text-slate-300">{card.label}</div>
-                    {clickedModule === `status-${i}` && (
-                      <div className="mt-2 text-xs text-primary font-medium animate-pulse">
-                        Module active
-                      </div>
-                    )}
+                    <div className="text-xs text-slate-600 dark:text-slate-400">{card.label}</div>
                   </div>
                 ))}
               </div>
 
               <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
-                <div 
-                  className="lg:col-span-2 bg-card/55 dark:bg-slate-900/55 rounded-lg border border-border/60 dark:border-slate-700/60 p-4 hover:border-cyan-300/30 transition-all duration-300 cursor-pointer hover:shadow-lg"
-                  onClick={() => setClickedModule('alerts')}
-                >
-                  <div className="flex items-center justify-between mb-4">
+                <div className="lg:col-span-2 bg-slate-50 dark:bg-slate-900/70 rounded-md border border-slate-300 dark:border-slate-700 p-3.5">
+                  <div className="flex items-center justify-between mb-3">
                     <h3 className="text-sm font-semibold flex items-center gap-2">
-                      <Bell size={16} weight="duotone" className="text-primary" />
+                      <Bell size={16} weight="duotone" className="text-slate-600 dark:text-slate-300" />
                       Live Alert Feed
                     </h3>
-                    <Badge variant="outline" className="text-xs gap-1">
-                      <Circle size={6} weight="fill" className="animate-pulse text-destructive" />
-                      Real-time
+                    <Badge variant="outline" className="text-xs gap-1 rounded-sm border-slate-400 dark:border-slate-600 text-slate-600 dark:text-slate-300">
+                      Priority Queue
                     </Badge>
                   </div>
                   <div className="space-y-2">
                     {events.slice(0, 4).map((event, i) => (
-                      <div 
-                        key={i} 
-                        className={`flex items-start gap-3 p-3 bg-background/55 dark:bg-slate-950/55 rounded border transition-all duration-500 ${
-                          i === activeEvent % 4 
-                            ? 'border-primary/50 shadow-md scale-[1.02] bg-primary/5' 
-                            : 'border-border/50 dark:border-slate-700/50 hover:border-border dark:hover:border-slate-500/70'
-                        }`}
-                      >
-                        <event.icon 
+                      <div key={i} className="flex items-start gap-3 p-2.5 bg-background/60 dark:bg-slate-950/75 rounded-sm border border-slate-300/70 dark:border-slate-700/70">
+                        <event.icon
                           size={20} 
                           className={`${
                             event.severity === "high" ? "text-destructive" : 
                             event.severity === "warning" ? "text-warning" :
                             event.severity === "success" ? "text-success" : "text-info"
-                          } ${i === activeEvent % 4 ? 'animate-pulse' : ''}`}
+                          }`}
                           weight="duotone" 
                         />
                         <div className="flex-1 min-w-0">
-                          <div className="text-sm font-medium">{event.label}</div>
-                          <div className="text-xs text-muted-foreground dark:text-slate-300 truncate">{event.site}</div>
+                          <div className="text-sm font-medium text-foreground dark:text-slate-100">{event.label}</div>
+                          <div className="text-xs text-slate-600 dark:text-slate-400 truncate">{event.site}</div>
                         </div>
-                        <div className="text-xs text-muted-foreground dark:text-slate-300 whitespace-nowrap">{event.time}</div>
+                        <div className="text-xs text-slate-500 dark:text-slate-400 whitespace-nowrap font-mono">{event.time}</div>
                       </div>
                     ))}
                   </div>
-                  {clickedModule === 'alerts' && (
-                    <div className="mt-3 p-2 bg-primary/10 border border-primary/30 rounded text-xs text-primary text-center font-medium">
-                      Click to view full alert dashboard
-                    </div>
-                  )}
                 </div>
 
-                <div 
-                  className="bg-card/55 dark:bg-slate-900/55 rounded-lg border border-border/60 dark:border-slate-700/60 p-4 hover:border-cyan-300/30 transition-all duration-300 cursor-pointer hover:shadow-lg"
-                  onClick={() => setClickedModule('devices')}
-                >
-                  <div className="flex items-center justify-between mb-4">
+                <div className="bg-slate-50 dark:bg-slate-900/70 rounded-md border border-slate-300 dark:border-slate-700 p-3.5">
+                  <div className="flex items-center justify-between mb-3">
                     <h3 className="text-sm font-semibold flex items-center gap-2">
-                      <Gauge size={16} weight="duotone" className="text-primary" />
+                      <Gauge size={16} weight="duotone" className="text-slate-600 dark:text-slate-300" />
                       Device Health
                     </h3>
-                    <Badge variant="outline" className="text-xs">12 Types</Badge>
+                    <Badge variant="outline" className="text-xs rounded-sm border-slate-400 dark:border-slate-600 text-slate-600 dark:text-slate-300">12 Types</Badge>
                   </div>
                   <div className="space-y-3">
                     {devices.map((device, i) => (
-                      <div 
-                        key={i} 
-                        className="p-2 bg-background/55 dark:bg-slate-950/55 rounded border border-border/50 dark:border-slate-700/50 hover:border-cyan-300/30 transition-all duration-300 hover:scale-[1.02] group"
-                      >
+                      <div key={i} className="p-2 bg-background/60 dark:bg-slate-950/75 rounded-sm border border-slate-300/70 dark:border-slate-700/70">
                         <div className="flex items-center gap-2 mb-2">
-                          <device.icon size={16} className="text-primary group-hover:scale-110 transition-transform" weight="duotone" />
+                          <device.icon size={16} className="text-slate-600 dark:text-slate-300" weight="duotone" />
                           <span className="text-xs font-medium flex-1">{device.label}</span>
-                          <span className="text-xs text-muted-foreground dark:text-slate-300">{device.count}</span>
+                          <span className="text-xs text-slate-600 dark:text-slate-400 font-mono">{device.count}</span>
                           <span className={`text-xs font-mono ${
                             device.trend.startsWith('+') ? 'text-success' : 
                             device.trend.startsWith('-') ? 'text-destructive' : 'text-muted-foreground dark:text-slate-300'
@@ -955,11 +874,11 @@ function DashboardPreviewSection() {
                         </div>
                         <div className="w-full bg-muted/30 rounded-full h-2 overflow-hidden">
                           <div 
-                            className={`h-2 rounded-full transition-all duration-1000 ${
+                            className={`h-2 rounded-full ${
                               device.status >= 98 ? 'bg-success' : 
                               device.status >= 90 ? 'bg-warning' : 'bg-destructive'
                             } ${
-                              device.status >= 98 ? 'w-full shadow-[0_0_8px_rgba(120,200,120,0.5)]' :
+                              device.status >= 98 ? 'w-full' :
                               device.status >= 95 ? 'w-11/12' :
                               device.status >= 90 ? 'w-10/12' :
                               device.status >= 80 ? 'w-9/12' :
@@ -967,66 +886,53 @@ function DashboardPreviewSection() {
                             }`}
                           />
                         </div>
-                        <div className="text-xs text-muted-foreground dark:text-slate-300 mt-1 text-right">{device.status}%</div>
+                        <div className="text-xs text-slate-600 dark:text-slate-400 mt-1 text-right font-mono">{device.status}%</div>
                       </div>
                     ))}
                   </div>
-                  {clickedModule === 'devices' && (
-                    <div className="mt-3 p-2 bg-primary/10 border border-primary/30 rounded text-xs text-primary text-center font-medium">
-                      Click to view device registry
-                    </div>
-                  )}
                 </div>
               </div>
 
-              <div 
-                className="bg-card/55 dark:bg-slate-900/55 rounded-lg border border-border/60 dark:border-slate-700/60 p-4 hover:border-cyan-300/30 transition-all duration-300 cursor-pointer hover:shadow-lg"
-                onClick={() => setClickedModule('sites')}
-              >
-                <div className="flex items-center justify-between mb-4">
+              <div className="bg-slate-50 dark:bg-slate-900/70 rounded-md border border-slate-300 dark:border-slate-700 p-3.5">
+                <div className="flex items-center justify-between mb-3">
                   <h3 className="text-sm font-semibold flex items-center gap-2">
-                    <Buildings size={16} weight="duotone" className="text-primary" />
+                    <Buildings size={16} weight="duotone" className="text-slate-600 dark:text-slate-300" />
                     Site Health Overview
                   </h3>
-                  <Badge variant="outline" className="text-xs">23 Sites</Badge>
+                  <Badge variant="outline" className="text-xs rounded-sm border-slate-400 dark:border-slate-600 text-slate-600 dark:text-slate-300">23 Sites</Badge>
                 </div>
                 <div className="grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-6 gap-3">
                   {siteHealth.map((site, i) => (
                     <div 
                       key={i} 
-                      className={`p-3 rounded border transition-all duration-300 hover:scale-105 ${
-                        site.status === 'healthy' ? 'bg-success/5 border-success/20 hover:border-success/40' :
-                        site.status === 'warning' ? 'bg-warning/5 border-warning/20 hover:border-warning/40' :
-                        'bg-destructive/5 border-destructive/20 hover:border-destructive/40'
+                      className={`p-3 rounded-sm border ${
+                        site.status === 'healthy' ? 'bg-emerald-500/5 border-emerald-500/25' :
+                        site.status === 'warning' ? 'bg-amber-500/5 border-amber-500/25' :
+                        'bg-red-500/5 border-red-500/25'
                       }`}
                     >
                       <div className="text-xs font-medium mb-1 truncate" title={site.name}>{site.name}</div>
-                      <div className="text-xs text-muted-foreground dark:text-slate-300 mb-2">{site.devices} devices</div>
+                      <div className="text-xs text-slate-600 dark:text-slate-400 mb-2 font-mono">{site.devices} devices</div>
                       <div className={`w-full h-1 rounded-full mb-1 ${
                         site.status === 'healthy' ? 'bg-success' :
                         site.status === 'warning' ? 'bg-warning' :
                         'bg-destructive'
                       }`} />
-                      <div className="text-xs text-muted-foreground dark:text-slate-300">{site.uptime}%</div>
+                      <div className="text-xs text-slate-600 dark:text-slate-400 font-mono">{site.uptime}%</div>
                     </div>
                   ))}
                 </div>
-                {clickedModule === 'sites' && (
-                  <div className="mt-3 p-2 bg-primary/10 border border-primary/30 rounded text-xs text-primary text-center font-medium">
-                    Click to view site management
-                  </div>
-                )}
               </div>
             </div>
           </div>
 
-          <div className="mt-8 text-center">
-            <p className="text-sm text-muted-foreground dark:text-slate-300 mb-4 font-medium">
-              <span className="inline-block px-3 py-1 rounded-full bg-primary/10 dark:bg-cyan-400/10 border border-primary/30 dark:border-cyan-300/30 text-primary dark:text-cyan-200">
-                Interactive Demo - Hover over cards and click modules to explore
+          <div className="mt-6 text-center">
+            <p className="text-sm text-slate-600 dark:text-slate-400 mb-3 font-medium">
+              <span className="inline-block px-3 py-1 rounded-sm bg-slate-200/80 dark:bg-slate-800/80 border border-slate-300 dark:border-slate-600 text-slate-700 dark:text-slate-200">
+                Enterprise Operations View
               </span>
             </p>
-            <div className="flex flex-wrap gap-3 justify-center text-xs text-muted-foreground dark:text-slate-300">
+            <div className="flex flex-wrap gap-2.5 justify-center text-xs text-slate-600 dark:text-slate-400">
               {[
                 "Real-time monitoring",
                 "Threat detection",
@@ -1037,7 +943,7 @@ function DashboardPreviewSection() {
               ].map((feature, i) => (
                 <div 
                   key={i}
-                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-card/55 dark:bg-slate-900/55 border border-border/60 dark:border-slate-700/60 hover:border-cyan-300/35 hover:bg-cyan-500/8 transition-all duration-300 cursor-pointer"
+                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-sm bg-slate-100/80 dark:bg-slate-900/65 border border-slate-300 dark:border-slate-700"
                 >
                   <CheckCircle size={14} className="text-success" weight="fill" />
                   <span>{feature}</span>
