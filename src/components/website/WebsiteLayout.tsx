@@ -65,7 +65,7 @@ export function WebsiteLayout({ currentPage, onNavigate, onLogin }: WebsiteLayou
                   subtitle="SECURITY PLATFORM"
                   markClassName="w-16 h-16"
                   titleClassName="text-xl font-extrabold tracking-[-0.02em]"
-                  subtitleClassName="text-[10px] tracking-[0.14em] mt-1.5 text-muted-foreground/80 dark:text-slate-300"
+                  subtitleClassName="text-[10px] tracking-[0.14em] mt-1.5 text-muted-foreground/80"
                 />
               </div>
               <p className="text-sm text-muted-foreground dark:text-slate-300 max-w-md leading-relaxed">
