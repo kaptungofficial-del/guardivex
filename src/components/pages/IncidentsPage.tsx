@@ -59,8 +59,8 @@ export function IncidentsPage({ incidents: initialIncidents }: IncidentsPageProp
   const resolvedIncidents = incidents.filter((i) => i.status === "resolved")
 
   const renderIncident = (incident: Incident) => (
-    <Card key={incident.id} className="bg-card border-border mb-3">
-      <CardContent className="p-4">
+    <Card key={incident.id} className="bg-card border-border mb-2.5">
+      <CardContent className="p-3.5">
         <div className="flex flex-col sm:flex-row items-start justify-between gap-4">
           <div className="flex-1 min-w-0 w-full">
             <div className="flex flex-wrap items-center gap-2 mb-2">
@@ -74,7 +74,7 @@ export function IncidentsPage({ incidents: initialIncidents }: IncidentsPageProp
                 {formatDistanceToNow(new Date(incident.createdAt), { addSuffix: true })}
               </span>
             </div>
-            <h3 className="text-base font-semibold mb-2">{incident.title}</h3>
+            <h3 className="text-sm font-semibold mb-2 leading-tight">{incident.title}</h3>
             <p className="text-sm text-muted-foreground mb-3">{incident.description}</p>
             <div className="flex flex-wrap items-center gap-4 text-xs text-muted-foreground">
               <div>
@@ -122,9 +122,9 @@ export function IncidentsPage({ incidents: initialIncidents }: IncidentsPageProp
   )
 
   return (
-    <div className="p-4 md:p-6 space-y-6">
+    <div className="p-4 md:p-5 space-y-5">
       <div>
-        <h1 className="text-2xl md:text-3xl font-bold tracking-tight">Incidents</h1>
+        <h1 className="text-2xl md:text-[2rem] font-semibold tracking-tight">Incidents</h1>
         <p className="text-sm md:text-base text-muted-foreground">
           Track and manage security incidents • {openIncidents.length + investigatingIncidents.length} active
         </p>
@@ -148,35 +148,35 @@ export function IncidentsPage({ incidents: initialIncidents }: IncidentsPageProp
         </TabsList>
         </div>
 
-        <TabsContent value="all" className="space-y-4 mt-6">
+        <TabsContent value="all" className="space-y-3 mt-5">
           {incidents.map(renderIncident)}
         </TabsContent>
 
-        <TabsContent value="open" className="space-y-4 mt-6">
+        <TabsContent value="open" className="space-y-3 mt-5">
           {openIncidents.length > 0 ? (
             openIncidents.map(renderIncident)
           ) : (
-            <div className="text-center py-12 text-muted-foreground">
+            <div className="text-center py-8 text-muted-foreground">
               <p>No open incidents</p>
             </div>
           )}
         </TabsContent>
 
-        <TabsContent value="investigating" className="space-y-4 mt-6">
+        <TabsContent value="investigating" className="space-y-3 mt-5">
           {investigatingIncidents.length > 0 ? (
             investigatingIncidents.map(renderIncident)
           ) : (
-            <div className="text-center py-12 text-muted-foreground">
+            <div className="text-center py-8 text-muted-foreground">
               <p>No incidents under investigation</p>
             </div>
           )}
         </TabsContent>
 
-        <TabsContent value="resolved" className="space-y-4 mt-6">
+        <TabsContent value="resolved" className="space-y-3 mt-5">
           {resolvedIncidents.length > 0 ? (
             resolvedIncidents.map(renderIncident)
           ) : (
-            <div className="text-center py-12 text-muted-foreground">
+            <div className="text-center py-8 text-muted-foreground">
               <p>No resolved incidents</p>
             </div>
           )}

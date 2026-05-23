@@ -54,27 +54,27 @@ export function DevicesPage({ devices }: DevicesPageProps) {
   })
 
   return (
-    <div className="p-4 md:p-6 space-y-6">
+    <div className="p-4 md:p-5 space-y-5">
       <div>
-        <h1 className="text-2xl md:text-3xl font-bold tracking-tight">Devices</h1>
+        <h1 className="text-2xl md:text-[2rem] font-semibold tracking-tight">Devices</h1>
         <p className="text-sm md:text-base text-muted-foreground">Monitor and manage all security devices</p>
       </div>
 
       <Card className="bg-card border-border">
         <CardHeader>
           <CardTitle className="text-base md:text-lg font-semibold">Device Inventory</CardTitle>
-          <div className="flex flex-col sm:flex-row gap-3 pt-3">
+          <div className="flex flex-col sm:flex-row gap-2.5 pt-2.5">
             <div className="relative flex-1">
               <MagnifyingGlass size={18} className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground" />
               <Input
                 placeholder="Search devices or sites..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="pl-10 bg-secondary"
+                className="pl-10 bg-secondary h-8.5"
               />
             </div>
             <Select value={statusFilter} onValueChange={setStatusFilter}>
-              <SelectTrigger className="w-full sm:w-[180px] bg-secondary">
+              <SelectTrigger className="w-full sm:w-[180px] bg-secondary h-8.5">
                 <SelectValue placeholder="Status" />
               </SelectTrigger>
               <SelectContent>
@@ -85,7 +85,7 @@ export function DevicesPage({ devices }: DevicesPageProps) {
               </SelectContent>
             </Select>
             <Select value={typeFilter} onValueChange={setTypeFilter}>
-              <SelectTrigger className="w-full sm:w-[180px] bg-secondary">
+              <SelectTrigger className="w-full sm:w-[180px] bg-secondary h-8.5">
                 <SelectValue placeholder="Type" />
               </SelectTrigger>
               <SelectContent>
@@ -150,7 +150,7 @@ export function DevicesPage({ devices }: DevicesPageProps) {
             </div>
           </div>
           {filteredDevices.length === 0 && (
-            <div className="text-center py-12 text-muted-foreground">
+            <div className="text-center py-8 text-muted-foreground">
               <p>No devices found matching your criteria</p>
             </div>
           )}

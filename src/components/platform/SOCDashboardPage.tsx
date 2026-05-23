@@ -103,9 +103,9 @@ export function SOCDashboardPage({ metrics, systemHealth, license, activityLogs,
   )
 
   return (
-    <div className="p-4 md:p-6 lg:p-8 space-y-6">
+    <div className="p-4 md:p-5 lg:p-6 space-y-5">
       <div>
-        <h1 className="text-2xl md:text-3xl font-heading font-bold mb-2">SOC Command Center</h1>
+        <h1 className="text-2xl md:text-[2rem] font-heading font-semibold mb-1.5">SOC Command Center</h1>
         <p className="text-sm md:text-base text-muted-foreground">Real-time security monitoring and platform health overview</p>
         {!isMobile && (
           <div className="mt-3 flex flex-wrap items-center gap-2">
@@ -142,7 +142,7 @@ export function SOCDashboardPage({ metrics, systemHealth, license, activityLogs,
               </div>
             </CardHeader>
             <CardContent>
-              <div className="text-3xl font-bold font-heading mb-2">{metrics.securityScore}%</div>
+              <div className="text-2xl font-bold font-heading mb-2">{metrics.securityScore}%</div>
               <Progress value={metrics.securityScore} className="h-2" />
             </CardContent>
           </Card>
@@ -155,7 +155,7 @@ export function SOCDashboardPage({ metrics, systemHealth, license, activityLogs,
               </div>
             </CardHeader>
             <CardContent>
-              <div className="text-3xl font-bold font-heading">{metrics.totalSites}</div>
+              <div className="text-2xl font-bold font-heading">{metrics.totalSites}</div>
               <p className="text-xs text-muted-foreground mt-1">Monitored locations</p>
             </CardContent>
           </Card>
@@ -168,7 +168,7 @@ export function SOCDashboardPage({ metrics, systemHealth, license, activityLogs,
               </div>
             </CardHeader>
             <CardContent>
-              <div className="text-3xl font-bold font-heading">
+              <div className="text-2xl font-bold font-heading">
                 {metrics.devicesOnline}/{metrics.devicesTotal}
               </div>
               <div className="flex items-center gap-2 mt-1">
@@ -187,7 +187,7 @@ export function SOCDashboardPage({ metrics, systemHealth, license, activityLogs,
               </div>
             </CardHeader>
             <CardContent>
-              <div className="text-3xl font-bold font-heading text-destructive">{metrics.criticalAlerts}</div>
+              <div className="text-2xl font-bold font-heading text-destructive">{metrics.criticalAlerts}</div>
               <p className="text-xs text-muted-foreground mt-1">Requires attention</p>
             </CardContent>
           </Card>
@@ -195,31 +195,31 @@ export function SOCDashboardPage({ metrics, systemHealth, license, activityLogs,
       )}
 
       {!isMobile && (
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
           <Card className="lg:col-span-2">
             <CardHeader>
               <CardTitle>System Health</CardTitle>
           </CardHeader>
-          <CardContent className="space-y-4">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <CardContent className="space-y-3.5">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3.5">
               <div>
                 <div className="text-xs text-muted-foreground mb-1">CPU</div>
-                <div className="text-2xl font-bold">{systemHealth.cpuUsage}%</div>
+                <div className="text-xl font-bold">{systemHealth.cpuUsage}%</div>
                 <Progress value={systemHealth.cpuUsage} className="h-1 mt-2" />
               </div>
               <div>
                 <div className="text-xs text-muted-foreground mb-1">Memory</div>
-                <div className="text-2xl font-bold">{systemHealth.memoryUsage}%</div>
+                <div className="text-xl font-bold">{systemHealth.memoryUsage}%</div>
                 <Progress value={systemHealth.memoryUsage} className="h-1 mt-2" />
               </div>
               <div>
                 <div className="text-xs text-muted-foreground mb-1">Disk</div>
-                <div className="text-2xl font-bold">{systemHealth.diskUsage}%</div>
+                <div className="text-xl font-bold">{systemHealth.diskUsage}%</div>
                 <Progress value={systemHealth.diskUsage} className="h-1 mt-2" />
               </div>
               <div>
                 <div className="text-xs text-muted-foreground mb-1">Latency</div>
-                <div className="text-2xl font-bold">{systemHealth.networkLatency}ms</div>
+                <div className="text-xl font-bold">{systemHealth.networkLatency}ms</div>
                 <Progress value={latencyProgress} className="h-1 mt-2" />
               </div>
             </div>
@@ -337,7 +337,7 @@ export function SOCDashboardPage({ metrics, systemHealth, license, activityLogs,
       )}
 
       {!isMobile && (
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
         <Card>
           <CardHeader>
             <div className="flex flex-wrap items-center justify-between gap-2">

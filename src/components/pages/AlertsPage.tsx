@@ -44,9 +44,9 @@ export function AlertsPage({ alerts: initialAlerts }: AlertsPageProps) {
   const unacknowledgedCount = alerts.filter((a) => !a.acknowledged).length
 
   return (
-    <div className="p-4 md:p-6 space-y-6">
+    <div className="p-4 md:p-5 space-y-5">
       <div>
-        <h1 className="text-2xl md:text-3xl font-bold tracking-tight">Alerts</h1>
+        <h1 className="text-2xl md:text-[2rem] font-semibold tracking-tight">Alerts</h1>
         <p className="text-sm md:text-base text-muted-foreground">
           Monitor and respond to security alerts • {unacknowledgedCount} unacknowledged
         </p>
@@ -70,7 +70,7 @@ export function AlertsPage({ alerts: initialAlerts }: AlertsPageProps) {
             </Select>
           </div>
         </CardHeader>
-        <CardContent className="space-y-3">
+        <CardContent className="space-y-2.5">
           {filteredAlerts.map((alert) => (
             <Card
               key={alert.id}
@@ -80,7 +80,7 @@ export function AlertsPage({ alerts: initialAlerts }: AlertsPageProps) {
                   : "border-l-primary bg-card"
               }`}
             >
-              <CardContent className="p-4">
+              <CardContent className="p-3.5">
                 <div className="flex flex-col sm:flex-row items-start justify-between gap-4">
                   <div className="flex-1 min-w-0 w-full">
                     <div className="flex flex-wrap items-center gap-2 mb-2">
@@ -96,7 +96,7 @@ export function AlertsPage({ alerts: initialAlerts }: AlertsPageProps) {
                         </Badge>
                       )}
                     </div>
-                    <h3 className="text-sm font-semibold mb-1">{alert.title}</h3>
+                    <h3 className="text-sm font-semibold mb-1 leading-tight">{alert.title}</h3>
                     <p className="text-sm text-muted-foreground mb-3">{alert.message}</p>
                     <div className="flex flex-wrap items-center gap-4 text-xs text-muted-foreground">
                       <div>
@@ -128,7 +128,7 @@ export function AlertsPage({ alerts: initialAlerts }: AlertsPageProps) {
             </Card>
           ))}
           {filteredAlerts.length === 0 && (
-            <div className="text-center py-12 text-muted-foreground">
+            <div className="text-center py-8 text-muted-foreground">
               <p>No alerts found matching your criteria</p>
             </div>
           )}

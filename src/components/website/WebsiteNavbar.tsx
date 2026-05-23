@@ -411,10 +411,10 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
         </div>
       </div>
 
-      <nav className="sticky top-2 z-50 px-2 sm:px-4 lg:px-5">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 rounded-2xl border border-border/85 bg-white/88 dark:border-slate-700/70 dark:bg-[linear-gradient(120deg,rgba(5,12,24,0.92),rgba(8,19,38,0.88),rgba(4,10,20,0.92))] backdrop-blur-2xl shadow-[0_14px_30px_-22px_rgba(8,17,31,0.22)] dark:shadow-[0_20px_34px_-24px_rgba(8,145,178,0.62)]">
-          <div className="flex items-center justify-between h-[2.95rem] sm:h-[3.15rem] lg:h-[3.35rem] gap-3 sm:gap-4">
-            <div className="flex items-center gap-2.5 lg:gap-8 min-w-0">
+      <nav className="sticky top-1 z-50 px-2 sm:px-3 lg:px-4">
+        <div className="max-w-7xl mx-auto px-3 sm:px-5 lg:px-6 rounded-lg border border-border/85 bg-white/92 dark:border-slate-700/75 dark:bg-[linear-gradient(120deg,rgba(6,12,24,0.94),rgba(7,14,27,0.92),rgba(6,12,24,0.94))] backdrop-blur-md shadow-[0_10px_20px_-18px_rgba(8,17,31,0.28)] dark:shadow-[0_12px_24px_-20px_rgba(2,6,18,0.82)]">
+          <div className="flex items-center justify-between h-[2.8rem] sm:h-[3rem] lg:h-[3.1rem] gap-2.5 sm:gap-3">
+            <div className="flex items-center gap-2 lg:gap-6 min-w-0">
               <button 
                 onClick={() => handleNavigate("home")} 
                 aria-label="Go to home"
@@ -432,7 +432,7 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
                 />
               </button>
               
-              <div className="hidden lg:flex items-center gap-2.5 xl:gap-3">
+              <div className="hidden lg:flex items-center gap-2 xl:gap-2.5">
                 {navItems.map((item) => {
                   const isDropdownOpen = item.id === "product" ? productDropdownOpen : 
                                         item.id === "enterprise" ? enterpriseDropdownOpen :
@@ -478,7 +478,7 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
                         >
                           <button
                             onClick={() => handleNavigate(item.id)}
-                            className={`relative px-4 xl:px-[1.1rem] py-2 text-[12.5px] xl:text-[13.5px] tracking-[0.01em] font-medium rounded-md transition-all duration-200 flex items-center gap-1.5 border whitespace-nowrap ${
+                            className={`relative px-3 xl:px-3.5 py-1.5 text-[12px] xl:text-[13px] tracking-[0.01em] font-medium rounded-sm transition-all duration-150 flex items-center gap-1.5 border whitespace-nowrap ${
                               currentPage === item.id
                                 ? "text-foreground border-primary/30 bg-primary/8"
                                 : "text-muted-foreground dark:text-slate-300 border-transparent hover:text-foreground dark:hover:text-white hover:border-border/70 dark:hover:border-slate-600/70 hover:bg-secondary/40 dark:hover:bg-slate-800/45"
@@ -490,12 +490,12 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
                           
                           {isDropdownOpen && (
                             <div className={`absolute top-full ${dropdownPositionClass} z-50 pt-2`}>
-                              <div className="w-[min(680px,calc(100vw-2rem))] max-w-[680px] glass-panel bg-white/96 dark:bg-slate-950/88 border-border/85 dark:border-cyan-300/20 rounded-2xl shadow-[0_24px_44px_-32px_rgba(8,17,31,0.3)] dark:shadow-[0_30px_48px_-34px_rgba(14,165,233,0.85)] p-6 overflow-hidden">
-                                <div className="mb-4">
+                              <div className="w-[min(680px,calc(100vw-2rem))] max-w-[680px] glass-panel bg-white/96 dark:bg-slate-950/90 border-border/85 dark:border-slate-700/70 rounded-lg shadow-[0_16px_28px_-24px_rgba(8,17,31,0.35)] dark:shadow-[0_18px_30px_-26px_rgba(2,6,18,0.82)] p-4 overflow-hidden">
+                                <div className="mb-3">
                                   <h3 className="text-sm font-bold text-foreground mb-1">{dropdownTitle}</h3>
                                   <p className="text-xs text-muted-foreground dark:text-slate-300">{dropdownSubtitle}</p>
                                 </div>
-                                <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-2.5">
                                   {dropdownData.map((feature) => (
                                     <button
                                       key={feature.title}
@@ -512,9 +512,9 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
                                         if (item.id === "support") setSupportDropdownOpen(false)
                                         if (item.id === "licensing") setLicensingDropdownOpen(false)
                                       }}
-                                      className="flex items-start gap-3 p-3 rounded-lg hover:bg-accent/40 transition-all duration-200 text-left group"
+                                      className="flex items-start gap-3 p-2.5 rounded-md hover:bg-accent/30 transition-all duration-150 text-left group"
                                     >
-                                      <div className={`w-10 h-10 rounded-lg bg-gradient-to-br from-${feature.color.split('-')[1]}-500/10 to-${feature.color.split('-')[1]}-600/5 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-200`}>
+                                      <div className={`w-10 h-10 rounded-md bg-gradient-to-br from-${feature.color.split('-')[1]}-500/10 to-${feature.color.split('-')[1]}-600/5 flex items-center justify-center flex-shrink-0`}>
                                         <feature.icon size={20} weight="bold" className={feature.color} />
                                       </div>
                                       <div className="flex-1 min-w-0">
@@ -524,7 +524,7 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
                                     </button>
                                   ))}
                                 </div>
-                                <div className="mt-4 pt-4 border-t border-border/40">
+                                <div className="mt-3 pt-3 border-t border-border/40">
                                   <button
                                     onClick={() => {
                                       handleNavigate(item.id)
@@ -534,7 +534,7 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
                                       if (item.id === "support") setSupportDropdownOpen(false)
                                       if (item.id === "licensing") setLicensingDropdownOpen(false)
                                     }}
-                                    className="w-full flex items-center justify-center gap-2 py-2.5 px-4 bg-primary/8 hover:bg-primary/12 rounded-lg text-sm font-semibold text-primary transition-all duration-200 group"
+                                    className="w-full flex items-center justify-center gap-2 py-2 px-4 bg-primary/8 hover:bg-primary/10 rounded-md text-sm font-semibold text-primary transition-all duration-150 group"
                                   >
                                     <span>View All {dropdownTitle}</span>
                                     <ArrowRight size={14} weight="bold" className="group-hover:translate-x-0.5 transition-transform" />
@@ -547,7 +547,7 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
                       ) : (
                         <button
                           onClick={() => handleNavigate(item.id)}
-                          className={`relative px-4 xl:px-[1.1rem] py-2 text-[12.5px] xl:text-[13.5px] tracking-[0.01em] font-medium rounded-md transition-all duration-200 whitespace-nowrap ${
+                          className={`relative px-3 xl:px-3.5 py-1.5 text-[12px] xl:text-[13px] tracking-[0.01em] font-medium rounded-sm transition-all duration-150 whitespace-nowrap ${
                             currentPage === item.id
                               ? "text-foreground"
                               : "text-muted-foreground dark:text-slate-300 hover:text-foreground dark:hover:text-white"
@@ -571,7 +571,7 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
                 onClick={() => handleNavigate("download")}
                 variant="outline"
                 size="default"
-                className="hidden xl:flex items-center gap-2 h-10 px-4 border-border hover:border-primary/50 hover:bg-primary/8 font-bold text-sm group transition-all duration-200 rounded-lg"
+                className="hidden xl:flex items-center gap-2 h-9 px-3.5 border-border hover:border-primary/50 hover:bg-primary/8 font-bold text-sm group transition-all duration-150 rounded-md"
               >
                 <CloudArrowDown size={17} weight="bold" className="group-hover:scale-110 transition-transform sm:w-[18px] sm:h-[18px]" />
                 <span>Download Trial</span>
@@ -579,7 +579,7 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
               <Button 
                 onClick={handleLoginClick}
                 size="default"
-                className="h-10 px-3 sm:px-4 bg-gradient-to-r from-primary to-primary text-primary-foreground hover:from-[#0077A8] hover:to-[#0077A8] font-bold text-xs sm:text-sm shadow-lg shadow-primary/20 hover:shadow-lg hover:shadow-primary/30 transition-all duration-200 group rounded-lg border border-primary/20"
+                className="h-9 px-3 sm:px-3.5 bg-slate-900 text-slate-100 hover:bg-slate-800 font-bold text-xs sm:text-sm shadow-none transition-all duration-150 group rounded-md border border-slate-700 dark:bg-slate-100 dark:text-slate-900 dark:border-slate-300 dark:hover:bg-white"
               >
                 <span>Sign In</span>
                 <ArrowRight size={15} weight="bold" className="ml-1 sm:ml-1.5 group-hover:translate-x-1 transition-transform sm:w-[17px] sm:h-[17px]" />

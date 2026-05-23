@@ -696,8 +696,8 @@ export function DocsLayout() {
   return (
     <div className="min-h-screen bg-background text-foreground font-body antialiased premium-shell overflow-hidden">
       <div className="pointer-events-none absolute inset-0 -z-10">
-        <div className="glow-orb absolute -top-16 left-[4%] h-64 w-64 rounded-full bg-cyan-400/12" />
-        <div className="glow-orb absolute top-[8%] right-[8%] h-72 w-72 rounded-full bg-blue-500/12 [animation-delay:1.2s]" />
+        <div className="glow-orb absolute -top-16 left-[4%] h-64 w-64 rounded-full bg-slate-500/12" />
+        <div className="glow-orb absolute top-[8%] right-[8%] h-72 w-72 rounded-full bg-slate-600/12 [animation-delay:1.2s]" />
       </div>
       <TopBar mobileOpen={mobileOpen} onMobileToggle={() => setMobileOpen((v) => !v)} />
 
@@ -712,12 +712,12 @@ export function DocsLayout() {
 
       <div className="max-w-[1400px] mx-auto flex relative z-10">
         {/* Desktop sidebar */}
-        <aside className="hidden lg:block w-64 xl:w-72 shrink-0 sticky top-[5rem] h-[calc(100vh-6rem)] overflow-y-auto py-6 px-4 border border-cyan-300/14 bg-card/75 backdrop-blur-xl rounded-2xl ml-3 mt-3">
+        <aside className="hidden lg:block w-64 xl:w-72 shrink-0 sticky top-[5rem] h-[calc(100vh-6rem)] overflow-y-auto py-5 px-3.5 border border-slate-700/35 bg-card/88 backdrop-blur-md rounded-lg ml-3 mt-3">
           <Sidebar activeId={activeId} onSelect={handleSelect} />
         </aside>
 
         {/* Content */}
-        <main className="flex-1 min-w-0 py-8 px-4 sm:px-8 lg:px-10 lg:pl-7">
+        <main className="flex-1 min-w-0 py-6 px-4 sm:px-7 lg:px-9 lg:pl-6">
           {resolveContent(activeId)}
 
           {/* Prev / Next navigation */}

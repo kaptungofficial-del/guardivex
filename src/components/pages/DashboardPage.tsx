@@ -65,9 +65,9 @@ export function DashboardPage({ metrics, devices, alerts }: DashboardPageProps) 
   const devicesOnlinePercent = Math.round((metrics.devicesOnline / metrics.devicesTotal) * 100)
 
   return (
-    <div className="p-6 space-y-6">
+    <div className="p-5 space-y-5">
       <div>
-        <h1 className="text-3xl font-bold tracking-tight">Security Operations Center</h1>
+        <h1 className="text-2xl font-semibold tracking-tight">Security Operations Center</h1>
         <p className="text-muted-foreground">Real-time monitoring and threat detection</p>
       </div>
 
@@ -79,7 +79,7 @@ export function DashboardPage({ metrics, devices, alerts }: DashboardPageProps) 
           </CardHeader>
           <CardContent>
             <div className="flex items-baseline gap-2">
-              <div className={`text-3xl font-bold ${getScoreColor(metrics.securityScore)}`}>
+              <div className={`text-2xl font-bold ${getScoreColor(metrics.securityScore)}`}>
                 {metrics.securityScore}
               </div>
               <span className="text-sm text-muted-foreground">/ 100</span>
@@ -98,7 +98,7 @@ export function DashboardPage({ metrics, devices, alerts }: DashboardPageProps) 
             <Buildings size={20} className="text-success" />
           </CardHeader>
           <CardContent>
-            <div className="text-3xl font-bold">{metrics.totalSites}</div>
+            <div className="text-2xl font-bold">{metrics.totalSites}</div>
             <p className="text-xs text-muted-foreground mt-2">
               All operational
             </p>
@@ -112,7 +112,7 @@ export function DashboardPage({ metrics, devices, alerts }: DashboardPageProps) 
           </CardHeader>
           <CardContent>
             <div className="flex items-baseline gap-2">
-              <div className="text-3xl font-bold">{metrics.devicesOnline}</div>
+              <div className="text-2xl font-bold">{metrics.devicesOnline}</div>
               <span className="text-sm text-muted-foreground">/ {metrics.devicesTotal}</span>
             </div>
             <Progress value={devicesOnlinePercent} className="mt-3 h-2" />
@@ -128,7 +128,7 @@ export function DashboardPage({ metrics, devices, alerts }: DashboardPageProps) 
             <Bell size={20} className="text-destructive" />
           </CardHeader>
           <CardContent>
-            <div className="text-3xl font-bold text-destructive">{metrics.criticalAlerts}</div>
+            <div className="text-2xl font-bold text-destructive">{metrics.criticalAlerts}</div>
             <p className="text-xs text-muted-foreground mt-2">
               Require immediate attention
             </p>
@@ -143,7 +143,7 @@ export function DashboardPage({ metrics, devices, alerts }: DashboardPageProps) 
             <Question size={20} className="text-warning" />
           </CardHeader>
           <CardContent>
-            <div className="text-3xl font-bold text-warning">{metrics.unknownDevices}</div>
+            <div className="text-2xl font-bold text-warning">{metrics.unknownDevices}</div>
             <p className="text-xs text-muted-foreground mt-2">
               Unregistered devices detected
             </p>
@@ -156,7 +156,7 @@ export function DashboardPage({ metrics, devices, alerts }: DashboardPageProps) 
             <FolderOpen size={20} className="text-warning" />
           </CardHeader>
           <CardContent>
-            <div className="text-3xl font-bold text-warning">{metrics.openIncidents}</div>
+            <div className="text-2xl font-bold text-warning">{metrics.openIncidents}</div>
             <p className="text-xs text-muted-foreground mt-2">
               Active investigations
             </p>
@@ -164,10 +164,10 @@ export function DashboardPage({ metrics, devices, alerts }: DashboardPageProps) 
         </Card>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
         <Card className="bg-card border-border">
           <CardHeader>
-            <CardTitle className="text-lg font-semibold">Device Health Monitor</CardTitle>
+            <CardTitle className="text-base font-semibold">Device Health Monitor</CardTitle>
           </CardHeader>
           <CardContent>
             <Table>
@@ -209,7 +209,7 @@ export function DashboardPage({ metrics, devices, alerts }: DashboardPageProps) 
 
         <Card className="bg-card border-border">
           <CardHeader>
-            <CardTitle className="text-lg font-semibold">Recent Alerts</CardTitle>
+            <CardTitle className="text-base font-semibold">Recent Alerts</CardTitle>
           </CardHeader>
           <CardContent className="space-y-3">
             {recentAlerts.map((alert) => (

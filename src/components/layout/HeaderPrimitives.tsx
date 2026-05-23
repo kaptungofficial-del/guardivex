@@ -3,16 +3,16 @@ import { Badge } from "@/components/ui/badge"
 import { cn } from "@/lib/utils"
 
 export const ENTERPRISE_COMMAND_STRIP_CLASS =
-  "border-b border-border/85 bg-white/88 text-foreground backdrop-blur-xl shadow-[inset_0_-1px_0_0_rgba(8,17,31,0.04)] dark:border-cyan-300/12 dark:bg-[linear-gradient(90deg,rgba(8,15,31,0.85),rgba(10,23,45,0.78),rgba(8,15,31,0.85))] dark:shadow-[inset_0_-1px_0_0_rgba(125,211,252,0.14)]"
+  "border-b border-border/85 bg-white/92 text-foreground backdrop-blur-md shadow-[inset_0_-1px_0_0_rgba(8,17,31,0.04)] dark:border-slate-700/70 dark:bg-[linear-gradient(90deg,rgba(7,12,24,0.9),rgba(8,14,27,0.88),rgba(7,12,24,0.9))] dark:shadow-[inset_0_-1px_0_0_rgba(71,85,105,0.28)]"
 
 export const ENTERPRISE_HEADER_SURFACE_CLASS =
-  "glass-panel border border-border/90 bg-white/90 text-foreground shadow-[0_14px_30px_-22px_rgba(8,17,31,0.28)] dark:border-cyan-300/16 dark:bg-[linear-gradient(120deg,rgba(11,20,38,0.88),rgba(10,25,48,0.78),rgba(8,17,34,0.88))] dark:shadow-[0_22px_36px_-26px_rgba(14,165,233,0.85)]"
+  "glass-panel border border-border/90 bg-white/92 text-foreground shadow-[0_12px_24px_-20px_rgba(8,17,31,0.26)] dark:border-slate-700/70 dark:bg-[linear-gradient(120deg,rgba(10,16,30,0.92),rgba(9,15,28,0.9),rgba(8,14,26,0.92))] dark:shadow-[0_14px_26px_-22px_rgba(2,6,18,0.8)]"
 
 export const ENTERPRISE_CONTROL_CLASS =
-  "inline-flex h-8.5 items-center gap-1.5 px-2.5 sm:px-3 rounded-lg border border-border/90 bg-white/75 text-muted-foreground transition-all duration-200 hover:text-foreground hover:border-primary/35 hover:bg-primary/8 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/45 focus-visible:ring-offset-2 focus-visible:ring-offset-background dark:border-cyan-300/18 dark:bg-background/35 dark:hover:border-cyan-300/40 dark:hover:bg-cyan-500/10"
+  "inline-flex h-8 items-center gap-1.5 px-2.5 sm:px-3 rounded-md border border-border/90 bg-white/82 text-muted-foreground transition-all duration-150 hover:text-foreground hover:border-slate-400/60 hover:bg-slate-100/70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/45 focus-visible:ring-offset-2 focus-visible:ring-offset-background dark:border-slate-700/70 dark:bg-slate-900/55 dark:hover:border-slate-600 dark:hover:bg-slate-800/70"
 
 export const ENTERPRISE_SEARCH_SHELL_CLASS =
-  "hidden sm:flex items-center gap-2 h-8.5 px-3 rounded-lg border border-border/90 bg-white/78 text-sm text-muted-foreground shadow-[inset_0_1px_0_0_rgba(255,255,255,0.84)] dark:border-cyan-300/18 dark:bg-background/35 dark:shadow-[inset_0_1px_0_0_rgba(125,211,252,0.14)]"
+  "hidden sm:flex items-center gap-2 h-8 px-3 rounded-md border border-border/90 bg-white/82 text-sm text-muted-foreground shadow-none dark:border-slate-700/70 dark:bg-slate-900/55"
 
 interface HeaderStatusBadgeProps {
   label: string

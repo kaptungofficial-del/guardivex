@@ -75,8 +75,8 @@ export function PlatformLayout({ children, currentPage, onNavigate, onLogout, cr
   return (
     <div className="flex h-screen bg-background premium-shell overflow-hidden">
       <div className="pointer-events-none absolute inset-0 -z-10">
-        <div className="glow-orb absolute -top-20 left-[-4rem] h-72 w-72 rounded-full bg-cyan-400/10" />
-        <div className="glow-orb absolute top-12 right-[-5rem] h-80 w-80 rounded-full bg-blue-500/10 [animation-delay:1.4s]" />
+        <div className="glow-orb absolute -top-20 left-[-4rem] h-72 w-72 rounded-full bg-slate-500/10" />
+        <div className="glow-orb absolute top-12 right-[-5rem] h-80 w-80 rounded-full bg-slate-600/10 [animation-delay:1.4s]" />
       </div>
       {sidebarOpen && (
         <div 
@@ -86,7 +86,7 @@ export function PlatformLayout({ children, currentPage, onNavigate, onLogout, cr
       )}
 
       <aside className={cn(
-        "fixed lg:relative inset-y-0 left-0 z-50 w-64 sm:w-72 border-r border-cyan-300/14 bg-card/80 backdrop-blur-xl flex flex-col transition-transform duration-300 lg:translate-x-0",
+        "fixed lg:relative inset-y-0 left-0 z-50 w-64 sm:w-72 border-r border-slate-700/35 bg-card/92 backdrop-blur-md flex flex-col transition-transform duration-300 lg:translate-x-0",
         sidebarOpen ? "translate-x-0" : "-translate-x-full"
       )}>
         <div className="p-4 sm:p-6 border-b border-border">
@@ -109,10 +109,10 @@ export function PlatformLayout({ children, currentPage, onNavigate, onLogout, cr
           </div>
         </div>
 
-        <nav className="flex-1 overflow-y-auto p-3 sm:p-4 space-y-4 sm:space-y-6">
+        <nav className="flex-1 overflow-y-auto p-3 sm:p-3.5 space-y-3 sm:space-y-4">
           {navSections.map((section) => (
             <div key={section.title}>
-              <div className="text-[10px] sm:text-xs font-semibold text-muted-foreground mb-2 px-2 sm:px-3 tracking-wider">
+              <div className="text-[10px] sm:text-xs font-semibold text-muted-foreground mb-1.5 px-2 sm:px-3 tracking-[0.1em]">
                 {section.title}
               </div>
               <div className="space-y-0.5 sm:space-y-1">
@@ -125,7 +125,7 @@ export function PlatformLayout({ children, currentPage, onNavigate, onLogout, cr
                       key={item.id}
                       onClick={() => handleNavigate(item.id)}
                       className={cn(
-                        "w-full flex items-center gap-2.5 sm:gap-3 px-2.5 sm:px-3 py-2 sm:py-2.5 rounded-md text-xs sm:text-sm transition-all active:scale-98",
+                        "w-full flex items-center gap-2.5 sm:gap-3 px-2.5 sm:px-3 py-1.5 sm:py-2 rounded-sm text-xs sm:text-sm transition-all active:scale-98",
                         isActive 
                           ? "bg-primary/10 text-primary border-l-2 border-l-primary font-semibold" 
                           : "text-muted-foreground hover:bg-secondary/50 hover:text-foreground"
@@ -163,7 +163,7 @@ export function PlatformLayout({ children, currentPage, onNavigate, onLogout, cr
       </aside>
 
       <div className="flex-1 flex flex-col overflow-hidden w-full lg:w-auto">
-        <header className={cn("h-[3.75rem] sm:h-16 flex items-center justify-between px-3 sm:px-4 lg:px-6 shrink-0 m-2 sm:m-3 rounded-2xl", ENTERPRISE_HEADER_SURFACE_CLASS)}>
+        <header className={cn("h-[3.5rem] sm:h-[3.7rem] flex items-center justify-between px-3 sm:px-4 lg:px-5 shrink-0 m-2 sm:m-2.5 rounded-lg", ENTERPRISE_HEADER_SURFACE_CLASS)}>
           <div className="flex items-center gap-2 sm:gap-3 min-w-0">
             <button
               onClick={() => setSidebarOpen(true)}

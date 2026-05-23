@@ -256,7 +256,7 @@ export function WebsiteLayout({ currentPage, onNavigate, onLogin }: WebsiteLayou
 function HomePage({ onNavigate }: { onNavigate: (page: string) => void }) {
   return (
     <div className="relative guardivex-home-typography">
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-7 sm:pt-9 lg:pt-10 pb-6 sm:pb-8 lg:pb-9 relative overflow-hidden">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-5 sm:pt-7 lg:pt-8 pb-5 sm:pb-6 lg:pb-7 relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_14%,rgba(100,116,139,0.08),transparent_48%)] dark:bg-[radial-gradient(circle_at_18%_14%,rgba(71,85,105,0.2),transparent_48%)]" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_86%_8%,rgba(100,116,139,0.06),transparent_44%)] dark:bg-[radial-gradient(circle_at_86%_8%,rgba(51,65,85,0.18),transparent_44%)]" />
         <div className="absolute inset-0 dark:bg-[linear-gradient(180deg,rgba(3,8,20,0.62),rgba(2,6,16,0.88))]" />
@@ -266,7 +266,7 @@ function HomePage({ onNavigate }: { onNavigate: (page: string) => void }) {
             <div className="inline-flex items-center px-3.5 sm:px-4 py-1.5 rounded-sm bg-slate-200/70 dark:bg-slate-800/70 border border-slate-300 dark:border-slate-600 text-slate-700 dark:text-slate-200 text-[11px] sm:text-xs font-semibold mb-3 sm:mb-4 tracking-[0.01em]">
             Unified SOC Command Center &middot; Security Platform
             </div>
-            <h1 className="bg-transparent mx-auto lg:mx-0 max-w-[14ch] text-[clamp(2.05rem,5.2vw,3.6rem)] font-[700] font-heading tracking-[-0.03em] text-balance text-foreground dark:text-slate-100 mb-2.5 sm:mb-3 leading-[1.02]">
+            <h1 className="bg-transparent mx-auto lg:mx-0 max-w-[14ch] text-[clamp(1.85rem,4.8vw,3.1rem)] font-[700] font-heading tracking-[-0.03em] text-balance text-foreground dark:text-slate-100 mb-2 sm:mb-2.5 leading-[1.01]">
               Enterprise Security Platform
             </h1>
             <p className="text-[clamp(0.96rem,1.02vw,1.075rem)] text-muted-foreground dark:text-slate-300 mb-4 sm:mb-5 max-w-[54ch] mx-auto lg:mx-0 leading-[1.55] text-pretty">
@@ -326,7 +326,7 @@ function HomePage({ onNavigate }: { onNavigate: (page: string) => void }) {
 
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-10">
         <div className="bg-card/70 dark:bg-slate-950/65 border border-border dark:border-slate-700/60 rounded-lg p-6 sm:p-8 md:p-10 text-center">
-          <h2 className="text-xl sm:text-2xl md:text-3xl font-heading font-bold text-foreground dark:text-slate-100 mb-2 sm:mb-3">Trusted by Enterprise Security Teams</h2>
+          <h2 className="text-xl sm:text-2xl md:text-3xl font-heading font-bold text-foreground dark:text-slate-100 mb-2 sm:mb-3 leading-tight">Operational Deployment Metrics</h2>
           <p className="text-sm sm:text-base text-muted-foreground dark:text-slate-300 mb-6 sm:mb-8">
             Join organizations monitoring thousands of devices across multiple sites
           </p>
@@ -355,9 +355,9 @@ function ProductPage() {
   ]
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
       <div className="max-w-3xl mx-auto text-center mb-16">
-        <h1 className="text-4xl font-heading font-bold mb-4">Product Features</h1>
+        <h1 className="text-3xl sm:text-4xl font-heading font-semibold leading-tight mb-3">Security Monitoring Capabilities</h1>
         <p className="text-xl text-muted-foreground">
           Comprehensive security monitoring and management platform for enterprise deployments
         </p>
@@ -408,9 +408,9 @@ function ProductPage() {
 
 function EnterprisePage() {
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
       <div className="max-w-3xl mx-auto text-center mb-16">
-        <h1 className="text-4xl font-heading font-bold mb-4">Enterprise Solutions</h1>
+        <h1 className="text-3xl sm:text-4xl font-heading font-semibold leading-tight mb-3">Enterprise Deployment Architecture</h1>
         <p className="text-xl text-muted-foreground">
           Scalable security infrastructure for organizations of any size
         </p>
@@ -454,9 +454,9 @@ function EnterprisePage() {
 
 function DownloadPage() {
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
       <div className="max-w-3xl mx-auto text-center mb-16">
-        <h1 className="text-4xl font-heading font-bold mb-4">Download Guardivex</h1>
+        <h1 className="text-3xl sm:text-4xl font-heading font-semibold leading-tight mb-3">Platform Distribution</h1>
         <p className="text-xl text-muted-foreground">
           Install on your own infrastructure for complete control
         </p>
@@ -529,9 +529,9 @@ function DownloadPage() {
 
 function LicensingPage() {
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
       <div className="max-w-3xl mx-auto text-center mb-16">
-        <h1 className="text-4xl font-heading font-bold mb-4">Licensing Options</h1>
+        <h1 className="text-3xl sm:text-4xl font-heading font-semibold leading-tight mb-3">License and Entitlement Operations</h1>
         <p className="text-xl text-muted-foreground">
           Flexible licensing models for organizations of all sizes
         </p>
@@ -602,9 +602,9 @@ function LicensingPage() {
 
 function DocumentationPage() {
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
       <div className="max-w-3xl mx-auto text-center mb-16">
-        <h1 className="text-4xl font-heading font-bold mb-4">Documentation</h1>
+        <h1 className="text-3xl sm:text-4xl font-heading font-semibold leading-tight mb-3">Technical Documentation</h1>
         <p className="text-xl text-muted-foreground">
           Complete guides and API reference for Guardivex
         </p>
@@ -633,9 +633,9 @@ function DocumentationPage() {
 
 function SupportPage() {
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
       <div className="max-w-3xl mx-auto text-center mb-16">
-        <h1 className="text-4xl font-heading font-bold mb-4">Support</h1>
+        <h1 className="text-3xl sm:text-4xl font-heading font-semibold leading-tight mb-3">Support Operations Center</h1>
         <p className="text-xl text-muted-foreground">
           Get help from our team and community
         </p>
@@ -970,7 +970,7 @@ function PlatformOverviewSection() {
   return (
     <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 border-t border-border">
       <div className="max-w-3xl mx-auto text-center mb-10">
-        <h2 className="text-3xl font-heading font-bold mb-3">Platform Overview</h2>
+        <h2 className="text-3xl font-heading font-semibold leading-tight mb-3">Operations Architecture Overview</h2>
         <p className="text-base text-muted-foreground dark:text-slate-300">
           Comprehensive security infrastructure monitoring with enterprise-grade features
         </p>
@@ -1058,7 +1058,7 @@ function DeploymentOptionsSection() {
   return (
     <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 border-t border-border">
       <div className="max-w-3xl mx-auto text-center mb-10">
-        <h2 className="text-3xl font-heading font-bold mb-3">Deployment Options</h2>
+        <h2 className="text-3xl font-heading font-semibold leading-tight mb-3">Deployment Topologies</h2>
         <p className="text-base text-muted-foreground">
           Install on your preferred platform with full deployment flexibility
         </p>
@@ -1096,7 +1096,7 @@ function DownloadFlowSection({ onNavigate }: { onNavigate: (page: string) => voi
   return (
     <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 border-t border-border bg-card/20">
       <div className="max-w-3xl mx-auto text-center mb-10">
-        <h2 className="text-3xl font-heading font-bold mb-3">Get Started in Minutes</h2>
+        <h2 className="text-3xl font-heading font-semibold leading-tight mb-3">Deployment Runbook</h2>
         <p className="text-base text-muted-foreground">
           Simple installation process from download to monitoring
         </p>
