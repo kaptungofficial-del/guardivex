@@ -294,159 +294,159 @@ export function BiometricAuth({ email, onVerified, onBack, onSkip }: BiometricAu
       title="Authenticate with hardware-backed local identity."
       subtitle="Use Face ID or fingerprint verification to accelerate sign-in while keeping biometric material on the operator device."
     >
-      <Card className="w-full max-w-md mx-auto bg-card/65 backdrop-blur-xl border-border/65 shadow-2xl shadow-black/15">
-        <CardHeader className="space-y-2">
-          <div className="flex items-center gap-3">
-            <div className="relative">
-              <div className="absolute inset-0 bg-primary/20 rounded-xl blur-lg animate-pulse" />
-              <div className="relative w-12 h-12 bg-gradient-to-br from-primary/30 to-accent/20 rounded-xl flex items-center justify-center border border-primary/40">
-                <Fingerprint size={24} weight="bold" className="text-primary" />
+        <Card className="w-full max-w-lg mx-auto bg-card/65 backdrop-blur-xl border-border/65 shadow-2xl shadow-black/15">
+          <CardHeader className="space-y-4 pb-6">
+            <div className="flex flex-col items-center gap-3 text-center">
+              <div className="relative">
+                <div className="absolute inset-0 bg-primary/20 rounded-2xl blur-lg animate-pulse" />
+                <div className="relative w-14 h-14 sm:w-16 sm:h-16 bg-gradient-to-br from-primary/30 to-accent/20 rounded-2xl flex items-center justify-center border border-primary/40">
+                  <Fingerprint size={28} weight="bold" className="text-primary" />
+                </div>
+              </div>
+              <div className="space-y-1.5">
+                <CardTitle className="text-xl sm:text-2xl font-heading">
+                  {hasRegistered ? "Biometric Sign In" : "Set Up Biometric Auth"}
+                </CardTitle>
+                <CardDescription className="text-sm sm:text-base text-muted-foreground max-w-md mx-auto">
+                  {hasRegistered ? "Use your biometric to sign in" : "Add fingerprint or Face ID for quick access"}
+                </CardDescription>
               </div>
             </div>
-            <div>
-              <CardTitle className="text-xl font-heading">
-                {hasRegistered ? "Biometric Sign In" : "Set Up Biometric Auth"}
-              </CardTitle>
-              <CardDescription>
-                {hasRegistered ? "Use your biometric to sign in" : "Add fingerprint or Face ID for quick access"}
-              </CardDescription>
-            </div>
-          </div>
-        </CardHeader>
-        <CardContent className="space-y-5">
-        {error && (
-          <Alert variant="destructive">
-            <AlertDescription>{error}</AlertDescription>
-          </Alert>
-        )}
+          </CardHeader>
+          <CardContent className="space-y-6">
+            {error && (
+              <Alert variant="destructive">
+                <AlertDescription>{error}</AlertDescription>
+              </Alert>
+            )}
 
-        {hasRegistered ? (
-          <>
-            <div className="p-6 bg-muted/30 rounded-lg border border-border/50 space-y-4">
-              <div className="flex items-center justify-between">
-                <div className="flex items-center gap-3">
-                  {userCredential.type === "face" ? (
-                    <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
-                      <FaceMask size={20} className="text-primary" />
+            {hasRegistered ? (
+              <>
+                <div className="p-5 sm:p-6 bg-muted/30 rounded-xl border border-border/50 space-y-4">
+                  <div className="flex items-center justify-between gap-4">
+                    <div className="flex items-center gap-3">
+                      {userCredential.type === "face" ? (
+                        <div className="w-11 h-11 bg-primary/10 rounded-xl flex items-center justify-center">
+                          <FaceMask size={22} className="text-primary" />
+                        </div>
+                      ) : (
+                        <div className="w-11 h-11 bg-primary/10 rounded-xl flex items-center justify-center">
+                          <FingerprintSimple size={22} className="text-primary" />
+                        </div>
+                      )}
+                      <div>
+                        <p className="text-sm font-medium">
+                          {userCredential.type === "face" ? "Face ID" : "Fingerprint"}
+                        </p>
+                        <p className="text-xs text-muted-foreground">{userCredential.deviceName}</p>
+                      </div>
                     </div>
-                  ) : (
-                    <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
-                      <FingerprintSimple size={20} className="text-primary" />
-                    </div>
-                  )}
-                  <div>
-                    <p className="text-sm font-medium">
-                      {userCredential.type === "face" ? "Face ID" : "Fingerprint"}
-                    </p>
-                    <p className="text-xs text-muted-foreground">{userCredential.deviceName}</p>
+                    <CheckCircle size={20} className="text-success shrink-0" weight="fill" />
+                </div>
+                  <div className="text-xs text-muted-foreground space-y-1">
+                    <p>Registered: {new Date(userCredential.createdAt).toLocaleDateString()}</p>
+                    <p>Last used: {new Date(userCredential.lastUsed).toLocaleDateString()}</p>
                   </div>
                 </div>
-                <CheckCircle size={20} className="text-success" weight="fill" />
-              </div>
-              <div className="text-xs text-muted-foreground space-y-1">
-                <p>Registered: {new Date(userCredential.createdAt).toLocaleDateString()}</p>
-                <p>Last used: {new Date(userCredential.lastUsed).toLocaleDateString()}</p>
-              </div>
-            </div>
 
-            <Button 
-              onClick={authenticateBiometric}
-              disabled={isAuthenticating}
-              className="w-full h-12 bg-primary hover:bg-primary/90 text-primary-foreground font-semibold shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 transition-all duration-200"
-            >
-              {isAuthenticating ? (
-                <span className="flex items-center gap-2">
-                  <div className="w-4 h-4 border-2 border-primary-foreground/30 border-t-primary-foreground rounded-full animate-spin" />
-                  Authenticating...
-                </span>
-              ) : (
-                <span className="flex items-center gap-2">
-                  <Fingerprint size={20} weight="bold" />
-                  Authenticate with {userCredential.type === "face" ? "Face ID" : "Fingerprint"}
-                </span>
-              )}
-            </Button>
-          </>
-        ) : (
-          <>
-            <div className="space-y-3">
-              <p className="text-sm text-muted-foreground">
-                Set up biometric authentication for faster and more secure sign-in. Your biometric data never leaves your device.
-              </p>
-              
-              <div className="grid gap-3">
-                {availableBiometrics.includes("face") && (
-                  <button
-                    onClick={() => registerBiometric("face")}
-                    disabled={isRegistering}
-                    className="p-4 bg-muted/30 hover:bg-muted/50 rounded-lg border border-border/50 hover:border-primary/50 transition-all duration-200 text-left group"
-                  >
-                    <div className="flex items-center gap-3">
-                      <div className="w-12 h-12 bg-primary/10 group-hover:bg-primary/20 rounded-xl flex items-center justify-center transition-colors">
-                        <FaceMask size={24} className="text-primary" />
-                      </div>
-                      <div className="flex-1">
-                        <p className="font-medium mb-0.5">Face ID</p>
-                        <p className="text-xs text-muted-foreground">
-                          Use facial recognition to sign in
-                        </p>
-                      </div>
-                    </div>
-                  </button>
-                )}
-                
-                {availableBiometrics.includes("fingerprint") && (
-                  <button
-                    onClick={() => registerBiometric("fingerprint")}
-                    disabled={isRegistering}
-                    className="p-4 bg-muted/30 hover:bg-muted/50 rounded-lg border border-border/50 hover:border-primary/50 transition-all duration-200 text-left group"
-                  >
-                    <div className="flex items-center gap-3">
-                      <div className="w-12 h-12 bg-primary/10 group-hover:bg-primary/20 rounded-xl flex items-center justify-center transition-colors">
-                        <FingerprintSimple size={24} className="text-primary" />
-                      </div>
-                      <div className="flex-1">
-                        <p className="font-medium mb-0.5">Fingerprint</p>
-                        <p className="text-xs text-muted-foreground">
-                          Use fingerprint sensor to sign in
-                        </p>
-                      </div>
-                    </div>
-                  </button>
-                )}
-              </div>
-
-              {isRegistering && (
-                <div className="p-4 bg-primary/5 rounded-lg border border-primary/20">
-                  <p className="text-sm text-center text-muted-foreground">
-                    Follow the prompts on your device to register your biometric...
+                <Button 
+                  onClick={authenticateBiometric}
+                  disabled={isAuthenticating}
+                  className="w-full h-12 bg-primary hover:bg-primary/90 text-primary-foreground font-semibold shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 transition-all duration-200"
+                >
+                  {isAuthenticating ? (
+                    <span className="flex items-center gap-2">
+                      <div className="w-4 h-4 border-2 border-primary-foreground/30 border-t-primary-foreground rounded-full animate-spin" />
+                      Authenticating...
+                    </span>
+                  ) : (
+                    <span className="flex items-center gap-2">
+                      <Fingerprint size={20} weight="bold" />
+                      Authenticate with {userCredential.type === "face" ? "Face ID" : "Fingerprint"}
+                    </span>
+                  )}
+                </Button>
+              </>
+            ) : (
+              <>
+                <div className="space-y-4">
+                  <p className="text-sm text-muted-foreground text-center sm:text-left">
+                    Set up biometric authentication for faster and more secure sign-in. Your biometric data never leaves your device.
                   </p>
+
+                  <div className="grid gap-3 sm:grid-cols-2">
+                    {availableBiometrics.includes("face") && (
+                      <button
+                        onClick={() => registerBiometric("face")}
+                        disabled={isRegistering}
+                        className="min-h-[132px] p-4 sm:p-5 bg-muted/30 hover:bg-muted/50 rounded-xl border border-border/50 hover:border-primary/50 transition-all duration-200 text-left group flex items-start"
+                      >
+                        <div className="flex items-start gap-3">
+                          <div className="w-12 h-12 bg-primary/10 group-hover:bg-primary/20 rounded-xl flex items-center justify-center transition-colors shrink-0">
+                            <FaceMask size={24} className="text-primary" />
+                          </div>
+                          <div className="flex-1 space-y-1">
+                            <p className="font-medium">Face ID</p>
+                            <p className="text-xs text-muted-foreground leading-relaxed">
+                              Use facial recognition to sign in
+                            </p>
+                          </div>
+                        </div>
+                      </button>
+                    )}
+
+                    {availableBiometrics.includes("fingerprint") && (
+                      <button
+                        onClick={() => registerBiometric("fingerprint")}
+                        disabled={isRegistering}
+                        className="min-h-[132px] p-4 sm:p-5 bg-muted/30 hover:bg-muted/50 rounded-xl border border-border/50 hover:border-primary/50 transition-all duration-200 text-left group flex items-start"
+                      >
+                        <div className="flex items-start gap-3">
+                          <div className="w-12 h-12 bg-primary/10 group-hover:bg-primary/20 rounded-xl flex items-center justify-center transition-colors shrink-0">
+                            <FingerprintSimple size={24} className="text-primary" />
+                          </div>
+                          <div className="flex-1 space-y-1">
+                            <p className="font-medium">Fingerprint</p>
+                            <p className="text-xs text-muted-foreground leading-relaxed">
+                              Use fingerprint sensor to sign in
+                            </p>
+                          </div>
+                        </div>
+                      </button>
+                    )}
+                  </div>
+
+                  {isRegistering && (
+                    <div className="p-4 bg-primary/5 rounded-xl border border-primary/20">
+                      <p className="text-sm text-center text-muted-foreground">
+                        Follow the prompts on your device to register your biometric...
+                      </p>
+                    </div>
+                  )}
                 </div>
+              </>
+            )}
+
+            <div className="flex gap-3 pt-2">
+              <Button onClick={onBack} variant="outline" className="flex-1" disabled={isAuthenticating || isRegistering}>
+                <ArrowLeft size={16} className="mr-2" />
+                Back
+              </Button>
+              {onSkip && !hasRegistered && (
+                <Button onClick={onSkip} variant="secondary" className="flex-1" disabled={isAuthenticating || isRegistering}>
+                  Skip for Now
+                </Button>
               )}
             </div>
-          </>
-        )}
 
-        <div className="flex gap-3 pt-2">
-          <Button onClick={onBack} variant="outline" className="flex-1" disabled={isAuthenticating || isRegistering}>
-            <ArrowLeft size={16} className="mr-2" />
-            Back
-          </Button>
-          {onSkip && !hasRegistered && (
-            <Button onClick={onSkip} variant="secondary" className="flex-1" disabled={isAuthenticating || isRegistering}>
-              Skip for Now
-            </Button>
-          )}
-        </div>
-
-        <div className="pt-4 border-t border-border/50">
-          <div className="flex items-start gap-2 text-xs text-muted-foreground">
-            <CheckCircle size={14} className="mt-0.5 flex-shrink-0" />
-            <p>Your biometric data is stored securely on your device and never transmitted to our servers.</p>
-          </div>
-        </div>
-        </CardContent>
-      </Card>
+            <div className="pt-4 border-t border-border/50">
+              <div className="flex items-start gap-2 text-xs text-muted-foreground">
+                <CheckCircle size={14} className="mt-0.5 flex-shrink-0" />
+                <p>Your biometric data is stored securely on your device and never transmitted to our servers.</p>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
     </AuthShell>
   )
 }

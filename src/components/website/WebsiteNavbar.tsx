@@ -362,24 +362,24 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
                 <span className="text-success hidden min-[380px]:inline tracking-wide">All Systems Operational</span>
                 <span className="text-success min-[380px]:hidden tracking-wide">Live</span>
               </div>
-              <Badge variant="outline" className="hidden lg:inline-flex h-6 text-[10px] uppercase tracking-[0.1em] border-[rgba(0,199,232,0.18)] text-[#F8FAFC] bg-[rgba(11,22,40,0.74)]">
+              <Badge variant="outline" className="hidden lg:inline-flex h-6 text-[10px] uppercase tracking-[0.1em] border-[#D8E3EE] text-[#07111F] bg-[rgba(255,255,255,0.80)] dark:border-cyan-500/20 dark:text-[#F8FAFC] dark:bg-[rgba(11,22,40,0.74)]">
                 Enterprise Edition
               </Badge>
               <div className="hidden md:flex items-center gap-1.5">
                 <div className="w-1 h-1 rounded-full bg-border/60" />
                 <a 
-                  href="mailto:sales@guardivex"
+                  href="mailto:sales@guardivex.com"
                   className="flex items-center gap-1.5 text-muted-foreground hover:text-primary transition-colors text-[11px] font-semibold group"
                 >
                   <EnvelopeSimple size={14} weight="bold" className="group-hover:scale-110 transition-transform" />
-                  <span className="hidden lg:inline">sales@guardivex</span>
+                  <span className="hidden lg:inline">sales@guardivex.com</span>
                 </a>
               </div>
             </div>
             <div className="flex items-center gap-1.5 sm:gap-2.5 md:gap-4">
               <a
                 href="tel:1-800-SENTINEL"
-                className="hidden xl:flex items-center gap-2 text-muted-foreground hover:text-[#F8FAFC] transition-colors text-[11px] font-bold group"
+                className="hidden xl:flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors text-[11px] font-bold group dark:hover:text-[#F8FAFC]"
               >
                 <Phone size={14} weight="bold" className="group-hover:scale-110 transition-transform" />
                 <span className="tracking-wide">1-800-SENTINEL</span>
@@ -387,7 +387,7 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
               </a>
               <button
                 onClick={() => onOpenLiveChat("I need help with my deployment")}
-                className={`${ENTERPRISE_CONTROL_CLASS} hidden lg:flex text-[11px] font-bold hover:text-[#F8FAFC] hover:border-primary/40 hover:bg-[rgba(0,199,232,0.10)] group`}
+                className={`${ENTERPRISE_CONTROL_CLASS} hidden lg:flex text-[11px] font-bold hover:text-foreground hover:border-primary/40 hover:bg-background/95 dark:hover:text-[#F8FAFC] dark:hover:bg-[rgba(0,199,232,0.10)] group`}
               >
                 <ChatCircle size={14} weight="bold" className="group-hover:scale-110 transition-transform" />
                 <span className="tracking-wide">Live Chat</span>
@@ -412,7 +412,7 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
       </div>
 
       <nav className="sticky top-1 z-50 px-2 sm:px-3 lg:px-4">
-        <div className="max-w-7xl mx-auto px-3 sm:px-5 lg:px-6 rounded-lg border border-[rgba(0,199,232,0.20)] bg-[linear-gradient(120deg,rgba(11,22,40,0.95),rgba(7,17,31,0.92),rgba(11,22,40,0.95))] backdrop-blur-md shadow-[0_14px_26px_-22px_rgba(2,6,18,0.76)]">
+        <div className="max-w-7xl mx-auto px-3 sm:px-5 lg:px-6 rounded-lg border border-[#D8E3EE] bg-[rgba(255,255,255,0.85)] text-[#07111F] backdrop-blur-md shadow-[0_14px_26px_-22px_rgba(15,23,42,0.22)] dark:border-cyan-500/20 dark:bg-[rgba(7,17,31,0.90)] dark:text-[#F8FAFC] dark:shadow-[0_14px_26px_-22px_rgba(2,6,18,0.76)]">
           <div className="flex items-center justify-between h-[2.8rem] sm:h-[3rem] lg:h-[3.1rem] gap-2.5 sm:gap-3">
             <div className="flex items-center gap-2 lg:gap-6 min-w-0">
               <button 
@@ -427,8 +427,8 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
                   markClassName="h-10 w-10 sm:h-11 sm:w-11 lg:h-12 lg:w-12"
                   imgClassName="pr-0.5"
                   textContainerClassName="gap-0"
-                  titleClassName="text-[17px] sm:text-[20px] lg:text-[21px] text-[#F8FAFC] group-hover:text-primary transition-colors font-extrabold tracking-[-0.025em]"
-                  subtitleClassName="hidden sm:block text-[8.5px] lg:text-[9px] text-[#94A3B8] tracking-[0.14em] leading-none mt-0.5"
+                  titleClassName="text-[17px] sm:text-[20px] lg:text-[21px] text-[#07111F] group-hover:text-primary transition-colors font-extrabold tracking-[-0.025em] dark:text-[#F8FAFC]"
+                  subtitleClassName="hidden sm:block text-[8.5px] lg:text-[9px] text-[#5B677A] tracking-[0.14em] leading-none mt-0.5 dark:text-[#94A3B8]"
                 />
               </button>
               
@@ -480,8 +480,8 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
                             onClick={() => handleNavigate(item.id)}
                             className={`relative px-3 xl:px-3.5 py-1.5 text-[12px] xl:text-[13px] tracking-[0.01em] font-medium rounded-sm transition-all duration-150 flex items-center gap-1.5 border whitespace-nowrap ${
                               currentPage === item.id
-                                ? "text-[#F8FAFC] border-primary/30 bg-[rgba(0,199,232,0.10)]"
-                                : "text-muted-foreground border-transparent hover:text-[#F8FAFC] hover:border-[rgba(0,199,232,0.18)] hover:bg-[rgba(0,199,232,0.08)]"
+                                ? "text-[#07111F] border-primary/30 bg-cyan-50 dark:text-[#F8FAFC] dark:bg-[rgba(0,199,232,0.10)]"
+                                : "text-[#5B677A] border-transparent hover:text-[#07111F] hover:border-[#D8E3EE] hover:bg-[#F6F9FC] dark:text-muted-foreground dark:hover:text-[#F8FAFC] dark:hover:border-[rgba(0,199,232,0.18)] dark:hover:bg-[rgba(0,199,232,0.08)]"
                             }`}
                           >
                             <span className="relative z-10">{item.label}</span>
@@ -490,10 +490,10 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
                           
                           {isDropdownOpen && (
                             <div className={`absolute top-full ${dropdownPositionClass} z-50 pt-2`}>
-                              <div className="w-[min(680px,calc(100vw-2rem))] max-w-[680px] glass-panel bg-[linear-gradient(180deg,rgba(11,22,40,0.96),rgba(7,17,31,0.92))] border-[rgba(0,199,232,0.20)] rounded-lg shadow-[0_16px_28px_-24px_rgba(2,6,18,0.72)] p-4 overflow-hidden">
+                              <div className="w-[min(680px,calc(100vw-2rem))] max-w-[680px] glass-panel bg-[rgba(255,255,255,0.92)] border-[#D8E3EE] rounded-lg shadow-[0_16px_28px_-24px_rgba(2,6,18,0.72)] p-4 overflow-hidden dark:bg-[linear-gradient(180deg,rgba(11,22,40,0.96),rgba(7,17,31,0.92))] dark:border-cyan-500/20">
                                 <div className="mb-3">
-                                  <h3 className="text-sm font-bold text-foreground mb-1">{dropdownTitle}</h3>
-                                  <p className="text-xs text-muted-foreground">{dropdownSubtitle}</p>
+                                  <h3 className="text-sm font-bold text-[#07111F] mb-1 dark:text-foreground">{dropdownTitle}</h3>
+                                  <p className="text-xs text-[#5B677A] dark:text-muted-foreground">{dropdownSubtitle}</p>
                                 </div>
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-2.5">
                                   {dropdownData.map((feature) => (
@@ -512,19 +512,19 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
                                         if (item.id === "support") setSupportDropdownOpen(false)
                                         if (item.id === "licensing") setLicensingDropdownOpen(false)
                                       }}
-                                      className="flex items-start gap-3 p-2.5 rounded-md hover:bg-[rgba(0,199,232,0.08)] transition-all duration-150 text-left group"
+                                      className="flex items-start gap-3 p-2.5 rounded-md hover:bg-cyan-50 transition-all duration-150 text-left group dark:hover:bg-[rgba(0,199,232,0.08)]"
                                     >
-                                      <div className="w-10 h-10 rounded-md bg-[linear-gradient(135deg,rgba(0,199,232,0.14),rgba(0,143,199,0.08))] border border-[rgba(0,199,232,0.14)] flex items-center justify-center flex-shrink-0">
+                                      <div className="w-10 h-10 rounded-md bg-[linear-gradient(135deg,rgba(0,199,232,0.10),rgba(0,143,199,0.05))] border border-[#D8E3EE] flex items-center justify-center flex-shrink-0 dark:bg-[linear-gradient(135deg,rgba(0,199,232,0.14),rgba(0,143,199,0.08))] dark:border-cyan-500/15">
                                         <feature.icon size={20} weight="bold" className={feature.color} />
                                       </div>
                                       <div className="flex-1 min-w-0">
-                                        <div className="text-sm font-semibold text-foreground mb-0.5 break-words">{feature.title}</div>
-                                        <div className="text-xs text-muted-foreground leading-relaxed break-words">{feature.description}</div>
+                                        <div className="text-sm font-semibold text-[#07111F] mb-0.5 break-words dark:text-foreground">{feature.title}</div>
+                                        <div className="text-xs text-[#5B677A] leading-relaxed break-words dark:text-muted-foreground">{feature.description}</div>
                                       </div>
                                     </button>
                                   ))}
                                 </div>
-                                <div className="mt-3 pt-3 border-t border-border/40">
+                                <div className="mt-3 pt-3 border-t border-[#D8E3EE] dark:border-border/40">
                                   <button
                                     onClick={() => {
                                       handleNavigate(item.id)
@@ -534,7 +534,7 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
                                       if (item.id === "support") setSupportDropdownOpen(false)
                                       if (item.id === "licensing") setLicensingDropdownOpen(false)
                                     }}
-                                    className="w-full flex items-center justify-center gap-2 py-2 px-4 bg-[linear-gradient(135deg,rgba(0,199,232,0.18),rgba(0,143,199,0.10))] hover:bg-[linear-gradient(135deg,rgba(0,199,232,0.22),rgba(0,143,199,0.14))] rounded-md text-sm font-semibold text-[#F8FAFC] transition-all duration-150 group"
+                                    className="w-full flex items-center justify-center gap-2 py-2 px-4 bg-cyan-50 hover:bg-cyan-100 rounded-md text-sm font-semibold text-[#07111F] transition-all duration-150 group dark:bg-[linear-gradient(135deg,rgba(0,199,232,0.18),rgba(0,143,199,0.10))] dark:hover:bg-[linear-gradient(135deg,rgba(0,199,232,0.22),rgba(0,143,199,0.14))] dark:text-[#F8FAFC]"
                                   >
                                     <span>View All {dropdownTitle}</span>
                                     <ArrowRight size={14} weight="bold" className="group-hover:translate-x-0.5 transition-transform" />
@@ -549,13 +549,13 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
                           onClick={() => handleNavigate(item.id)}
                           className={`relative px-3 xl:px-3.5 py-1.5 text-[12px] xl:text-[13px] tracking-[0.01em] font-medium rounded-sm transition-all duration-150 whitespace-nowrap ${
                             currentPage === item.id
-                                ? "text-[#F8FAFC]"
-                                : "text-muted-foreground hover:text-[#F8FAFC]"
+                                ? "text-[#07111F] dark:text-[#F8FAFC]"
+                                : "text-[#5B677A] hover:text-[#07111F] dark:text-muted-foreground dark:hover:text-[#F8FAFC]"
                           }`}
                         >
                           <span className="relative z-10">{item.label}</span>
                           {currentPage === item.id && (
-                            <div className="absolute inset-0 bg-primary/8 rounded-md" />
+                            <div className="absolute inset-0 bg-cyan-50 rounded-md dark:bg-primary/8" />
                           )}
                         </button>
                       )}
@@ -599,7 +599,7 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
       </nav>
 
       {mobileMenuOpen && (
-        <div className="lg:hidden fixed inset-0 top-[calc(2.25rem+3.5rem)] sm:top-[calc(2.5rem+4rem)] md:top-[calc(2.75rem+5rem)] z-40 bg-[rgba(7,17,31,0.96)] backdrop-blur-2xl overflow-y-auto border-t border-[rgba(0,199,232,0.16)]">
+        <div className="lg:hidden fixed inset-0 top-[calc(2.25rem+3.5rem)] sm:top-[calc(2.5rem+4rem)] md:top-[calc(2.75rem+5rem)] z-40 bg-[rgba(255,255,255,0.96)] backdrop-blur-2xl overflow-y-auto border-t border-[#D8E3EE] dark:bg-[rgba(7,17,31,0.96)] dark:border-cyan-500/16">
           <div className="h-full">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 py-4 sm:py-6 md:py-8">
               <div className="flex flex-col gap-1.5 sm:gap-2">
@@ -631,8 +631,8 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
                         }}
                         className={`w-full px-4 sm:px-6 py-3 sm:py-4 text-left text-sm sm:text-base tracking-[0.01em] font-medium rounded-lg transition-all flex items-center justify-between active:scale-98 ${
                           currentPage === item.id
-                            ? "text-[#F8FAFC] bg-[rgba(0,199,232,0.10)] border border-primary/20"
-                            : "text-muted-foreground hover:text-[#F8FAFC] hover:bg-[rgba(0,199,232,0.08)] active:bg-[rgba(0,199,232,0.12)]"
+                            ? "text-[#07111F] bg-cyan-50 border border-cyan-500/20 dark:text-[#F8FAFC] dark:bg-[rgba(0,199,232,0.10)]"
+                            : "text-[#5B677A] hover:text-[#07111F] hover:bg-[#F6F9FC] active:bg-cyan-50 dark:text-muted-foreground dark:hover:text-[#F8FAFC] dark:hover:bg-[rgba(0,199,232,0.08)] dark:active:bg-[rgba(0,199,232,0.12)]"
                         }`}
                       >
                         <span>{item.label}</span>
@@ -660,14 +660,14 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
                                 if (item.id === "support") setSupportDropdownOpen(false)
                                 if (item.id === "licensing") setLicensingDropdownOpen(false)
                               }}
-                              className="w-full flex items-start gap-2.5 sm:gap-3 p-2.5 sm:p-3 rounded-lg hover:bg-[rgba(0,199,232,0.08)] active:bg-[rgba(0,199,232,0.12)] active:scale-98 transition-all duration-200 text-left"
+                              className="w-full flex items-start gap-2.5 sm:gap-3 p-2.5 sm:p-3 rounded-lg hover:bg-[#F6F9FC] active:bg-cyan-50 active:scale-98 transition-all duration-200 text-left dark:hover:bg-[rgba(0,199,232,0.08)] dark:active:bg-[rgba(0,199,232,0.12)]"
                             >
-                              <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-lg bg-[linear-gradient(135deg,rgba(0,199,232,0.14),rgba(0,143,199,0.08))] border border-[rgba(0,199,232,0.14)] flex items-center justify-center flex-shrink-0">
+                              <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-lg bg-[linear-gradient(135deg,rgba(0,199,232,0.10),rgba(0,143,199,0.05))] border border-[#D8E3EE] flex items-center justify-center flex-shrink-0 dark:bg-[linear-gradient(135deg,rgba(0,199,232,0.14),rgba(0,143,199,0.08))] dark:border-cyan-500/15">
                                 <feature.icon size={17} weight="bold" className={`${feature.color} sm:w-[18px] sm:h-[18px]`} />
                               </div>
                               <div className="flex-1 min-w-0">
-                                <div className="text-xs sm:text-sm font-semibold text-foreground mb-0.5">{feature.title}</div>
-                                <div className="text-[11px] sm:text-xs text-muted-foreground leading-snug">{feature.description}</div>
+                                <div className="text-xs sm:text-sm font-semibold text-[#07111F] mb-0.5 dark:text-foreground">{feature.title}</div>
+                                <div className="text-[11px] sm:text-xs text-[#5B677A] leading-snug dark:text-muted-foreground">{feature.description}</div>
                               </div>
                             </button>
                           ))}
@@ -678,7 +678,7 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
                 })}
               </div>
               
-              <div className="mt-6 sm:mt-8 pt-6 sm:pt-8 border-t border-border/40 space-y-4 sm:space-y-6">
+              <div className="mt-6 sm:mt-8 pt-6 sm:pt-8 border-t border-[#D8E3EE] space-y-4 sm:space-y-6 dark:border-border/40">
                 <Button 
                   onClick={() => handleNavigate("download")}
                   variant="outline"
@@ -707,7 +707,7 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
                   <div className="text-xs sm:text-sm font-semibold text-foreground">Need assistance?</div>
                   <div className="text-[11px] sm:text-xs text-muted-foreground space-y-1.5">
                     <div className="font-semibold">Call 1-800-SENTINEL (24/7)</div>
-                    <div>sales@guardivex</div>
+                    <div>sales@guardivex.com</div>
                   </div>
                 </div>
               </div>

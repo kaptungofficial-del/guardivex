@@ -124,19 +124,19 @@ export function LoginPage({ onLogin, onBackToWebsite, onShowRegister, onShowPass
             <CardContent className="space-y-5 sm:space-y-6">
               <Tabs defaultValue="credentials" className="w-full">
                 <TabsList className={`grid w-full ${biometricSupported ? 'grid-cols-3' : 'grid-cols-2'} mb-5 sm:mb-6 p-1 h-auto bg-muted/50`}>
-                  <TabsTrigger value="credentials" className="data-[state=active]:bg-background data-[state=active]:shadow-sm py-2.5 sm:py-2.5 text-sm">
+                  <TabsTrigger value="credentials" className="data-[state=active]:bg-background data-[state=active]:shadow-sm py-2.5 sm:py-2.5 text-sm gap-2">
                     <Lock size={16} weight="bold" className="sm:mr-2" />
-                    <span className="hidden sm:inline">Password</span>
+                    <span>Password</span>
                   </TabsTrigger>
                   {biometricSupported && (
-                    <TabsTrigger value="biometric" className="data-[state=active]:bg-background data-[state=active]:shadow-sm py-2.5 sm:py-2.5 text-sm">
+                    <TabsTrigger value="biometric" className="data-[state=active]:bg-background data-[state=active]:shadow-sm py-2.5 sm:py-2.5 text-sm gap-2">
                       <Fingerprint size={16} weight="bold" className="sm:mr-2" />
-                      <span className="hidden sm:inline">Biometric</span>
+                      <span>Biometric</span>
                     </TabsTrigger>
                   )}
-                  <TabsTrigger value="sso" className="data-[state=active]:bg-background data-[state=active]:shadow-sm py-2.5 sm:py-2.5 text-sm">
+                  <TabsTrigger value="sso" className="data-[state=active]:bg-background data-[state=active]:shadow-sm py-2.5 sm:py-2.5 text-sm gap-2">
                     <CheckCircle size={16} weight="bold" className="sm:mr-2" />
-                    <span className="hidden sm:inline">SSO</span>
+                    <span>SSO</span>
                   </TabsTrigger>
                 </TabsList>
                 

@@ -34,7 +34,7 @@ export function AuthShell({ backLabel, onBack, title, subtitle, children }: Auth
       </div>
 
       <div className="relative min-h-dvh flex items-center justify-center p-4 sm:p-5 lg:p-6">
-        <div className="w-full max-w-7xl grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_minmax(520px,560px)] gap-5 lg:gap-8 items-stretch">
+        <div className="w-full max-w-7xl grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_minmax(460px,520px)] gap-5 lg:gap-10 items-stretch">
           <section className="hidden lg:flex flex-col justify-between rounded-3xl glass-panel p-8 xl:p-10 shadow-2xl shadow-black/10">
             <div className="space-y-6">
               <div className="flex items-center gap-4">
@@ -74,7 +74,7 @@ export function AuthShell({ backLabel, onBack, title, subtitle, children }: Auth
             <p className="text-xs text-muted-foreground">SOC 2 Type II . ISO 27001 . GDPR-ready controls</p>
           </section>
 
-          <div className="space-y-4 sm:space-y-5 lg:w-[560px] lg:justify-self-end">
+          <div className="space-y-4 sm:space-y-5 lg:w-full lg:max-w-[520px] lg:justify-self-center xl:max-w-[540px]">
             <div className="lg:hidden flex flex-col items-center gap-2.5 text-center">
               <BrandMark className="w-20 h-20 sm:w-24 sm:h-24" />
               <div>
