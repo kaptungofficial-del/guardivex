@@ -251,6 +251,11 @@ h1, h2, h3, h4, h5, h6 {
   backdrop-filter: blur(14px);
 }
 
+.dark .glass-outline {
+  border-color: rgba(0, 199, 232, 0.35);
+  background: rgba(15, 23, 42, 0.55);
+}
+
 @keyframes float-glow {
   0%,
   100% {
@@ -264,7 +269,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .glow-orb {
-  animation: float-glow 8.5s ease-in-out infinite;
+  animation: none;
   filter: blur(2px);
 }
 
@@ -281,7 +286,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .status-pulse {
-  animation: status-pulse 2.4s ease-out infinite;
+  animation: none;
 }
 
 @keyframes spin-slow {
@@ -294,5 +299,5 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .animate-spin-slow {
-  animation: spin-slow 3s linear infinite;
+  animation: none;
 }

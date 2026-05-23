@@ -412,7 +412,7 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
       </div>
 
       <nav className="sticky top-2 z-50 px-2 sm:px-4 lg:px-5">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 rounded-2xl border border-border/85 bg-white/88 dark:border-cyan-300/16 dark:bg-[linear-gradient(120deg,rgba(9,18,36,0.88),rgba(9,24,46,0.78),rgba(8,16,33,0.88))] backdrop-blur-2xl shadow-[0_14px_30px_-22px_rgba(8,17,31,0.22)] dark:shadow-[0_20px_34px_-24px_rgba(14,165,233,0.8)]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 rounded-2xl border border-border/85 bg-white/88 dark:border-slate-700/70 dark:bg-[linear-gradient(120deg,rgba(5,12,24,0.92),rgba(8,19,38,0.88),rgba(4,10,20,0.92))] backdrop-blur-2xl shadow-[0_14px_30px_-22px_rgba(8,17,31,0.22)] dark:shadow-[0_20px_34px_-24px_rgba(8,145,178,0.62)]">
           <div className="flex items-center justify-between h-[2.95rem] sm:h-[3.15rem] lg:h-[3.35rem] gap-3 sm:gap-4">
             <div className="flex items-center gap-2.5 lg:gap-8 min-w-0">
               <button 
@@ -481,7 +481,7 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
                             className={`relative px-4 xl:px-[1.1rem] py-2 text-[12.5px] xl:text-[13.5px] tracking-[0.01em] font-medium rounded-md transition-all duration-200 flex items-center gap-1.5 border whitespace-nowrap ${
                               currentPage === item.id
                                 ? "text-foreground border-primary/30 bg-primary/8"
-                                : "text-muted-foreground dark:text-slate-300 border-transparent hover:text-foreground dark:hover:text-white hover:border-border/70 hover:bg-secondary/40"
+                                : "text-muted-foreground dark:text-slate-300 border-transparent hover:text-foreground dark:hover:text-white hover:border-border/70 dark:hover:border-slate-600/70 hover:bg-secondary/40 dark:hover:bg-slate-800/45"
                             }`}
                           >
                             <span className="relative z-10">{item.label}</span>

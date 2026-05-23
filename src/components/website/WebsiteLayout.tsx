@@ -257,8 +257,9 @@ function HomePage({ onNavigate }: { onNavigate: (page: string) => void }) {
   return (
     <div className="relative guardivex-home-typography">
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-7 sm:pt-9 lg:pt-10 pb-6 sm:pb-8 lg:pb-9 relative overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_14%,rgba(0,143,199,0.08),transparent_44%)] dark:bg-[radial-gradient(circle_at_18%_14%,rgba(56,189,248,0.2),transparent_40%)]" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_86%_8%,rgba(0,143,199,0.07),transparent_40%)] dark:bg-[radial-gradient(circle_at_86%_8%,rgba(14,165,233,0.15),transparent_38%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_14%,rgba(0,143,199,0.08),transparent_44%)] dark:bg-[radial-gradient(circle_at_18%_14%,rgba(34,211,238,0.22),transparent_42%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_86%_8%,rgba(0,143,199,0.07),transparent_40%)] dark:bg-[radial-gradient(circle_at_86%_8%,rgba(8,145,178,0.2),transparent_40%)]" />
+        <div className="absolute inset-0 dark:bg-[linear-gradient(180deg,rgba(2,8,18,0.6),rgba(4,10,24,0.82))]" />
         <div className="absolute inset-0 opacity-[0.05] dark:opacity-[0.14] bg-[linear-gradient(rgba(125,211,252,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(125,211,252,0.08)_1px,transparent_1px)] bg-[size:34px_34px]" />
         <div className="relative grid grid-cols-1 lg:grid-cols-[1.02fr_0.98fr] gap-5 lg:gap-7 items-center">
           <div className="text-center lg:text-left">
