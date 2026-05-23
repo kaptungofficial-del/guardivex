@@ -18,7 +18,7 @@ const buttonVariants = cva(
         secondary:
           "border border-border/70 bg-card text-foreground shadow-[0_12px_24px_-18px_rgba(15,23,42,0.12)] hover:border-primary/40 hover:bg-accent/10 dark:border-[rgba(0,199,232,0.22)] dark:bg-[linear-gradient(180deg,rgba(11,22,40,0.92),rgba(7,17,31,0.88))] dark:text-[#F8FAFC] dark:shadow-[0_12px_24px_-18px_rgba(7,17,31,0.72)] dark:hover:bg-[linear-gradient(180deg,rgba(11,22,40,0.98),rgba(7,17,31,0.94))]",
         ghost:
-          "hover:bg-accent/10 hover:text-foreground dark:hover:bg-[rgba(0,199,232,0.10)]",
+          "hover:bg-cyan-50 hover:text-foreground dark:hover:bg-[rgba(0,199,232,0.10)]",
         link: "text-primary underline-offset-4 hover:underline",
       },
       size: {

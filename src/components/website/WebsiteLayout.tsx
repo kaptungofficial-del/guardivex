@@ -279,38 +279,38 @@ function HomePage({ onNavigate }: { onNavigate: (page: string) => void }) {
             </div>
           </div>
 
-          <section className="hidden lg:flex h-full min-h-[24rem] flex-col rounded-md border border-[#D8E8F5] bg-[rgba(255,255,255,0.92)] shadow-[0_14px_28px_-22px_rgba(2,6,18,0.14)] dark:border-cyan-500/20 dark:bg-[linear-gradient(180deg,rgba(11,22,40,0.94),rgba(7,17,31,0.92))] dark:shadow-[0_14px_28px_-22px_rgba(2,6,18,0.72)]">
+          <section className="hidden lg:flex h-full min-h-[24rem] flex-col rounded-2xl border border-[#D8E8F5] bg-white/92 shadow-[0_18px_34px_-26px_rgba(15,23,42,0.22)] dark:border-cyan-500/20 dark:bg-[rgba(7,17,31,0.92)] dark:shadow-[0_18px_34px_-26px_rgba(2,6,18,0.78)]">
             <div className="flex items-center justify-between border-b border-[#D8E8F5] px-4 py-2.5 dark:border-cyan-500/15">
               <div className="flex items-center gap-2 text-[11px] uppercase tracking-[0.08em] text-[#5B677A] font-semibold dark:text-[#94A3B8]">
                 <Circle size={8} weight="fill" className="text-success" />
                 Live SOC Telemetry
               </div>
-              <Badge variant="outline" className="h-5 rounded-sm border-success/35 text-[10px] text-success bg-success/8 dark:border-success/35 dark:text-success dark:bg-success/8">
+              <Badge variant="outline" className="h-5 rounded-full border-success/30 text-[10px] text-success bg-success/10 dark:border-success/35 dark:text-success dark:bg-success/8">
                 Production
               </Badge>
             </div>
 
             <div className="grid grid-cols-2 gap-2 border-b border-[#D8E8F5] p-3 dark:border-cyan-500/15">
-              <div className="rounded-sm border border-[#D8E8F5] bg-[#F8FBFF] p-2.5 dark:border-cyan-500/15 dark:bg-[#07111F]">
+              <div className="rounded-xl border border-[#D8E8F5] bg-[#F8FBFF] p-2.5 dark:border-cyan-500/15 dark:bg-[#07111F]">
                 <p className="text-[10px] uppercase tracking-[0.06em] text-[#5B677A] dark:text-[#94A3B8]">Active Alerts</p>
                 <p className="mt-1 text-xl font-semibold text-destructive">8</p>
               </div>
-              <div className="rounded-sm border border-[#D8E8F5] bg-[#F8FBFF] p-2.5 dark:border-cyan-500/15 dark:bg-[#07111F]">
+              <div className="rounded-xl border border-[#D8E8F5] bg-[#F8FBFF] p-2.5 dark:border-cyan-500/15 dark:bg-[#07111F]">
                 <p className="text-[10px] uppercase tracking-[0.06em] text-[#5B677A] dark:text-[#94A3B8]">Devices Online</p>
                 <p className="mt-1 text-xl font-semibold text-[#07111F] dark:text-[#F8FAFC]">1,247</p>
               </div>
-              <div className="rounded-sm border border-[#D8E8F5] bg-[#F8FBFF] p-2.5 dark:border-cyan-500/15 dark:bg-[#07111F]">
+              <div className="rounded-xl border border-[#D8E8F5] bg-[#F8FBFF] p-2.5 dark:border-cyan-500/15 dark:bg-[#07111F]">
                 <p className="text-[10px] uppercase tracking-[0.06em] text-[#5B677A] dark:text-[#94A3B8]">Site Health</p>
                 <p className="mt-1 text-xl font-semibold text-success">99.8%</p>
               </div>
-              <div className="rounded-sm border border-[#D8E8F5] bg-[#F8FBFF] p-2.5 dark:border-cyan-500/15 dark:bg-[#07111F]">
+              <div className="rounded-xl border border-[#D8E8F5] bg-[#F8FBFF] p-2.5 dark:border-cyan-500/15 dark:bg-[#07111F]">
                 <p className="text-[10px] uppercase tracking-[0.06em] text-[#5B677A] dark:text-[#94A3B8]">System Uptime</p>
                 <p className="mt-1 text-xl font-semibold text-[#07111F] dark:text-[#F8FAFC]">99.99%</p>
               </div>
             </div>
 
             <div className="grid grid-cols-1 gap-2 p-3">
-              <div className="rounded-sm border border-[#D8E8F5] bg-[#F8FBFF] p-2.5 dark:border-cyan-500/15 dark:bg-[#07111F]">
+              <div className="rounded-xl border border-[#D8E8F5] bg-[#F8FBFF] p-2.5 dark:border-cyan-500/15 dark:bg-[#07111F]">
                 <div className="mb-2 flex items-center justify-between">
                   <h3 className="text-xs font-semibold uppercase tracking-[0.06em] text-[#07111F] dark:text-[#F8FAFC]">Recent Events</h3>
                   <span className="text-[10px] font-mono text-[#5B677A] dark:text-[#94A3B8]">UTC-05</span>
@@ -332,28 +332,28 @@ function HomePage({ onNavigate }: { onNavigate: (page: string) => void }) {
               </div>
 
               <div className="grid grid-cols-2 gap-2">
-                <div className="rounded-sm border border-[#D8E8F5] bg-[#F8FBFF] p-2.5 dark:border-cyan-500/15 dark:bg-[#07111F]">
+                <div className="rounded-xl border border-[#D8E8F5] bg-[#F8FBFF] p-2.5 dark:border-cyan-500/15 dark:bg-[#07111F]">
                   <div className="mb-1.5 flex items-center gap-1.5 text-[11px] font-semibold text-[#5B677A] uppercase tracking-[0.06em] dark:text-[#94A3B8]">
                     <NetworkX size={13} /> Network
                   </div>
                   <p className="text-sm text-[#07111F] font-semibold dark:text-[#F8FAFC]">Latency 24ms</p>
                   <p className="text-[11px] text-[#5B677A] dark:text-[#94A3B8]">Core stable</p>
                 </div>
-                <div className="rounded-sm border border-[#D8E8F5] bg-[#F8FBFF] p-2.5 dark:border-cyan-500/15 dark:bg-[#07111F]">
+                <div className="rounded-xl border border-[#D8E8F5] bg-[#F8FBFF] p-2.5 dark:border-cyan-500/15 dark:bg-[#07111F]">
                   <div className="mb-1.5 flex items-center gap-1.5 text-[11px] font-semibold text-[#5B677A] uppercase tracking-[0.06em] dark:text-[#94A3B8]">
                     <Camera size={13} /> Cameras
                   </div>
                   <p className="text-sm text-[#07111F] font-semibold dark:text-[#F8FAFC]">582 / 584</p>
                   <p className="text-[11px] text-[#5B677A] dark:text-[#94A3B8]">2 offline</p>
                 </div>
-                <div className="rounded-sm border border-[#D8E8F5] bg-[#F8FBFF] p-2.5 dark:border-cyan-500/15 dark:bg-[#07111F]">
+                <div className="rounded-xl border border-[#D8E8F5] bg-[#F8FBFF] p-2.5 dark:border-cyan-500/15 dark:bg-[#07111F]">
                   <div className="mb-1.5 flex items-center gap-1.5 text-[11px] font-semibold text-[#5B677A] uppercase tracking-[0.06em] dark:text-[#94A3B8]">
                     <Lock size={13} /> Access
                   </div>
                   <p className="text-sm text-[#07111F] font-semibold dark:text-[#F8FAFC]">142 controllers</p>
                   <p className="text-[11px] text-[#5B677A] dark:text-[#94A3B8]">All synced</p>
                 </div>
-                <div className="rounded-sm border border-[#D8E8F5] bg-[#F8FBFF] p-2.5 dark:border-cyan-500/15 dark:bg-[#07111F]">
+                <div className="rounded-xl border border-[#D8E8F5] bg-[#F8FBFF] p-2.5 dark:border-cyan-500/15 dark:bg-[#07111F]">
                   <div className="mb-1.5 flex items-center gap-1.5 text-[11px] font-semibold text-[#5B677A] uppercase tracking-[0.06em] dark:text-[#94A3B8]">
                     <Siren size={13} /> Incidents
                   </div>
