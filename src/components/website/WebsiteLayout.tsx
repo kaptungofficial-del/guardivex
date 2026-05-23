@@ -35,8 +35,8 @@ export function WebsiteLayout({ currentPage, onNavigate, onLogin }: WebsiteLayou
   return (
     <div className="min-h-screen bg-background premium-shell overflow-hidden">
       <div className="pointer-events-none absolute inset-0 -z-10">
-        <div className="glow-orb absolute -top-24 left-[8%] h-64 w-64 rounded-full bg-cyan-400/12" />
-        <div className="glow-orb absolute -top-14 right-[10%] h-72 w-72 rounded-full bg-blue-500/12 [animation-delay:1.6s]" />
+        <div className="glow-orb absolute -top-24 left-[8%] h-64 w-64 rounded-full bg-primary/14" />
+        <div className="glow-orb absolute -top-14 right-[10%] h-72 w-72 rounded-full bg-accent/12 [animation-delay:1.6s]" />
       </div>
       <WebsiteNavbar
         currentPage={currentPage}
@@ -257,108 +257,108 @@ function HomePage({ onNavigate }: { onNavigate: (page: string) => void }) {
   return (
     <div className="relative guardivex-home-typography">
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-5 sm:pt-7 lg:pt-8 pb-5 sm:pb-6 lg:pb-7 relative overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_14%,rgba(100,116,139,0.08),transparent_48%)] dark:bg-[radial-gradient(circle_at_18%_14%,rgba(71,85,105,0.2),transparent_48%)]" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_86%_8%,rgba(100,116,139,0.06),transparent_44%)] dark:bg-[radial-gradient(circle_at_86%_8%,rgba(51,65,85,0.18),transparent_44%)]" />
-        <div className="absolute inset-0 dark:bg-[linear-gradient(180deg,rgba(3,8,20,0.62),rgba(2,6,16,0.88))]" />
-        <div className="absolute inset-0 opacity-[0.04] dark:opacity-[0.1] bg-[linear-gradient(rgba(148,163,184,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(148,163,184,0.08)_1px,transparent_1px)] bg-[size:34px_34px]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_14%,rgba(0,199,232,0.13),transparent_48%)] dark:bg-[radial-gradient(circle_at_18%_14%,rgba(0,199,232,0.18),transparent_48%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_86%_8%,rgba(0,143,199,0.12),transparent_44%)] dark:bg-[radial-gradient(circle_at_86%_8%,rgba(0,143,199,0.16),transparent_44%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(244,249,253,0.14),rgba(244,249,253,0.62))] dark:bg-[linear-gradient(180deg,rgba(7,17,31,0.66),rgba(3,8,16,0.9))]" />
+        <div className="absolute inset-0 opacity-[0.05] dark:opacity-[0.1] bg-[linear-gradient(rgba(0,199,232,0.09)_1px,transparent_1px),linear-gradient(90deg,rgba(0,199,232,0.09)_1px,transparent_1px)] bg-[size:34px_34px]" />
         <div className="relative grid grid-cols-1 lg:grid-cols-[1.02fr_0.98fr] gap-4 lg:gap-5 items-center">
           <div className="text-center lg:text-left">
-            <div className="inline-flex items-center px-3.5 sm:px-4 py-1.5 rounded-sm bg-slate-200/70 dark:bg-slate-800/70 border border-slate-300 dark:border-slate-600 text-slate-700 dark:text-slate-200 text-[11px] sm:text-xs font-semibold mb-3 sm:mb-4 tracking-[0.01em]">
-            Unified SOC Command Center &middot; Security Platform
+            <div className="inline-flex items-center px-3.5 sm:px-4 py-1.5 rounded-sm bg-[linear-gradient(180deg,rgba(11,22,40,0.92),rgba(7,17,31,0.86))] border border-[rgba(0,199,232,0.22)] text-[#F8FAFC] text-[11px] sm:text-xs font-semibold mb-3 sm:mb-4 tracking-[0.01em] shadow-[0_10px_20px_-18px_rgba(7,17,31,0.75)]">
+              Unified SOC Command Center &middot; Security Platform
             </div>
-            <h1 className="bg-transparent mx-auto lg:mx-0 max-w-[14ch] text-[clamp(1.85rem,4.8vw,3.1rem)] font-[700] font-heading tracking-[-0.03em] text-balance text-foreground dark:text-slate-100 mb-2 sm:mb-2.5 leading-[1.01]">
+            <h1 className="bg-transparent mx-auto lg:mx-0 max-w-[14ch] text-[clamp(1.85rem,4.8vw,3.1rem)] font-[700] font-heading tracking-[-0.03em] text-balance text-foreground dark:text-[#F8FAFC] mb-2 sm:mb-2.5 leading-[1.01]">
               Enterprise Security Platform
             </h1>
-            <p className="text-[clamp(0.96rem,1.02vw,1.075rem)] text-muted-foreground dark:text-slate-300 mb-4 sm:mb-5 max-w-[54ch] mx-auto lg:mx-0 leading-[1.55] text-pretty">
+            <p className="text-[clamp(0.96rem,1.02vw,1.075rem)] text-muted-foreground dark:text-[#94A3B8] mb-4 sm:mb-5 max-w-[54ch] mx-auto lg:mx-0 leading-[1.55] text-pretty">
               Install on your own server to monitor security devices, cameras, NVRs, access control, alarms, networks, and system health from one SOC Command Center.
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2.5 sm:gap-3 max-w-[46rem] mx-auto lg:mx-0 px-2 lg:px-0">
-              <Button size="lg" variant="outline" className="w-full h-10 text-sm rounded-md border-slate-300 bg-white/80 text-slate-700 shadow-none hover:bg-slate-100 dark:border-slate-600 dark:bg-slate-900/75 dark:text-slate-200 dark:hover:bg-slate-800/85">Request Demo</Button>
-              <Button size="lg" onClick={() => onNavigate("download")} className="w-full h-10 text-sm rounded-md border border-slate-700 bg-slate-900 text-slate-100 shadow-none hover:bg-slate-800 dark:border-slate-400 dark:bg-slate-100 dark:text-slate-900 dark:hover:bg-white">Download Trial</Button>
-              <Button size="lg" variant="outline" className="w-full h-10 text-sm rounded-md border-slate-300 bg-white/80 text-slate-700 shadow-none hover:bg-slate-100 dark:border-slate-600 dark:bg-slate-900/75 dark:text-slate-200 dark:hover:bg-slate-800/85">View Architecture</Button>
+              <Button size="lg" variant="outline" className="w-full h-10 text-sm rounded-md">Request Demo</Button>
+              <Button size="lg" onClick={() => onNavigate("download")} className="w-full h-10 text-sm rounded-md">Download Trial</Button>
+              <Button size="lg" variant="outline" className="w-full h-10 text-sm rounded-md">View Architecture</Button>
             </div>
           </div>
 
-          <section className="hidden lg:flex h-full min-h-[24rem] flex-col rounded-md border border-slate-300/90 bg-[linear-gradient(180deg,rgba(248,250,252,0.96),rgba(241,245,249,0.94))] dark:border-slate-700/80 dark:bg-[linear-gradient(180deg,rgba(8,14,27,0.94),rgba(6,12,23,0.95))] shadow-[0_14px_28px_-22px_rgba(8,17,31,0.48)]">
-            <div className="flex items-center justify-between border-b border-slate-300/70 dark:border-slate-700/70 px-4 py-2.5">
-              <div className="flex items-center gap-2 text-[11px] uppercase tracking-[0.08em] text-slate-600 dark:text-slate-300 font-semibold">
-                <Circle size={8} weight="fill" className="text-emerald-500" />
+          <section className="hidden lg:flex h-full min-h-[24rem] flex-col rounded-md border border-[rgba(0,199,232,0.20)] bg-[linear-gradient(180deg,rgba(11,22,40,0.94),rgba(7,17,31,0.92))] shadow-[0_14px_28px_-22px_rgba(2,6,18,0.72)]">
+            <div className="flex items-center justify-between border-b border-[rgba(0,199,232,0.16)] px-4 py-2.5">
+              <div className="flex items-center gap-2 text-[11px] uppercase tracking-[0.08em] text-[#94A3B8] font-semibold">
+                <Circle size={8} weight="fill" className="text-success" />
                 Live SOC Telemetry
               </div>
-              <Badge variant="outline" className="h-5 rounded-sm border-slate-400 dark:border-slate-600 text-[10px] text-slate-600 dark:text-slate-300">
+              <Badge variant="outline" className="h-5 rounded-sm border-success/35 text-[10px] text-success bg-success/8">
                 Production
               </Badge>
             </div>
 
-            <div className="grid grid-cols-2 gap-2 border-b border-slate-300/70 dark:border-slate-700/70 p-3">
-              <div className="rounded-sm border border-slate-300/70 bg-white/70 dark:border-slate-700/70 dark:bg-slate-900/60 p-2.5">
-                <p className="text-[10px] uppercase tracking-[0.06em] text-slate-500 dark:text-slate-400">Active Alerts</p>
+            <div className="grid grid-cols-2 gap-2 border-b border-[rgba(0,199,232,0.14)] p-3">
+              <div className="rounded-sm border border-[rgba(0,199,232,0.14)] bg-[rgba(7,17,31,0.42)] p-2.5">
+                <p className="text-[10px] uppercase tracking-[0.06em] text-[#94A3B8]">Active Alerts</p>
                 <p className="mt-1 text-xl font-semibold text-destructive">8</p>
               </div>
-              <div className="rounded-sm border border-slate-300/70 bg-white/70 dark:border-slate-700/70 dark:bg-slate-900/60 p-2.5">
-                <p className="text-[10px] uppercase tracking-[0.06em] text-slate-500 dark:text-slate-400">Devices Online</p>
-                <p className="mt-1 text-xl font-semibold text-foreground dark:text-slate-100">1,247</p>
+              <div className="rounded-sm border border-[rgba(0,199,232,0.14)] bg-[rgba(7,17,31,0.42)] p-2.5">
+                <p className="text-[10px] uppercase tracking-[0.06em] text-[#94A3B8]">Devices Online</p>
+                <p className="mt-1 text-xl font-semibold text-[#F8FAFC]">1,247</p>
               </div>
-              <div className="rounded-sm border border-slate-300/70 bg-white/70 dark:border-slate-700/70 dark:bg-slate-900/60 p-2.5">
-                <p className="text-[10px] uppercase tracking-[0.06em] text-slate-500 dark:text-slate-400">Site Health</p>
+              <div className="rounded-sm border border-[rgba(0,199,232,0.14)] bg-[rgba(7,17,31,0.42)] p-2.5">
+                <p className="text-[10px] uppercase tracking-[0.06em] text-[#94A3B8]">Site Health</p>
                 <p className="mt-1 text-xl font-semibold text-success">99.8%</p>
               </div>
-              <div className="rounded-sm border border-slate-300/70 bg-white/70 dark:border-slate-700/70 dark:bg-slate-900/60 p-2.5">
-                <p className="text-[10px] uppercase tracking-[0.06em] text-slate-500 dark:text-slate-400">System Uptime</p>
-                <p className="mt-1 text-xl font-semibold text-foreground dark:text-slate-100">99.99%</p>
+              <div className="rounded-sm border border-[rgba(0,199,232,0.14)] bg-[rgba(7,17,31,0.42)] p-2.5">
+                <p className="text-[10px] uppercase tracking-[0.06em] text-[#94A3B8]">System Uptime</p>
+                <p className="mt-1 text-xl font-semibold text-[#F8FAFC]">99.99%</p>
               </div>
             </div>
 
             <div className="grid grid-cols-1 gap-2 p-3">
-              <div className="rounded-sm border border-slate-300/70 dark:border-slate-700/70 bg-white/55 dark:bg-slate-900/55 p-2.5">
+              <div className="rounded-sm border border-[rgba(0,199,232,0.14)] bg-[rgba(7,17,31,0.32)] p-2.5">
                 <div className="mb-2 flex items-center justify-between">
-                  <h3 className="text-xs font-semibold uppercase tracking-[0.06em] text-slate-600 dark:text-slate-300">Recent Events</h3>
-                  <span className="text-[10px] font-mono text-slate-500 dark:text-slate-400">UTC-05</span>
+                  <h3 className="text-xs font-semibold uppercase tracking-[0.06em] text-[#F8FAFC]">Recent Events</h3>
+                  <span className="text-[10px] font-mono text-[#94A3B8]">UTC-05</span>
                 </div>
                 <div className="space-y-1.5 text-xs">
-                  <div className="flex items-center justify-between border-b border-slate-200/70 dark:border-slate-800/80 pb-1.5">
-                    <span className="text-slate-700 dark:text-slate-300">Motion detected - Building A Lobby</span>
-                    <span className="font-mono text-slate-500 dark:text-slate-400">00:31</span>
+                  <div className="flex items-center justify-between border-b border-[rgba(0,199,232,0.10)] pb-1.5">
+                    <span className="text-[#E2E8F0]">Motion detected - Building A Lobby</span>
+                    <span className="font-mono text-[#94A3B8]">00:31</span>
                   </div>
-                  <div className="flex items-center justify-between border-b border-slate-200/70 dark:border-slate-800/80 pb-1.5">
-                    <span className="text-slate-700 dark:text-slate-300">Access granted - Main Entry</span>
-                    <span className="font-mono text-slate-500 dark:text-slate-400">01:12</span>
+                  <div className="flex items-center justify-between border-b border-[rgba(0,199,232,0.10)] pb-1.5">
+                    <span className="text-[#E2E8F0]">Access granted - Main Entry</span>
+                    <span className="font-mono text-[#94A3B8]">01:12</span>
                   </div>
                   <div className="flex items-center justify-between">
-                    <span className="text-slate-700 dark:text-slate-300">Incident #892 triaged</span>
-                    <span className="font-mono text-slate-500 dark:text-slate-400">02:44</span>
+                    <span className="text-[#E2E8F0]">Incident #892 triaged</span>
+                    <span className="font-mono text-[#94A3B8]">02:44</span>
                   </div>
                 </div>
               </div>
 
               <div className="grid grid-cols-2 gap-2">
-                <div className="rounded-sm border border-slate-300/70 dark:border-slate-700/70 bg-white/55 dark:bg-slate-900/55 p-2.5">
-                  <div className="mb-1.5 flex items-center gap-1.5 text-[11px] font-semibold text-slate-600 dark:text-slate-300 uppercase tracking-[0.06em]">
+                <div className="rounded-sm border border-[rgba(0,199,232,0.14)] bg-[rgba(7,17,31,0.32)] p-2.5">
+                  <div className="mb-1.5 flex items-center gap-1.5 text-[11px] font-semibold text-[#94A3B8] uppercase tracking-[0.06em]">
                     <NetworkX size={13} /> Network
                   </div>
-                  <p className="text-sm text-foreground dark:text-slate-100 font-semibold">Latency 24ms</p>
-                  <p className="text-[11px] text-slate-500 dark:text-slate-400">Core stable</p>
+                  <p className="text-sm text-[#F8FAFC] font-semibold">Latency 24ms</p>
+                  <p className="text-[11px] text-[#94A3B8]">Core stable</p>
                 </div>
-                <div className="rounded-sm border border-slate-300/70 dark:border-slate-700/70 bg-white/55 dark:bg-slate-900/55 p-2.5">
-                  <div className="mb-1.5 flex items-center gap-1.5 text-[11px] font-semibold text-slate-600 dark:text-slate-300 uppercase tracking-[0.06em]">
+                <div className="rounded-sm border border-[rgba(0,199,232,0.14)] bg-[rgba(7,17,31,0.32)] p-2.5">
+                  <div className="mb-1.5 flex items-center gap-1.5 text-[11px] font-semibold text-[#94A3B8] uppercase tracking-[0.06em]">
                     <Camera size={13} /> Cameras
                   </div>
-                  <p className="text-sm text-foreground dark:text-slate-100 font-semibold">582 / 584</p>
-                  <p className="text-[11px] text-slate-500 dark:text-slate-400">2 offline</p>
+                  <p className="text-sm text-[#F8FAFC] font-semibold">582 / 584</p>
+                  <p className="text-[11px] text-[#94A3B8]">2 offline</p>
                 </div>
-                <div className="rounded-sm border border-slate-300/70 dark:border-slate-700/70 bg-white/55 dark:bg-slate-900/55 p-2.5">
-                  <div className="mb-1.5 flex items-center gap-1.5 text-[11px] font-semibold text-slate-600 dark:text-slate-300 uppercase tracking-[0.06em]">
+                <div className="rounded-sm border border-[rgba(0,199,232,0.14)] bg-[rgba(7,17,31,0.32)] p-2.5">
+                  <div className="mb-1.5 flex items-center gap-1.5 text-[11px] font-semibold text-[#94A3B8] uppercase tracking-[0.06em]">
                     <Lock size={13} /> Access
                   </div>
-                  <p className="text-sm text-foreground dark:text-slate-100 font-semibold">142 controllers</p>
-                  <p className="text-[11px] text-slate-500 dark:text-slate-400">All synced</p>
+                  <p className="text-sm text-[#F8FAFC] font-semibold">142 controllers</p>
+                  <p className="text-[11px] text-[#94A3B8]">All synced</p>
                 </div>
-                <div className="rounded-sm border border-slate-300/70 dark:border-slate-700/70 bg-white/55 dark:bg-slate-900/55 p-2.5">
-                  <div className="mb-1.5 flex items-center gap-1.5 text-[11px] font-semibold text-slate-600 dark:text-slate-300 uppercase tracking-[0.06em]">
+                <div className="rounded-sm border border-[rgba(0,199,232,0.14)] bg-[rgba(7,17,31,0.32)] p-2.5">
+                  <div className="mb-1.5 flex items-center gap-1.5 text-[11px] font-semibold text-[#94A3B8] uppercase tracking-[0.06em]">
                     <Siren size={13} /> Incidents
                   </div>
-                  <p className="text-sm text-foreground dark:text-slate-100 font-semibold">3 active</p>
-                  <p className="text-[11px] text-slate-500 dark:text-slate-400">1 high priority</p>
+                  <p className="text-sm text-[#F8FAFC] font-semibold">3 active</p>
+                  <p className="text-[11px] text-[#94A3B8]">1 high priority</p>
                 </div>
               </div>
             </div>
@@ -372,29 +372,29 @@ function HomePage({ onNavigate }: { onNavigate: (page: string) => void }) {
 
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-7 md:py-10 border-t border-border/60">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
-          <Card className="bg-card/70 dark:bg-slate-950/55 border-border dark:border-slate-700/60">
+          <Card className="bg-card/70 border-border/70">
             <CardHeader className="p-4 sm:p-6">
               <Monitor size={32} className="text-primary mb-2 sm:mb-3" weight="duotone" />
-              <CardTitle className="text-base sm:text-lg text-foreground dark:text-slate-100">Self-Hosted Control</CardTitle>
-              <CardDescription className="text-sm text-muted-foreground dark:text-slate-300">
+              <CardTitle className="text-base sm:text-lg text-foreground">Self-Hosted Control</CardTitle>
+              <CardDescription className="text-sm text-muted-foreground">
                 Install on your own server infrastructure with complete data sovereignty and control
               </CardDescription>
             </CardHeader>
           </Card>
-          <Card className="bg-card/70 dark:bg-slate-950/55 border-border dark:border-slate-700/60">
+          <Card className="bg-card/70 border-border/70">
             <CardHeader className="p-4 sm:p-6">
               <ShieldCheck size={32} className="text-primary mb-2 sm:mb-3" weight="duotone" />
-              <CardTitle className="text-base sm:text-lg text-foreground dark:text-slate-100">SOC Command Center</CardTitle>
-              <CardDescription className="text-sm text-muted-foreground dark:text-slate-300">
+              <CardTitle className="text-base sm:text-lg text-foreground">SOC Command Center</CardTitle>
+              <CardDescription className="text-sm text-muted-foreground">
                 Built-in security operations center for monitoring devices, alerts, and incidents
               </CardDescription>
             </CardHeader>
           </Card>
-          <Card className="bg-card/70 dark:bg-slate-950/55 border-border dark:border-slate-700/60">
+          <Card className="bg-card/70 border-border/70">
             <CardHeader className="p-4 sm:p-6">
               <CloudArrowDown size={32} className="text-primary mb-2 sm:mb-3" weight="duotone" />
-              <CardTitle className="text-base sm:text-lg text-foreground dark:text-slate-100">Optional Cloud Services</CardTitle>
-              <CardDescription className="text-sm text-muted-foreground dark:text-slate-300">
+              <CardTitle className="text-base sm:text-lg text-foreground">Optional Cloud Services</CardTitle>
+              <CardDescription className="text-sm text-muted-foreground">
                 Connect to Guardivex Cloud for licensing, updates, support, and remote access
               </CardDescription>
             </CardHeader>

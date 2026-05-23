@@ -34,49 +34,49 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
       icon: VideoCamera,
       title: "Video Surveillance",
       description: "Cameras & NVRs",
-      color: "text-blue-400"
+      color: "text-primary"
     },
     {
       icon: LockKey,
       title: "Access Control",
       description: "Doors & Readers",
-      color: "text-purple-400"
+      color: "text-primary"
     },
     {
       icon: BellRinging,
       title: "Intrusion Detection",
       description: "Alarms & Sensors",
-      color: "text-orange-400"
+      color: "text-warning"
     },
     {
       icon: WifiHigh,
       title: "Network Monitoring",
       description: "Switches & Routers",
-      color: "text-cyan-400"
+      color: "text-accent"
     },
     {
       icon: Gauge,
       title: "System Health",
       description: "Server & Performance",
-      color: "text-green-400"
+      color: "text-success"
     },
     {
       icon: CloudCheck,
       title: "Cloud Services",
       description: "Remote Access & Sync",
-      color: "text-indigo-400"
+      color: "text-primary"
     },
     {
       icon: ChartLine,
       title: "Analytics & Reports",
       description: "Insights & Trends",
-      color: "text-pink-400"
+      color: "text-accent"
     },
     {
       icon: Pulse,
       title: "Event Engine",
       description: "Real-time Alerts",
-      color: "text-red-400"
+      color: "text-destructive"
     }
   ]
   
@@ -85,37 +85,37 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
       icon: Buildings,
       title: "Multi-Site Deployment",
       description: "Centralized management",
-      color: "text-blue-400"
+      color: "text-primary"
     },
     {
       icon: Users,
       title: "Team Collaboration",
       description: "Role-based access",
-      color: "text-purple-400"
+      color: "text-primary"
     },
     {
       icon: Globe,
       title: "Global Infrastructure",
       description: "Worldwide operations",
-      color: "text-cyan-400"
+      color: "text-accent"
     },
     {
       icon: ChartLineUp,
       title: "Enterprise Analytics",
       description: "Advanced reporting",
-      color: "text-green-400"
+      color: "text-success"
     },
     {
       icon: Package,
       title: "Custom Integration",
       description: "API & SDK access",
-      color: "text-orange-400"
+      color: "text-warning"
     },
     {
       icon: Certificate,
       title: "Compliance & Security",
       description: "SOC 2, ISO certified",
-      color: "text-indigo-400"
+      color: "text-primary"
     }
   ]
   
@@ -124,37 +124,37 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
       icon: Book,
       title: "Getting Started",
       description: "Installation & setup",
-      color: "text-blue-400"
+      color: "text-primary"
     },
     {
       icon: Code,
       title: "API Reference",
       description: "Integration docs",
-      color: "text-purple-400"
+      color: "text-primary"
     },
     {
       icon: FileText,
       title: "User Guides",
       description: "Feature walkthroughs",
-      color: "text-cyan-400"
+      color: "text-accent"
     },
     {
       icon: GraduationCap,
       title: "Training Resources",
       description: "Video tutorials",
-      color: "text-green-400"
+      color: "text-success"
     },
     {
       icon: Question,
       title: "FAQs",
       description: "Common questions",
-      color: "text-orange-400"
+      color: "text-warning"
     },
     {
       icon: Terminal,
       title: "Command Line",
       description: "CLI documentation",
-      color: "text-indigo-400"
+      color: "text-primary"
     }
   ]
   
@@ -163,37 +163,37 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
       icon: Headset,
       title: "24/7 Technical Support",
       description: "Phone & email assistance",
-      color: "text-blue-400"
+      color: "text-primary"
     },
     {
       icon: ChatCircle,
       title: "Live Chat",
       description: "Instant messaging support",
-      color: "text-purple-400"
+      color: "text-primary"
     },
     {
       icon: VideoConference,
       title: "Remote Assistance",
       description: "Screen sharing sessions",
-      color: "text-cyan-400"
+      color: "text-accent"
     },
     {
       icon: Ticket,
       title: "Support Tickets",
       description: "Track your requests",
-      color: "text-green-400"
+      color: "text-success"
     },
     {
       icon: FileDoc,
       title: "Knowledge Base",
       description: "Self-service articles",
-      color: "text-orange-400"
+      color: "text-warning"
     },
     {
       icon: ClockCounterClockwise,
       title: "Service Status",
       description: "System uptime & incidents",
-      color: "text-indigo-400"
+      color: "text-primary"
     }
   ]
   
@@ -202,37 +202,37 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
       icon: CreditCard,
       title: "Trial License",
       description: "30-day full access trial",
-      color: "text-blue-400"
+      color: "text-primary"
     },
     {
       icon: IdentificationBadge,
       title: "Professional",
       description: "Single site deployment",
-      color: "text-purple-400"
+      color: "text-primary"
     },
     {
       icon: Buildings,
       title: "Enterprise",
       description: "Multi-site unlimited",
-      color: "text-cyan-400"
+      color: "text-accent"
     },
     {
       icon: Briefcase,
       title: "MSP/Partner",
       description: "Managed service provider",
-      color: "text-green-400"
+      color: "text-success"
     },
     {
       icon: Devices,
       title: "Device Licensing",
       description: "Per-device pricing tiers",
-      color: "text-orange-400"
+      color: "text-warning"
     },
     {
       icon: Receipt,
       title: "Volume Discounts",
       description: "Enterprise pricing",
-      color: "text-indigo-400"
+      color: "text-primary"
     }
   ]
   
@@ -362,14 +362,14 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
                 <span className="text-success hidden min-[380px]:inline tracking-wide">All Systems Operational</span>
                 <span className="text-success min-[380px]:hidden tracking-wide">Live</span>
               </div>
-              <Badge variant="outline" className="hidden lg:inline-flex h-6 text-[10px] uppercase tracking-[0.1em] border-border text-foreground/85 dark:text-slate-300 bg-white/70 dark:bg-background/60">
+              <Badge variant="outline" className="hidden lg:inline-flex h-6 text-[10px] uppercase tracking-[0.1em] border-[rgba(0,199,232,0.18)] text-[#F8FAFC] bg-[rgba(11,22,40,0.74)]">
                 Enterprise Edition
               </Badge>
               <div className="hidden md:flex items-center gap-1.5">
                 <div className="w-1 h-1 rounded-full bg-border/60" />
                 <a 
                   href="mailto:sales@guardivex"
-                  className="flex items-center gap-1.5 text-muted-foreground dark:text-slate-300 hover:text-primary dark:hover:text-white transition-colors text-[11px] font-semibold group"
+                  className="flex items-center gap-1.5 text-muted-foreground hover:text-primary transition-colors text-[11px] font-semibold group"
                 >
                   <EnvelopeSimple size={14} weight="bold" className="group-hover:scale-110 transition-transform" />
                   <span className="hidden lg:inline">sales@guardivex</span>
@@ -379,7 +379,7 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
             <div className="flex items-center gap-1.5 sm:gap-2.5 md:gap-4">
               <a
                 href="tel:1-800-SENTINEL"
-                className="hidden xl:flex items-center gap-2 text-muted-foreground dark:text-slate-300 hover:text-foreground dark:hover:text-white transition-colors text-[11px] font-bold group"
+                className="hidden xl:flex items-center gap-2 text-muted-foreground hover:text-[#F8FAFC] transition-colors text-[11px] font-bold group"
               >
                 <Phone size={14} weight="bold" className="group-hover:scale-110 transition-transform" />
                 <span className="tracking-wide">1-800-SENTINEL</span>
@@ -387,7 +387,7 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
               </a>
               <button
                 onClick={() => onOpenLiveChat("I need help with my deployment")}
-                className={`${ENTERPRISE_CONTROL_CLASS} hidden lg:flex text-[11px] font-bold dark:text-slate-300 hover:text-primary dark:hover:text-white hover:border-primary/40 hover:bg-primary/8 group`}
+                className={`${ENTERPRISE_CONTROL_CLASS} hidden lg:flex text-[11px] font-bold hover:text-[#F8FAFC] hover:border-primary/40 hover:bg-[rgba(0,199,232,0.10)] group`}
               >
                 <ChatCircle size={14} weight="bold" className="group-hover:scale-110 transition-transform" />
                 <span className="tracking-wide">Live Chat</span>
@@ -399,7 +399,7 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
                     href={social.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-6 h-6 sm:w-7 sm:h-7 flex items-center justify-center rounded-lg text-muted-foreground dark:text-slate-300 hover:text-primary dark:hover:text-white hover:bg-primary/10 border border-transparent hover:border-primary/20 transition-all duration-200 group"
+                    className="w-6 h-6 sm:w-7 sm:h-7 flex items-center justify-center rounded-lg text-muted-foreground hover:text-primary hover:bg-[rgba(0,199,232,0.10)] border border-transparent hover:border-primary/20 transition-all duration-200 group"
                     aria-label={social.label}
                   >
                     <social.icon size={13} weight="fill" className="group-hover:scale-110 transition-transform sm:w-[14px] sm:h-[14px]" />
@@ -412,7 +412,7 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
       </div>
 
       <nav className="sticky top-1 z-50 px-2 sm:px-3 lg:px-4">
-        <div className="max-w-7xl mx-auto px-3 sm:px-5 lg:px-6 rounded-lg border border-border/85 bg-white/92 dark:border-slate-700/75 dark:bg-[linear-gradient(120deg,rgba(6,12,24,0.94),rgba(7,14,27,0.92),rgba(6,12,24,0.94))] backdrop-blur-md shadow-[0_10px_20px_-18px_rgba(8,17,31,0.28)] dark:shadow-[0_12px_24px_-20px_rgba(2,6,18,0.82)]">
+        <div className="max-w-7xl mx-auto px-3 sm:px-5 lg:px-6 rounded-lg border border-[rgba(0,199,232,0.20)] bg-[linear-gradient(120deg,rgba(11,22,40,0.95),rgba(7,17,31,0.92),rgba(11,22,40,0.95))] backdrop-blur-md shadow-[0_14px_26px_-22px_rgba(2,6,18,0.76)]">
           <div className="flex items-center justify-between h-[2.8rem] sm:h-[3rem] lg:h-[3.1rem] gap-2.5 sm:gap-3">
             <div className="flex items-center gap-2 lg:gap-6 min-w-0">
               <button 
@@ -428,7 +428,7 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
                   imgClassName="pr-0.5"
                   textContainerClassName="gap-0"
                   titleClassName="text-[17px] sm:text-[20px] lg:text-[21px] text-foreground group-hover:text-primary transition-colors font-extrabold tracking-[-0.025em]"
-                  subtitleClassName="hidden sm:block text-[8.5px] lg:text-[9px] text-muted-foreground/80 dark:text-slate-400 tracking-[0.14em] leading-none mt-0.5"
+                  subtitleClassName="hidden sm:block text-[8.5px] lg:text-[9px] text-muted-foreground/80 tracking-[0.14em] leading-none mt-0.5"
                 />
               </button>
               
@@ -480,8 +480,8 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
                             onClick={() => handleNavigate(item.id)}
                             className={`relative px-3 xl:px-3.5 py-1.5 text-[12px] xl:text-[13px] tracking-[0.01em] font-medium rounded-sm transition-all duration-150 flex items-center gap-1.5 border whitespace-nowrap ${
                               currentPage === item.id
-                                ? "text-foreground border-primary/30 bg-primary/8"
-                                : "text-muted-foreground dark:text-slate-300 border-transparent hover:text-foreground dark:hover:text-white hover:border-border/70 dark:hover:border-slate-600/70 hover:bg-secondary/40 dark:hover:bg-slate-800/45"
+                                ? "text-[#F8FAFC] border-primary/30 bg-[rgba(0,199,232,0.10)]"
+                                : "text-muted-foreground border-transparent hover:text-[#F8FAFC] hover:border-[rgba(0,199,232,0.18)] hover:bg-[rgba(0,199,232,0.08)]"
                             }`}
                           >
                             <span className="relative z-10">{item.label}</span>
@@ -490,10 +490,10 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
                           
                           {isDropdownOpen && (
                             <div className={`absolute top-full ${dropdownPositionClass} z-50 pt-2`}>
-                              <div className="w-[min(680px,calc(100vw-2rem))] max-w-[680px] glass-panel bg-white/96 dark:bg-slate-950/90 border-border/85 dark:border-slate-700/70 rounded-lg shadow-[0_16px_28px_-24px_rgba(8,17,31,0.35)] dark:shadow-[0_18px_30px_-26px_rgba(2,6,18,0.82)] p-4 overflow-hidden">
+                              <div className="w-[min(680px,calc(100vw-2rem))] max-w-[680px] glass-panel bg-[linear-gradient(180deg,rgba(11,22,40,0.96),rgba(7,17,31,0.92))] border-[rgba(0,199,232,0.20)] rounded-lg shadow-[0_16px_28px_-24px_rgba(2,6,18,0.72)] p-4 overflow-hidden">
                                 <div className="mb-3">
                                   <h3 className="text-sm font-bold text-foreground mb-1">{dropdownTitle}</h3>
-                                  <p className="text-xs text-muted-foreground dark:text-slate-300">{dropdownSubtitle}</p>
+                                  <p className="text-xs text-muted-foreground">{dropdownSubtitle}</p>
                                 </div>
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-2.5">
                                   {dropdownData.map((feature) => (
@@ -512,14 +512,14 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
                                         if (item.id === "support") setSupportDropdownOpen(false)
                                         if (item.id === "licensing") setLicensingDropdownOpen(false)
                                       }}
-                                      className="flex items-start gap-3 p-2.5 rounded-md hover:bg-accent/30 transition-all duration-150 text-left group"
+                                      className="flex items-start gap-3 p-2.5 rounded-md hover:bg-[rgba(0,199,232,0.08)] transition-all duration-150 text-left group"
                                     >
-                                      <div className={`w-10 h-10 rounded-md bg-gradient-to-br from-${feature.color.split('-')[1]}-500/10 to-${feature.color.split('-')[1]}-600/5 flex items-center justify-center flex-shrink-0`}>
+                                      <div className="w-10 h-10 rounded-md bg-[linear-gradient(135deg,rgba(0,199,232,0.14),rgba(0,143,199,0.08))] border border-[rgba(0,199,232,0.14)] flex items-center justify-center flex-shrink-0">
                                         <feature.icon size={20} weight="bold" className={feature.color} />
                                       </div>
                                       <div className="flex-1 min-w-0">
                                         <div className="text-sm font-semibold text-foreground mb-0.5 break-words">{feature.title}</div>
-                                        <div className="text-xs text-muted-foreground dark:text-slate-300 leading-relaxed break-words">{feature.description}</div>
+                                        <div className="text-xs text-muted-foreground leading-relaxed break-words">{feature.description}</div>
                                       </div>
                                     </button>
                                   ))}
@@ -534,7 +534,7 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
                                       if (item.id === "support") setSupportDropdownOpen(false)
                                       if (item.id === "licensing") setLicensingDropdownOpen(false)
                                     }}
-                                    className="w-full flex items-center justify-center gap-2 py-2 px-4 bg-primary/8 hover:bg-primary/10 rounded-md text-sm font-semibold text-primary transition-all duration-150 group"
+                                    className="w-full flex items-center justify-center gap-2 py-2 px-4 bg-[linear-gradient(135deg,rgba(0,199,232,0.18),rgba(0,143,199,0.10))] hover:bg-[linear-gradient(135deg,rgba(0,199,232,0.22),rgba(0,143,199,0.14))] rounded-md text-sm font-semibold text-[#F8FAFC] transition-all duration-150 group"
                                   >
                                     <span>View All {dropdownTitle}</span>
                                     <ArrowRight size={14} weight="bold" className="group-hover:translate-x-0.5 transition-transform" />
@@ -549,8 +549,8 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
                           onClick={() => handleNavigate(item.id)}
                           className={`relative px-3 xl:px-3.5 py-1.5 text-[12px] xl:text-[13px] tracking-[0.01em] font-medium rounded-sm transition-all duration-150 whitespace-nowrap ${
                             currentPage === item.id
-                              ? "text-foreground"
-                              : "text-muted-foreground dark:text-slate-300 hover:text-foreground dark:hover:text-white"
+                                ? "text-[#F8FAFC]"
+                                : "text-muted-foreground hover:text-[#F8FAFC]"
                           }`}
                         >
                           <span className="relative z-10">{item.label}</span>
@@ -571,7 +571,7 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
                 onClick={() => handleNavigate("download")}
                 variant="outline"
                 size="default"
-                className="hidden xl:flex items-center gap-2 h-9 px-3.5 border-border hover:border-primary/50 hover:bg-primary/8 font-bold text-sm group transition-all duration-150 rounded-md"
+                className="hidden xl:flex items-center gap-2 h-9 px-3.5 font-bold text-sm group transition-all duration-150 rounded-md"
               >
                 <CloudArrowDown size={17} weight="bold" className="group-hover:scale-110 transition-transform sm:w-[18px] sm:h-[18px]" />
                 <span>Download Trial</span>
@@ -579,7 +579,8 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
               <Button 
                 onClick={handleLoginClick}
                 size="default"
-                className="h-9 px-3 sm:px-3.5 bg-slate-900 text-slate-100 hover:bg-slate-800 font-bold text-xs sm:text-sm shadow-none transition-all duration-150 group rounded-md border border-slate-700 dark:bg-slate-100 dark:text-slate-900 dark:border-slate-300 dark:hover:bg-white"
+                variant="secondary"
+                className="h-9 px-3 sm:px-3.5 font-bold text-xs sm:text-sm transition-all duration-150 group rounded-md"
               >
                 <span>Sign In</span>
                 <ArrowRight size={15} weight="bold" className="ml-1 sm:ml-1.5 group-hover:translate-x-1 transition-transform sm:w-[17px] sm:h-[17px]" />
@@ -598,7 +599,7 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
       </nav>
 
       {mobileMenuOpen && (
-        <div className="lg:hidden fixed inset-0 top-[calc(2.25rem+3.5rem)] sm:top-[calc(2.5rem+4rem)] md:top-[calc(2.75rem+5rem)] z-40 bg-white/95 dark:bg-background/98 backdrop-blur-2xl overflow-y-auto border-t border-border/70 dark:border-cyan-300/20">
+        <div className="lg:hidden fixed inset-0 top-[calc(2.25rem+3.5rem)] sm:top-[calc(2.5rem+4rem)] md:top-[calc(2.75rem+5rem)] z-40 bg-[rgba(7,17,31,0.96)] backdrop-blur-2xl overflow-y-auto border-t border-[rgba(0,199,232,0.16)]">
           <div className="h-full">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 py-4 sm:py-6 md:py-8">
               <div className="flex flex-col gap-1.5 sm:gap-2">
@@ -630,8 +631,8 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
                         }}
                         className={`w-full px-4 sm:px-6 py-3 sm:py-4 text-left text-sm sm:text-base tracking-[0.01em] font-medium rounded-lg transition-all flex items-center justify-between active:scale-98 ${
                           currentPage === item.id
-                            ? "text-foreground bg-primary/8 border border-primary/20"
-                            : "text-muted-foreground dark:text-slate-300 hover:text-foreground dark:hover:text-white hover:bg-accent/40 active:bg-accent/50"
+                            ? "text-[#F8FAFC] bg-[rgba(0,199,232,0.10)] border border-primary/20"
+                            : "text-muted-foreground hover:text-[#F8FAFC] hover:bg-[rgba(0,199,232,0.08)] active:bg-[rgba(0,199,232,0.12)]"
                         }`}
                       >
                         <span>{item.label}</span>
@@ -659,14 +660,14 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
                                 if (item.id === "support") setSupportDropdownOpen(false)
                                 if (item.id === "licensing") setLicensingDropdownOpen(false)
                               }}
-                              className="w-full flex items-start gap-2.5 sm:gap-3 p-2.5 sm:p-3 rounded-lg hover:bg-accent/40 active:bg-accent/50 active:scale-98 transition-all duration-200 text-left"
+                              className="w-full flex items-start gap-2.5 sm:gap-3 p-2.5 sm:p-3 rounded-lg hover:bg-[rgba(0,199,232,0.08)] active:bg-[rgba(0,199,232,0.12)] active:scale-98 transition-all duration-200 text-left"
                             >
-                              <div className={`w-8 h-8 sm:w-9 sm:h-9 rounded-lg bg-card flex items-center justify-center flex-shrink-0 border border-border/40`}>
+                              <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-lg bg-[linear-gradient(135deg,rgba(0,199,232,0.14),rgba(0,143,199,0.08))] border border-[rgba(0,199,232,0.14)] flex items-center justify-center flex-shrink-0">
                                 <feature.icon size={17} weight="bold" className={`${feature.color} sm:w-[18px] sm:h-[18px]`} />
                               </div>
                               <div className="flex-1 min-w-0">
                                 <div className="text-xs sm:text-sm font-semibold text-foreground mb-0.5">{feature.title}</div>
-                                <div className="text-[11px] sm:text-xs text-muted-foreground dark:text-slate-300 leading-snug">{feature.description}</div>
+                                <div className="text-[11px] sm:text-xs text-muted-foreground leading-snug">{feature.description}</div>
                               </div>
                             </button>
                           ))}
@@ -681,7 +682,7 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
                 <Button 
                   onClick={() => handleNavigate("download")}
                   variant="outline"
-                  className="w-full h-11 sm:h-12 justify-center gap-2 text-sm sm:text-base border-border/60 hover:border-primary/40 hover:bg-primary/5 font-semibold active:scale-98 transition-all"
+                  className="w-full h-11 sm:h-12 justify-center gap-2 text-sm sm:text-base font-semibold active:scale-98 transition-all rounded-md"
                 >
                   <CloudArrowDown size={18} weight="bold" className="sm:w-5 sm:h-5" />
                   <span>Download Trial</span>
@@ -694,7 +695,7 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
                       href={social.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="w-10 h-10 sm:w-11 sm:h-11 flex items-center justify-center rounded-lg text-muted-foreground dark:text-slate-300 hover:text-primary dark:hover:text-white hover:bg-primary/5 active:bg-primary/10 border border-border/40 hover:border-primary/30 transition-all duration-200 active:scale-95"
+                      className="w-10 h-10 sm:w-11 sm:h-11 flex items-center justify-center rounded-lg text-muted-foreground hover:text-primary hover:bg-[rgba(0,199,232,0.08)] active:bg-[rgba(0,199,232,0.12)] border border-[rgba(0,199,232,0.16)] hover:border-primary/30 transition-all duration-200 active:scale-95"
                       aria-label={social.label}
                     >
                       <social.icon size={18} weight="bold" className="sm:w-5 sm:h-5" />
@@ -704,7 +705,7 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
                 
                 <div className="text-center space-y-2.5 sm:space-y-3 pt-3 sm:pt-4">
                   <div className="text-xs sm:text-sm font-semibold text-foreground">Need assistance?</div>
-                  <div className="text-[11px] sm:text-xs text-muted-foreground dark:text-slate-300 space-y-1.5">
+                  <div className="text-[11px] sm:text-xs text-muted-foreground space-y-1.5">
                     <div className="font-semibold">Call 1-800-SENTINEL (24/7)</div>
                     <div>sales@guardivex</div>
                   </div>
