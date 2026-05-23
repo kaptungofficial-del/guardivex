@@ -21,20 +21,20 @@
   --secondary-foreground: #07111F;
   
   --muted: #EFF5FB;
-  --muted-foreground: #526173;
+  --muted-foreground: #64748B;
   
   --accent: #008FC7;
   --accent-foreground: #F6F9FC;
   --accent-hover: #0077A8;
   
-  --destructive: oklch(0.58 0.24 25);
-  --destructive-foreground: oklch(0.98 0 0);
+  --destructive: #DC2626;
+  --destructive-foreground: #F6F9FC;
   
-  --success: oklch(0.58 0.20 145);
-  --success-foreground: oklch(0.98 0 0);
+  --success: #16A34A;
+  --success-foreground: #F6F9FC;
   
-  --warning: oklch(0.68 0.18 70);
-  --warning-foreground: oklch(0.15 0.015 250);
+  --warning: #F59E0B;
+  --warning-foreground: #07111F;
   
   --info: oklch(0.60 0.15 210);
   --info-foreground: oklch(0.98 0 0);
