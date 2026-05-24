@@ -13,6 +13,8 @@ import { BrandLogo } from "@/components/BrandLogo"
 import {
   ENTERPRISE_HEADER_SURFACE_CLASS,
   ENTERPRISE_SEARCH_SHELL_CLASS,
+  ENTERPRISE_CONTROL_CLASS,
+  ENTERPRISE_ICON_CONTROL_CLASS,
   HeaderStatusBadge,
 } from "@/components/layout/HeaderPrimitives"
 import { getSubdomainUrl } from "@/hooks/use-subdomain"
@@ -624,7 +626,7 @@ function TopBar({
         <div className="flex items-center gap-2 sm:gap-3 min-w-0">
           <button
             onClick={onMobileToggle}
-            className="lg:hidden p-1.5 text-muted-foreground dark:text-slate-300 hover:text-foreground dark:hover:text-white rounded-md hover:bg-muted/40 transition-colors"
+            className={`lg:hidden ${ENTERPRISE_ICON_CONTROL_CLASS}`}
             aria-label="Toggle sidebar"
             title="Toggle sidebar"
           >
@@ -647,7 +649,7 @@ function TopBar({
           <Badge variant="outline" className="hidden md:flex text-[11px] text-muted-foreground dark:text-slate-300 border-border">
             v3.1
           </Badge>
-          <HeaderStatusBadge label="Docs Online" className="hidden lg:inline-flex" />
+          <HeaderStatusBadge label="Online" className="hidden lg:inline-flex" />
         </div>
 
         <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
@@ -662,7 +664,7 @@ function TopBar({
           <Button
             size="sm"
             variant="outline"
-            className="hidden md:flex gap-1.5 text-xs h-9 border-border/70 hover:border-primary/40 hover:bg-primary/8"
+            className={`hidden md:flex gap-1.5 text-xs h-9 ${ENTERPRISE_CONTROL_CLASS}`}
             onClick={() => { window.location.href = getSubdomainUrl("app", "/login") }}
           >
             Sign In

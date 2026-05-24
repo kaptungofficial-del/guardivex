@@ -6,7 +6,17 @@ import { ThemeSwitcher } from "@/components/ThemeSwitcher"
 import { BrandLogo } from "@/components/BrandLogo"
 import {
   ENTERPRISE_COMMAND_STRIP_CLASS,
+  ENTERPRISE_DROPDOWN_ACTION_CLASS,
+  ENTERPRISE_DROPDOWN_ICON_CLASS,
+  ENTERPRISE_DROPDOWN_ITEM_CLASS,
+  ENTERPRISE_DROPDOWN_PANEL_CLASS,
   ENTERPRISE_CONTROL_CLASS,
+  ENTERPRISE_HEADER_SURFACE_CLASS,
+  ENTERPRISE_ICON_CONTROL_CLASS,
+  ENTERPRISE_NAV_ITEM_ACTIVE_CLASS,
+  ENTERPRISE_NAV_ITEM_CLASS,
+  ENTERPRISE_NAV_ITEM_INACTIVE_CLASS,
+  HeaderStatusBadge,
 } from "@/components/layout/HeaderPrimitives"
 
 interface WebsiteNavbarProps {
@@ -349,47 +359,38 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
   return (
     <>
       <div className={ENTERPRISE_COMMAND_STRIP_CLASS}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-8 sm:h-9 md:h-10">
-            <div className="flex items-center gap-2 sm:gap-3 md:gap-4">
-              <div className="inline-flex items-center gap-1.5 sm:gap-2 text-[10px] sm:text-[11px] font-semibold px-2.5 py-1 rounded-md border border-success/25 bg-success/8">
-                <div className="relative flex items-center">
-                  <Circle size={6} weight="fill" className="text-success drop-shadow-[0_0_4px_rgba(120,200,120,0.6)] sm:w-[7px] sm:h-[7px]" />
-                  <div className="absolute inset-0">
-                    <Circle size={6} weight="fill" className="text-success animate-ping opacity-60 sm:w-[7px] sm:h-[7px]" />
-                  </div>
-                </div>
-                <span className="text-success hidden min-[380px]:inline tracking-wide">All Systems Operational</span>
-                <span className="text-success min-[380px]:hidden tracking-wide">Live</span>
-              </div>
-              <Badge variant="outline" className="hidden lg:inline-flex h-6 text-[10px] uppercase tracking-[0.1em] border-[#D8E3EE] text-[#07111F] bg-[rgba(255,255,255,0.80)] dark:border-cyan-500/20 dark:text-[#F8FAFC] dark:bg-[rgba(11,22,40,0.74)]">
+        <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-5">
+          <div className="flex items-center justify-between h-8 sm:h-8">
+            <div className="flex items-center gap-2 sm:gap-2.5 md:gap-3 min-w-0">
+              <HeaderStatusBadge label="Operational" className="hidden min-[380px]:inline-flex" />
+              <Badge variant="outline" className="hidden lg:inline-flex h-5.5 text-[9px] uppercase tracking-[0.12em] border-[#D8E3EE] text-[#07111F] bg-[rgba(255,255,255,0.80)] dark:border-cyan-500/20 dark:text-[#F8FAFC] dark:bg-[rgba(11,22,40,0.74)]">
                 Enterprise Edition
               </Badge>
               <div className="hidden md:flex items-center gap-1.5">
                 <div className="w-1 h-1 rounded-full bg-border/60" />
                 <a 
                   href="mailto:sales@guardivex.com"
-                  className="flex items-center gap-1.5 text-muted-foreground hover:text-primary transition-colors text-[11px] font-semibold group"
+                  className="flex items-center gap-1.5 text-muted-foreground hover:text-primary transition-colors text-[10px] font-semibold group"
                 >
-                  <EnvelopeSimple size={14} weight="bold" className="group-hover:scale-110 transition-transform" />
+                  <EnvelopeSimple size={13} weight="bold" className="group-hover:scale-110 transition-transform" />
                   <span className="hidden lg:inline">sales@guardivex.com</span>
                 </a>
               </div>
             </div>
-            <div className="flex items-center gap-1.5 sm:gap-2.5 md:gap-4">
+            <div className="flex items-center gap-1.5 sm:gap-2 md:gap-3 shrink-0">
               <a
                 href="tel:1-800-SENTINEL"
-                className="hidden xl:flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors text-[11px] font-bold group dark:hover:text-[#F8FAFC]"
+                className="hidden xl:flex items-center gap-1.5 text-muted-foreground hover:text-foreground transition-colors text-[10px] font-semibold group dark:hover:text-[#F8FAFC]"
               >
-                <Phone size={14} weight="bold" className="group-hover:scale-110 transition-transform" />
+                <Phone size={13} weight="bold" className="group-hover:scale-110 transition-transform" />
                 <span className="tracking-wide">1-800-SENTINEL</span>
-                <Badge variant="outline" className="text-[9px] px-2 py-0.5 h-4 ml-1 border-accent/50 text-accent font-bold tracking-wider bg-accent/10">24/7</Badge>
+                <Badge variant="outline" className="text-[9px] px-1.5 py-0 h-4 ml-1 border-accent/50 text-accent font-bold tracking-wider bg-accent/10">24/7</Badge>
               </a>
               <button
                 onClick={() => onOpenLiveChat("I need help with my deployment")}
-                className={`${ENTERPRISE_CONTROL_CLASS} hidden lg:flex text-[11px] font-bold hover:text-foreground hover:border-primary/40 hover:bg-background/95 dark:hover:text-[#F8FAFC] dark:hover:bg-[rgba(0,199,232,0.10)] group`}
+                className={`${ENTERPRISE_CONTROL_CLASS} hidden lg:flex h-8 text-[10px] font-semibold hover:text-foreground hover:border-primary/40 hover:bg-background/95 dark:hover:text-[#F8FAFC] dark:hover:bg-[rgba(0,199,232,0.10)] group`}
               >
-                <ChatCircle size={14} weight="bold" className="group-hover:scale-110 transition-transform" />
+                <ChatCircle size={13} weight="bold" className="group-hover:scale-110 transition-transform" />
                 <span className="tracking-wide">Live Chat</span>
               </button>
               <div className="hidden sm:flex items-center gap-1.5 sm:gap-2 pl-2 sm:pl-2.5 ml-2 sm:ml-2.5 border-l border-border/30">
@@ -399,10 +400,10 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
                     href={social.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-6 h-6 sm:w-7 sm:h-7 flex items-center justify-center rounded-lg text-muted-foreground hover:text-primary hover:bg-[rgba(0,199,232,0.10)] border border-transparent hover:border-primary/20 transition-all duration-200 group"
+                    className="w-6 h-6 flex items-center justify-center rounded-lg text-muted-foreground hover:text-primary hover:bg-[rgba(0,199,232,0.10)] border border-transparent hover:border-primary/20 transition-all duration-200 group"
                     aria-label={social.label}
                   >
-                    <social.icon size={13} weight="fill" className="group-hover:scale-110 transition-transform sm:w-[14px] sm:h-[14px]" />
+                    <social.icon size={13} weight="fill" className="group-hover:scale-110 transition-transform" />
                   </a>
                 ))}
               </div>
@@ -411,28 +412,28 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
         </div>
       </div>
 
-      <nav className="sticky top-1 z-50 px-2 sm:px-3 lg:px-4">
-        <div className="max-w-7xl mx-auto px-3 sm:px-5 lg:px-6 rounded-lg border border-[#D8E3EE] bg-[rgba(255,255,255,0.85)] text-[#07111F] backdrop-blur-md shadow-[0_14px_26px_-22px_rgba(15,23,42,0.22)] dark:border-cyan-500/20 dark:bg-[rgba(7,17,31,0.90)] dark:text-[#F8FAFC] dark:shadow-[0_14px_26px_-22px_rgba(2,6,18,0.76)]">
-          <div className="flex items-center justify-between h-[2.8rem] sm:h-[3rem] lg:h-[3.1rem] gap-2.5 sm:gap-3">
-            <div className="flex items-center gap-2 lg:gap-6 min-w-0">
+      <nav className="sticky top-0.5 z-50 px-2 sm:px-3 lg:px-4">
+        <div className={`max-w-7xl mx-auto px-3 sm:px-4 lg:px-5 rounded-lg backdrop-blur-md ${ENTERPRISE_HEADER_SURFACE_CLASS}`}>
+          <div className="flex items-center justify-between h-14 sm:h-14 gap-2 sm:gap-2.5 min-w-0">
+            <div className="flex items-center gap-2 sm:gap-3 lg:gap-4 min-w-0">
               <button 
                 onClick={() => handleNavigate("home")} 
                 aria-label="Go to home"
                 title="Go to home"
-                className="flex items-center gap-1.5 group py-1 min-w-0"
+                className="flex items-center gap-1.5 group py-0 min-w-0 shrink-0"
               >
                 <BrandLogo
                   subtitle="SECURITY PLATFORM"
                   className="gap-0.5"
-                  markClassName="h-10 w-10 sm:h-11 sm:w-11 lg:h-12 lg:w-12"
+                  markClassName="h-8 w-8 sm:h-8 sm:w-8 lg:h-8 lg:w-8"
                   imgClassName="pr-0.5"
                   textContainerClassName="gap-0"
-                  titleClassName="text-[17px] sm:text-[20px] lg:text-[21px] text-[#07111F] group-hover:text-primary transition-colors font-extrabold tracking-[-0.025em] dark:text-[#F8FAFC]"
-                  subtitleClassName="hidden sm:block text-[8.5px] lg:text-[9px] text-[#5B677A] tracking-[0.14em] leading-none mt-0.5 dark:text-[#94A3B8]"
+                  titleClassName="text-[13px] sm:text-[14px] lg:text-[15px] text-[#07111F] group-hover:text-primary transition-colors font-extrabold tracking-[-0.03em] dark:text-[#F8FAFC]"
+                  subtitleClassName="hidden sm:block text-[7.5px] lg:text-[8px] text-[#5B677A] tracking-[0.18em] leading-none mt-0.5 dark:text-[#94A3B8]"
                 />
               </button>
               
-              <div className="hidden lg:flex items-center gap-2 xl:gap-2.5">
+              <div className="hidden lg:flex items-center gap-1 xl:gap-1.5 min-w-0">
                 {navItems.map((item) => {
                   const isDropdownOpen = item.id === "product" ? productDropdownOpen : 
                                         item.id === "enterprise" ? enterpriseDropdownOpen :
@@ -478,22 +479,18 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
                         >
                           <button
                             onClick={() => handleNavigate(item.id)}
-                            className={`relative px-3 xl:px-3.5 py-1.5 text-[12px] xl:text-[13px] tracking-[0.01em] font-medium rounded-sm transition-all duration-150 flex items-center gap-1.5 border whitespace-nowrap ${
-                              currentPage === item.id
-                                ? "text-[#07111F] border-primary/30 bg-cyan-50 dark:text-[#F8FAFC] dark:bg-[rgba(0,199,232,0.10)]"
-                                : "text-[#5B677A] border-transparent hover:text-[#07111F] hover:border-[#D8E3EE] hover:bg-[#F6F9FC] dark:text-muted-foreground dark:hover:text-[#F8FAFC] dark:hover:border-[rgba(0,199,232,0.18)] dark:hover:bg-[rgba(0,199,232,0.08)]"
-                            }`}
+                            className={`${ENTERPRISE_NAV_ITEM_CLASS} ${currentPage === item.id ? ENTERPRISE_NAV_ITEM_ACTIVE_CLASS : ENTERPRISE_NAV_ITEM_INACTIVE_CLASS}`}
                           >
                             <span className="relative z-10">{item.label}</span>
-                            <CaretDown size={12} weight="bold" className={`transition-transform duration-200 ${isDropdownOpen ? 'rotate-180' : ''}`} />
+                            <CaretDown size={11} weight="bold" className={`transition-transform duration-200 ${isDropdownOpen ? 'rotate-180' : ''}`} />
                           </button>
                           
                           {isDropdownOpen && (
                             <div className={`absolute top-full ${dropdownPositionClass} z-50 pt-2`}>
-                              <div className="w-[min(680px,calc(100vw-2rem))] max-w-[680px] glass-panel bg-[rgba(255,255,255,0.92)] border-[#D8E3EE] rounded-lg shadow-[0_16px_28px_-24px_rgba(2,6,18,0.72)] p-4 overflow-hidden dark:bg-[linear-gradient(180deg,rgba(11,22,40,0.96),rgba(7,17,31,0.92))] dark:border-cyan-500/20">
+                              <div className={ENTERPRISE_DROPDOWN_PANEL_CLASS}>
                                 <div className="mb-3">
-                                  <h3 className="text-sm font-bold text-[#07111F] mb-1 dark:text-foreground">{dropdownTitle}</h3>
-                                  <p className="text-xs text-[#5B677A] dark:text-muted-foreground">{dropdownSubtitle}</p>
+                                  <h3 className="text-sm font-bold text-[#07111F] mb-1 dark:text-[#F8FAFC]">{dropdownTitle}</h3>
+                                  <p className="text-xs text-[#5B677A] dark:text-[#94A3B8]">{dropdownSubtitle}</p>
                                 </div>
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-2.5">
                                   {dropdownData.map((feature) => (
@@ -512,19 +509,19 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
                                         if (item.id === "support") setSupportDropdownOpen(false)
                                         if (item.id === "licensing") setLicensingDropdownOpen(false)
                                       }}
-                                      className="flex items-start gap-3 p-2.5 rounded-md hover:bg-cyan-50 transition-all duration-150 text-left group dark:hover:bg-[rgba(0,199,232,0.08)]"
+                                      className={ENTERPRISE_DROPDOWN_ITEM_CLASS}
                                     >
-                                      <div className="w-10 h-10 rounded-md bg-[linear-gradient(135deg,rgba(0,199,232,0.10),rgba(0,143,199,0.05))] border border-[#D8E3EE] flex items-center justify-center flex-shrink-0 dark:bg-[linear-gradient(135deg,rgba(0,199,232,0.14),rgba(0,143,199,0.08))] dark:border-cyan-500/15">
+                                      <div className={ENTERPRISE_DROPDOWN_ICON_CLASS}>
                                         <feature.icon size={20} weight="bold" className={feature.color} />
                                       </div>
                                       <div className="flex-1 min-w-0">
-                                        <div className="text-sm font-semibold text-[#07111F] mb-0.5 break-words dark:text-foreground">{feature.title}</div>
-                                        <div className="text-xs text-[#5B677A] leading-relaxed break-words dark:text-muted-foreground">{feature.description}</div>
+                                        <div className="text-sm font-semibold text-[#07111F] mb-0.5 break-words dark:text-[#F8FAFC]">{feature.title}</div>
+                                        <div className="text-xs text-[#5B677A] leading-relaxed break-words dark:text-[#94A3B8]">{feature.description}</div>
                                       </div>
                                     </button>
                                   ))}
                                 </div>
-                                <div className="mt-3 pt-3 border-t border-[#D8E3EE] dark:border-border/40">
+                                <div className="mt-3 pt-3 border-t border-[rgba(0,199,232,0.12)] dark:border-[rgba(0,199,232,0.12)]">
                                   <button
                                     onClick={() => {
                                       handleNavigate(item.id)
@@ -534,7 +531,7 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
                                       if (item.id === "support") setSupportDropdownOpen(false)
                                       if (item.id === "licensing") setLicensingDropdownOpen(false)
                                     }}
-                                    className="w-full flex items-center justify-center gap-2 py-2 px-4 bg-cyan-50 hover:bg-cyan-100 rounded-md text-sm font-semibold text-[#07111F] transition-all duration-150 group dark:bg-[linear-gradient(135deg,rgba(0,199,232,0.18),rgba(0,143,199,0.10))] dark:hover:bg-[linear-gradient(135deg,rgba(0,199,232,0.22),rgba(0,143,199,0.14))] dark:text-[#F8FAFC]"
+                                    className={ENTERPRISE_DROPDOWN_ACTION_CLASS}
                                   >
                                     <span>View All {dropdownTitle}</span>
                                     <ArrowRight size={14} weight="bold" className="group-hover:translate-x-0.5 transition-transform" />
@@ -547,11 +544,7 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
                       ) : (
                         <button
                           onClick={() => handleNavigate(item.id)}
-                          className={`relative px-3 xl:px-3.5 py-1.5 text-[12px] xl:text-[13px] tracking-[0.01em] font-medium rounded-sm transition-all duration-150 whitespace-nowrap ${
-                            currentPage === item.id
-                                ? "text-[#07111F] dark:text-[#F8FAFC]"
-                                : "text-[#5B677A] hover:text-[#07111F] dark:text-muted-foreground dark:hover:text-[#F8FAFC]"
-                          }`}
+                          className={`${ENTERPRISE_NAV_ITEM_CLASS} ${currentPage === item.id ? ENTERPRISE_NAV_ITEM_ACTIVE_CLASS : ENTERPRISE_NAV_ITEM_INACTIVE_CLASS}`}
                         >
                           <span className="relative z-10">{item.label}</span>
                           {currentPage === item.id && (
@@ -571,7 +564,7 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
                 onClick={() => handleNavigate("download")}
                 variant="outline"
                 size="default"
-                className="hidden xl:flex items-center gap-2 h-9 px-3.5 font-bold text-sm group transition-all duration-150 rounded-md"
+                className="hidden xl:flex items-center gap-2 h-10 px-3.5 font-semibold text-sm group transition-all duration-150 rounded-md"
               >
                 <CloudArrowDown size={17} weight="bold" className="group-hover:scale-110 transition-transform sm:w-[18px] sm:h-[18px]" />
                 <span>Download Trial</span>
@@ -580,7 +573,7 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
                 onClick={handleLoginClick}
                 size="default"
                 variant="secondary"
-                className="h-9 px-3 sm:px-3.5 font-bold text-xs sm:text-sm transition-all duration-150 group rounded-md"
+                className="h-10 px-3.5 sm:px-4 font-semibold text-xs sm:text-sm transition-all duration-150 group rounded-md"
               >
                 <span>Sign In</span>
                 <ArrowRight size={15} weight="bold" className="ml-1 sm:ml-1.5 group-hover:translate-x-1 transition-transform sm:w-[17px] sm:h-[17px]" />
@@ -588,7 +581,7 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
               
               <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="lg:hidden p-2 sm:p-2.5 text-foreground hover:bg-accent/60 rounded-md transition-colors active:scale-95"
+                className={`lg:hidden ${ENTERPRISE_ICON_CONTROL_CLASS}`}
                 aria-label="Toggle menu"
               >
                 {mobileMenuOpen ? <X size={20} weight="bold" className="sm:w-[22px] sm:h-[22px]" /> : <List size={20} weight="bold" className="sm:w-[22px] sm:h-[22px]" />}
@@ -599,7 +592,7 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
       </nav>
 
       {mobileMenuOpen && (
-        <div className="lg:hidden fixed inset-0 top-[calc(2.25rem+3.5rem)] sm:top-[calc(2.5rem+4rem)] md:top-[calc(2.75rem+5rem)] z-40 bg-[rgba(255,255,255,0.96)] backdrop-blur-2xl overflow-y-auto border-t border-[#D8E3EE] dark:bg-[rgba(7,17,31,0.96)] dark:border-cyan-500/16">
+        <div className="lg:hidden fixed inset-0 top-[calc(2rem+4rem)] z-40 bg-[rgba(255,255,255,0.96)] backdrop-blur-2xl overflow-y-auto border-t border-[#D8E3EE] dark:bg-[rgba(7,17,31,0.96)] dark:border-cyan-500/16">
           <div className="h-full">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 py-4 sm:py-6 md:py-8">
               <div className="flex flex-col gap-1.5 sm:gap-2">

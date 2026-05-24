@@ -1,8 +1,8 @@
 import type { ReactNode } from "react"
 import { ArrowLeft, BellRinging, Buildings, ChartLineUp } from "@phosphor-icons/react"
-import { Badge } from "@/components/ui/badge"
 import { ThemeSwitcher } from "@/components/ThemeSwitcher"
 import { BrandMark } from "@/components/BrandLogo"
+import { HeaderStatusBadge } from "@/components/layout/HeaderPrimitives"
 
 interface AuthShellProps {
   backLabel: string
@@ -45,7 +45,7 @@ export function AuthShell({ backLabel, onBack, title, subtitle, children }: Auth
                 </div>
               </div>
               <div className="space-y-3">
-                <Badge variant="outline" className="border-success/40 text-success bg-success/10 w-fit">SOC Operations Online</Badge>
+                <HeaderStatusBadge label="Online" className="w-fit" />
                 <h2 className="text-3xl xl:text-4xl font-heading font-bold leading-tight">
                   {title}
                 </h2>

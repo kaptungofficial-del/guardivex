@@ -108,16 +108,16 @@ export function LiveChatWidget({
 
   if (!isOpen) {
     return (
-      <div className="fixed right-1 bottom-1 z-[70] sm:right-5 sm:bottom-6">
+      <div className="fixed right-3 bottom-2 z-[70] sm:right-4 sm:bottom-3 lg:right-6 lg:bottom-4">
         <Button
           onClick={() => onOpenChange(true)}
-          className="h-9 px-3 rounded-full gap-1.5 border border-[#D8E3EE] bg-white text-[#07111F] shadow-[0_14px_28px_-18px_rgba(2,6,18,0.12)] hover:border-cyan-500/20 hover:bg-white dark:border-cyan-500/20 dark:bg-[#07111F] dark:text-white dark:shadow-[0_14px_28px_-18px_rgba(2,6,18,0.72)] dark:hover:border-primary/40 dark:hover:bg-[rgba(11,22,40,0.98)]"
+          className="h-8 px-2.5 rounded-full gap-1.5 border border-[#D8E3EE] bg-white text-[#07111F] shadow-[0_14px_28px_-18px_rgba(2,6,18,0.12)] hover:border-cyan-500/20 hover:bg-white dark:border-cyan-500/20 dark:bg-[#07111F] dark:text-white dark:shadow-[0_14px_28px_-18px_rgba(2,6,18,0.72)] dark:hover:border-primary/40 dark:hover:bg-[rgba(11,22,40,0.98)]"
           aria-label="Open live chat"
           title="Open live chat"
         >
           <ChatCircle size={16} weight="fill" />
           <span className="font-semibold text-xs">Live Chat</span>
-          <Badge variant="secondary" className="ml-0.5 px-1.5 py-0 h-4 text-[9px] border border-success/25 bg-success/10 text-success">
+          <Badge variant="secondary" className="ml-0.5 hidden xl:inline-flex px-1.5 py-0 h-4 text-[9px] border border-success/25 bg-success/10 text-success">
             Online
           </Badge>
         </Button>
@@ -126,9 +126,9 @@ export function LiveChatWidget({
   }
 
   return (
-    <div className="fixed right-1 bottom-1 z-[70] w-[calc(100vw-1rem)] sm:w-[292px] sm:right-5 sm:bottom-6">
-      <div className="rounded-xl border border-[#D8E3EE] bg-white shadow-[0_22px_44px_-26px_rgba(2,6,18,0.12)] overflow-hidden dark:border-cyan-500/20 dark:bg-[#07111F] dark:shadow-[0_22px_44px_-26px_rgba(2,6,18,0.9)]">
-        <div className="px-3.5 py-2.5 border-b border-[#D8E3EE] bg-white/90 backdrop-blur-sm flex items-center justify-between dark:border-cyan-500/14 dark:bg-[rgba(11,22,40,0.82)]">
+    <div className="fixed right-3 bottom-2 z-[70] w-[calc(100vw-1.5rem)] sm:w-[292px] sm:right-4 sm:bottom-3 lg:right-6 lg:bottom-4">
+      <div className="rounded-lg border border-[#D8E3EE] bg-white shadow-[0_22px_44px_-26px_rgba(2,6,18,0.12)] overflow-hidden dark:border-cyan-500/20 dark:bg-[#07111F] dark:shadow-[0_22px_44px_-26px_rgba(2,6,18,0.9)]">
+        <div className="px-3.5 py-2 border-b border-[#D8E3EE] bg-white/90 backdrop-blur-sm flex items-center justify-between dark:border-cyan-500/14 dark:bg-[rgba(11,22,40,0.82)]">
           <div className="flex items-center gap-2">
             <div className="relative flex items-center">
               <Circle size={8} weight="fill" className="text-success" />
@@ -151,7 +151,7 @@ export function LiveChatWidget({
           </Button>
         </div>
 
-        <div ref={scrollContainerRef} className="h-[232px] overflow-y-auto px-3.5 py-2.5 space-y-2.5 bg-white dark:bg-[rgba(7,17,31,0.70)]">
+        <div ref={scrollContainerRef} className="h-[220px] overflow-y-auto px-3.5 py-2.5 space-y-2.5 bg-white dark:bg-[rgba(7,17,31,0.70)]">
           {messages.map((message) => (
             <div
               key={message.id}

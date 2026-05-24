@@ -256,113 +256,90 @@ export function WebsiteLayout({ currentPage, onNavigate, onLogin }: WebsiteLayou
 function HomePage({ onNavigate }: { onNavigate: (page: string) => void }) {
   return (
     <div className="relative guardivex-home-typography">
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-5 sm:pt-7 lg:pt-8 pb-5 sm:pb-6 lg:pb-7 relative overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_14%,rgba(0,199,232,0.13),transparent_48%)] dark:bg-[radial-gradient(circle_at_18%_14%,rgba(0,199,232,0.18),transparent_48%)]" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_86%_8%,rgba(0,143,199,0.12),transparent_44%)] dark:bg-[radial-gradient(circle_at_86%_8%,rgba(0,143,199,0.16),transparent_44%)]" />
-        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(244,249,253,0.14),rgba(244,249,253,0.62))] dark:bg-[linear-gradient(180deg,rgba(7,17,31,0.66),rgba(3,8,16,0.9))]" />
-        <div className="absolute inset-0 opacity-[0.05] dark:opacity-[0.1] bg-[linear-gradient(rgba(0,199,232,0.09)_1px,transparent_1px),linear-gradient(90deg,rgba(0,199,232,0.09)_1px,transparent_1px)] bg-[size:34px_34px]" />
-        <div className="relative grid grid-cols-1 lg:grid-cols-[1.02fr_0.98fr] gap-4 lg:gap-5 items-center">
-          <div className="text-center lg:text-left">
-            <div className="inline-flex items-center px-3.5 sm:px-4 py-1.5 rounded-sm bg-[rgba(255,255,255,0.88)] border border-[#D8E8F5] text-[#07111F] text-[11px] sm:text-xs font-semibold mb-3 sm:mb-4 tracking-[0.01em] shadow-[0_10px_20px_-18px_rgba(7,17,31,0.14)] dark:bg-[linear-gradient(180deg,rgba(11,22,40,0.92),rgba(7,17,31,0.86))] dark:border-cyan-500/20 dark:text-[#F8FAFC] dark:shadow-[0_10px_20px_-18px_rgba(7,17,31,0.75)]">
-              Unified SOC Command Center &middot; Security Platform
+      <section className="relative overflow-hidden bg-gradient-to-b from-background via-card/5 to-background">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_20%_-20%,rgba(6,182,212,0.10),transparent_50%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_80%_50%,rgba(59,130,246,0.08),transparent_60%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_100%,rgba(14,165,233,0.06),transparent_70%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(6,182,212,0.02)_1px,transparent_1px),linear-gradient(to_bottom,rgba(59,130,246,0.02)_1px,transparent_1px)] bg-[size:6rem_6rem]" />
+
+        <div className="container mx-auto px-4 sm:px-6 pt-4 md:pt-6 pb-6 md:pb-8 relative z-10">
+          <div className="max-w-4xl mx-auto text-center">
+            <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-gradient-to-r from-primary/15 via-primary/10 to-primary/15 border border-primary/30 text-primary text-[10px] sm:text-xs font-semibold mb-3 sm:mb-4 shadow-lg shadow-primary/5 cursor-default">
+              <div className="flex items-center gap-2">
+                <div className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
+                <span className="font-bold tracking-[0.12em]">UNIFIED SOC COMMAND CENTER</span>
+              </div>
+              <div className="h-2.5 w-px bg-primary/30" />
+              <span className="text-primary/80 font-medium">Enterprise Security Platform</span>
             </div>
-            <h1 className="bg-transparent mx-auto lg:mx-0 max-w-[14ch] text-[clamp(1.85rem,4.8vw,3.1rem)] font-[700] font-heading tracking-[-0.03em] text-balance text-foreground dark:text-[#F8FAFC] mb-2 sm:mb-2.5 leading-[1.01]">
-              Enterprise Security Platform
+
+            <h1 className="mx-auto max-w-3xl text-[clamp(2.1rem,5vw,3.35rem)] sm:text-[clamp(2.35rem,4.6vw,3.85rem)] md:text-[clamp(2.55rem,4.1vw,4.15rem)] font-bold font-heading mb-3 md:mb-4 leading-[1.04] tracking-[-0.04em] text-balance px-2">
+              <span className="inline-block bg-gradient-to-r from-foreground via-foreground to-foreground/75 bg-clip-text text-transparent">
+                Enterprise Security Platform
+              </span>
             </h1>
-            <p className="text-[clamp(0.96rem,1.02vw,1.075rem)] text-muted-foreground dark:text-[#94A3B8] mb-4 sm:mb-5 max-w-[54ch] mx-auto lg:mx-0 leading-[1.55] text-pretty">
-              Install on your own server to monitor security devices, cameras, NVRs, access control, alarms, networks, and system health from one SOC Command Center.
+
+            <p className="text-sm sm:text-base md:text-[1.02rem] text-muted-foreground mb-4 md:mb-4.5 max-w-2xl mx-auto leading-relaxed px-2 font-medium text-balance">
+              Self-hosted enterprise security platform. Monitor devices, cameras, NVRs, access control, alarms, and network infrastructure from a unified SOC Command Center with real-time threat intelligence.
             </p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2.5 sm:gap-3 max-w-[46rem] mx-auto lg:mx-0 px-2 lg:px-0">
-              <Button size="lg" variant="outline" className="w-full h-10 text-sm rounded-md">Request Demo</Button>
-              <Button size="lg" onClick={() => onNavigate("download")} className="w-full h-10 text-sm rounded-md">Download Trial</Button>
-              <Button size="lg" variant="outline" className="w-full h-10 text-sm rounded-md">View Architecture</Button>
+
+            <div className="flex flex-col sm:flex-row gap-2.5 sm:gap-3 justify-center px-4 mb-6 md:mb-7">
+              <Button
+                size="lg"
+                onClick={() => onNavigate("download")}
+                className="bg-gradient-to-r from-primary via-primary to-accent hover:shadow-2xl hover:shadow-primary/20 text-primary-foreground w-full sm:w-auto h-10.5 text-sm font-bold px-5.5 sm:px-6.5 transition-all border border-primary/20"
+              >
+                <CloudArrowDown size={19} className="mr-2" weight="bold" />
+                Download Enterprise Server
+              </Button>
+              <Button
+                size="lg"
+                variant="outline"
+                className="border-2 border-border/60 hover:border-primary/40 hover:bg-primary/5 backdrop-blur-sm w-full sm:w-auto h-10.5 text-sm font-bold px-5.5 sm:px-6.5 transition-all"
+              >
+                <Monitor size={19} className="mr-2" weight="bold" />
+                Request Live Demo
+              </Button>
+            </div>
+
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-2.5 md:gap-3 max-w-3xl mx-auto px-4">
+              {[
+                { value: "5,000+", label: "Organizations", icon: Buildings },
+                { value: "50,000+", label: "Devices Monitored", icon: Broadcast },
+                { value: "99.99%", label: "Uptime SLA", icon: CheckCircle },
+                { value: "24/7", label: "Enterprise Support", icon: ShieldCheck },
+              ].map((stat, i) => (
+                <div key={i} className="group relative">
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity blur-xl" />
+                  <div className="relative bg-card/55 backdrop-blur-sm border border-border/50 rounded-xl p-2.5 md:p-3 hover:border-primary/30 transition-all cursor-default">
+                    <stat.icon size={20} className="text-primary mb-1 mx-auto opacity-70" weight="duotone" />
+                    <div className="text-[1.05rem] md:text-[1.45rem] font-bold text-foreground mb-0.5 font-heading">{stat.value}</div>
+                    <div className="text-xs text-muted-foreground font-medium">{stat.label}</div>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
+        </div>
+      </section>
 
-          <section className="hidden lg:flex h-full min-h-[24rem] flex-col rounded-2xl border border-[#D8E8F5] bg-white/92 shadow-[0_18px_34px_-26px_rgba(15,23,42,0.22)] dark:border-cyan-500/20 dark:bg-[rgba(7,17,31,0.92)] dark:shadow-[0_18px_34px_-26px_rgba(2,6,18,0.78)]">
-            <div className="flex items-center justify-between border-b border-[#D8E8F5] px-4 py-2.5 dark:border-cyan-500/15">
-              <div className="flex items-center gap-2 text-[11px] uppercase tracking-[0.08em] text-[#5B677A] font-semibold dark:text-[#94A3B8]">
-                <Circle size={8} weight="fill" className="text-success" />
-                Live SOC Telemetry
-              </div>
-              <Badge variant="outline" className="h-5 rounded-full border-success/30 text-[10px] text-success bg-success/10 dark:border-success/35 dark:text-success dark:bg-success/8">
-                Production
-              </Badge>
-            </div>
-
-            <div className="grid grid-cols-2 gap-2 border-b border-[#D8E8F5] p-3 dark:border-cyan-500/15">
-              <div className="rounded-xl border border-[#D8E8F5] bg-[#F8FBFF] p-2.5 dark:border-cyan-500/15 dark:bg-[#07111F]">
-                <p className="text-[10px] uppercase tracking-[0.06em] text-[#5B677A] dark:text-[#94A3B8]">Active Alerts</p>
-                <p className="mt-1 text-xl font-semibold text-destructive">8</p>
-              </div>
-              <div className="rounded-xl border border-[#D8E8F5] bg-[#F8FBFF] p-2.5 dark:border-cyan-500/15 dark:bg-[#07111F]">
-                <p className="text-[10px] uppercase tracking-[0.06em] text-[#5B677A] dark:text-[#94A3B8]">Devices Online</p>
-                <p className="mt-1 text-xl font-semibold text-[#07111F] dark:text-[#F8FAFC]">1,247</p>
-              </div>
-              <div className="rounded-xl border border-[#D8E8F5] bg-[#F8FBFF] p-2.5 dark:border-cyan-500/15 dark:bg-[#07111F]">
-                <p className="text-[10px] uppercase tracking-[0.06em] text-[#5B677A] dark:text-[#94A3B8]">Site Health</p>
-                <p className="mt-1 text-xl font-semibold text-success">99.8%</p>
-              </div>
-              <div className="rounded-xl border border-[#D8E8F5] bg-[#F8FBFF] p-2.5 dark:border-cyan-500/15 dark:bg-[#07111F]">
-                <p className="text-[10px] uppercase tracking-[0.06em] text-[#5B677A] dark:text-[#94A3B8]">System Uptime</p>
-                <p className="mt-1 text-xl font-semibold text-[#07111F] dark:text-[#F8FAFC]">99.99%</p>
+      <section className="container mx-auto px-4 sm:px-6 py-9 md:py-11 border-t border-border/40">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+          {[
+            { icon: Camera, title: "Video Surveillance", desc: "Cameras & NVRs", gradient: "from-blue-500/10 to-cyan-500/10", iconColor: "text-blue-500" },
+            { icon: Lock, title: "Access Control", desc: "Doors & Readers", gradient: "from-emerald-500/10 to-green-500/10", iconColor: "text-emerald-500" },
+            { icon: Siren, title: "Alarm Systems", desc: "Panels & Sensors", gradient: "from-red-500/10 to-orange-500/10", iconColor: "text-red-500" },
+            { icon: NetworkX, title: "Network Infrastructure", desc: "Switches & Routers", gradient: "from-purple-500/10 to-pink-500/10", iconColor: "text-purple-500" },
+          ].map((feature, i) => (
+            <div key={i} className="group relative overflow-hidden rounded-2xl border border-border/40 bg-card/35 backdrop-blur-sm p-4.5 md:p-5 hover:border-primary/40 transition-all duration-500 cursor-default">
+              <div className={`absolute inset-0 bg-gradient-to-br ${feature.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
+              <div className="relative z-10">
+                <feature.icon size={38} className={`${feature.iconColor} mb-4 group-hover:scale-110 transition-transform duration-500`} weight="duotone" />
+                <div className="text-xl font-bold font-heading mb-1 text-foreground">{feature.title}</div>
+                <div className="text-sm text-muted-foreground">{feature.desc}</div>
               </div>
             </div>
-
-            <div className="grid grid-cols-1 gap-2 p-3">
-              <div className="rounded-xl border border-[#D8E8F5] bg-[#F8FBFF] p-2.5 dark:border-cyan-500/15 dark:bg-[#07111F]">
-                <div className="mb-2 flex items-center justify-between">
-                  <h3 className="text-xs font-semibold uppercase tracking-[0.06em] text-[#07111F] dark:text-[#F8FAFC]">Recent Events</h3>
-                  <span className="text-[10px] font-mono text-[#5B677A] dark:text-[#94A3B8]">UTC-05</span>
-                </div>
-                <div className="space-y-1.5 text-xs">
-                  <div className="flex items-center justify-between border-b border-[#D8E8F5] pb-1.5 dark:border-cyan-500/10">
-                    <span className="text-[#07111F] dark:text-[#E2E8F0]">Motion detected - Building A Lobby</span>
-                    <span className="font-mono text-[#5B677A] dark:text-[#94A3B8]">00:31</span>
-                  </div>
-                  <div className="flex items-center justify-between border-b border-[#D8E8F5] pb-1.5 dark:border-cyan-500/10">
-                    <span className="text-[#07111F] dark:text-[#E2E8F0]">Access granted - Main Entry</span>
-                    <span className="font-mono text-[#5B677A] dark:text-[#94A3B8]">01:12</span>
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <span className="text-[#07111F] dark:text-[#E2E8F0]">Incident #892 triaged</span>
-                    <span className="font-mono text-[#5B677A] dark:text-[#94A3B8]">02:44</span>
-                  </div>
-                </div>
-              </div>
-
-              <div className="grid grid-cols-2 gap-2">
-                <div className="rounded-xl border border-[#D8E8F5] bg-[#F8FBFF] p-2.5 dark:border-cyan-500/15 dark:bg-[#07111F]">
-                  <div className="mb-1.5 flex items-center gap-1.5 text-[11px] font-semibold text-[#5B677A] uppercase tracking-[0.06em] dark:text-[#94A3B8]">
-                    <NetworkX size={13} /> Network
-                  </div>
-                  <p className="text-sm text-[#07111F] font-semibold dark:text-[#F8FAFC]">Latency 24ms</p>
-                  <p className="text-[11px] text-[#5B677A] dark:text-[#94A3B8]">Core stable</p>
-                </div>
-                <div className="rounded-xl border border-[#D8E8F5] bg-[#F8FBFF] p-2.5 dark:border-cyan-500/15 dark:bg-[#07111F]">
-                  <div className="mb-1.5 flex items-center gap-1.5 text-[11px] font-semibold text-[#5B677A] uppercase tracking-[0.06em] dark:text-[#94A3B8]">
-                    <Camera size={13} /> Cameras
-                  </div>
-                  <p className="text-sm text-[#07111F] font-semibold dark:text-[#F8FAFC]">582 / 584</p>
-                  <p className="text-[11px] text-[#5B677A] dark:text-[#94A3B8]">2 offline</p>
-                </div>
-                <div className="rounded-xl border border-[#D8E8F5] bg-[#F8FBFF] p-2.5 dark:border-cyan-500/15 dark:bg-[#07111F]">
-                  <div className="mb-1.5 flex items-center gap-1.5 text-[11px] font-semibold text-[#5B677A] uppercase tracking-[0.06em] dark:text-[#94A3B8]">
-                    <Lock size={13} /> Access
-                  </div>
-                  <p className="text-sm text-[#07111F] font-semibold dark:text-[#F8FAFC]">142 controllers</p>
-                  <p className="text-[11px] text-[#5B677A] dark:text-[#94A3B8]">All synced</p>
-                </div>
-                <div className="rounded-xl border border-[#D8E8F5] bg-[#F8FBFF] p-2.5 dark:border-cyan-500/15 dark:bg-[#07111F]">
-                  <div className="mb-1.5 flex items-center gap-1.5 text-[11px] font-semibold text-[#5B677A] uppercase tracking-[0.06em] dark:text-[#94A3B8]">
-                    <Siren size={13} /> Incidents
-                  </div>
-                  <p className="text-sm text-[#07111F] font-semibold dark:text-[#F8FAFC]">3 active</p>
-                  <p className="text-[11px] text-[#5B677A] dark:text-[#94A3B8]">1 high priority</p>
-                </div>
-              </div>
-            </div>
-          </section>
+          ))}
         </div>
       </section>
 

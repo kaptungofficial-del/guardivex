@@ -8,6 +8,7 @@ import { BrandLogo } from "@/components/BrandLogo"
 import {
   ENTERPRISE_CONTROL_CLASS,
   ENTERPRISE_HEADER_SURFACE_CLASS,
+  ENTERPRISE_ICON_CONTROL_CLASS,
   HeaderStatusBadge,
 } from "@/components/layout/HeaderPrimitives"
 import type { PlatformPageView, LicenseInfo } from "@/lib/types"
@@ -167,7 +168,7 @@ export function PlatformLayout({ children, currentPage, onNavigate, onLogout, cr
           <div className="flex items-center gap-2 sm:gap-3 min-w-0">
             <button
               onClick={() => setSidebarOpen(true)}
-              className="lg:hidden p-1.5 sm:p-2 hover:bg-secondary rounded-md transition-colors shrink-0"
+              className={`lg:hidden ${ENTERPRISE_ICON_CONTROL_CLASS}`}
               aria-label="Open menu"
             >
               <List size={20} weight="bold" className="sm:w-[22px] sm:h-[22px]" />
