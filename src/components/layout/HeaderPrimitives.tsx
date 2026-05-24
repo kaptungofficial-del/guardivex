@@ -36,7 +36,7 @@ export const ENTERPRISE_DROPDOWN_ICON_CLASS =
   "w-9 h-9 rounded-lg bg-[linear-gradient(135deg,rgba(0,199,232,0.14),rgba(0,143,199,0.08))] border border-[rgba(0,199,232,0.14)] flex items-center justify-center flex-shrink-0"
 
 export const ENTERPRISE_DROPDOWN_ACTION_CLASS =
-  "w-full flex items-center justify-center gap-2 h-9 px-3 rounded-xl border border-[rgba(0,199,232,0.18)] bg-[linear-gradient(135deg,#00C7E8_0%,#008FC7_55%,#00E5C3_100%)] text-[#07111F] shadow-[0_16px_26px_-18px_rgba(0,199,232,0.55)] transition-all duration-150 group hover:shadow-[0_18px_30px_-18px_rgba(0,199,232,0.68)]"
+  "w-full flex items-center justify-center gap-2 h-8 px-3 rounded-xl border border-cyan-500/18 bg-[rgba(11,22,40,0.88)] text-[#F8FAFC] shadow-[0_16px_26px_-18px_rgba(0,199,232,0.28)] transition-all duration-150 group hover:border-primary/30 hover:bg-[rgba(0,199,232,0.12)] hover:shadow-[0_18px_30px_-18px_rgba(0,199,232,0.40)]"
 
 interface HeaderStatusBadgeProps {
   label: string

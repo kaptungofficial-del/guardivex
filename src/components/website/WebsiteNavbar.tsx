@@ -414,7 +414,7 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
 
       <nav className="sticky top-0.5 z-50 px-2 sm:px-3 lg:px-4">
         <div className={`max-w-7xl mx-auto px-3 sm:px-4 lg:px-5 rounded-lg backdrop-blur-md ${ENTERPRISE_HEADER_SURFACE_CLASS}`}>
-          <div className="flex items-center justify-between h-14 sm:h-14 gap-2 sm:gap-2.5 min-w-0">
+          <div className="relative flex items-center justify-between h-14 sm:h-14 gap-2 sm:gap-2.5 min-w-0 overflow-visible">
             <div className="flex items-center gap-2 sm:gap-3 lg:gap-4 min-w-0">
               <button 
                 onClick={() => handleNavigate("home")} 
@@ -466,15 +466,15 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
                                      item.id === "support" ? handleSupportMouseLeave :
                                      item.id === "licensing" ? handleLicensingMouseLeave : undefined
                   const isRightAlignedDropdown = item.id === "support" || item.id === "documentation" || item.id === "licensing"
-                  const isLeftAlignedDropdown = item.id === "product"
+                  const isLeftAlignedDropdown = item.id === "product" || item.id === "enterprise"
                   const dropdownPositionClass = isRightAlignedDropdown
-                    ? "right-0 left-auto origin-top-right"
+                    ? "right-4 left-auto origin-top-right"
                     : isLeftAlignedDropdown
-                      ? "left-0 right-auto origin-top-left"
+                      ? "left-4 right-auto origin-top-left"
                       : "left-1/2 -translate-x-1/2 origin-top"
                   
                   return (
-                    <div key={item.id} className="relative">
+                    <div key={item.id} className={(item.id === "product" || item.id === "enterprise") ? "static" : "relative"}>
                       {item.hasDropdown ? (
                         <div
                           onMouseEnter={handleEnter}
