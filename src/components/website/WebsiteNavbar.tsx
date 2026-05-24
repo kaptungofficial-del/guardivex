@@ -9,7 +9,6 @@ import {
   ENTERPRISE_DROPDOWN_ACTION_CLASS,
   ENTERPRISE_DROPDOWN_ICON_CLASS,
   ENTERPRISE_DROPDOWN_ITEM_CLASS,
-  ENTERPRISE_DROPDOWN_PANEL_CLASS,
   ENTERPRISE_CONTROL_CLASS,
   ENTERPRISE_HEADER_SURFACE_CLASS,
   ENTERPRISE_ICON_CONTROL_CLASS,
@@ -38,6 +37,7 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
   const docsTimeoutRef = useRef<number | null>(null)
   const supportTimeoutRef = useRef<number | null>(null)
   const licensingTimeoutRef = useRef<number | null>(null)
+  const desktopNavRef = useRef<HTMLDivElement | null>(null)
   
   const productFeatures = [
     {
@@ -253,89 +253,98 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
     { id: "documentation", label: "Documentation", highlight: false, hasDropdown: true },
     { id: "support", label: "Support", highlight: false, hasDropdown: true }
   ]
-  
-  const handleMouseEnter = () => {
-    if (dropdownTimeoutRef.current) {
-      clearTimeout(dropdownTimeoutRef.current)
+  const closeAllDesktopDropdowns = () => {
+    setProductDropdownOpen(false)
+    setEnterpriseDropdownOpen(false)
+    setDocsDropdownOpen(false)
+    setSupportDropdownOpen(false)
+    setLicensingDropdownOpen(false)
+  }
+
+  const openDesktopDropdown = (dropdownId: string) => {
+    closeAllDesktopDropdowns()
+
+    if (dropdownId === "product") {
+      setProductDropdownOpen(true)
+    } else if (dropdownId === "enterprise") {
+      setEnterpriseDropdownOpen(true)
+    } else if (dropdownId === "documentation") {
+      setDocsDropdownOpen(true)
+    } else if (dropdownId === "support") {
+      setSupportDropdownOpen(true)
+    } else if (dropdownId === "licensing") {
+      setLicensingDropdownOpen(true)
     }
-    setProductDropdownOpen(true)
   }
-  
-  const handleMouseLeave = () => {
-    dropdownTimeoutRef.current = setTimeout(() => {
-      setProductDropdownOpen(false)
-    }, 220)
-  }
-  
-  const handleEnterpriseMouseEnter = () => {
-    if (enterpriseTimeoutRef.current) {
-      clearTimeout(enterpriseTimeoutRef.current)
-    }
-    setEnterpriseDropdownOpen(true)
-  }
-  
-  const handleEnterpriseMouseLeave = () => {
-    enterpriseTimeoutRef.current = setTimeout(() => {
-      setEnterpriseDropdownOpen(false)
-    }, 220)
-  }
-  
-  const handleDocsMouseEnter = () => {
-    if (docsTimeoutRef.current) {
-      clearTimeout(docsTimeoutRef.current)
-    }
-    setDocsDropdownOpen(true)
-  }
-  
-  const handleDocsMouseLeave = () => {
-    docsTimeoutRef.current = setTimeout(() => {
-      setDocsDropdownOpen(false)
-    }, 220)
-  }
-  
-  const handleSupportMouseEnter = () => {
-    if (supportTimeoutRef.current) {
-      clearTimeout(supportTimeoutRef.current)
-    }
-    setSupportDropdownOpen(true)
-  }
-  
-  const handleSupportMouseLeave = () => {
-    supportTimeoutRef.current = setTimeout(() => {
-      setSupportDropdownOpen(false)
-    }, 220)
-  }
-  
-  const handleLicensingMouseEnter = () => {
-    if (licensingTimeoutRef.current) {
-      clearTimeout(licensingTimeoutRef.current)
-    }
-    setLicensingDropdownOpen(true)
-  }
-  
-  const handleLicensingMouseLeave = () => {
-    licensingTimeoutRef.current = setTimeout(() => {
-      setLicensingDropdownOpen(false)
-    }, 220)
-  }
-  
+
+  const activeDesktopDropdownId = productDropdownOpen
+    ? "product"
+    : enterpriseDropdownOpen
+      ? "enterprise"
+      : licensingDropdownOpen
+        ? "licensing"
+        : docsDropdownOpen
+          ? "documentation"
+          : supportDropdownOpen
+            ? "support"
+            : null
+
+  const activeDesktopDropdown =
+    activeDesktopDropdownId === "product"
+      ? {
+          title: "Product Features",
+          subtitle: "Comprehensive security infrastructure monitoring",
+          data: productFeatures,
+          navId: "product",
+        }
+      : activeDesktopDropdownId === "enterprise"
+        ? {
+            title: "Enterprise Solutions",
+            subtitle: "Solutions for large-scale deployments",
+            data: enterpriseSolutions,
+            navId: "enterprise",
+          }
+        : activeDesktopDropdownId === "licensing"
+          ? {
+              title: "Licensing Plans",
+              subtitle: "Choose the right plan for your organization",
+              data: licensingOptions,
+              navId: "licensing",
+            }
+          : activeDesktopDropdownId === "documentation"
+            ? {
+                title: "Documentation",
+                subtitle: "Guides and resources to get you started",
+                data: documentationSections,
+                navId: "documentation",
+              }
+            : activeDesktopDropdownId === "support"
+              ? {
+                  title: "Support Options",
+                  subtitle: "Get help when you need it",
+                  data: supportOptions,
+                  navId: "support",
+                }
+              : null
+
+  const desktopDropdownClass =
+    "w-[min(720px,calc(100vw-48px))] max-w-[calc(100vw-48px)] max-h-[70vh] overflow-y-auto overflow-x-hidden rounded-xl border border-[#D8E8F5] bg-white/95 p-2.5 text-[#07111F] opacity-100 shadow-xl shadow-slate-900/10 backdrop-blur-md dark:border-cyan-500/20 dark:bg-[#07111F] dark:text-white dark:shadow-black/35"
+
   useEffect(() => {
+    const handleDocumentMouseDown = (event: MouseEvent) => {
+      if (!desktopNavRef.current) {
+        return
+      }
+
+      if (!desktopNavRef.current.contains(event.target as Node)) {
+        closeAllDesktopDropdowns()
+      }
+    }
+
+    document.addEventListener("mousedown", handleDocumentMouseDown)
+
     return () => {
-      if (dropdownTimeoutRef.current) {
-        clearTimeout(dropdownTimeoutRef.current)
-      }
-      if (enterpriseTimeoutRef.current) {
-        clearTimeout(enterpriseTimeoutRef.current)
-      }
-      if (docsTimeoutRef.current) {
-        clearTimeout(docsTimeoutRef.current)
-      }
-      if (supportTimeoutRef.current) {
-        clearTimeout(supportTimeoutRef.current)
-      }
-      if (licensingTimeoutRef.current) {
-        clearTimeout(licensingTimeoutRef.current)
-      }
+      document.removeEventListener("mousedown", handleDocumentMouseDown)
     }
   }, [])
 
@@ -414,7 +423,7 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
 
       <nav className="sticky top-0.5 z-50 px-2 sm:px-3 lg:px-4">
         <div className={`max-w-7xl mx-auto px-3 sm:px-4 lg:px-5 rounded-lg backdrop-blur-md ${ENTERPRISE_HEADER_SURFACE_CLASS}`}>
-          <div className="relative flex items-center justify-between h-14 sm:h-14 gap-2 sm:gap-2.5 min-w-0 overflow-visible">
+          <div ref={desktopNavRef} onMouseLeave={closeAllDesktopDropdowns} className="relative flex items-center justify-between h-14 sm:h-14 gap-2 sm:gap-2.5 min-w-0 overflow-visible">
             <div className="flex items-center gap-2 sm:gap-3 lg:gap-4 min-w-0">
               <button 
                 onClick={() => handleNavigate("home")} 
@@ -440,122 +449,23 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
                                         item.id === "documentation" ? docsDropdownOpen :
                                         item.id === "support" ? supportDropdownOpen :
                                         item.id === "licensing" ? licensingDropdownOpen : false
-                  const dropdownData = item.id === "product" ? productFeatures :
-                                      item.id === "enterprise" ? enterpriseSolutions :
-                                      item.id === "documentation" ? documentationSections :
-                                      item.id === "support" ? supportOptions :
-                                      item.id === "licensing" ? licensingOptions : []
-                  const dropdownTitle = item.id === "product" ? "Product Features" :
-                                       item.id === "enterprise" ? "Enterprise Solutions" :
-                                       item.id === "documentation" ? "Documentation" :
-                                       item.id === "support" ? "Support Options" :
-                                       item.id === "licensing" ? "Licensing Plans" : ""
-                  const dropdownSubtitle = item.id === "product" ? "Comprehensive security infrastructure monitoring" :
-                                          item.id === "enterprise" ? "Solutions for large-scale deployments" :
-                                          item.id === "documentation" ? "Guides and resources to get you started" :
-                                          item.id === "support" ? "Get help when you need it" :
-                                          item.id === "licensing" ? "Choose the right plan for your organization" : ""
-                  const handleEnter = item.id === "product" ? handleMouseEnter :
-                                     item.id === "enterprise" ? handleEnterpriseMouseEnter :
-                                     item.id === "documentation" ? handleDocsMouseEnter :
-                                     item.id === "support" ? handleSupportMouseEnter :
-                                     item.id === "licensing" ? handleLicensingMouseEnter : undefined
-                  const handleLeave = item.id === "product" ? handleMouseLeave :
-                                     item.id === "enterprise" ? handleEnterpriseMouseLeave :
-                                     item.id === "documentation" ? handleDocsMouseLeave :
-                                     item.id === "support" ? handleSupportMouseLeave :
-                                     item.id === "licensing" ? handleLicensingMouseLeave : undefined
-                  const dropdownPositionClass =
-                    item.id === "product" || item.id === "enterprise"
-                      ? "left-4 right-auto origin-top-left"
-                      : item.id === "documentation"
-                        ? "left-1/2 -translate-x-1/2 origin-top"
-                        : item.id === "support" || item.id === "licensing"
-                          ? "right-4 left-auto origin-top-right"
-                          : "left-4 right-auto origin-top-left"
-                  
+
                   return (
                     <div key={item.id} className="static">
-                      {item.hasDropdown ? (
-                        <div
-                          onMouseEnter={handleEnter}
-                          onMouseLeave={handleLeave}
-                        >
-                          <button
-                            onClick={() => handleNavigate(item.id)}
-                            className={`${ENTERPRISE_NAV_ITEM_CLASS} ${currentPage === item.id ? ENTERPRISE_NAV_ITEM_ACTIVE_CLASS : ENTERPRISE_NAV_ITEM_INACTIVE_CLASS}`}
-                          >
-                            <span className="relative z-10">{item.label}</span>
-                            <CaretDown size={11} weight="bold" className={`transition-transform duration-200 ${isDropdownOpen ? 'rotate-180' : ''}`} />
-                          </button>
-                          
-                          {isDropdownOpen && (
-                            <div className={`absolute top-full ${dropdownPositionClass} z-[100] pt-2`}>
-                              <div className={ENTERPRISE_DROPDOWN_PANEL_CLASS}>
-                                <div className="mb-3">
-                                  <h3 className="text-sm font-bold text-[#F8FAFC] mb-1">{dropdownTitle}</h3>
-                                  <p className="text-xs text-[#C7D6E8]">{dropdownSubtitle}</p>
-                                </div>
-                                <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
-                                  {dropdownData.map((feature) => (
-                                    <button
-                                      key={feature.title}
-                                      onClick={() => {
-                                        if (item.id === "support" && feature.title === "Live Chat") {
-                                          onOpenLiveChat("I need help with support")
-                                          setSupportDropdownOpen(false)
-                                          return
-                                        }
-                                        handleNavigate(item.id)
-                                        if (item.id === "product") setProductDropdownOpen(false)
-                                        if (item.id === "enterprise") setEnterpriseDropdownOpen(false)
-                                        if (item.id === "documentation") setDocsDropdownOpen(false)
-                                        if (item.id === "support") setSupportDropdownOpen(false)
-                                        if (item.id === "licensing") setLicensingDropdownOpen(false)
-                                      }}
-                                      className={ENTERPRISE_DROPDOWN_ITEM_CLASS}
-                                    >
-                                      <div className={ENTERPRISE_DROPDOWN_ICON_CLASS}>
-                                        <feature.icon size={20} weight="bold" className={feature.color} />
-                                      </div>
-                                      <div className="flex-1 min-w-0">
-                                        <div className="text-sm font-semibold text-[#F8FAFC] mb-0.5 break-words">{feature.title}</div>
-                                        <div className="text-xs text-[#C7D6E8] leading-relaxed break-words">{feature.description}</div>
-                                      </div>
-                                    </button>
-                                  ))}
-                                </div>
-                                <div className="mt-3 pt-3 border-t border-[rgba(0,199,232,0.14)]">
-                                  <button
-                                    onClick={() => {
-                                      handleNavigate(item.id)
-                                      if (item.id === "product") setProductDropdownOpen(false)
-                                      if (item.id === "enterprise") setEnterpriseDropdownOpen(false)
-                                      if (item.id === "documentation") setDocsDropdownOpen(false)
-                                      if (item.id === "support") setSupportDropdownOpen(false)
-                                      if (item.id === "licensing") setLicensingDropdownOpen(false)
-                                    }}
-                                    className={ENTERPRISE_DROPDOWN_ACTION_CLASS}
-                                  >
-                                    <span>View All {dropdownTitle}</span>
-                                    <ArrowRight size={14} weight="bold" className="group-hover:translate-x-0.5 transition-transform" />
-                                  </button>
-                                </div>
-                              </div>
-                            </div>
-                          )}
-                        </div>
-                      ) : (
-                        <button
-                          onClick={() => handleNavigate(item.id)}
-                          className={`${ENTERPRISE_NAV_ITEM_CLASS} ${currentPage === item.id ? ENTERPRISE_NAV_ITEM_ACTIVE_CLASS : ENTERPRISE_NAV_ITEM_INACTIVE_CLASS}`}
-                        >
-                          <span className="relative z-10">{item.label}</span>
-                          {currentPage === item.id && (
-                            <div className="absolute inset-0 bg-cyan-50 rounded-md dark:bg-primary/8" />
-                          )}
-                        </button>
-                      )}
+                      <button
+                        onMouseEnter={() => {
+                          if (item.hasDropdown) {
+                            openDesktopDropdown(item.id)
+                          }
+                        }}
+                        onClick={() => handleNavigate(item.id)}
+                        className={`${ENTERPRISE_NAV_ITEM_CLASS} ${currentPage === item.id ? ENTERPRISE_NAV_ITEM_ACTIVE_CLASS : ENTERPRISE_NAV_ITEM_INACTIVE_CLASS}`}
+                      >
+                        <span className="relative z-10">{item.label}</span>
+                        {item.hasDropdown && (
+                          <CaretDown size={11} weight="bold" className={`transition-transform duration-200 ${isDropdownOpen ? 'rotate-180' : ''}`} />
+                        )}
+                      </button>
                     </div>
                   )
                 })}
@@ -591,6 +501,55 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
                 {mobileMenuOpen ? <X size={20} weight="bold" className="sm:w-[22px] sm:h-[22px]" /> : <List size={20} weight="bold" className="sm:w-[22px] sm:h-[22px]" />}
               </button>
             </div>
+
+            {activeDesktopDropdown && (
+              <div className="hidden lg:block absolute left-1/2 top-full z-[100] w-[min(720px,calc(100vw-48px))] -translate-x-1/2 pt-2">
+                <div className={desktopDropdownClass}>
+                  <div className="mb-2.5">
+                    <h3 className="mb-1 text-sm font-bold text-[#07111F] dark:text-white">{activeDesktopDropdown.title}</h3>
+                    <p className="text-xs text-[#5B677A] dark:text-[#C7D6E8]">{activeDesktopDropdown.subtitle}</p>
+                  </div>
+                  <div className="grid grid-cols-1 gap-1.5 md:grid-cols-2">
+                    {activeDesktopDropdown.data.map((feature) => (
+                      <button
+                        key={feature.title}
+                        onClick={() => {
+                          if (activeDesktopDropdownId === "support" && feature.title === "Live Chat") {
+                            onOpenLiveChat("I need help with support")
+                            closeAllDesktopDropdowns()
+                            return
+                          }
+
+                          handleNavigate(activeDesktopDropdownId || "home")
+                          closeAllDesktopDropdowns()
+                        }}
+                        className={`${ENTERPRISE_DROPDOWN_ITEM_CLASS} gap-1.5 rounded-lg p-1.5 hover:bg-cyan-50/70 dark:hover:bg-[rgba(0,199,232,0.10)]`}
+                      >
+                        <div className={`${ENTERPRISE_DROPDOWN_ICON_CLASS} h-8 w-8 rounded-md`}>
+                          <feature.icon size={16} weight="bold" className={feature.color} />
+                        </div>
+                        <div className="flex-1 min-w-0">
+                          <div className="mb-0.5 break-words text-[13px] font-semibold text-[#07111F] dark:text-white">{feature.title}</div>
+                          <div className="break-words text-[11px] leading-relaxed text-[#5B677A] dark:text-[#C7D6E8]">{feature.description}</div>
+                        </div>
+                      </button>
+                    ))}
+                  </div>
+                  <div className="mt-2.5 border-t border-[#D8E8F5] pt-2.5 dark:border-[rgba(0,199,232,0.14)]">
+                    <button
+                      onClick={() => {
+                        handleNavigate(activeDesktopDropdownId || "home")
+                        closeAllDesktopDropdowns()
+                      }}
+                      className="flex h-7 w-full items-center justify-center gap-2 rounded-lg border border-[#D8E8F5] bg-white px-3 text-[12px] font-medium text-[#07111F] transition-all duration-150 hover:border-primary/30 hover:bg-cyan-50/60 dark:border-cyan-500/18 dark:bg-[rgba(11,22,40,0.88)] dark:text-[#F8FAFC] dark:hover:bg-[rgba(0,199,232,0.10)]"
+                    >
+                      <span>View All {activeDesktopDropdown.title}</span>
+                      <ArrowRight size={13} weight="bold" className="transition-transform group-hover:translate-x-0.5" />
+                    </button>
+                  </div>
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </nav>
