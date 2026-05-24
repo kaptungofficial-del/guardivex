@@ -465,16 +465,17 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
                                      item.id === "documentation" ? handleDocsMouseLeave :
                                      item.id === "support" ? handleSupportMouseLeave :
                                      item.id === "licensing" ? handleLicensingMouseLeave : undefined
-                  const isRightAlignedDropdown = item.id === "support" || item.id === "documentation" || item.id === "licensing"
-                  const isLeftAlignedDropdown = item.id === "product" || item.id === "enterprise"
-                  const dropdownPositionClass = isRightAlignedDropdown
-                    ? "right-4 left-auto origin-top-right"
-                    : isLeftAlignedDropdown
+                  const dropdownPositionClass =
+                    item.id === "product" || item.id === "enterprise"
                       ? "left-4 right-auto origin-top-left"
-                      : "left-1/2 -translate-x-1/2 origin-top"
+                      : item.id === "documentation"
+                        ? "left-1/2 -translate-x-1/2 origin-top"
+                        : item.id === "support" || item.id === "licensing"
+                          ? "right-4 left-auto origin-top-right"
+                          : "left-4 right-auto origin-top-left"
                   
                   return (
-                    <div key={item.id} className={(item.id === "product" || item.id === "enterprise") ? "static" : "relative"}>
+                    <div key={item.id} className="static">
                       {item.hasDropdown ? (
                         <div
                           onMouseEnter={handleEnter}

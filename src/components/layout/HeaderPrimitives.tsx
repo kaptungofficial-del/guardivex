@@ -27,7 +27,7 @@ export const ENTERPRISE_NAV_ITEM_INACTIVE_CLASS =
   "text-[#5B677A] border-transparent hover:text-[#07111F] hover:border-[#D8E3EE] hover:bg-[#F6F9FC] dark:text-muted-foreground dark:hover:text-[#F8FAFC] dark:hover:border-[rgba(0,199,232,0.18)] dark:hover:bg-[rgba(0,199,232,0.08)]"
 
 export const ENTERPRISE_DROPDOWN_PANEL_CLASS =
-  "w-[min(760px,calc(100vw-32px))] max-w-[min(760px,calc(100vw-32px))] max-h-[70vh] overflow-y-auto overflow-x-hidden rounded-2xl border border-cyan-500/18 bg-[#07111F] p-3 opacity-100 shadow-2xl shadow-black/35 backdrop-blur-md dark:border-cyan-500/18 dark:bg-[#07111F] dark:shadow-black/45"
+  "w-[min(720px,calc(100vw-32px))] max-w-[calc(100vw-2rem)] max-h-[70vh] overflow-y-auto overflow-x-hidden rounded-2xl border border-cyan-500/18 bg-[#07111F] p-3 opacity-100 shadow-2xl shadow-black/35 backdrop-blur-md dark:border-cyan-500/18 dark:bg-[#07111F] dark:shadow-black/45"
 
 export const ENTERPRISE_DROPDOWN_ITEM_CLASS =
   "flex items-start gap-2.5 p-2 rounded-xl border border-transparent text-left transition-all duration-150 group hover:border-[rgba(0,199,232,0.16)] hover:bg-[rgba(0,199,232,0.10)] dark:hover:bg-[rgba(0,199,232,0.10)]"
