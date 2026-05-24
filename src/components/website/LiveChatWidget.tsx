@@ -108,7 +108,7 @@ export function LiveChatWidget({
 
   if (!isOpen) {
     return (
-      <div className="fixed right-3 bottom-2 z-[70] sm:right-4 sm:bottom-3 lg:right-6 lg:bottom-4">
+      <div className="fixed right-6 bottom-6 z-[40]">
         <Button
           onClick={() => onOpenChange(true)}
           className="h-8 px-2.5 rounded-full gap-1.5 border border-[#D8E3EE] bg-white text-[#07111F] shadow-[0_14px_28px_-18px_rgba(2,6,18,0.12)] hover:border-cyan-500/20 hover:bg-white dark:border-cyan-500/20 dark:bg-[#07111F] dark:text-white dark:shadow-[0_14px_28px_-18px_rgba(2,6,18,0.72)] dark:hover:border-primary/40 dark:hover:bg-[rgba(11,22,40,0.98)]"
@@ -126,7 +126,7 @@ export function LiveChatWidget({
   }
 
   return (
-    <div className="fixed right-3 bottom-2 z-[70] w-[calc(100vw-1.5rem)] sm:w-[292px] sm:right-4 sm:bottom-3 lg:right-6 lg:bottom-4">
+    <div className="fixed right-6 bottom-6 z-[40] w-[calc(100vw-3rem)] sm:w-[280px]">
       <div className="rounded-lg border border-[#D8E3EE] bg-white shadow-[0_22px_44px_-26px_rgba(2,6,18,0.12)] overflow-hidden dark:border-cyan-500/20 dark:bg-[#07111F] dark:shadow-[0_22px_44px_-26px_rgba(2,6,18,0.9)]">
         <div className="px-3.5 py-2 border-b border-[#D8E3EE] bg-white/90 backdrop-blur-sm flex items-center justify-between dark:border-cyan-500/14 dark:bg-[rgba(11,22,40,0.82)]">
           <div className="flex items-center gap-2">

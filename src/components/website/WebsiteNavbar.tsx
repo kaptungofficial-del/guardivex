@@ -466,9 +466,12 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
                                      item.id === "support" ? handleSupportMouseLeave :
                                      item.id === "licensing" ? handleLicensingMouseLeave : undefined
                   const isRightAlignedDropdown = item.id === "support" || item.id === "documentation" || item.id === "licensing"
+                  const isLeftAlignedDropdown = item.id === "product"
                   const dropdownPositionClass = isRightAlignedDropdown
                     ? "right-0 left-auto origin-top-right"
-                    : "left-1/2 -translate-x-1/2 origin-top"
+                    : isLeftAlignedDropdown
+                      ? "left-0 right-auto origin-top-left"
+                      : "left-1/2 -translate-x-1/2 origin-top"
                   
                   return (
                     <div key={item.id} className="relative">
@@ -486,13 +489,13 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
                           </button>
                           
                           {isDropdownOpen && (
-                            <div className={`absolute top-full ${dropdownPositionClass} z-50 pt-2`}>
+                            <div className={`absolute top-full ${dropdownPositionClass} z-[100] pt-2`}>
                               <div className={ENTERPRISE_DROPDOWN_PANEL_CLASS}>
                                 <div className="mb-3">
-                                  <h3 className="text-sm font-bold text-[#07111F] mb-1 dark:text-[#F8FAFC]">{dropdownTitle}</h3>
-                                  <p className="text-xs text-[#5B677A] dark:text-[#94A3B8]">{dropdownSubtitle}</p>
+                                  <h3 className="text-sm font-bold text-[#F8FAFC] mb-1">{dropdownTitle}</h3>
+                                  <p className="text-xs text-[#C7D6E8]">{dropdownSubtitle}</p>
                                 </div>
-                                <div className="grid grid-cols-1 md:grid-cols-2 gap-2.5">
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
                                   {dropdownData.map((feature) => (
                                     <button
                                       key={feature.title}
@@ -515,13 +518,13 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
                                         <feature.icon size={20} weight="bold" className={feature.color} />
                                       </div>
                                       <div className="flex-1 min-w-0">
-                                        <div className="text-sm font-semibold text-[#07111F] mb-0.5 break-words dark:text-[#F8FAFC]">{feature.title}</div>
-                                        <div className="text-xs text-[#5B677A] leading-relaxed break-words dark:text-[#94A3B8]">{feature.description}</div>
+                                        <div className="text-sm font-semibold text-[#F8FAFC] mb-0.5 break-words">{feature.title}</div>
+                                        <div className="text-xs text-[#C7D6E8] leading-relaxed break-words">{feature.description}</div>
                                       </div>
                                     </button>
                                   ))}
                                 </div>
-                                <div className="mt-3 pt-3 border-t border-[rgba(0,199,232,0.12)] dark:border-[rgba(0,199,232,0.12)]">
+                                <div className="mt-3 pt-3 border-t border-[rgba(0,199,232,0.14)]">
                                   <button
                                     onClick={() => {
                                       handleNavigate(item.id)
@@ -602,25 +605,12 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
                                         item.id === "documentation" ? docsDropdownOpen :
                                         item.id === "support" ? supportDropdownOpen :
                                         item.id === "licensing" ? licensingDropdownOpen : false
-                  const dropdownData = item.id === "product" ? productFeatures :
-                                      item.id === "enterprise" ? enterpriseSolutions :
-                                      item.id === "documentation" ? documentationSections :
-                                      item.id === "support" ? supportOptions :
-                                      item.id === "licensing" ? licensingOptions : []
                   
                   return (
                     <div key={item.id}>
                       <button
                         onClick={() => {
-                          if (item.hasDropdown) {
-                            if (item.id === "product") setProductDropdownOpen(!productDropdownOpen)
-                            if (item.id === "enterprise") setEnterpriseDropdownOpen(!enterpriseDropdownOpen)
-                            if (item.id === "documentation") setDocsDropdownOpen(!docsDropdownOpen)
-                            if (item.id === "support") setSupportDropdownOpen(!supportDropdownOpen)
-                            if (item.id === "licensing") setLicensingDropdownOpen(!licensingDropdownOpen)
-                          } else {
-                            handleNavigate(item.id)
-                          }
+                          handleNavigate(item.id)
                         }}
                         className={`w-full px-4 sm:px-6 py-3 sm:py-4 text-left text-sm sm:text-base tracking-[0.01em] font-medium rounded-lg transition-all flex items-center justify-between active:scale-98 ${
                           currentPage === item.id
@@ -629,43 +619,8 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
                         }`}
                       >
                         <span>{item.label}</span>
-                        {item.hasDropdown && (
-                          <CaretDown size={13} weight="bold" className={`transition-transform duration-200 sm:w-[14px] sm:h-[14px] ${isDropdownOpen ? 'rotate-180' : ''}`} />
-                        )}
+                        <ArrowRight size={13} weight="bold" className="sm:w-[14px] sm:h-[14px]" />
                       </button>
-                      
-                      {item.hasDropdown && isDropdownOpen && (
-                        <div className="mt-1.5 sm:mt-2 ml-3 sm:ml-4 space-y-1.5 sm:space-y-2">
-                          {dropdownData.map((feature) => (
-                            <button
-                              key={feature.title}
-                              onClick={() => {
-                                if (item.id === "support" && feature.title === "Live Chat") {
-                                  onOpenLiveChat("I need help with support")
-                                  setSupportDropdownOpen(false)
-                                  setMobileMenuOpen(false)
-                                  return
-                                }
-                                handleNavigate(item.id)
-                                if (item.id === "product") setProductDropdownOpen(false)
-                                if (item.id === "enterprise") setEnterpriseDropdownOpen(false)
-                                if (item.id === "documentation") setDocsDropdownOpen(false)
-                                if (item.id === "support") setSupportDropdownOpen(false)
-                                if (item.id === "licensing") setLicensingDropdownOpen(false)
-                              }}
-                              className="w-full flex items-start gap-2.5 sm:gap-3 p-2.5 sm:p-3 rounded-lg hover:bg-[#F6F9FC] active:bg-cyan-50 active:scale-98 transition-all duration-200 text-left dark:hover:bg-[rgba(0,199,232,0.08)] dark:active:bg-[rgba(0,199,232,0.12)]"
-                            >
-                              <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-lg bg-[linear-gradient(135deg,rgba(0,199,232,0.10),rgba(0,143,199,0.05))] border border-[#D8E3EE] flex items-center justify-center flex-shrink-0 dark:bg-[linear-gradient(135deg,rgba(0,199,232,0.14),rgba(0,143,199,0.08))] dark:border-cyan-500/15">
-                                <feature.icon size={17} weight="bold" className={`${feature.color} sm:w-[18px] sm:h-[18px]`} />
-                              </div>
-                              <div className="flex-1 min-w-0">
-                                <div className="text-xs sm:text-sm font-semibold text-[#07111F] mb-0.5 dark:text-foreground">{feature.title}</div>
-                                <div className="text-[11px] sm:text-xs text-[#5B677A] leading-snug dark:text-muted-foreground">{feature.description}</div>
-                              </div>
-                            </button>
-                          ))}
-                        </div>
-                      )}
                     </div>
                   )
                 })}

@@ -1,10 +1,14 @@
-import { ComponentProps, ComponentType, createContext, CSSProperties, ReactNode, useContext, useId, useMemo } from "react"
+import { ComponentProps, ComponentType, createContext, ReactNode, useContext, useId, useMemo } from "react"
 import * as RechartsPrimitive from "recharts"
 
 import { cn } from "@/lib/utils"
 
 // Format: { THEME_NAME: CSS_SELECTOR }
 const THEMES = { light: "", dark: ".dark" } as const
+
+function escapeCssAttributeValue(value: string) {
+  return value.replace(/\\/g, "\\\\").replace(/"/g, '\\"')
+}
 
 export type ChartConfig = {
   [k in string]: {
@@ -92,6 +96,27 @@ ${colorConfig
   })
   .join("\n")}
 }
+
+${colorConfig
+  .map(([key]) => {
+    const escapedKey = escapeCssAttributeValue(key)
+
+    return `
+[data-chart=${id}] [data-chart-indicator="${escapedKey}"] {
+  background-color: var(--color-${key});
+  border-color: var(--color-${key});
+}
+
+[data-chart=${id}] [data-chart-indicator="${escapedKey}"][data-indicator="dashed"] {
+  background-color: transparent;
+}
+
+[data-chart=${id}] [data-chart-legend="${escapedKey}"] {
+  background-color: var(--color-${key});
+}
+`
+  })
+  .join("\n")}
 `
           )
           .join("\n"),
@@ -180,7 +205,6 @@ function ChartTooltipContent({
         {payload.map((item, index) => {
           const key = `${nameKey || item.name || item.dataKey || "value"}`
           const itemConfig = getPayloadConfigFromPayload(config, item, key)
-          const indicatorColor = color || item.payload.fill || item.color
 
           return (
             <div
@@ -200,7 +224,7 @@ function ChartTooltipContent({
                     !hideIndicator && (
                       <div
                         className={cn(
-                          "shrink-0 rounded-[2px] border-(--color-border) bg-(--color-bg)",
+                          "shrink-0 rounded-[2px] border bg-transparent",
                           {
                             "h-2.5 w-2.5": indicator === "dot",
                             "w-1": indicator === "line",
@@ -209,12 +233,8 @@ function ChartTooltipContent({
                             "my-0.5": nestLabel && indicator === "dashed",
                           }
                         )}
-                        style={
-                          {
-                            "--color-bg": indicatorColor,
-                            "--color-border": indicatorColor,
-                          } as CSSProperties
-                        }
+                        data-chart-indicator={key}
+                        data-indicator={indicator}
                       />
                     )
                   )}
@@ -289,9 +309,7 @@ function ChartLegendContent({
             ) : (
               <div
                 className="h-2 w-2 shrink-0 rounded-[2px]"
-                style={{
-                  backgroundColor: item.color,
-                }}
+                  data-chart-legend={key}
               />
             )}
             {itemConfig?.label}

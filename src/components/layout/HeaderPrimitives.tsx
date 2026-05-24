@@ -27,16 +27,16 @@ export const ENTERPRISE_NAV_ITEM_INACTIVE_CLASS =
   "text-[#5B677A] border-transparent hover:text-[#07111F] hover:border-[#D8E3EE] hover:bg-[#F6F9FC] dark:text-muted-foreground dark:hover:text-[#F8FAFC] dark:hover:border-[rgba(0,199,232,0.18)] dark:hover:bg-[rgba(0,199,232,0.08)]"
 
 export const ENTERPRISE_DROPDOWN_PANEL_CLASS =
-  "w-[min(680px,calc(100vw-2rem))] max-w-[680px] rounded-2xl border border-[#D8E3EE] bg-[rgba(255,255,255,0.94)] p-4 opacity-100 shadow-2xl shadow-black/18 backdrop-blur-md dark:border-cyan-500/20 dark:bg-[rgba(7,17,31,0.96)] dark:shadow-black/45"
+  "w-[min(760px,calc(100vw-32px))] max-w-[min(760px,calc(100vw-32px))] max-h-[70vh] overflow-y-auto overflow-x-hidden rounded-2xl border border-cyan-500/18 bg-[#07111F] p-3 opacity-100 shadow-2xl shadow-black/35 backdrop-blur-md dark:border-cyan-500/18 dark:bg-[#07111F] dark:shadow-black/45"
 
 export const ENTERPRISE_DROPDOWN_ITEM_CLASS =
-  "flex items-start gap-3 p-2.5 rounded-xl border border-transparent text-left transition-all duration-150 group hover:border-[rgba(0,199,232,0.16)] hover:bg-[rgba(0,199,232,0.08)] dark:hover:bg-[rgba(0,199,232,0.08)]"
+  "flex items-start gap-2.5 p-2 rounded-xl border border-transparent text-left transition-all duration-150 group hover:border-[rgba(0,199,232,0.16)] hover:bg-[rgba(0,199,232,0.10)] dark:hover:bg-[rgba(0,199,232,0.10)]"
 
 export const ENTERPRISE_DROPDOWN_ICON_CLASS =
-  "w-10 h-10 rounded-xl bg-[linear-gradient(135deg,rgba(0,199,232,0.14),rgba(0,143,199,0.08))] border border-[rgba(0,199,232,0.14)] flex items-center justify-center flex-shrink-0"
+  "w-9 h-9 rounded-lg bg-[linear-gradient(135deg,rgba(0,199,232,0.14),rgba(0,143,199,0.08))] border border-[rgba(0,199,232,0.14)] flex items-center justify-center flex-shrink-0"
 
 export const ENTERPRISE_DROPDOWN_ACTION_CLASS =
-  "w-full flex items-center justify-center gap-2 py-2 px-4 rounded-xl border border-[rgba(0,199,232,0.18)] bg-[linear-gradient(135deg,#00C7E8_0%,#008FC7_55%,#00E5C3_100%)] text-[#07111F] shadow-[0_16px_26px_-18px_rgba(0,199,232,0.55)] transition-all duration-150 group hover:shadow-[0_18px_30px_-18px_rgba(0,199,232,0.68)]"
+  "w-full flex items-center justify-center gap-2 h-9 px-3 rounded-xl border border-[rgba(0,199,232,0.18)] bg-[linear-gradient(135deg,#00C7E8_0%,#008FC7_55%,#00E5C3_100%)] text-[#07111F] shadow-[0_16px_26px_-18px_rgba(0,199,232,0.55)] transition-all duration-150 group hover:shadow-[0_18px_30px_-18px_rgba(0,199,232,0.68)]"
 
 interface HeaderStatusBadgeProps {
   label: string
