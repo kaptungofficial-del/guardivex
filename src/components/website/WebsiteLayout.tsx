@@ -35,8 +35,8 @@ export function WebsiteLayout({ currentPage, onNavigate, onLogin }: WebsiteLayou
   return (
     <div className="min-h-screen bg-background premium-shell overflow-hidden">
       <div className="pointer-events-none absolute inset-0 -z-10">
-        <div className="glow-orb absolute -top-24 left-[8%] h-64 w-64 rounded-full bg-primary/14" />
-        <div className="glow-orb absolute -top-14 right-[10%] h-72 w-72 rounded-full bg-accent/12 [animation-delay:1.6s]" />
+        <div className="glow-orb absolute -top-24 left-[8%] h-56 w-56 rounded-full bg-primary/5" />
+        <div className="glow-orb absolute -top-14 right-[10%] h-60 w-60 rounded-full bg-accent/4 [animation-delay:1.6s]" />
       </div>
       <WebsiteNavbar
         currentPage={currentPage}
@@ -256,53 +256,52 @@ export function WebsiteLayout({ currentPage, onNavigate, onLogin }: WebsiteLayou
 function HomePage({ onNavigate }: { onNavigate: (page: string) => void }) {
   return (
     <div className="relative guardivex-home-typography overflow-x-clip">
-      <section className="relative overflow-hidden bg-gradient-to-b from-background via-card/5 to-background">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_20%_-20%,rgba(0,119,255,0.04),transparent_50%)]" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_80%_50%,rgba(0,199,232,0.03),transparent_60%)]" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_100%,rgba(0,215,195,0.025),transparent_70%)]" />
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(0,119,255,0.015)_1px,transparent_1px),linear-gradient(to_bottom,rgba(0,199,232,0.015)_1px,transparent_1px)] bg-[size:6rem_6rem]" />
+      <section className="relative overflow-hidden bg-gradient-to-b from-background via-[#F8FBFE] to-background dark:via-[#07111F]/38">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_18%_-18%,rgba(0,194,255,0.010),transparent_42%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_82%_18%,rgba(0,224,184,0.007),transparent_46%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(148,163,184,0.014)_1px,transparent_1px),linear-gradient(to_right,rgba(0,194,255,0.010)_1px,transparent_1px)] bg-[size:100%_24px,3.25rem_3.25rem] dark:bg-[linear-gradient(to_bottom,rgba(148,163,184,0.018)_1px,transparent_1px),linear-gradient(to_right,rgba(0,194,255,0.012)_1px,transparent_1px)]" />
 
-        <div className="mx-auto w-full max-w-[1280px] px-4 sm:px-6 pt-2.5 sm:pt-4 md:pt-6 pb-5 sm:pb-6 md:pb-8 relative z-10">
-          <div className="max-w-4xl mx-auto text-center">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[rgba(255,255,255,0.82)] border border-[#D9E7F2] text-[10px] sm:text-[11px] font-semibold mb-2.5 sm:mb-4 shadow-none backdrop-blur-xl cursor-default text-[#07111F] dark:bg-gradient-to-r dark:from-primary/15 dark:via-accent/10 dark:to-primary/15 dark:border-primary/30 dark:text-[#F8FAFC]">
+        <div className="mx-auto w-full max-w-[1280px] px-4 sm:px-6 pt-0.5 sm:pt-1.5 md:pt-2.5 pb-3 sm:pb-4 md:pb-4.5 relative z-10">
+          <div className="max-w-[980px] mx-auto text-center">
+            <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-sm bg-[rgba(255,255,255,0.72)] border border-[#D9E7F2]/85 text-[9px] sm:text-[9.5px] font-semibold mb-1.5 sm:mb-2.5 shadow-none backdrop-blur-xl cursor-default text-[#07111F] dark:bg-[rgba(3,10,24,0.70)] dark:border-[rgba(0,194,255,0.11)] dark:text-[#E2E8F0]">
               <div className="flex items-center gap-2">
-                <div className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
-                <span className="font-semibold tracking-[0.08em]">UNIFIED SOC COMMAND CENTER</span>
+                <div className="w-1 h-1 rounded-full bg-primary/75" />
+                <span className="font-semibold tracking-[0.11em]">UNIFIED SOC COMMAND CENTER</span>
               </div>
-              <div className="h-2.5 w-px bg-primary/30" />
-              <span className="text-primary/80 font-medium">Enterprise Security Platform</span>
+              <div className="h-2 w-px bg-primary/16" />
+              <span className="text-primary/70 font-medium">Enterprise Security Platform</span>
             </div>
 
-            <h1 className="mx-auto max-w-[980px] text-4xl sm:text-5xl lg:text-6xl font-extrabold font-heading mb-3 md:mb-4 leading-[0.92] tracking-[-0.045em] text-balance px-2 text-[#07111F] dark:bg-gradient-to-r dark:from-foreground dark:via-foreground dark:to-foreground/75 dark:bg-clip-text dark:text-transparent">
+            <h1 className="mx-auto max-w-[960px] text-[2.18rem] sm:text-[2.78rem] lg:text-[3.32rem] font-bold font-heading mb-2 md:mb-2.5 leading-[1.02] tracking-[-0.033em] text-balance px-2 text-[#07111F] dark:text-[#E2E8F0]">
               <span className="inline-block">
                 Enterprise Security Platform
               </span>
             </h1>
 
-            <p className="text-[1rem] sm:text-[1.1rem] md:text-[1.125rem] text-[#475569] dark:text-[#94A3B8] mb-5 md:mb-6 max-w-[760px] mx-auto leading-[1.65] px-2 font-medium text-balance">
+            <p className="text-[0.92rem] sm:text-[0.98rem] md:text-[1rem] text-[#475569] dark:text-[#94A3B8] mb-3 md:mb-4 max-w-[900px] mx-auto leading-[1.68] px-2 font-medium text-balance">
               Self-hosted enterprise security platform. Monitor devices, cameras, NVRs, access control, alarms, and network infrastructure from a unified SOC Command Center with real-time threat intelligence.
             </p>
 
-            <div className="mx-auto flex w-full max-w-[340px] flex-col gap-2.5 justify-center px-0 sm:max-w-none sm:flex-row sm:gap-3 sm:px-4 mb-6 md:mb-8">
+            <div className="mx-auto flex w-full max-w-[320px] flex-col gap-1.5 justify-center px-0 sm:max-w-none sm:flex-row sm:gap-2 sm:px-4 mb-3 md:mb-4">
               <Button
                 size="lg"
                 onClick={() => onNavigate("download")}
-                className="bg-gradient-to-r from-[#0077FF] via-[#00C7E8] to-[#00D7C3] hover:from-[#0A6AE6] hover:via-[#00B9D8] hover:to-[#00C7B1] hover:shadow-none text-white w-full sm:w-auto h-8.5 sm:h-9.5 text-[0.9375rem] font-semibold px-5 sm:px-6 transition-all border border-primary/20"
+                className="bg-gradient-to-r from-[#056F99] via-[#0098C4] to-[#00A98D] hover:from-[#05668D] hover:via-[#008DB8] hover:to-[#009D83] text-white w-full sm:w-auto h-7.5 sm:h-8 text-[0.84rem] font-semibold px-4 sm:px-5 transition-all border border-[rgba(0,194,255,0.14)] shadow-none hover:shadow-none"
               >
-                <CloudArrowDown size={17} className="mr-1.5" weight="bold" />
+                <CloudArrowDown size={15} className="mr-1.5" weight="bold" />
                 Download Enterprise Server
               </Button>
               <Button
                 size="lg"
                 variant="outline"
-                className="border border-[#D9E7F2] bg-[rgba(255,255,255,0.82)] text-[#07111F] hover:border-primary/35 hover:bg-[rgba(255,255,255,0.9)] shadow-none backdrop-blur-xl w-full sm:w-auto h-8.5 sm:h-9.5 text-[0.9375rem] font-semibold px-5 sm:px-6 transition-all dark:border-[rgba(0,119,255,0.26)] dark:bg-[rgba(11,22,40,0.72)] dark:text-[#F8FAFC] dark:hover:border-primary/40 dark:hover:bg-[rgba(0,199,232,0.10)]"
+                className="border border-[#B8D4E5] bg-[rgba(255,255,255,0.74)] text-[#07111F] hover:border-primary/24 hover:bg-[rgba(255,255,255,0.88)] shadow-none backdrop-blur-xl w-full sm:w-auto h-7.5 sm:h-8 text-[0.84rem] font-semibold px-4 sm:px-5 transition-all dark:border-[rgba(0,194,255,0.15)] dark:bg-[rgba(3,10,24,0.70)] dark:text-[#E2E8F0] dark:hover:border-[rgba(0,194,255,0.24)] dark:hover:bg-[rgba(11,18,32,0.82)] dark:hover:shadow-none"
               >
-                <Monitor size={17} className="mr-1.5" weight="bold" />
+                <Monitor size={15} className="mr-1.5" weight="bold" />
                 Request Live Demo
               </Button>
             </div>
 
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-1.5 md:gap-2.5 max-w-3xl mx-auto px-4">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-1 md:gap-1.5 max-w-[650px] mx-auto px-4">
               {[
                 { value: "5,000+", label: "Organizations", icon: Buildings },
                 { value: "50,000+", label: "Devices Monitored", icon: Broadcast },
@@ -310,11 +309,10 @@ function HomePage({ onNavigate }: { onNavigate: (page: string) => void }) {
                 { value: "24/7", label: "Enterprise Support", icon: ShieldCheck },
               ].map((stat, i) => (
                 <div key={i} className="group relative">
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity blur-lg" />
-                  <div className="relative min-h-[78px] bg-[rgba(255,255,255,0.82)] border border-[#D9E7F2] shadow-none backdrop-blur-xl rounded-lg p-2 sm:p-2.5 hover:border-primary/30 hover:-translate-y-0.5 transition-all duration-200 cursor-default dark:bg-card/55 dark:border-border/50 dark:shadow-none">
-                    <stat.icon size={17} className="text-primary mb-1 mx-auto opacity-70" weight="duotone" />
-                    <div className="text-[0.9rem] md:text-[1.25rem] font-bold tracking-[-0.035em] text-foreground mb-1 font-heading">{stat.value}</div>
-                    <div className="text-[0.7rem] sm:text-[0.75rem] text-[#64748B] dark:text-muted-foreground font-medium leading-snug">{stat.label}</div>
+                  <div className="relative min-h-[58px] bg-[rgba(255,255,255,0.74)] border border-[#D9E7F2]/90 shadow-none backdrop-blur-xl rounded-sm p-1.5 hover:border-primary/18 hover:-translate-y-0.5 transition-all duration-200 cursor-default dark:bg-[rgba(3,10,24,0.72)] dark:border-[rgba(0,194,255,0.10)] dark:shadow-none dark:hover:border-[rgba(0,194,255,0.18)]">
+                    <stat.icon size={14} className="text-primary mb-0.5 mx-auto opacity-55" weight="duotone" />
+                    <div className="text-[0.78rem] md:text-[0.98rem] font-bold tracking-[-0.02em] text-foreground mb-0.5 font-heading">{stat.value}</div>
+                    <div className="text-[0.58rem] sm:text-[0.62rem] uppercase tracking-[0.075em] text-[#64748B] dark:text-[#94A3B8] font-semibold leading-tight">{stat.label}</div>
                   </div>
                 </div>
               ))}

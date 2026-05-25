@@ -25,29 +25,29 @@
   --card-foreground: #07111f;
   --popover: #ffffff;
   --popover-foreground: #07111f;
-  --primary: #0077ff;
+  --primary: #00c2ff;
   --primary-foreground: #ffffff;
   --secondary: #eaf7ff;
   --secondary-foreground: #07111f;
   --muted: #f1f5f9;
   --muted-foreground: #64748b;
-  --accent: #00c7e8;
+  --accent: #00e0b8;
   --accent-foreground: #07111f;
   --destructive: #dc2626;
   --destructive-foreground: #ffffff;
   --border: #cfe8f6;
   --input: #cfe8f6;
-  --ring: #0077ff;
-  --chart-1: #0077ff;
-  --chart-2: #00c7e8;
-  --chart-3: #00d7c3;
+  --ring: #00c2ff;
+  --chart-1: #00c2ff;
+  --chart-2: #00e0b8;
+  --chart-3: #38bdf8;
   --chart-4: #60a5fa;
   --chart-5: #22d3ee;
   --success: #00d7c3;
   --success-foreground: #07111f;
   --warning: #f59e0b;
   --warning-foreground: #07111f;
-  --info: #00c7e8;
+  --info: #00c2ff;
   --info-foreground: #07111f;
   --sidebar: #07111f;
   --sidebar-foreground: #f8fafc;
@@ -60,44 +60,44 @@
 }
 
 .dark {
-  --background: #07111f;
-  --foreground: #f8fafc;
-  --card: #0b1628;
-  --card-foreground: #f8fafc;
-  --popover: #0b1628;
-  --popover-foreground: #f8fafc;
-  --primary: #00c7e8;
-  --primary-foreground: #07111f;
-  --secondary: #102235;
+  --background: #020817;
+  --foreground: #e2e8f0;
+  --card: #07111f;
+  --card-foreground: #e2e8f0;
+  --popover: #07111f;
+  --popover-foreground: #e2e8f0;
+  --primary: #00c2ff;
+  --primary-foreground: #020817;
+  --secondary: #0b1220;
   --secondary-foreground: #e2e8f0;
-  --muted: #102235;
+  --muted: #0b1220;
   --muted-foreground: #94a3b8;
-  --accent: #00d7c3;
-  --accent-foreground: #07111f;
+  --accent: #00e0b8;
+  --accent-foreground: #020817;
   --destructive: #ef4444;
   --destructive-foreground: #ffffff;
-  --border: rgba(0, 119, 255, 0.26);
-  --input: rgba(0, 119, 255, 0.26);
-  --ring: #00c7e8;
+  --border: rgba(0, 194, 255, 0.16);
+  --input: rgba(0, 194, 255, 0.16);
+  --ring: #00c2ff;
   --chart-1: #60a5fa;
-  --chart-2: #22d3ee;
-  --chart-3: #00d7c3;
+  --chart-2: #00e0b8;
+  --chart-3: #38bdf8;
   --chart-4: #a78bfa;
   --chart-5: #f59e0b;
   --success: #00d7c3;
   --success-foreground: #07111f;
   --warning: #f59e0b;
   --warning-foreground: #07111f;
-  --info: #00c7e8;
-  --info-foreground: #07111f;
-  --sidebar: #0b1628;
-  --sidebar-foreground: #f8fafc;
-  --sidebar-primary: #00c7e8;
-  --sidebar-primary-foreground: #07111f;
-  --sidebar-accent: #102235;
-  --sidebar-accent-foreground: #f8fafc;
-  --sidebar-border: rgba(0, 119, 255, 0.26);
-  --sidebar-ring: #00c7e8;
+  --info: #00c2ff;
+  --info-foreground: #020817;
+  --sidebar: #07111f;
+  --sidebar-foreground: #e2e8f0;
+  --sidebar-primary: #00c2ff;
+  --sidebar-primary-foreground: #020817;
+  --sidebar-accent: #0b1220;
+  --sidebar-accent-foreground: #e2e8f0;
+  --sidebar-border: rgba(0, 194, 255, 0.16);
+  --sidebar-ring: #00c2ff;
 }
 
 @theme {
@@ -156,9 +156,9 @@ html {
 
 .dark body {
   background-image:
-    radial-gradient(circle at 10% -10%, rgba(0, 199, 232, 0.14), transparent 36%),
-    radial-gradient(circle at 88% -18%, rgba(0, 167, 214, 0.14), transparent 40%),
-    linear-gradient(180deg, rgba(7, 17, 31, 0.98), rgba(3, 8, 19, 0.99));
+    radial-gradient(circle at 10% -10%, rgba(0, 194, 255, 0.055), transparent 34%),
+    radial-gradient(circle at 88% -18%, rgba(0, 224, 184, 0.04), transparent 38%),
+    linear-gradient(180deg, rgba(2, 8, 23, 0.99), rgba(3, 10, 24, 0.99));
 }
 
 h1,
@@ -184,8 +184,8 @@ h6 {
 
 .guardivex-home-typography :where(h1) {
   font-weight: 800;
-  line-height: 0.95;
-  letter-spacing: -0.045em;
+  line-height: 0.98;
+  letter-spacing: -0.038em;
 }
 
 .guardivex-home-typography :where(h2) {
@@ -219,9 +219,9 @@ h6 {
   inset: 0;
   pointer-events: none;
   z-index: 0;
-  opacity: 0.025;
-  background-image: linear-gradient(rgba(0, 119, 255, 0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 143, 199, 0.06) 1px, transparent 1px);
-  background-size: 34px 34px;
+  opacity: 0.018;
+  background-image: linear-gradient(rgba(0, 194, 255, 0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 224, 184, 0.045) 1px, transparent 1px);
+  background-size: 36px 36px;
   -webkit-mask-image: radial-gradient(circle at 50% 40%, black 44%, transparent 88%);
   mask-image: radial-gradient(circle at 50% 40%, black 44%, transparent 88%);
 }
@@ -237,8 +237,8 @@ h6 {
 
 .dark .glass-panel,
 .dark .glass-outline {
-  border-color: rgba(0, 119, 255, 0.22);
-  background: rgba(11, 22, 40, 0.82);
+  border-color: rgba(0, 194, 255, 0.14);
+  background: rgba(3, 10, 24, 0.78);
   box-shadow: 0 14px 30px -22px rgba(2, 6, 18, 0.84);
 }
 
@@ -257,7 +257,7 @@ h6 {
 
 .glow-orb {
   animation: none;
-  filter: blur(2px);
+  filter: blur(1px);
 }
 
 @keyframes status-pulse {
