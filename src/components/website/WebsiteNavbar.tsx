@@ -437,8 +437,8 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
                   markClassName="h-7 w-7 sm:h-8 sm:w-8 lg:h-8 lg:w-8"
                   imgClassName="pr-0.5"
                   textContainerClassName="gap-0"
-                  titleClassName="text-[12px] sm:text-[14px] lg:text-[15px] text-[#07111F] group-hover:text-primary transition-colors font-extrabold tracking-[-0.03em] dark:text-[#F8FAFC]"
-                  subtitleClassName="hidden sm:block text-[7.5px] lg:text-[8px] text-[#5B677A] tracking-[0.18em] leading-none mt-0.5 dark:text-[#94A3B8]"
+                  titleClassName="text-[13px] sm:text-[15px] lg:text-[16px] text-[#07111F] group-hover:text-primary transition-colors font-bold tracking-[-0.03em] dark:text-[#F8FAFC]"
+                  subtitleClassName="hidden sm:block text-[8px] lg:text-[8.5px] text-[#64748B] tracking-[0.14em] leading-none mt-0.5 dark:text-[#94A3B8]"
                 />
               </button>
               
@@ -478,7 +478,7 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
                 onClick={() => handleNavigate("download")}
                 variant="outline"
                 size="default"
-                className="hidden xl:flex items-center gap-2 h-10 px-3.5 font-semibold text-sm group transition-all duration-150 rounded-md"
+                className="hidden xl:flex items-center gap-2 h-9 px-3 font-medium text-[0.9375rem] group transition-all duration-150 rounded-md"
               >
                 <CloudArrowDown size={17} weight="bold" className="group-hover:scale-110 transition-transform sm:w-[18px] sm:h-[18px]" />
                 <span>Download Trial</span>
@@ -487,7 +487,7 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
                 onClick={handleLoginClick}
                 size="default"
                 variant="secondary"
-                className="h-9 px-3 sm:px-4 font-semibold text-[11px] sm:text-sm transition-all duration-150 group rounded-md"
+                className="h-8.5 px-3 sm:px-4 font-medium text-[0.875rem] sm:text-[0.9375rem] transition-all duration-150 group rounded-md"
               >
                 <span>Sign In</span>
                 <ArrowRight size={15} weight="bold" className="ml-1 sm:ml-1.5 group-hover:translate-x-1 transition-transform sm:w-[17px] sm:h-[17px]" />
@@ -529,7 +529,7 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
                           <feature.icon size={16} weight="bold" className={feature.color} />
                         </div>
                         <div className="flex-1 min-w-0">
-                          <div className="mb-0.5 break-words text-[13px] font-semibold text-[#07111F] dark:text-white">{feature.title}</div>
+                          <div className="mb-0.5 break-words text-[13px] font-medium text-[#07111F] dark:text-white">{feature.title}</div>
                           <div className="break-words text-[11px] leading-relaxed text-[#64748B] dark:text-[#C7D6E8]">{feature.description}</div>
                         </div>
                       </button>
@@ -541,7 +541,7 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
                         handleNavigate(activeDesktopDropdownId || "home")
                         closeAllDesktopDropdowns()
                       }}
-                      className="flex h-7 w-full items-center justify-center gap-2 rounded-lg border border-border bg-white px-3 text-[12px] font-medium text-[#07111F] shadow-sm transition-all duration-150 hover:border-primary/30 hover:bg-secondary dark:border-[rgba(0,119,255,0.26)] dark:bg-[#07111F] dark:text-[#F8FAFC] dark:hover:bg-[rgba(0,199,232,0.12)]"
+                      className="flex h-7 w-full items-center justify-center gap-2 rounded-lg border border-border bg-white px-3 text-[12px] font-medium text-[#07111F] shadow-none transition-all duration-150 hover:border-primary/30 hover:bg-secondary dark:border-[rgba(0,119,255,0.26)] dark:bg-[#07111F] dark:text-[#F8FAFC] dark:hover:bg-[rgba(0,199,232,0.12)]"
                     >
                       <span>View All {activeDesktopDropdown.title}</span>
                       <ArrowRight size={13} weight="bold" className="transition-transform group-hover:translate-x-0.5" />
@@ -572,7 +572,7 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
                         onClick={() => {
                           handleNavigate(item.id)
                         }}
-                        className={`w-full px-4 sm:px-6 py-3 text-left text-sm sm:text-base tracking-[0.01em] font-medium rounded-lg transition-all flex items-center justify-between active:scale-98 ${
+                        className={`w-full px-4 sm:px-6 py-3.5 sm:py-4 text-left text-[0.95rem] sm:text-[1.02rem] tracking-[0.01em] font-normal rounded-lg transition-all flex items-center justify-between active:scale-98 ${
                           currentPage === item.id
                             ? "text-[#07111F] bg-cyan-50 border border-cyan-500/20 dark:text-[#F8FAFC] dark:bg-[rgba(0,199,232,0.10)]"
                             : "text-[#5B677A] hover:text-[#07111F] hover:bg-[#F6F9FC] active:bg-cyan-50 dark:text-muted-foreground dark:hover:text-[#F8FAFC] dark:hover:bg-[rgba(0,199,232,0.08)] dark:active:bg-[rgba(0,199,232,0.12)]"
@@ -590,7 +590,7 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
                 <Button 
                   onClick={() => handleNavigate("download")}
                   variant="outline"
-                  className="w-full h-10 sm:h-12 justify-center gap-2 text-sm sm:text-base font-semibold active:scale-98 transition-all rounded-md"
+                  className="w-full h-9 sm:h-10 justify-center gap-2 text-[0.9375rem] sm:text-[0.975rem] font-medium active:scale-98 transition-all rounded-md"
                 >
                   <CloudArrowDown size={18} weight="bold" className="sm:w-5 sm:h-5" />
                   <span>Download Trial</span>

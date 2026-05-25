@@ -264,22 +264,22 @@ function HomePage({ onNavigate }: { onNavigate: (page: string) => void }) {
 
         <div className="container mx-auto px-4 sm:px-6 pt-2.5 sm:pt-4 md:pt-6 pb-5 sm:pb-6 md:pb-8 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary border border-border text-[9px] sm:text-xs font-semibold mb-2.5 sm:mb-4 shadow-sm cursor-default text-[#07111F] dark:bg-gradient-to-r dark:from-primary/15 dark:via-accent/10 dark:to-primary/15 dark:border-primary/30 dark:text-[#F8FAFC]">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary border border-border text-[9px] sm:text-[10px] font-semibold mb-2.5 sm:mb-4 shadow-none cursor-default text-[#07111F] dark:bg-gradient-to-r dark:from-primary/15 dark:via-accent/10 dark:to-primary/15 dark:border-primary/30 dark:text-[#F8FAFC]">
               <div className="flex items-center gap-2">
                 <div className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
-                <span className="font-bold tracking-[0.12em]">UNIFIED SOC COMMAND CENTER</span>
+                <span className="font-semibold tracking-[0.08em]">UNIFIED SOC COMMAND CENTER</span>
               </div>
               <div className="h-2.5 w-px bg-primary/30" />
               <span className="text-primary/80 font-medium">Enterprise Security Platform</span>
             </div>
 
-            <h1 className="mx-auto max-w-3xl text-3xl sm:text-[clamp(2.35rem,4.6vw,3.85rem)] md:text-[clamp(2.55rem,4.1vw,4.15rem)] font-extrabold font-heading mb-3 md:mb-4 leading-[1.04] tracking-[-0.04em] text-balance px-2 text-[#07111F] dark:font-bold dark:bg-gradient-to-r dark:from-foreground dark:via-foreground dark:to-foreground/75 dark:bg-clip-text dark:text-transparent">
+            <h1 className="mx-auto max-w-4xl text-4xl sm:text-5xl lg:text-6xl font-extrabold font-heading mb-3 md:mb-4 leading-[0.95] tracking-[-0.045em] text-balance px-2 text-[#07111F] dark:bg-gradient-to-r dark:from-foreground dark:via-foreground dark:to-foreground/75 dark:bg-clip-text dark:text-transparent">
               <span className="inline-block">
                 Enterprise Security Platform
               </span>
             </h1>
 
-            <p className="text-[0.92rem] sm:text-base md:text-[1.02rem] text-[#475569] dark:text-slate-300 mb-4 md:mb-4.5 max-w-xl sm:max-w-2xl mx-auto leading-[1.7] px-2 font-medium text-balance">
+            <p className="text-[1rem] sm:text-[1.1rem] md:text-[1.25rem] text-[#475569] dark:text-[#94A3B8] mb-4 md:mb-4.5 max-w-[720px] mx-auto leading-[1.75] px-2 font-normal sm:font-medium text-balance">
               Self-hosted enterprise security platform. Monitor devices, cameras, NVRs, access control, alarms, and network infrastructure from a unified SOC Command Center with real-time threat intelligence.
             </p>
 
@@ -313,8 +313,8 @@ function HomePage({ onNavigate }: { onNavigate: (page: string) => void }) {
                   <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity blur-xl" />
                   <div className="relative min-h-[88px] bg-card border border-border shadow-sm rounded-xl p-2 sm:p-3 hover:border-primary/30 transition-all cursor-default dark:bg-card/55 dark:border-border/50 dark:shadow-none">
                     <stat.icon size={18} className="text-primary mb-1 mx-auto opacity-70" weight="duotone" />
-                    <div className="text-[0.95rem] md:text-[1.45rem] font-bold text-foreground mb-0.5 font-heading">{stat.value}</div>
-                    <div className="text-xs text-[#64748B] dark:text-muted-foreground font-medium">{stat.label}</div>
+                    <div className="text-[0.95rem] md:text-[1.35rem] font-bold tracking-[-0.03em] text-foreground mb-0.5 font-heading">{stat.value}</div>
+                    <div className="text-[0.7rem] sm:text-xs text-[#64748B] dark:text-muted-foreground font-medium leading-snug">{stat.label}</div>
                   </div>
                 </div>
               ))}
