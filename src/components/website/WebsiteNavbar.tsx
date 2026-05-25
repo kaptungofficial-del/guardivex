@@ -434,7 +434,7 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
                 <BrandLogo
                   subtitle="SECURITY PLATFORM"
                   className="gap-0.5"
-                  markClassName="h-7 w-7 sm:h-8 sm:w-8 lg:h-8 lg:w-8"
+                  markClassName="h-8 w-8 sm:h-9 sm:w-9 lg:h-9 lg:w-9"
                   imgClassName="pr-0.5"
                   textContainerClassName="gap-0"
                   titleClassName="text-[14px] sm:text-[16px] lg:text-[17px] text-[#07111F] group-hover:text-primary transition-colors font-bold tracking-[-0.03em] dark:text-[#F8FAFC]"

@@ -95,7 +95,7 @@ export function PlatformLayout({ children, currentPage, onNavigate, onLogout, cr
             <BrandLogo
               subtitle="Security Platform"
               className="gap-1 sm:gap-1.5"
-              markClassName="w-11 h-11 sm:w-12 sm:h-12"
+              markClassName="w-12 h-12 sm:w-14 sm:h-14"
               imgClassName="-mr-1"
               titleClassName="text-base sm:text-lg"
               subtitleClassName="text-[10px] sm:text-xs tracking-normal mt-0.5"

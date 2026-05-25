@@ -13,6 +13,7 @@ export function useTheme() {
     // Keep dark as default and treat legacy/system preference as dark.
     const currentTheme = !theme || theme === "system" ? "dark" : theme
     root.classList.add(currentTheme)
+    root.style.colorScheme = currentTheme
   }, [theme])
 
   return { theme, setTheme }
