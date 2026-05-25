@@ -287,17 +287,17 @@ function HomePage({ onNavigate }: { onNavigate: (page: string) => void }) {
               <Button
                 size="lg"
                 onClick={() => onNavigate("download")}
-                className="bg-gradient-to-r from-[#0077FF] via-[#00C7E8] to-[#00D7C3] hover:from-[#0A6AE6] hover:via-[#00B9D8] hover:to-[#00C7B1] hover:shadow-none text-white w-full sm:w-auto h-9 sm:h-10 text-[0.9375rem] font-semibold px-5 sm:px-6 transition-all border border-primary/20"
+                className="bg-gradient-to-r from-[#0077FF] via-[#00C7E8] to-[#00D7C3] hover:from-[#0A6AE6] hover:via-[#00B9D8] hover:to-[#00C7B1] hover:shadow-none text-white w-full sm:w-auto h-8.5 sm:h-9.5 text-[0.9375rem] font-semibold px-5 sm:px-6 transition-all border border-primary/20"
               >
-                <CloudArrowDown size={18} className="mr-1.5" weight="bold" />
+                <CloudArrowDown size={17} className="mr-1.5" weight="bold" />
                 Download Enterprise Server
               </Button>
               <Button
                 size="lg"
                 variant="outline"
-                className="border border-[#D9E7F2] bg-[rgba(255,255,255,0.82)] text-[#07111F] hover:border-primary/35 hover:bg-[rgba(255,255,255,0.9)] shadow-none backdrop-blur-xl w-full sm:w-auto h-9 sm:h-10 text-[0.9375rem] font-semibold px-5 sm:px-6 transition-all"
+                className="border border-[#D9E7F2] bg-[rgba(255,255,255,0.82)] text-[#07111F] hover:border-primary/35 hover:bg-[rgba(255,255,255,0.9)] shadow-none backdrop-blur-xl w-full sm:w-auto h-8.5 sm:h-9.5 text-[0.9375rem] font-semibold px-5 sm:px-6 transition-all"
               >
-                <Monitor size={18} className="mr-1.5" weight="bold" />
+                <Monitor size={17} className="mr-1.5" weight="bold" />
                 Request Live Demo
               </Button>
             </div>
@@ -311,9 +311,9 @@ function HomePage({ onNavigate }: { onNavigate: (page: string) => void }) {
               ].map((stat, i) => (
                 <div key={i} className="group relative">
                   <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity blur-lg" />
-                  <div className="relative min-h-[80px] bg-[rgba(255,255,255,0.82)] border border-[#D9E7F2] shadow-none backdrop-blur-xl rounded-lg p-2 sm:p-2.5 hover:border-primary/30 hover:-translate-y-0.5 transition-all duration-200 cursor-default dark:bg-card/55 dark:border-border/50 dark:shadow-none">
+                  <div className="relative min-h-[78px] bg-[rgba(255,255,255,0.82)] border border-[#D9E7F2] shadow-none backdrop-blur-xl rounded-lg p-2 sm:p-2.5 hover:border-primary/30 hover:-translate-y-0.5 transition-all duration-200 cursor-default dark:bg-card/55 dark:border-border/50 dark:shadow-none">
                     <stat.icon size={17} className="text-primary mb-1 mx-auto opacity-70" weight="duotone" />
-                    <div className="text-[0.95rem] md:text-[1.3rem] font-bold tracking-[-0.035em] text-foreground mb-1 font-heading">{stat.value}</div>
+                    <div className="text-[0.9rem] md:text-[1.25rem] font-bold tracking-[-0.035em] text-foreground mb-1 font-heading">{stat.value}</div>
                     <div className="text-[0.7rem] sm:text-[0.75rem] text-[#64748B] dark:text-muted-foreground font-medium leading-snug">{stat.label}</div>
                   </div>
                 </div>
