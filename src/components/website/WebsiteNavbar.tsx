@@ -422,14 +422,14 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
       </div>
 
       <nav className="sticky top-0.5 z-50 px-4 sm:px-4 lg:px-4">
-        <div className={`max-w-7xl mx-auto px-4 sm:px-4 lg:px-5 rounded-lg backdrop-blur-md ${ENTERPRISE_HEADER_SURFACE_CLASS}`}>
-          <div ref={desktopNavRef} onMouseLeave={closeAllDesktopDropdowns} className="relative flex items-center justify-between h-12 sm:h-14 gap-1.5 sm:gap-2 min-w-0 overflow-visible">
-            <div className="flex items-center gap-2 sm:gap-3 lg:gap-4 min-w-0">
+        <div className={`max-w-[1280px] mx-auto px-4 sm:px-4 lg:px-5 rounded-lg backdrop-blur-md ${ENTERPRISE_HEADER_SURFACE_CLASS}`}>
+          <div ref={desktopNavRef} onMouseLeave={closeAllDesktopDropdowns} className="relative flex items-center justify-between h-11 sm:h-12 gap-1 sm:gap-1.5 min-w-0 overflow-visible">
+            <div className="flex items-center gap-1.5 sm:gap-2.5 lg:gap-3 min-w-0">
               <button 
                 onClick={() => handleNavigate("home")} 
                 aria-label="Go to home"
                 title="Go to home"
-                className="flex items-center gap-1.5 group py-0 min-w-0 shrink-0"
+                className="flex items-center gap-1 group py-0 min-w-0 shrink-0"
               >
                 <BrandLogo
                   subtitle="SECURITY PLATFORM"
@@ -437,12 +437,12 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
                   markClassName="h-7 w-7 sm:h-8 sm:w-8 lg:h-8 lg:w-8"
                   imgClassName="pr-0.5"
                   textContainerClassName="gap-0"
-                  titleClassName="text-[13px] sm:text-[15px] lg:text-[16px] text-[#07111F] group-hover:text-primary transition-colors font-bold tracking-[-0.03em] dark:text-[#F8FAFC]"
-                  subtitleClassName="hidden sm:block text-[8px] lg:text-[8.5px] text-[#64748B] tracking-[0.14em] leading-none mt-0.5 dark:text-[#94A3B8]"
+                  titleClassName="text-[14px] sm:text-[16px] lg:text-[17px] text-[#07111F] group-hover:text-primary transition-colors font-bold tracking-[-0.03em] dark:text-[#F8FAFC]"
+                  subtitleClassName="hidden sm:block text-[8.5px] lg:text-[9px] text-[#64748B] tracking-[0.1em] leading-none mt-0.5 dark:text-[#94A3B8]"
                 />
               </button>
               
-              <div className="hidden lg:flex items-center gap-1 xl:gap-1.5 min-w-0">
+              <div className="hidden lg:flex items-center gap-0.5 xl:gap-1 min-w-0">
                 {navItems.map((item) => {
                   const isDropdownOpen = item.id === "product" ? productDropdownOpen : 
                                         item.id === "enterprise" ? enterpriseDropdownOpen :
@@ -478,7 +478,7 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
                 onClick={() => handleNavigate("download")}
                 variant="outline"
                 size="default"
-                className="hidden xl:flex items-center gap-2 h-9 px-3 font-medium text-[0.9375rem] group transition-all duration-150 rounded-md"
+                className="hidden xl:flex items-center gap-1.5 h-9 px-3 font-semibold text-[0.95rem] group transition-all duration-150 rounded-md"
               >
                 <CloudArrowDown size={17} weight="bold" className="group-hover:scale-110 transition-transform sm:w-[18px] sm:h-[18px]" />
                 <span>Download Trial</span>
@@ -487,7 +487,7 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
                 onClick={handleLoginClick}
                 size="default"
                 variant="secondary"
-                className="h-8.5 px-3 sm:px-4 font-medium text-[0.875rem] sm:text-[0.9375rem] transition-all duration-150 group rounded-md"
+                className="h-8.5 px-3 sm:px-4 font-semibold text-[0.9375rem] sm:text-[1rem] transition-all duration-150 group rounded-md"
               >
                 <span>Sign In</span>
                 <ArrowRight size={15} weight="bold" className="ml-1 sm:ml-1.5 group-hover:translate-x-1 transition-transform sm:w-[17px] sm:h-[17px]" />
@@ -506,8 +506,8 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
               <div className="hidden lg:block absolute left-1/2 top-full z-[100] w-[min(720px,calc(100vw-48px))] -translate-x-1/2 pt-2">
                 <div className={desktopDropdownClass}>
                   <div className="mb-2.5">
-                    <h3 className="mb-1 text-sm font-bold text-[#07111F] dark:text-white">{activeDesktopDropdown.title}</h3>
-                    <p className="text-xs text-[#5B677A] dark:text-[#C7D6E8]">{activeDesktopDropdown.subtitle}</p>
+                    <h3 className="mb-1 text-sm font-semibold text-[#07111F] dark:text-white">{activeDesktopDropdown.title}</h3>
+                    <p className="text-xs text-[#64748B] dark:text-[#C7D6E8]">{activeDesktopDropdown.subtitle}</p>
                   </div>
                   <div className="grid grid-cols-1 gap-1.5 md:grid-cols-2">
                     {activeDesktopDropdown.data.map((feature) => (
@@ -541,7 +541,7 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
                         handleNavigate(activeDesktopDropdownId || "home")
                         closeAllDesktopDropdowns()
                       }}
-                      className="flex h-7 w-full items-center justify-center gap-2 rounded-lg border border-border bg-white px-3 text-[12px] font-medium text-[#07111F] shadow-none transition-all duration-150 hover:border-primary/30 hover:bg-secondary dark:border-[rgba(0,119,255,0.26)] dark:bg-[#07111F] dark:text-[#F8FAFC] dark:hover:bg-[rgba(0,199,232,0.12)]"
+                      className="flex h-7 w-full items-center justify-center gap-2 rounded-lg border border-[#D9E7F2] bg-[rgba(255,255,255,0.82)] px-3 text-[12px] font-medium text-[#07111F] shadow-none backdrop-blur-xl transition-all duration-150 hover:border-primary/30 hover:bg-[rgba(255,255,255,0.9)] dark:border-[rgba(0,119,255,0.26)] dark:bg-[#07111F] dark:text-[#F8FAFC] dark:hover:bg-[rgba(0,199,232,0.12)]"
                     >
                       <span>View All {activeDesktopDropdown.title}</span>
                       <ArrowRight size={13} weight="bold" className="transition-transform group-hover:translate-x-0.5" />
@@ -555,7 +555,7 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
       </nav>
 
       {mobileMenuOpen && (
-        <div className="lg:hidden fixed inset-0 top-[calc(1.75rem+3rem)] z-40 bg-[rgba(255,255,255,0.96)] backdrop-blur-2xl overflow-y-auto border-t border-border dark:bg-[rgba(7,17,31,0.96)] dark:border-[rgba(0,119,255,0.26)]">
+        <div className="lg:hidden fixed inset-0 top-[calc(1.75rem+3rem)] z-40 bg-[rgba(255,255,255,0.92)] backdrop-blur-2xl overflow-y-auto border-t border-[#D9E7F2] dark:bg-[rgba(7,17,31,0.96)] dark:border-[rgba(0,119,255,0.26)]">
           <div className="h-full">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3.5 sm:py-6 md:py-8">
               <div className="flex flex-col gap-1.5 sm:gap-2">
@@ -572,7 +572,7 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
                         onClick={() => {
                           handleNavigate(item.id)
                         }}
-                        className={`w-full px-4 sm:px-6 py-3.5 sm:py-4 text-left text-[0.95rem] sm:text-[1.02rem] tracking-[0.01em] font-normal rounded-lg transition-all flex items-center justify-between active:scale-98 ${
+                        className={`w-full px-4 sm:px-6 py-3.5 sm:py-4 text-left text-[1rem] sm:text-[1.06rem] tracking-[0.01em] font-medium rounded-lg transition-all flex items-center justify-between active:scale-98 ${
                           currentPage === item.id
                             ? "text-[#07111F] bg-cyan-50 border border-cyan-500/20 dark:text-[#F8FAFC] dark:bg-[rgba(0,199,232,0.10)]"
                             : "text-[#5B677A] hover:text-[#07111F] hover:bg-[#F6F9FC] active:bg-cyan-50 dark:text-muted-foreground dark:hover:text-[#F8FAFC] dark:hover:bg-[rgba(0,199,232,0.08)] dark:active:bg-[rgba(0,199,232,0.12)]"
@@ -590,7 +590,7 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
                 <Button 
                   onClick={() => handleNavigate("download")}
                   variant="outline"
-                  className="w-full h-9 sm:h-10 justify-center gap-2 text-[0.9375rem] sm:text-[0.975rem] font-medium active:scale-98 transition-all rounded-md"
+                  className="w-full h-9 sm:h-10 justify-center gap-2 text-[1rem] sm:text-[1.025rem] font-semibold active:scale-98 transition-all rounded-md"
                 >
                   <CloudArrowDown size={18} weight="bold" className="sm:w-5 sm:h-5" />
                   <span>Download Trial</span>

@@ -262,9 +262,9 @@ function HomePage({ onNavigate }: { onNavigate: (page: string) => void }) {
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_100%,rgba(0,215,195,0.025),transparent_70%)]" />
         <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(0,119,255,0.015)_1px,transparent_1px),linear-gradient(to_bottom,rgba(0,199,232,0.015)_1px,transparent_1px)] bg-[size:6rem_6rem]" />
 
-        <div className="container mx-auto px-4 sm:px-6 pt-2.5 sm:pt-4 md:pt-6 pb-5 sm:pb-6 md:pb-8 relative z-10">
+        <div className="mx-auto w-full max-w-[1280px] px-4 sm:px-6 pt-2.5 sm:pt-4 md:pt-6 pb-5 sm:pb-6 md:pb-8 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary border border-border text-[9px] sm:text-[10px] font-semibold mb-2.5 sm:mb-4 shadow-none cursor-default text-[#07111F] dark:bg-gradient-to-r dark:from-primary/15 dark:via-accent/10 dark:to-primary/15 dark:border-primary/30 dark:text-[#F8FAFC]">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[rgba(255,255,255,0.82)] border border-[#D9E7F2] text-[10px] sm:text-[11px] font-semibold mb-2.5 sm:mb-4 shadow-none backdrop-blur-xl cursor-default text-[#07111F] dark:bg-gradient-to-r dark:from-primary/15 dark:via-accent/10 dark:to-primary/15 dark:border-primary/30 dark:text-[#F8FAFC]">
               <div className="flex items-center gap-2">
                 <div className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
                 <span className="font-semibold tracking-[0.08em]">UNIFIED SOC COMMAND CENTER</span>
@@ -273,36 +273,36 @@ function HomePage({ onNavigate }: { onNavigate: (page: string) => void }) {
               <span className="text-primary/80 font-medium">Enterprise Security Platform</span>
             </div>
 
-            <h1 className="mx-auto max-w-4xl text-4xl sm:text-5xl lg:text-6xl font-extrabold font-heading mb-3 md:mb-4 leading-[0.95] tracking-[-0.045em] text-balance px-2 text-[#07111F] dark:bg-gradient-to-r dark:from-foreground dark:via-foreground dark:to-foreground/75 dark:bg-clip-text dark:text-transparent">
+            <h1 className="mx-auto max-w-[980px] text-4xl sm:text-5xl lg:text-6xl font-extrabold font-heading mb-3 md:mb-4 leading-[0.92] tracking-[-0.045em] text-balance px-2 text-[#07111F] dark:bg-gradient-to-r dark:from-foreground dark:via-foreground dark:to-foreground/75 dark:bg-clip-text dark:text-transparent">
               <span className="inline-block">
                 Enterprise Security Platform
               </span>
             </h1>
 
-            <p className="text-[1rem] sm:text-[1.1rem] md:text-[1.25rem] text-[#475569] dark:text-[#94A3B8] mb-4 md:mb-4.5 max-w-[720px] mx-auto leading-[1.75] px-2 font-normal sm:font-medium text-balance">
+            <p className="text-[1rem] sm:text-[1.1rem] md:text-[1.125rem] text-[#475569] dark:text-[#94A3B8] mb-5 md:mb-6 max-w-[760px] mx-auto leading-[1.65] px-2 font-medium text-balance">
               Self-hosted enterprise security platform. Monitor devices, cameras, NVRs, access control, alarms, and network infrastructure from a unified SOC Command Center with real-time threat intelligence.
             </p>
 
-            <div className="mx-auto flex w-full max-w-[340px] flex-col gap-3 justify-center px-0 sm:max-w-none sm:flex-row sm:gap-3 sm:px-4 mb-5 md:mb-7">
+            <div className="mx-auto flex w-full max-w-[340px] flex-col gap-2.5 justify-center px-0 sm:max-w-none sm:flex-row sm:gap-3 sm:px-4 mb-6 md:mb-8">
               <Button
                 size="lg"
                 onClick={() => onNavigate("download")}
-                className="bg-gradient-to-r from-[#0077FF] via-[#00C7E8] to-[#00D7C3] hover:from-[#0A6AE6] hover:via-[#00B9D8] hover:to-[#00C7B1] hover:shadow-sm text-white w-full sm:w-auto h-10 sm:h-11 text-sm font-bold px-5 sm:px-6 transition-all border border-primary/20"
+                className="bg-gradient-to-r from-[#0077FF] via-[#00C7E8] to-[#00D7C3] hover:from-[#0A6AE6] hover:via-[#00B9D8] hover:to-[#00C7B1] hover:shadow-none text-white w-full sm:w-auto h-9 sm:h-10 text-[0.9375rem] font-semibold px-5 sm:px-6 transition-all border border-primary/20"
               >
-                <CloudArrowDown size={19} className="mr-2" weight="bold" />
+                <CloudArrowDown size={18} className="mr-1.5" weight="bold" />
                 Download Enterprise Server
               </Button>
               <Button
                 size="lg"
                 variant="outline"
-                className="border border-border bg-white text-[#07111F] hover:border-primary/40 hover:bg-secondary shadow-sm backdrop-blur-0 w-full sm:w-auto h-10 sm:h-11 text-sm font-bold px-5 sm:px-6 transition-all"
+                className="border border-[#D9E7F2] bg-[rgba(255,255,255,0.82)] text-[#07111F] hover:border-primary/35 hover:bg-[rgba(255,255,255,0.9)] shadow-none backdrop-blur-xl w-full sm:w-auto h-9 sm:h-10 text-[0.9375rem] font-semibold px-5 sm:px-6 transition-all"
               >
-                <Monitor size={19} className="mr-2" weight="bold" />
+                <Monitor size={18} className="mr-1.5" weight="bold" />
                 Request Live Demo
               </Button>
             </div>
 
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-3 max-w-3xl mx-auto px-4">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-1.5 md:gap-2.5 max-w-3xl mx-auto px-4">
               {[
                 { value: "5,000+", label: "Organizations", icon: Buildings },
                 { value: "50,000+", label: "Devices Monitored", icon: Broadcast },
@@ -310,11 +310,11 @@ function HomePage({ onNavigate }: { onNavigate: (page: string) => void }) {
                 { value: "24/7", label: "Enterprise Support", icon: ShieldCheck },
               ].map((stat, i) => (
                 <div key={i} className="group relative">
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity blur-xl" />
-                  <div className="relative min-h-[88px] bg-card border border-border shadow-sm rounded-xl p-2 sm:p-3 hover:border-primary/30 transition-all cursor-default dark:bg-card/55 dark:border-border/50 dark:shadow-none">
-                    <stat.icon size={18} className="text-primary mb-1 mx-auto opacity-70" weight="duotone" />
-                    <div className="text-[0.95rem] md:text-[1.35rem] font-bold tracking-[-0.03em] text-foreground mb-0.5 font-heading">{stat.value}</div>
-                    <div className="text-[0.7rem] sm:text-xs text-[#64748B] dark:text-muted-foreground font-medium leading-snug">{stat.label}</div>
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity blur-lg" />
+                  <div className="relative min-h-[80px] bg-[rgba(255,255,255,0.82)] border border-[#D9E7F2] shadow-none backdrop-blur-xl rounded-lg p-2 sm:p-2.5 hover:border-primary/30 hover:-translate-y-0.5 transition-all duration-200 cursor-default dark:bg-card/55 dark:border-border/50 dark:shadow-none">
+                    <stat.icon size={17} className="text-primary mb-1 mx-auto opacity-70" weight="duotone" />
+                    <div className="text-[0.95rem] md:text-[1.3rem] font-bold tracking-[-0.035em] text-foreground mb-1 font-heading">{stat.value}</div>
+                    <div className="text-[0.7rem] sm:text-[0.75rem] text-[#64748B] dark:text-muted-foreground font-medium leading-snug">{stat.label}</div>
                   </div>
                 </div>
               ))}

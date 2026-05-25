@@ -67,9 +67,9 @@ export function BrandLogo({
     <div className={cn("flex min-w-0 items-center gap-0.5", className)}>
       <BrandMark src={src} className={cn("h-10 w-10 sm:h-11 sm:w-11", markClassName)} imgClassName={imgClassName} />
       <div className={cn("flex min-w-0 flex-col", textContainerClassName)}>
-        <span className={cn("font-heading font-bold text-[1rem] sm:text-[1.05rem] leading-none tracking-[-0.025em]", titleClassName)}>{title}</span>
+        <span className={cn("font-heading font-bold text-[1.1rem] sm:text-[1.2rem] leading-none tracking-[-0.03em]", titleClassName)}>{title}</span>
         {subtitle ? (
-          <span className={cn("text-[9px] text-muted-foreground/85 font-semibold tracking-[0.11em] mt-1 uppercase", subtitleClassName)}>{subtitle}</span>
+          <span className={cn("text-[9.5px] text-muted-foreground/85 font-semibold tracking-[0.1em] mt-1 uppercase", subtitleClassName)}>{subtitle}</span>
         ) : null}
       </div>
     </div>
