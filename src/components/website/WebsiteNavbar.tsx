@@ -322,7 +322,7 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
               : null
 
   const desktopDropdownClass =
-    "w-[min(720px,calc(100vw-48px))] max-w-[calc(100vw-48px)] max-h-[70vh] overflow-y-auto overflow-x-hidden rounded-lg border border-border/80 bg-white/95 p-2.5 text-[#07111F] shadow-sm backdrop-blur-xl dark:border-[rgba(0,194,255,0.14)] dark:bg-[rgba(3,10,24,0.96)] dark:text-[#E2E8F0] dark:shadow-black/30"
+    "w-[min(720px,calc(100vw-48px))] max-w-[calc(100vw-48px)] max-h-[70vh] overflow-y-auto overflow-x-hidden rounded-md border border-border/65 bg-white/90 p-2.5 text-[#07111F] shadow-none backdrop-blur-xl dark:border-[rgba(0,194,255,0.08)] dark:bg-[rgba(3,10,24,0.90)] dark:text-[#E2E8F0] dark:shadow-none"
 
   useEffect(() => {
     const handleDocumentMouseDown = (event: MouseEvent) => {
@@ -359,28 +359,35 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
     setMobileMenuOpen(false)
   }
 
+  const handleSalesEmailClick = () => {
+    window.location.href = "mailto:sales@guardivex.com"
+  }
+
   return (
     <>
       <div className={ENTERPRISE_COMMAND_STRIP_CLASS}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-4 lg:px-5">
-          <div className="flex items-center justify-between h-6.5 sm:h-7">
-            <div className="flex items-center gap-1.5 sm:gap-2 md:gap-2.5 min-w-0">
+        <div className="max-w-[1440px] mx-auto px-8 xl:px-16 2xl:px-20">
+          <div className="flex items-center justify-between h-8 sm:h-9">
+            <div className="flex items-center gap-1.5 sm:gap-2 min-w-0">
               <HeaderStatusBadge label="Operational" className="hidden min-[380px]:inline-flex" />
-              <Badge variant="outline" className="hidden lg:inline-flex h-5 text-[9px] uppercase tracking-[0.12em] border-border/80 text-[#07111F] bg-white/75 dark:border-[rgba(0,194,255,0.14)] dark:text-[#E2E8F0] dark:bg-[rgba(11,18,32,0.62)]">
+              <Badge variant="outline" className="hidden lg:inline-flex h-6 rounded-full px-3 text-[10px] uppercase tracking-[0.12em] border-border/80 text-[#07111F] bg-white/75 dark:border-[rgba(0,194,255,0.14)] dark:text-[#E2E8F0] dark:bg-[rgba(11,18,32,0.62)]">
                 Enterprise Edition
               </Badge>
               <div className="hidden md:flex items-center gap-1.5">
                 <div className="w-1 h-1 rounded-full bg-border/60" />
-                <a 
-                  href="mailto:sales@guardivex.com"
-                  className="flex items-center gap-1.5 text-muted-foreground hover:text-primary transition-colors text-[10px] font-semibold group"
+                <button
+                  type="button"
+                  onClick={handleSalesEmailClick}
+                  className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors text-[12px] font-semibold group"
+                  aria-label="Email Guardivex sales"
+                  title="Email Guardivex sales"
                 >
                   <EnvelopeSimple size={13} weight="bold" className="group-hover:scale-110 transition-transform" />
                   <span className="hidden lg:inline">sales@guardivex.com</span>
-                </a>
+                </button>
               </div>
             </div>
-            <div className="flex items-center gap-1.5 sm:gap-2 md:gap-2.5 shrink-0">
+            <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
               <a
                 href="tel:1-800-SENTINEL"
                 className="hidden xl:flex items-center gap-1.5 text-muted-foreground hover:text-foreground transition-colors text-[10px] font-semibold group dark:hover:text-[#F8FAFC]"
@@ -391,7 +398,7 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
               </a>
               <button
                 onClick={() => onOpenLiveChat("I need help with my deployment")}
-                className={`${ENTERPRISE_CONTROL_CLASS} hidden lg:flex h-7 text-[10px] font-semibold hover:text-foreground hover:border-primary/25 hover:bg-background/95 dark:hover:text-[#E2E8F0] dark:hover:bg-[rgba(0,194,255,0.055)] group`}
+                className={`${ENTERPRISE_CONTROL_CLASS} hidden lg:flex h-7 text-[12px] font-semibold hover:text-foreground hover:border-primary/18 hover:bg-background/95 dark:hover:text-[#E2E8F0] dark:hover:bg-[rgba(0,194,255,0.045)] group`}
               >
                 <ChatCircle size={13} weight="bold" className="group-hover:scale-110 transition-transform" />
                 <span className="tracking-wide">Live Chat</span>
@@ -403,10 +410,10 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
                     href={social.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-6 h-6 flex items-center justify-center rounded-md text-muted-foreground hover:text-primary hover:bg-[rgba(0,194,255,0.055)] border border-transparent hover:border-primary/15 transition-all duration-200 group"
+                    className="w-7 h-7 flex items-center justify-center rounded-md text-muted-foreground hover:text-primary hover:bg-[rgba(0,194,255,0.055)] border border-transparent hover:border-primary/15 transition-all duration-200 group"
                     aria-label={social.label}
                   >
-                    <social.icon size={13} weight="fill" className="group-hover:scale-110 transition-transform" />
+                    <social.icon size={15} weight="fill" className="group-hover:scale-110 transition-transform" />
                   </a>
                 ))}
               </div>
@@ -415,10 +422,10 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
         </div>
       </div>
 
-      <nav className="sticky top-0.5 z-50 px-4 sm:px-4 lg:px-4">
-        <div className={`max-w-[1280px] mx-auto px-3 sm:px-3.5 lg:px-4 rounded-sm backdrop-blur-md ${ENTERPRISE_HEADER_SURFACE_CLASS}`}>
-          <div ref={desktopNavRef} onMouseLeave={closeAllDesktopDropdowns} className="relative flex items-center justify-between h-9.5 sm:h-10 gap-1 min-w-0 overflow-visible">
-            <div className="flex items-center gap-1.5 sm:gap-2 lg:gap-2.5 min-w-0">
+      <nav className="sticky top-0 z-50 px-0">
+        <div className={`mx-auto px-8 xl:px-16 2xl:px-20 backdrop-blur-sm ${ENTERPRISE_HEADER_SURFACE_CLASS}`}>
+          <div ref={desktopNavRef} onMouseLeave={closeAllDesktopDropdowns} className="relative flex items-center justify-between h-[58px] gap-6 min-w-0 overflow-visible">
+            <div className="flex items-center gap-8 min-w-0">
               <button 
                 onClick={() => handleNavigate("home")} 
                 aria-label="Go to home"
@@ -427,16 +434,16 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
               >
                 <BrandLogo
                   subtitle="SECURITY PLATFORM"
-                  className="gap-0.5"
-                  markClassName="h-7.5 w-7.5 sm:h-8 sm:w-8 lg:h-8 lg:w-8"
+                  className="gap-2"
+                  markClassName="h-8 w-8 sm:h-9 sm:w-9 lg:h-9 lg:w-9"
                   imgClassName="pr-0.5"
                   textContainerClassName="gap-0"
-                  titleClassName="text-[13px] sm:text-[15px] lg:text-[16px] text-[#07111F] group-hover:text-primary transition-colors font-bold tracking-[-0.025em] dark:text-[#E2E8F0]"
+                  titleClassName="text-[16px] sm:text-[18px] lg:text-[18px] text-[#07111F] group-hover:text-primary transition-colors font-bold tracking-[-0.02em] dark:text-[#E2E8F0]"
                   subtitleClassName="hidden sm:block text-[8px] lg:text-[8.5px] text-[#64748B] tracking-[0.1em] leading-none mt-0.5 dark:text-[#94A3B8]"
                 />
               </button>
               
-              <div className="hidden lg:flex items-center gap-0.5 min-w-0">
+              <div className="hidden lg:flex items-center gap-6 min-w-0">
                 {navItems.map((item) => {
                   const isDropdownOpen = item.id === "product" ? productDropdownOpen : 
                                         item.id === "enterprise" ? enterpriseDropdownOpen :
@@ -466,13 +473,13 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
               </div>
             </div>
 
-            <div className="flex items-center gap-1.5 sm:gap-2 lg:gap-2.5 shrink-0">
+            <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
               <ThemeSwitcher />
               <Button 
                 onClick={() => handleNavigate("download")}
                 variant="outline"
                 size="default"
-                className="hidden xl:flex items-center gap-1.5 h-8 px-2.5 font-semibold text-[0.86rem] group transition-all duration-150 rounded-sm"
+                className="hidden xl:flex items-center gap-1 h-7 px-2.5 font-semibold text-[0.78rem] group transition-all duration-150 rounded-sm"
               >
                 <CloudArrowDown size={17} weight="bold" className="group-hover:scale-110 transition-transform sm:w-[18px] sm:h-[18px]" />
                 <span>Download Trial</span>
@@ -481,7 +488,7 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
                 onClick={handleLoginClick}
                 size="default"
                 variant="secondary"
-                className="h-8 px-3 sm:px-3.5 font-semibold text-[0.88rem] sm:text-[0.92rem] transition-all duration-150 group rounded-sm"
+                className="h-7 px-2.5 sm:px-3 font-semibold text-[0.8rem] sm:text-[0.84rem] transition-all duration-150 group rounded-sm"
               >
                 <span>Sign In</span>
                 <ArrowRight size={15} weight="bold" className="ml-1 sm:ml-1.5 group-hover:translate-x-1 transition-transform sm:w-[17px] sm:h-[17px]" />

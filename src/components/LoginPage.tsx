@@ -114,43 +114,43 @@ export function LoginPage({ onLogin, onBackToWebsite, onShowRegister, onShowPass
       title="Command and secure every site from one control plane."
       subtitle="Unified visibility across cameras, access control, alarms, networks, and incident response with enterprise-grade access controls."
     >
-      <Card className="bg-card/65 backdrop-blur-xl border-border/65 shadow-2xl shadow-black/15">
-            <CardHeader className="space-y-2 sm:space-y-2.5 pb-4 sm:pb-5">
-              <CardTitle className="text-xl sm:text-2xl font-heading font-bold">Sign In</CardTitle>
-              <CardDescription className="text-sm sm:text-base text-muted-foreground">
+      <Card className="rounded-xl border-[#CFE0EF] bg-white/92 shadow-[0_18px_54px_-42px_rgba(7,17,31,0.36)] backdrop-blur-xl dark:border-cyan-300/14 dark:bg-[#051225]/84 dark:shadow-[0_24px_70px_-50px_rgba(0,194,255,0.42)]">
+            <CardHeader className="space-y-1.5 pb-3 sm:pb-4">
+              <CardTitle className="text-lg font-heading font-semibold tracking-[-0.01em] text-[#07111F] sm:text-xl dark:text-[#F8FAFC]">Sign In</CardTitle>
+              <CardDescription className="text-xs text-[#64748B] sm:text-sm dark:text-slate-400">
                 Access your security operations center
               </CardDescription>
             </CardHeader>
-            <CardContent className="space-y-5 sm:space-y-6">
+            <CardContent className="space-y-4 sm:space-y-5">
               <Tabs defaultValue="credentials" className="w-full">
-                <TabsList className={`grid w-full ${biometricSupported ? 'grid-cols-3' : 'grid-cols-2'} mb-5 sm:mb-6 p-1 h-auto bg-muted/50`}>
-                  <TabsTrigger value="credentials" className="data-[state=active]:bg-background data-[state=active]:shadow-sm py-2.5 sm:py-2.5 text-sm gap-2">
-                    <Lock size={16} weight="bold" className="sm:mr-2" />
+                <TabsList className={`grid w-full ${biometricSupported ? 'grid-cols-3' : 'grid-cols-2'} mb-4 h-auto rounded-lg border border-[#CFE0EF] bg-[#F8FBFF] p-1 dark:border-cyan-300/12 dark:bg-[#071426]/72`}>
+                  <TabsTrigger value="credentials" className="gap-1.5 rounded-md py-1.5 text-xs font-semibold text-[#64748B] data-[state=active]:bg-white data-[state=active]:text-[#07111F] data-[state=active]:shadow-[0_8px_20px_-18px_rgba(7,17,31,0.32)] sm:py-2 dark:text-slate-400 dark:data-[state=active]:bg-[#061426] dark:data-[state=active]:text-white">
+                    <Lock size={14} weight="bold" className="sm:mr-1" />
                     <span>Password</span>
                   </TabsTrigger>
                   {biometricSupported && (
-                    <TabsTrigger value="biometric" className="data-[state=active]:bg-background data-[state=active]:shadow-sm py-2.5 sm:py-2.5 text-sm gap-2">
-                      <Fingerprint size={16} weight="bold" className="sm:mr-2" />
+                    <TabsTrigger value="biometric" className="gap-1.5 rounded-md py-1.5 text-xs font-semibold text-[#64748B] data-[state=active]:bg-white data-[state=active]:text-[#07111F] data-[state=active]:shadow-[0_8px_20px_-18px_rgba(7,17,31,0.32)] sm:py-2 dark:text-slate-400 dark:data-[state=active]:bg-[#061426] dark:data-[state=active]:text-white">
+                      <Fingerprint size={14} weight="bold" className="sm:mr-1" />
                       <span>Biometric</span>
                     </TabsTrigger>
                   )}
-                  <TabsTrigger value="sso" className="data-[state=active]:bg-background data-[state=active]:shadow-sm py-2.5 sm:py-2.5 text-sm gap-2">
-                    <CheckCircle size={16} weight="bold" className="sm:mr-2" />
+                  <TabsTrigger value="sso" className="gap-1.5 rounded-md py-1.5 text-xs font-semibold text-[#64748B] data-[state=active]:bg-white data-[state=active]:text-[#07111F] data-[state=active]:shadow-[0_8px_20px_-18px_rgba(7,17,31,0.32)] sm:py-2 dark:text-slate-400 dark:data-[state=active]:bg-[#061426] dark:data-[state=active]:text-white">
+                    <CheckCircle size={14} weight="bold" className="sm:mr-1" />
                     <span>SSO</span>
                   </TabsTrigger>
                 </TabsList>
                 
                 <TabsContent value="credentials" className="mt-0">
-                  <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-5">
-                    <div className="space-y-2">
-                      <Label htmlFor="email" className="text-sm font-semibold text-foreground/90">
+                  <form onSubmit={handleSubmit} className="space-y-3.5 sm:space-y-4">
+                    <div className="space-y-1.5">
+                      <Label htmlFor="email" className="text-xs font-semibold text-[#334155] dark:text-slate-200">
                         Email Address
                       </Label>
                       <div className="relative group">
                         <Envelope 
-                          size={18} 
+                          size={16} 
                           weight="duotone"
-                          className="absolute left-3.5 top-1/2 -translate-y-1/2 text-muted-foreground group-focus-within:text-primary transition-colors pointer-events-none z-10"
+                          className="absolute left-3 top-1/2 -translate-y-1/2 text-[#64748B] transition-colors pointer-events-none z-10 group-focus-within:text-[#008FC7] dark:text-slate-500 dark:group-focus-within:text-cyan-300"
                         />
                         <Input
                           id="email"
@@ -160,21 +160,21 @@ export function LoginPage({ onLogin, onBackToWebsite, onShowRegister, onShowPass
                           onChange={(e) => setEmail(e.target.value)}
                           required
                           disabled={isLoading}
-                          className="pl-11 h-11 sm:h-12 bg-background/80 border-input hover:border-primary/40 focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all text-base shadow-sm"
+                          className="h-10 border-[#CFE0EF] bg-[#F8FBFF] pl-10 text-sm text-[#07111F] shadow-none transition-all hover:border-[#008FC7]/35 focus:border-[#008FC7] focus:ring-2 focus:ring-[#008FC7]/15 sm:h-10 dark:border-cyan-300/12 dark:bg-[#071426]/72 dark:text-[#F8FAFC] dark:hover:border-cyan-300/24 dark:focus:border-cyan-300 dark:focus:ring-cyan-300/15"
                         />
                       </div>
                     </div>
 
-                    <div className="space-y-2">
+                    <div className="space-y-1.5">
                       <div className="flex items-center justify-between">
-                        <Label htmlFor="password" className="text-sm font-semibold text-foreground/90">
+                        <Label htmlFor="password" className="text-xs font-semibold text-[#334155] dark:text-slate-200">
                           Password
                         </Label>
                         {onShowPasswordReset && (
                           <button
                             type="button"
                             onClick={onShowPasswordReset}
-                            className="text-xs font-medium text-primary hover:text-primary/80 transition-colors hover:underline active:scale-95"
+                            className="text-xs font-semibold text-[#008FC7] transition-colors hover:text-[#0077CC] hover:underline active:scale-95 dark:text-cyan-300 dark:hover:text-cyan-200"
                             tabIndex={-1}
                           >
                             Forgot password?
@@ -183,9 +183,9 @@ export function LoginPage({ onLogin, onBackToWebsite, onShowRegister, onShowPass
                       </div>
                       <div className="relative group">
                         <Lock 
-                          size={18} 
+                          size={16} 
                           weight="duotone"
-                          className="absolute left-3.5 top-1/2 -translate-y-1/2 text-muted-foreground group-focus-within:text-primary transition-colors pointer-events-none z-10"
+                          className="absolute left-3 top-1/2 -translate-y-1/2 text-[#64748B] transition-colors pointer-events-none z-10 group-focus-within:text-[#008FC7] dark:text-slate-500 dark:group-focus-within:text-cyan-300"
                         />
                         <Input
                           id="password"
@@ -195,35 +195,35 @@ export function LoginPage({ onLogin, onBackToWebsite, onShowRegister, onShowPass
                           onChange={(e) => setPassword(e.target.value)}
                           required
                           disabled={isLoading}
-                          className="pl-11 pr-11 h-11 sm:h-12 bg-background/80 border-input hover:border-primary/40 focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all text-base shadow-sm"
+                          className="h-10 border-[#CFE0EF] bg-[#F8FBFF] pl-10 pr-10 text-sm text-[#07111F] shadow-none transition-all hover:border-[#008FC7]/35 focus:border-[#008FC7] focus:ring-2 focus:ring-[#008FC7]/15 sm:h-10 dark:border-cyan-300/12 dark:bg-[#071426]/72 dark:text-[#F8FAFC] dark:hover:border-cyan-300/24 dark:focus:border-cyan-300 dark:focus:ring-cyan-300/15"
                         />
                         <button
                           type="button"
                           onClick={() => setShowPassword(!showPassword)}
-                          className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground transition-colors z-10 p-1.5 rounded-md hover:bg-muted/50 active:scale-95 touch-manipulation"
+                          className="absolute right-2.5 top-1/2 -translate-y-1/2 rounded-md p-1.5 text-[#64748B] transition-colors hover:bg-[#EEF6FB] hover:text-[#07111F] active:scale-95 touch-manipulation z-10 dark:text-slate-500 dark:hover:bg-[#071426] dark:hover:text-white"
                           tabIndex={-1}
                         >
-                          {showPassword ? <EyeSlash size={18} weight="bold" /> : <Eye size={18} weight="bold" />}
+                          {showPassword ? <EyeSlash size={16} weight="bold" /> : <Eye size={16} weight="bold" />}
                         </button>
                       </div>
                     </div>
 
-                    <div className="flex items-center gap-2.5 pt-1">
+                    <div className="flex items-center gap-2.5 pt-0.5">
                       <input
                         type="checkbox"
                         id="remember"
                         checked={rememberDevice}
                         onChange={(e) => setRememberDevice(e.target.checked)}
-                        className="w-4 h-4 rounded border-input accent-primary cursor-pointer focus:ring-2 focus:ring-primary/20 transition-all touch-manipulation"
+                        className="h-3.5 w-3.5 cursor-pointer rounded border-[#CFE0EF] accent-[#0077CC] transition-all focus:ring-2 focus:ring-[#008FC7]/20 touch-manipulation dark:border-cyan-300/16"
                       />
-                      <label htmlFor="remember" className="text-xs sm:text-sm text-muted-foreground cursor-pointer select-none hover:text-foreground transition-colors">
+                      <label htmlFor="remember" className="cursor-pointer select-none text-xs text-[#64748B] transition-colors hover:text-[#334155] dark:text-slate-400 dark:hover:text-slate-200">
                         Remember this device for 30 days
                       </label>
                     </div>
 
                     <Button 
                       type="submit" 
-                      className="w-full h-11 sm:h-12 bg-primary hover:bg-primary/90 text-primary-foreground font-semibold shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/35 active:scale-[0.98] transition-all duration-200 text-base mt-5 sm:mt-6 touch-manipulation"
+                      className="mt-4 h-10 w-full rounded-md border border-[#0077CC]/30 bg-gradient-to-r from-[#0077CC] to-[#00A7A8] text-sm font-semibold text-white shadow-[0_12px_26px_-22px_rgba(0,119,204,0.78)] transition-all duration-200 hover:from-[#006AB8] hover:to-[#009896] active:scale-[0.98] sm:h-10 touch-manipulation dark:from-[#0077ff] dark:to-[#00d6c4] dark:hover:from-[#006eea] dark:hover:to-[#00c5b5] dark:shadow-[0_14px_34px_-26px_rgba(0,194,255,0.72)]"
                       disabled={isLoading}
                     >
                       {isLoading ? (
@@ -234,7 +234,7 @@ export function LoginPage({ onLogin, onBackToWebsite, onShowRegister, onShowPass
                         </span>
                       ) : (
                         <>
-                          <ShieldCheck size={20} weight="bold" className="mr-2" />
+                          <ShieldCheck size={17} weight="bold" className="mr-2" />
                           <span className="hidden sm:inline">Sign In to Command Center</span>
                           <span className="sm:hidden">Sign In</span>
                         </>
@@ -242,9 +242,9 @@ export function LoginPage({ onLogin, onBackToWebsite, onShowRegister, onShowPass
                     </Button>
 
                     {onShowRegister && (
-                      <div className="pt-4 sm:pt-5 text-center border-t border-border/50">
-                        <p className="text-xs sm:text-sm text-muted-foreground">
-                          Don't have an account? <button type="button" onClick={onShowRegister} className="text-primary hover:text-primary/80 transition-colors font-semibold hover:underline active:scale-95">Create Account</button>
+                      <div className="border-t border-[#CFE0EF] pt-3 text-center dark:border-cyan-300/10">
+                        <p className="text-xs text-[#64748B] dark:text-slate-400">
+                          Don't have an account? <button type="button" onClick={onShowRegister} className="font-semibold text-[#008FC7] transition-colors hover:text-[#0077CC] hover:underline active:scale-95 dark:text-cyan-300 dark:hover:text-cyan-200">Create Account</button>
                         </p>
                       </div>
                     )}
@@ -252,16 +252,16 @@ export function LoginPage({ onLogin, onBackToWebsite, onShowRegister, onShowPass
                 </TabsContent>
 
                 <TabsContent value="biometric" className="mt-0">
-                  <div className="space-y-5 sm:space-y-6">
-                    <div className="space-y-2">
-                      <Label htmlFor="biometric-email" className="text-sm font-semibold text-foreground/90">
+                  <div className="space-y-4">
+                    <div className="space-y-1.5">
+                      <Label htmlFor="biometric-email" className="text-xs font-semibold text-[#334155] dark:text-slate-200">
                         Email Address
                       </Label>
                       <div className="relative group">
                         <Envelope 
-                          size={18} 
+                          size={16} 
                           weight="duotone"
-                          className="absolute left-3.5 top-1/2 -translate-y-1/2 text-muted-foreground group-focus-within:text-primary transition-colors pointer-events-none z-10"
+                          className="absolute left-3 top-1/2 -translate-y-1/2 text-[#64748B] transition-colors pointer-events-none z-10 group-focus-within:text-[#008FC7] dark:text-slate-500 dark:group-focus-within:text-cyan-300"
                         />
                         <Input
                           id="biometric-email"
@@ -270,27 +270,26 @@ export function LoginPage({ onLogin, onBackToWebsite, onShowRegister, onShowPass
                           value={email}
                           onChange={(e) => setEmail(e.target.value)}
                           required
-                          className="pl-11 h-11 sm:h-12 bg-background/80 border-input hover:border-primary/40 focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all text-base shadow-sm"
+                          className="h-10 border-[#CFE0EF] bg-[#F8FBFF] pl-10 text-sm text-[#07111F] shadow-none transition-all hover:border-[#008FC7]/35 focus:border-[#008FC7] focus:ring-2 focus:ring-[#008FC7]/15 sm:h-10 dark:border-cyan-300/12 dark:bg-[#071426]/72 dark:text-[#F8FAFC] dark:hover:border-cyan-300/24 dark:focus:border-cyan-300 dark:focus:ring-cyan-300/15"
                         />
                       </div>
                     </div>
 
-                    <div className="p-4 sm:p-5 bg-gradient-to-br from-primary/5 to-accent/5 rounded-xl border border-primary/20 backdrop-blur-sm space-y-3 sm:space-y-4">
-                      <div className="flex items-start gap-3 sm:gap-4">
-                        <div className="w-12 h-12 sm:w-14 sm:h-14 bg-gradient-to-br from-primary/20 to-accent/10 rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg shadow-primary/10">
-                          <Fingerprint size={24} className="sm:hidden text-primary" weight="duotone" />
-                          <Fingerprint size={28} className="hidden sm:block text-primary" weight="duotone" />
+                    <div className="space-y-3 rounded-md border border-[#CFE0EF] bg-[#F8FBFF] p-3.5 shadow-[0_8px_20px_-20px_rgba(7,17,31,0.3)] backdrop-blur-sm dark:border-cyan-300/12 dark:bg-[#071426]/72 dark:shadow-none">
+                      <div className="flex items-start gap-3">
+                        <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-md border border-[#CFE0EF] bg-white shadow-[0_8px_20px_-20px_rgba(7,17,31,0.3)] dark:border-cyan-300/12 dark:bg-[#061426] dark:shadow-none">
+                          <Fingerprint size={22} className="text-[#008FC7] dark:text-cyan-300" weight="duotone" />
                         </div>
-                        <div className="space-y-1 sm:space-y-1.5 flex-1 pt-0.5 sm:pt-1">
-                          <p className="font-semibold text-xs sm:text-sm text-foreground">Quick & Secure Authentication</p>
-                          <p className="text-xs text-muted-foreground leading-relaxed">
+                        <div className="space-y-1 flex-1 pt-0.5">
+                          <p className="text-sm font-semibold text-[#07111F] dark:text-white">Quick & Secure Authentication</p>
+                          <p className="text-xs leading-relaxed text-[#64748B] dark:text-slate-400">
                             Use your fingerprint, Face ID, or Windows Hello for instant secure access
                           </p>
                         </div>
                       </div>
-                      <div className="pt-2 border-t border-primary/10">
-                        <p className="text-xs text-muted-foreground/80 leading-relaxed">
-                          <span className="inline-flex items-center gap-1.5 text-success">
+                      <div className="border-t border-[#CFE0EF] pt-2 dark:border-cyan-300/10">
+                        <p className="text-xs leading-relaxed text-[#64748B] dark:text-slate-400">
+                          <span className="inline-flex items-center gap-1.5 text-emerald-600 dark:text-emerald-300">
                             <CheckCircle size={14} weight="fill" />
                             <span className="font-medium">Private & Secure</span>
                           </span>
@@ -304,14 +303,14 @@ export function LoginPage({ onLogin, onBackToWebsite, onShowRegister, onShowPass
                     <Button 
                       onClick={handleShowBiometric}
                       disabled={!email}
-                      className="w-full h-11 sm:h-12 bg-primary hover:bg-primary/90 text-primary-foreground font-semibold shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/35 active:scale-[0.98] transition-all duration-200 text-base disabled:opacity-50 disabled:cursor-not-allowed touch-manipulation"
+                      className="h-10 w-full rounded-md border border-[#0077CC]/30 bg-gradient-to-r from-[#0077CC] to-[#00A7A8] text-sm font-semibold text-white shadow-[0_12px_26px_-22px_rgba(0,119,204,0.78)] transition-all duration-200 hover:from-[#006AB8] hover:to-[#009896] active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-50 touch-manipulation dark:from-[#0077ff] dark:to-[#00d6c4] dark:hover:from-[#006eea] dark:hover:to-[#00c5b5] dark:shadow-[0_14px_34px_-26px_rgba(0,194,255,0.72)]"
                     >
-                      <Fingerprint size={20} weight="bold" className="mr-2.5" />
+                      <Fingerprint size={17} weight="bold" className="mr-2" />
                       Continue with Biometric
                     </Button>
 
                     {biometricCredentials && biometricCredentials.some((credential) => credential.email === email) && email && (
-                      <div className="flex items-center justify-center gap-2 text-xs text-success">
+                      <div className="flex items-center justify-center gap-2 text-xs text-emerald-600 dark:text-emerald-300">
                         <CheckCircle size={16} weight="fill" />
                         <span className="font-medium hidden sm:inline">Biometric credential registered for this account</span>
                         <span className="font-medium sm:hidden">Credential registered</span>
@@ -325,28 +324,28 @@ export function LoginPage({ onLogin, onBackToWebsite, onShowRegister, onShowPass
                 </TabsContent>
               </Tabs>
 
-              <div className="pt-4 sm:pt-5 border-t border-border/50">
-                <div className="flex items-center justify-center gap-2 px-3 sm:px-4 py-2.5 sm:py-3 bg-muted/30 rounded-lg border border-border/40">
+              <div className="border-t border-[#CFE0EF] pt-3 dark:border-cyan-300/10">
+                <div className="flex items-center justify-center gap-2 rounded-md border border-[#CFE0EF] bg-[#F8FBFF] px-3 py-2 dark:border-cyan-300/10 dark:bg-[#071426]/62">
                   <span className="flex items-center gap-1.5 sm:gap-2">
                     <span className="relative flex h-2 w-2 sm:h-2.5 sm:w-2.5">
                       <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-success opacity-75"></span>
                       <span className="relative inline-flex rounded-full h-2 w-2 sm:h-2.5 sm:w-2.5 bg-success"></span>
                     </span>
-                    <span className="text-[10px] sm:text-xs font-semibold text-success">Demo Mode Active</span>
+                    <span className="text-[10px] font-semibold text-emerald-600 dark:text-emerald-300 sm:text-xs">Demo Mode Active</span>
                   </span>
-                  <span className="text-[10px] sm:text-xs text-muted-foreground">Use any credentials</span>
+                  <span className="text-[10px] text-[#64748B] sm:text-xs dark:text-slate-400">Use any credentials</span>
                 </div>
               </div>
             </CardContent>
           </Card>
 
-            <div className="text-center space-y-1.5 sm:space-y-2.5">
-              <p className="text-[10px] sm:text-xs text-muted-foreground font-medium flex items-center justify-center gap-1.5 sm:gap-2">
-                <Lock size={12} weight="bold" className="text-primary" />
+            <div className="space-y-1.5 text-center sm:space-y-2">
+              <p className="flex items-center justify-center gap-1.5 text-[10px] font-medium text-[#64748B] sm:gap-2 sm:text-xs dark:text-slate-400">
+                <Lock size={12} weight="bold" className="text-[#008FC7] dark:text-cyan-300" />
                 <span className="hidden sm:inline">Protected by enterprise-grade encryption</span>
                 <span className="sm:hidden">Enterprise-grade encryption</span>
               </p>
-              <div className="flex items-center justify-center gap-3 sm:gap-4 text-[10px] sm:text-xs text-muted-foreground/70">
+              <div className="flex items-center justify-center gap-3 text-[10px] text-[#64748B]/80 sm:gap-4 sm:text-xs dark:text-slate-500">
                 <span className="font-mono">v3.2.1</span>
                 <span aria-hidden="true">|</span>
                 <span className="flex items-center gap-1 sm:gap-1.5">
