@@ -365,8 +365,8 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
   return (
     <>
       <div className={ENTERPRISE_COMMAND_STRIP_CLASS}>
-        <div className="max-w-[1440px] mx-auto px-8 xl:px-16 2xl:px-20">
-          <div className="flex items-center justify-between h-8 sm:h-9">
+        <div className="max-w-[1440px] mx-auto px-5 sm:px-8 xl:px-14 2xl:px-16">
+          <div className="flex items-center justify-between h-7 sm:h-8">
             <div className="flex items-center gap-3 sm:gap-4 min-w-0 text-[11px] font-medium text-[#334155] dark:text-slate-300">
               <HeaderStatusBadge label="Live SOC Grid" className="hidden min-[380px]:inline-flex border-emerald-500/20 bg-emerald-500/8 text-emerald-600 dark:text-emerald-300" />
               <div className="hidden md:flex items-center gap-2 border-l border-[#D7E6F3] pl-4 dark:border-cyan-300/10">
@@ -411,9 +411,9 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
       </div>
 
       <nav className="sticky top-0 z-50 px-0">
-        <div className={`mx-auto px-8 xl:px-16 2xl:px-20 backdrop-blur-sm ${ENTERPRISE_HEADER_SURFACE_CLASS}`}>
-          <div ref={desktopNavRef} onMouseLeave={closeAllDesktopDropdowns} className="relative flex items-center justify-between h-[58px] gap-6 min-w-0 overflow-visible">
-            <div className="flex items-center gap-8 min-w-0">
+        <div className={`mx-auto px-5 sm:px-8 xl:px-14 2xl:px-16 ${ENTERPRISE_HEADER_SURFACE_CLASS}`}>
+          <div ref={desktopNavRef} onMouseLeave={closeAllDesktopDropdowns} className="relative flex h-[56px] min-w-0 items-center justify-between gap-5 overflow-visible">
+            <div className="flex items-center gap-7 min-w-0">
               <button 
                 onClick={() => handleNavigate("home")} 
                 aria-label="Go to home"
@@ -431,7 +431,7 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
                 />
               </button>
               
-              <div className="hidden lg:flex items-center gap-6 min-w-0">
+              <div className="hidden lg:flex items-center gap-2 min-w-0">
                 {navItems.map((item) => {
                   const isDropdownOpen = item.id === "product" ? productDropdownOpen : 
                                         item.id === "enterprise" ? enterpriseDropdownOpen :
@@ -467,7 +467,7 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
                 onClick={() => handleNavigate("download")}
                 variant="outline"
                 size="default"
-                className="hidden xl:flex items-center gap-1 h-7 px-2.5 font-semibold text-[0.78rem] group transition-all duration-150 rounded-sm"
+                className="hidden h-8 items-center gap-1 rounded-md border-[var(--gvx-hero-border)] bg-[var(--gvx-hero-card)] px-3 text-[0.78rem] font-semibold text-[var(--gvx-hero-text)] shadow-none transition-all duration-200 hover:-translate-y-px hover:border-[var(--gvx-hero-border-strong)] hover:bg-[var(--gvx-hero-surface-strong)] xl:flex group"
               >
                 <CloudArrowDown size={17} weight="bold" className="group-hover:scale-110 transition-transform sm:w-[18px] sm:h-[18px]" />
                 <span>Download Trial</span>
@@ -475,7 +475,7 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
               <Button 
                 onClick={handleLoginClick}
                 size="default"
-                className="h-9 rounded-md border border-[#126BFF]/30 bg-[#126BFF] px-4 font-semibold text-white shadow-[0_12px_28px_-22px_rgba(18,107,255,0.78)] transition-all duration-150 hover:bg-[#075CE0] group dark:bg-gradient-to-r dark:from-[#0077ff] dark:to-[#00c7d8] dark:hover:from-[#006eea] dark:hover:to-[#00b9c9]"
+                className="h-9 rounded-md border border-[color:var(--gvx-hero-accent)] bg-[var(--gvx-hero-accent)] px-4 font-semibold text-white shadow-[0_14px_30px_-24px_var(--gvx-hero-glow)] transition-all duration-200 hover:-translate-y-px hover:brightness-95 group"
               >
                 <span>Sign In</span>
                 <ArrowRight size={15} weight="bold" className="ml-1 sm:ml-1.5 group-hover:translate-x-1 transition-transform sm:w-[17px] sm:h-[17px]" />

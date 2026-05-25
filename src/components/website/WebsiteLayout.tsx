@@ -255,10 +255,10 @@ export function WebsiteLayout({ currentPage, onNavigate, onLogin }: WebsiteLayou
 
 function HomePage({ onNavigate }: { onNavigate: (page: string) => void }) {
   const heroThreatStats = [
-    { label: "Critical Alerts", value: "23", delta: "+15%", tone: "text-red-500", accent: "border-red-500/18 bg-red-500/8", icon: Warning },
-    { label: "High Alerts", value: "78", delta: "+8%", tone: "text-amber-500", accent: "border-amber-500/18 bg-amber-500/8", icon: Siren },
-    { label: "Devices Online", value: "12,652", delta: "+3.6%", tone: "text-emerald-500", accent: "border-emerald-500/18 bg-emerald-500/8", icon: Monitor },
-    { label: "Active Users", value: "189", delta: "+2.1%", tone: "text-violet-500", accent: "border-violet-500/18 bg-violet-500/8", icon: Users },
+    { label: "Critical", value: "23", delta: "+15%", tone: "text-red-500 dark:text-red-300", accent: "bg-red-500/10", icon: Warning },
+    { label: "High", value: "78", delta: "+8%", tone: "text-amber-500 dark:text-amber-300", accent: "bg-amber-500/10", icon: Siren },
+    { label: "Devices", value: "12,652", delta: "+3.6%", tone: "text-emerald-500 dark:text-emerald-300", accent: "bg-emerald-500/10", icon: Monitor },
+    { label: "Users", value: "189", delta: "+2.1%", tone: "text-violet-500 dark:text-violet-300", accent: "bg-violet-500/10", icon: Users },
   ]
 
   const alertSources = [
@@ -274,178 +274,182 @@ function HomePage({ onNavigate }: { onNavigate: (page: string) => void }) {
   ]
 
   const heroMetrics = [
-    { value: "5,000+", label: "Organizations", meta: "Trusted worldwide", icon: Buildings, tone: "text-blue-600 dark:text-blue-300" },
+    { value: "5,000+", label: "Organizations", meta: "Trusted worldwide", icon: Buildings, tone: "text-[var(--gvx-hero-accent)]" },
     { value: "50,000+", label: "Devices", meta: "Monitored 24/7", icon: Broadcast, tone: "text-emerald-500 dark:text-emerald-300" },
-    { value: "99.99%", label: "Uptime SLA", meta: "Guaranteed", icon: ShieldCheck, tone: "text-blue-600 dark:text-cyan-300" },
+    { value: "99.99%", label: "Uptime SLA", meta: "Guaranteed", icon: ShieldCheck, tone: "text-[var(--gvx-hero-accent)]" },
     { value: "24/7", label: "Enterprise Support", meta: "Always on", icon: Headset, tone: "text-violet-500 dark:text-violet-300" },
   ]
 
   return (
-    <div className="relative guardivex-home-typography overflow-x-clip bg-[#F8FBFF] dark:bg-[#020817]">
-      <section className="relative overflow-hidden border-b border-[#D7E6F3] bg-[#F8FBFF] text-[#07111F] dark:border-cyan-300/12 dark:bg-[#020817] dark:text-[#F8FAFC]">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_28%_32%,rgba(0,119,255,0.08),transparent_28%),radial-gradient(circle_at_75%_10%,rgba(77,90,255,0.06),transparent_30%),linear-gradient(180deg,#FFFFFF_0%,#F8FBFF_54%,#EEF6FB_100%)] dark:bg-[radial-gradient(circle_at_28%_32%,rgba(0,119,255,0.18),transparent_28%),radial-gradient(circle_at_75%_10%,rgba(0,194,255,0.10),transparent_30%),linear-gradient(180deg,#020817_0%,#031024_54%,#020817_100%)]" />
-        <div className="absolute inset-0 opacity-[0.16] bg-[linear-gradient(rgba(0,119,255,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(0,143,199,0.07)_1px,transparent_1px)] bg-[size:36px_36px] dark:opacity-[0.18] dark:bg-[linear-gradient(rgba(0,194,255,0.10)_1px,transparent_1px),linear-gradient(90deg,rgba(0,194,255,0.08)_1px,transparent_1px)]" />
-        <div className="absolute left-[22%] top-[12%] hidden h-[25rem] w-[25rem] rounded-full border border-blue-500/10 md:block dark:border-cyan-300/12" />
-        <div className="absolute left-[28%] top-[24%] hidden h-[16rem] w-[16rem] rounded-full border border-blue-500/12 md:block dark:border-cyan-300/16" />
+    <div className="relative guardivex-home-typography overflow-x-clip bg-[var(--gvx-hero-bg)] text-[var(--gvx-hero-text)]">
+      <section className="relative isolate overflow-hidden border-b border-[var(--gvx-hero-border)] bg-[var(--gvx-hero-bg)]">
+        <div className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,var(--gvx-hero-bg)_0%,var(--gvx-hero-bg-soft)_100%)]" />
+        <div className="absolute left-[6%] top-[-16rem] -z-10 h-[34rem] w-[34rem] rounded-full bg-[radial-gradient(circle,var(--gvx-hero-glow),transparent_66%)] blur-3xl" />
+        <div className="absolute right-[-10rem] top-[8rem] -z-10 h-[38rem] w-[38rem] rounded-full bg-[radial-gradient(circle,var(--gvx-hero-glow),transparent_64%)] blur-3xl" />
+        <div className="absolute inset-0 -z-10 opacity-[0.055] bg-[linear-gradient(var(--gvx-hero-accent)_1px,transparent_1px),linear-gradient(90deg,var(--gvx-hero-accent)_1px,transparent_1px)] bg-[size:44px_44px]" />
 
-        <div className="relative z-10 mx-auto w-full max-w-[1440px] px-6 pb-7 pt-9 sm:px-8 lg:pt-12 xl:px-14 2xl:px-16">
-          <div className="grid items-center gap-7 lg:grid-cols-[1fr_1.18fr] xl:gap-8">
-            <div className="grid items-center gap-6 md:grid-cols-[minmax(0,1fr)_220px] lg:grid-cols-[minmax(0,1fr)_200px] xl:grid-cols-[minmax(0,1fr)_240px]">
-              <div className="max-w-[470px]">
-                <h1 className="text-[2.72rem] font-heading font-semibold leading-[0.98] tracking-[-0.032em] text-[#07111F] sm:text-[3.35rem] lg:text-[3.55rem] xl:text-[4rem] dark:text-white">
-                  Enterprise Security <span className="block bg-gradient-to-r from-[#126BFF] to-[#6D3CFF] bg-clip-text text-transparent dark:from-[#37C5FF] dark:to-[#7C5CFF]">Platform</span>
+        <div className="mx-auto w-full max-w-[1440px] px-5 py-12 sm:px-8 lg:px-10 lg:py-16 xl:px-14 2xl:px-16">
+          <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-12 lg:gap-8 xl:gap-12">
+            <div className="lg:col-span-5">
+              <div className="max-w-[560px]">
+                <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-[var(--gvx-hero-border)] bg-[var(--gvx-hero-surface)] px-2.5 py-1 text-[10px] font-semibold uppercase text-[var(--gvx-hero-muted)] shadow-[0_10px_30px_-26px_rgba(7,17,31,0.32)] backdrop-blur-xl transition-colors hover:border-[var(--gvx-hero-border-strong)]">
+                  <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 shadow-[0_0_12px_rgba(16,185,129,0.65)]" />
+                  Unified SOC Platform
+                </div>
+
+                <h1 className="font-heading text-[clamp(2.65rem,6vw,4.65rem)] font-semibold leading-[0.96] text-[var(--gvx-hero-text)]">
+                  Enterprise security, <span className="block bg-gradient-to-r from-[var(--gvx-hero-accent)] to-[var(--gvx-hero-accent-2)] bg-clip-text text-transparent">commanded clearly.</span>
                 </h1>
-                <div className="mt-4 h-0.5 w-10 rounded-full bg-[#126BFF] dark:bg-cyan-300" />
-                <p className="mt-4 max-w-[390px] text-[0.9rem] leading-[1.55] text-[#334155] dark:text-slate-300">
-                  Self-hosted enterprise security platform. Monitor devices, cameras, NVRs, access control, alarms, and network infrastructure from a unified SOC Command Center with real-time threat intelligence.
+
+                <p className="mt-5 max-w-[520px] text-[clamp(0.98rem,1.4vw,1.08rem)] leading-[1.62] text-[var(--gvx-hero-muted)]">
+                  A self-hosted security operations platform for devices, cameras, access control, alarms, and network infrastructure, unified in one real-time command center.
                 </p>
 
-                <div className="mt-5 flex w-full max-w-[430px] flex-col gap-3 sm:flex-row">
-                  <Button size="lg" onClick={() => onNavigate("download")} className="h-11 rounded-md border border-[#126BFF]/35 bg-[#126BFF] px-5 text-[0.86rem] font-semibold text-white shadow-[0_14px_30px_-24px_rgba(18,107,255,0.75)] hover:bg-[#075CE0] dark:bg-gradient-to-r dark:from-[#0077ff] dark:to-[#00c7d8] dark:hover:from-[#006eea] dark:hover:to-[#00b9c9]">
+                <div className="mt-7 flex flex-col gap-3 sm:flex-row">
+                  <Button size="lg" onClick={() => onNavigate("download")} className="h-11 rounded-md border border-[color:var(--gvx-hero-accent)] bg-[var(--gvx-hero-accent)] px-5 text-[0.88rem] font-semibold text-white shadow-[0_18px_38px_-26px_var(--gvx-hero-glow)] transition-all duration-200 hover:-translate-y-0.5 hover:brightness-95 focus-visible:ring-[var(--gvx-hero-accent)]">
                     <CloudArrowDown size={16} className="mr-2" weight="bold" />
-                    Download Enterprise Server
+                    Deploy Enterprise Server
                   </Button>
-                  <Button size="lg" variant="outline" className="h-11 rounded-md border border-[#D7E6F3] bg-white px-5 text-[0.86rem] font-semibold text-[#07111F] shadow-[0_10px_26px_-24px_rgba(7,17,31,0.38)] hover:border-[#126BFF]/35 hover:bg-[#F8FBFF] dark:border-cyan-300/16 dark:bg-[#071426]/78 dark:text-slate-100 dark:hover:border-cyan-300/32 dark:hover:bg-[#0A1A2E]">
+                  <Button size="lg" variant="outline" className="h-11 rounded-md border-[var(--gvx-hero-border)] bg-[var(--gvx-hero-surface)] px-5 text-[0.88rem] font-semibold text-[var(--gvx-hero-text)] shadow-[0_16px_34px_-30px_rgba(7,17,31,0.4)] backdrop-blur-xl transition-all duration-200 hover:-translate-y-0.5 hover:border-[var(--gvx-hero-border-strong)] hover:bg-[var(--gvx-hero-surface-strong)]">
                     <Monitor size={16} className="mr-2" weight="bold" />
-                    Request Live Demo
+                    View SOC Demo
                   </Button>
                 </div>
 
-                <div className="mt-5 flex items-center gap-2 text-xs font-medium text-[#64748B] dark:text-slate-400">
-                  <ShieldCheck size={15} className="text-[#126BFF] dark:text-cyan-300" weight="duotone" />
-                  Trusted by 5,000+ organizations worldwide
-                </div>
-              </div>
-
-              <div className="relative hidden min-h-[300px] items-center justify-center md:flex">
-                <div className="absolute h-[250px] w-[250px] rounded-full border border-blue-500/12 dark:border-cyan-300/16" />
-                <div className="absolute h-[190px] w-[310px] rotate-[-18deg] rounded-[50%] border border-blue-500/18 dark:border-cyan-300/24" />
-                <div className="absolute h-[130px] w-[260px] rotate-[17deg] rounded-[50%] border border-blue-500/14 dark:border-cyan-300/16" />
-                <span className="absolute right-8 top-16 h-2.5 w-2.5 rounded-full bg-[#126BFF] shadow-[0_0_18px_rgba(18,107,255,0.65)] dark:bg-cyan-300" />
-                <span className="absolute bottom-16 left-8 h-2.5 w-2.5 rounded-full bg-[#126BFF] shadow-[0_0_18px_rgba(18,107,255,0.65)] dark:bg-cyan-300" />
-                <div className="absolute bottom-8 h-8 w-44 rounded-[50%] border border-blue-500/20 bg-blue-500/5 blur-[1px] dark:border-cyan-300/16 dark:bg-cyan-300/5" />
-                <div className="relative flex h-36 w-36 items-center justify-center rounded-[2rem] border border-blue-500/18 bg-gradient-to-br from-white/96 to-blue-50 shadow-[0_30px_60px_-38px_rgba(18,107,255,0.75)] dark:border-cyan-300/18 dark:from-[#071426] dark:to-[#0A1A2E] dark:shadow-[0_34px_80px_-48px_rgba(0,194,255,0.75)]">
-                  <ShieldCheck size={92} weight="duotone" className="text-[#126BFF] drop-shadow-[0_12px_24px_rgba(18,107,255,0.25)] dark:text-cyan-300" />
+                <div className="mt-6 grid max-w-[520px] grid-cols-1 gap-2 text-xs text-[var(--gvx-hero-subtle)] sm:grid-cols-3">
+                  {["SOC 2 ready", "Self-hosted", "24/7 support"].map((label) => (
+                    <div key={label} className="flex items-center gap-2">
+                      <CheckCircle size={14} weight="fill" className="text-emerald-500" />
+                      <span className="font-medium">{label}</span>
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>
 
-            <div className="w-full rounded-xl border border-[#D7E6F3] bg-white/92 p-4 shadow-[0_24px_70px_-48px_rgba(7,17,31,0.42)] backdrop-blur-xl dark:border-cyan-300/14 dark:bg-[#051225]/88 dark:shadow-[0_30px_90px_-58px_rgba(0,194,255,0.58)]">
-              <div className="mb-4 flex items-center justify-between gap-3">
-                <div className="flex items-center gap-2 text-[0.9rem] font-semibold text-[#07111F] dark:text-white">
-                  <span className="h-2.5 w-2.5 rounded-full bg-emerald-500 shadow-[0_0_14px_rgba(16,185,129,0.7)]" />
-                  Real-time Overview
-                </div>
-                <div className="flex items-center gap-2">
-                  <Badge variant="outline" className="h-7 rounded-md border-[#D7E6F3] bg-[#F8FBFF] px-3 text-[10px] text-[#334155] dark:border-cyan-300/12 dark:bg-[#071426] dark:text-slate-300">Last 24 Hours</Badge>
-                  <span className="flex h-7 w-7 items-center justify-center rounded-md text-[#64748B] dark:text-slate-400">...</span>
-                </div>
-              </div>
-
-              <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
-                {heroThreatStats.map((item) => (
-                  <div key={item.label} className="rounded-lg border border-[#D7E6F3] bg-[#F8FBFF] p-3 shadow-[0_10px_24px_-22px_rgba(7,17,31,0.3)] dark:border-cyan-300/10 dark:bg-[#071426]/78 dark:shadow-none">
-                    <div className="flex items-start gap-3">
-                      <div className={`flex h-10 w-10 items-center justify-center rounded-full border ${item.accent}`}>
-                        <item.icon size={22} weight="duotone" className={item.tone} />
+            <div className="relative lg:col-span-7">
+              <div className="absolute inset-x-8 top-8 -z-10 h-64 rounded-full bg-[radial-gradient(ellipse,var(--gvx-hero-glow),transparent_70%)] blur-3xl" />
+              <div className="rounded-2xl border border-[var(--gvx-hero-border)] bg-[var(--gvx-hero-surface)] p-3 shadow-[var(--gvx-hero-shadow)] backdrop-blur-2xl transition-transform duration-300 hover:-translate-y-1 sm:p-4">
+                <div className="rounded-xl border border-[var(--gvx-hero-border)] bg-[var(--gvx-hero-surface-strong)] p-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.10)] sm:p-5">
+                  <div className="mb-5 flex items-center justify-between gap-4">
+                    <div>
+                      <div className="flex items-center gap-2 text-sm font-semibold text-[var(--gvx-hero-text)]">
+                        <span className="h-2 w-2 rounded-full bg-emerald-500 shadow-[0_0_14px_rgba(16,185,129,0.68)]" />
+                        Live SOC Overview
                       </div>
-                      <div className="min-w-0">
-                        <div className="text-[10px] font-medium text-[#64748B] dark:text-slate-400">{item.label}</div>
-                        <div className={`font-mono text-xl font-semibold leading-tight ${item.tone}`}>{item.value}</div>
-                        <div className="mt-1 text-[9px] text-[#64748B] dark:text-slate-500"><span className="text-emerald-500">↑ {item.delta}</span> vs yesterday</div>
-                      </div>
+                      <p className="mt-1 text-xs text-[var(--gvx-hero-subtle)]">Normalized detections across sites and infrastructure</p>
                     </div>
+                    <Badge variant="outline" className="h-7 rounded-md border-[var(--gvx-hero-border)] bg-[var(--gvx-hero-card)] px-3 text-[10px] text-[var(--gvx-hero-muted)]">Last 24 Hours</Badge>
                   </div>
-                ))}
-              </div>
 
-              <div className="mt-3 grid gap-3 lg:grid-cols-[1.05fr_0.95fr]">
-                <div className="rounded-lg border border-[#D7E6F3] bg-white p-3 dark:border-cyan-300/10 dark:bg-[#061426]/82">
-                  <div className="mb-2 flex items-center justify-between text-[11px] font-semibold text-[#334155] dark:text-slate-300">
-                    <span>Alerts Over Time</span>
-                    <div className="flex items-center gap-3 font-normal text-[9px] text-[#64748B] dark:text-slate-400">
-                      <span className="inline-flex items-center gap-1"><span className="h-1.5 w-3 rounded-full bg-red-500" />Critical</span>
-                      <span className="inline-flex items-center gap-1"><span className="h-1.5 w-3 rounded-full bg-amber-500" />High</span>
-                      <span className="inline-flex items-center gap-1"><span className="h-1.5 w-3 rounded-full bg-blue-600" />Medium</span>
-                    </div>
-                  </div>
-                  <div className="relative h-[150px] overflow-hidden rounded-md border border-[#D7E6F3] bg-white dark:border-cyan-300/8 dark:bg-[#040D1B]">
-                    <div className="absolute inset-0 opacity-60 bg-[linear-gradient(rgba(148,163,184,0.16)_1px,transparent_1px),linear-gradient(90deg,rgba(148,163,184,0.12)_1px,transparent_1px)] bg-[size:100%_30px,48px_100%] dark:opacity-25" />
-                    <svg viewBox="0 0 520 150" className="absolute inset-0 h-full w-full" role="img" aria-label="Alert trend chart">
-                      <polyline points="0,112 34,92 68,78 102,90 136,68 170,70 204,62 238,42 272,20 306,44 340,62 374,74 408,66 442,76 476,64 520,56" fill="none" stroke="#ff1744" strokeWidth="3" />
-                      <polyline points="0,128 34,106 68,98 102,108 136,92 170,92 204,84 238,70 272,42 306,68 340,88 374,98 408,90 442,98 476,88 520,78" fill="none" stroke="#f59e0b" strokeWidth="3" />
-                      <polyline points="0,140 34,124 68,118 102,126 136,116 170,118 204,110 238,100 272,78 306,96 340,106 374,114 408,110 442,114 476,108 520,100" fill="none" stroke="#2563eb" strokeWidth="3" />
-                    </svg>
-                    <div className="absolute bottom-2 left-4 right-4 flex justify-between font-mono text-[9px] text-[#64748B] dark:text-slate-500">
-                      <span>00:00</span><span>04:00</span><span>08:00</span><span>12:00</span><span>16:00</span><span>20:00</span><span>24:00</span>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="relative overflow-hidden rounded-lg border border-[#D7E6F3] bg-white p-3 dark:border-cyan-300/10 dark:bg-[#061426]/82">
-                  <div className="mb-2 flex items-center justify-between text-[11px] font-semibold text-[#334155] dark:text-slate-300">
-                    <span>Threat Map</span>
-                    <span className="text-[10px] text-[#126BFF] dark:text-cyan-300">See all</span>
-                  </div>
-                  <div className="relative h-[150px] overflow-hidden rounded-md bg-[radial-gradient(circle_at_25%_44%,rgba(18,107,255,0.22)_0_4px,transparent_9px),radial-gradient(circle_at_54%_36%,rgba(18,107,255,0.22)_0_4px,transparent_10px),radial-gradient(circle_at_70%_62%,rgba(18,107,255,0.20)_0_4px,transparent_10px),radial-gradient(circle_at_82%_78%,rgba(18,107,255,0.18)_0_4px,transparent_10px),linear-gradient(90deg,transparent,rgba(18,107,255,0.05),transparent)] dark:bg-[radial-gradient(circle_at_25%_44%,rgba(0,194,255,0.28)_0_4px,transparent_9px),radial-gradient(circle_at_54%_36%,rgba(0,194,255,0.26)_0_4px,transparent_10px),radial-gradient(circle_at_70%_62%,rgba(0,194,255,0.24)_0_4px,transparent_10px),radial-gradient(circle_at_82%_78%,rgba(0,194,255,0.22)_0_4px,transparent_10px),linear-gradient(90deg,transparent,rgba(0,194,255,0.06),transparent)]">
-                    <div className="absolute inset-4 opacity-45 bg-[radial-gradient(circle,rgba(37,99,235,0.35)_1px,transparent_1.7px)] [background-size:9px_7px] dark:bg-[radial-gradient(circle,rgba(125,211,252,0.30)_1px,transparent_1.7px)]" />
-                    <div className="absolute left-[8%] top-[38%] h-10 w-28 rounded-[50%] border border-blue-500/12 dark:border-cyan-300/14" />
-                    <div className="absolute right-[9%] top-[34%] h-16 w-36 rounded-[50%] border border-blue-500/12 dark:border-cyan-300/14" />
-                    <div className="absolute bottom-[15%] left-[32%] h-14 w-28 rounded-[50%] border border-blue-500/12 dark:border-cyan-300/14" />
-                  </div>
-                </div>
-              </div>
-
-              <div className="mt-3 grid gap-3 lg:grid-cols-[0.9fr_1.1fr]">
-                <div className="rounded-lg border border-[#D7E6F3] bg-white p-3 dark:border-cyan-300/10 dark:bg-[#061426]/82">
-                  <div className="mb-2 flex items-center justify-between text-[11px] font-semibold text-[#334155] dark:text-slate-300">
-                    <span>Top Alert Sources</span>
-                    <span className="text-[10px] text-[#126BFF] dark:text-cyan-300">See all</span>
-                  </div>
-                  <div className="space-y-2.5">
-                    {alertSources.map((source) => (
-                      <div key={source.label} className="grid grid-cols-[1fr_96px_18px] items-center gap-2 text-[10px] text-[#334155] dark:text-slate-300">
-                        <span className="truncate">{source.label}</span>
-                        <span className="h-1.5 overflow-hidden rounded-full bg-[#D8E8F5] dark:bg-slate-800"><span className={`block h-full ${source.width} ${source.tone}`} /></span>
-                        <span className="font-mono text-[#07111F] dark:text-slate-200">{source.value}</span>
+                  <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
+                    {heroThreatStats.map((item) => (
+                      <div key={item.label} className="group rounded-xl bg-[var(--gvx-hero-card)] p-3 transition-all duration-200 hover:-translate-y-0.5 hover:bg-[var(--gvx-hero-surface-strong)]">
+                        <div className="flex items-center justify-between gap-2">
+                          <div className={`flex h-8 w-8 items-center justify-center rounded-lg ${item.accent}`}>
+                            <item.icon size={17} weight="duotone" className={item.tone} />
+                          </div>
+                          <span className="font-mono text-[10px] text-emerald-500">↑ {item.delta}</span>
+                        </div>
+                        <div className="mt-3 text-[10px] font-medium text-[var(--gvx-hero-subtle)]">{item.label}</div>
+                        <div className={`mt-0.5 font-mono text-xl font-semibold leading-none ${item.tone}`}>{item.value}</div>
                       </div>
                     ))}
                   </div>
-                </div>
 
-                <div className="rounded-lg border border-[#D7E6F3] bg-white p-3 dark:border-cyan-300/10 dark:bg-[#061426]/82">
-                  <div className="mb-2 flex items-center justify-between text-[11px] font-semibold text-[#334155] dark:text-slate-300">
-                    <span>Recent Incidents</span>
-                    <span className="text-[10px] text-[#126BFF] dark:text-cyan-300">See all</span>
-                  </div>
-                  <div className="space-y-2.5">
-                    {recentIncidents.map((incident) => (
-                      <div key={incident.label} className="grid grid-cols-[auto_1fr_auto_auto] items-center gap-2 text-[10px] text-[#334155] dark:text-slate-300">
-                        <span className={`h-1.5 w-1.5 rounded-full ${incident.dot}`} />
-                        <span className="truncate">{incident.label}</span>
-                        <span className={`rounded-sm px-1.5 py-0.5 font-medium ${incident.chip}`}>{incident.severity}</span>
-                        <span className="font-mono text-[#64748B] dark:text-slate-500">{incident.time}</span>
+                  <div className="mt-4 grid gap-4 xl:grid-cols-[1.12fr_0.88fr]">
+                    <div className="rounded-xl bg-[var(--gvx-hero-card)] p-4">
+                      <div className="mb-3 flex items-center justify-between gap-3">
+                        <span className="text-xs font-semibold text-[var(--gvx-hero-muted)]">Alerts Over Time</span>
+                        <div className="flex items-center gap-3 text-[10px] text-[var(--gvx-hero-subtle)]">
+                          <span className="inline-flex items-center gap-1"><span className="h-1.5 w-3 rounded-full bg-red-500" />Critical</span>
+                          <span className="inline-flex items-center gap-1"><span className="h-1.5 w-3 rounded-full bg-amber-500" />High</span>
+                          <span className="inline-flex items-center gap-1"><span className="h-1.5 w-3 rounded-full bg-[var(--gvx-hero-accent)]" />Medium</span>
+                        </div>
                       </div>
-                    ))}
+                      <div className="relative h-[178px] overflow-hidden rounded-lg bg-[linear-gradient(180deg,rgba(255,255,255,0.36),transparent)] dark:bg-[linear-gradient(180deg,rgba(255,255,255,0.035),transparent)]">
+                        <div className="absolute inset-0 opacity-40 bg-[linear-gradient(rgba(100,116,139,0.18)_1px,transparent_1px),linear-gradient(90deg,rgba(100,116,139,0.12)_1px,transparent_1px)] bg-[size:100%_34px,56px_100%]" />
+                        <svg viewBox="0 0 560 178" className="absolute inset-0 h-full w-full" role="img" aria-label="Alert trend chart">
+                          <defs>
+                            <linearGradient id="guardivexCriticalFill" x1="0" x2="0" y1="0" y2="1">
+                              <stop offset="0%" stopColor="#ff1744" stopOpacity="0.14" />
+                              <stop offset="100%" stopColor="#ff1744" stopOpacity="0" />
+                            </linearGradient>
+                          </defs>
+                          <path d="M0 132 L40 112 L80 98 L120 108 L160 84 L200 86 L240 76 L280 56 L320 30 L360 58 L400 76 L440 90 L480 80 L520 88 L560 76 L560 178 L0 178 Z" fill="url(#guardivexCriticalFill)" />
+                          <polyline points="0,132 40,112 80,98 120,108 160,84 200,86 240,76 280,56 320,30 360,58 400,76 440,90 480,80 520,88 560,76" fill="none" stroke="#ff1744" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+                          <polyline points="0,148 40,126 80,118 120,126 160,110 200,110 240,102 280,88 320,58 360,84 400,104 440,114 480,106 520,112 560,98" fill="none" stroke="#f59e0b" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+                          <polyline points="0,160 40,144 80,138 120,146 160,136 200,138 240,130 280,118 320,96 360,114 400,124 440,132 480,128 520,132 560,122" fill="none" stroke="var(--gvx-hero-accent)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+                        </svg>
+                        <div className="absolute bottom-2 left-4 right-4 flex justify-between font-mono text-[9px] text-[var(--gvx-hero-subtle)]">
+                          <span>00:00</span><span>08:00</span><span>12:00</span><span>20:00</span><span>24:00</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="grid gap-4">
+                      <div className="rounded-xl bg-[var(--gvx-hero-card)] p-4">
+                        <div className="mb-3 flex items-center justify-between text-xs font-semibold text-[var(--gvx-hero-muted)]">
+                          <span>Threat Map</span>
+                          <span className="text-[var(--gvx-hero-accent)]">See all</span>
+                        </div>
+                        <div className="relative h-[118px] overflow-hidden rounded-lg bg-[radial-gradient(circle_at_25%_44%,var(--gvx-hero-accent-soft)_0_6px,transparent_14px),radial-gradient(circle_at_58%_38%,var(--gvx-hero-accent-soft)_0_6px,transparent_14px),radial-gradient(circle_at_78%_66%,var(--gvx-hero-accent-soft)_0_6px,transparent_14px)]">
+                          <div className="absolute inset-4 opacity-45 bg-[radial-gradient(circle,var(--gvx-hero-accent)_1px,transparent_1.7px)] [background-size:9px_7px]" />
+                          <div className="absolute inset-x-8 top-9 h-12 rounded-[50%] border border-[var(--gvx-hero-border)]" />
+                          <div className="absolute bottom-5 left-10 h-10 w-24 rounded-[50%] border border-[var(--gvx-hero-border)]" />
+                        </div>
+                      </div>
+
+                      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-1">
+                        <div className="rounded-xl bg-[var(--gvx-hero-card)] p-4">
+                          <div className="mb-3 flex items-center justify-between text-xs font-semibold text-[var(--gvx-hero-muted)]">
+                            <span>Top Sources</span>
+                            <span className="text-[var(--gvx-hero-accent)]">Open</span>
+                          </div>
+                          <div className="space-y-2.5">
+                            {alertSources.map((source) => (
+                              <div key={source.label} className="grid grid-cols-[1fr_72px_18px] items-center gap-2 text-[10px] text-[var(--gvx-hero-muted)]">
+                                <span className="truncate">{source.label}</span>
+                                <span className="h-1.5 overflow-hidden rounded-full bg-[var(--gvx-hero-accent-soft)]"><span className={`block h-full rounded-full ${source.width} ${source.tone}`} /></span>
+                                <span className="font-mono text-[var(--gvx-hero-text)]">{source.value}</span>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+
+                        <div className="rounded-xl bg-[var(--gvx-hero-card)] p-4">
+                          <div className="mb-3 text-xs font-semibold text-[var(--gvx-hero-muted)]">Recent Incidents</div>
+                          <div className="space-y-2.5">
+                            {recentIncidents.slice(0, 2).map((incident) => (
+                              <div key={incident.label} className="grid grid-cols-[auto_1fr_auto] items-center gap-2 text-[10px] text-[var(--gvx-hero-muted)]">
+                                <span className={`h-1.5 w-1.5 rounded-full ${incident.dot}`} />
+                                <span className="truncate">{incident.label}</span>
+                                <span className="font-mono text-[var(--gvx-hero-subtle)]">{incident.time}</span>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
 
-          <div className="mt-4 rounded-xl border border-[#D7E6F3] bg-white/82 p-4 shadow-[0_18px_54px_-46px_rgba(7,17,31,0.4)] backdrop-blur-xl dark:border-cyan-300/12 dark:bg-[#071426]/66 dark:shadow-[0_24px_70px_-54px_rgba(0,194,255,0.44)]">
-            <div className="grid grid-cols-1 gap-px overflow-hidden rounded-lg border border-[#E3EDF7] bg-[#D7E6F3] sm:grid-cols-2 lg:grid-cols-4 dark:border-cyan-300/10 dark:bg-cyan-300/10">
-              {heroMetrics.map((stat) => (
-                <div key={stat.label} className="flex min-h-[82px] items-center justify-center gap-4 bg-white px-4 py-3 dark:bg-[#061426]/86">
-                  <stat.icon size={36} className={stat.tone} weight="duotone" />
-                  <div>
-                    <div className="font-heading text-[1.35rem] font-semibold leading-none tracking-[-0.02em] text-[#07111F] dark:text-white">{stat.value}</div>
-                    <div className="mt-1 text-[0.78rem] font-medium text-[#334155] dark:text-slate-300">{stat.label}</div>
-                    <div className={`mt-1 text-[0.62rem] font-semibold uppercase tracking-[0.1em] ${stat.tone}`}>{stat.meta}</div>
-                  </div>
+          <div className="mt-8 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
+            {heroMetrics.map((stat) => (
+              <div key={stat.label} className="group flex min-h-[92px] items-center gap-4 rounded-xl border border-[var(--gvx-hero-border)] bg-[var(--gvx-hero-surface)] px-4 py-4 shadow-[0_18px_44px_-38px_rgba(7,17,31,0.38)] backdrop-blur-xl transition-all duration-200 hover:-translate-y-0.5 hover:border-[var(--gvx-hero-border-strong)] hover:bg-[var(--gvx-hero-surface-strong)]">
+                <div className="flex h-11 w-11 items-center justify-center rounded-lg bg-[var(--gvx-hero-accent-soft)]">
+                  <stat.icon size={24} className={stat.tone} weight="duotone" />
                 </div>
-              ))}
-            </div>
+                <div>
+                  <div className="font-heading text-[1.25rem] font-semibold leading-none text-[var(--gvx-hero-text)]">{stat.value}</div>
+                  <div className="mt-1 text-sm font-medium text-[var(--gvx-hero-muted)]">{stat.label}</div>
+                  <div className={`mt-1 text-[0.62rem] font-semibold uppercase ${stat.tone}`}>{stat.meta}</div>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
