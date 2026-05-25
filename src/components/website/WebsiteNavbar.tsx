@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
-import { List, X, Phone, ChatCircle, CloudArrowDown, LinkedinLogo, TwitterLogo, GithubLogo, YoutubeLogo, EnvelopeSimple, ArrowRight, CaretDown, VideoCamera, LockKey, BellRinging, WifiHigh, Gauge, CloudCheck, ChartLine, Pulse, Buildings, Users, Globe, ChartLineUp, Package, Certificate, Book, Code, FileText, GraduationCap, Question, Terminal, Headset, VideoConference, FileDoc, Ticket, ClockCounterClockwise, CreditCard, IdentificationBadge, Devices, Briefcase, Receipt } from "@phosphor-icons/react"
+import { List, X, ChatCircle, CloudArrowDown, LinkedinLogo, TwitterLogo, GithubLogo, YoutubeLogo, ArrowRight, CaretDown, VideoCamera, LockKey, BellRinging, WifiHigh, Gauge, CloudCheck, ChartLine, Pulse, Buildings, Users, Globe, ChartLineUp, Package, Certificate, Book, Code, FileText, GraduationCap, Question, Terminal, Headset, VideoConference, FileDoc, Ticket, ClockCounterClockwise, CreditCard, IdentificationBadge, Devices, Briefcase, Receipt } from "@phosphor-icons/react"
 import { useState, useRef, useEffect } from "react"
 import { ThemeSwitcher } from "@/components/ThemeSwitcher"
 import { BrandLogo } from "@/components/BrandLogo"
@@ -8,7 +8,6 @@ import {
   ENTERPRISE_COMMAND_STRIP_CLASS,
   ENTERPRISE_DROPDOWN_ICON_CLASS,
   ENTERPRISE_DROPDOWN_ITEM_CLASS,
-  ENTERPRISE_CONTROL_CLASS,
   ENTERPRISE_HEADER_SURFACE_CLASS,
   ENTERPRISE_ICON_CONTROL_CLASS,
   ENTERPRISE_NAV_ITEM_ACTIVE_CLASS,
@@ -243,9 +242,9 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
   const navItems = [
     { id: "product", label: "Product", highlight: false, hasDropdown: true },
     { id: "enterprise", label: "Enterprise", highlight: false, hasDropdown: true },
-    { id: "licensing", label: "Licensing", highlight: false, hasDropdown: true },
-    { id: "documentation", label: "Documentation", highlight: false, hasDropdown: true },
-    { id: "support", label: "Support", highlight: false, hasDropdown: true }
+    { id: "support", label: "Solutions", highlight: false, hasDropdown: true },
+    { id: "documentation", label: "Resources", highlight: false, hasDropdown: true },
+    { id: "licensing", label: "Pricing", highlight: false, hasDropdown: true }
   ]
   const closeAllDesktopDropdowns = () => {
     setProductDropdownOpen(false)
@@ -298,24 +297,24 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
             data: enterpriseSolutions,
             navId: "enterprise",
           }
-        : activeDesktopDropdownId === "licensing"
+          : activeDesktopDropdownId === "licensing"
           ? {
-              title: "Licensing Plans",
+              title: "Pricing",
               subtitle: "Choose the right plan for your organization",
               data: licensingOptions,
               navId: "licensing",
             }
           : activeDesktopDropdownId === "documentation"
             ? {
-                title: "Documentation",
+                title: "Resources",
                 subtitle: "Guides and resources to get you started",
                 data: documentationSections,
                 navId: "documentation",
               }
             : activeDesktopDropdownId === "support"
               ? {
-                  title: "Support Options",
-                  subtitle: "Get help when you need it",
+                  title: "Solutions",
+                  subtitle: "Operational support and service workflows",
                   data: supportOptions,
                   navId: "support",
                 }
@@ -368,40 +367,29 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
       <div className={ENTERPRISE_COMMAND_STRIP_CLASS}>
         <div className="max-w-[1440px] mx-auto px-8 xl:px-16 2xl:px-20">
           <div className="flex items-center justify-between h-8 sm:h-9">
-            <div className="flex items-center gap-1.5 sm:gap-2 min-w-0">
-              <HeaderStatusBadge label="Operational" className="hidden min-[380px]:inline-flex" />
-              <Badge variant="outline" className="hidden lg:inline-flex h-6 rounded-full px-3 text-[10px] uppercase tracking-[0.12em] border-border/80 text-[#07111F] bg-white/75 dark:border-[rgba(0,194,255,0.14)] dark:text-[#E2E8F0] dark:bg-[rgba(11,18,32,0.62)]">
-                Enterprise Edition
-              </Badge>
-              <div className="hidden md:flex items-center gap-1.5">
-                <div className="w-1 h-1 rounded-full bg-border/60" />
-                <button
-                  type="button"
-                  onClick={handleSalesEmailClick}
-                  className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors text-[12px] font-semibold group"
-                  aria-label="Email Guardivex sales"
-                  title="Email Guardivex sales"
-                >
-                  <EnvelopeSimple size={13} weight="bold" className="group-hover:scale-110 transition-transform" />
-                  <span className="hidden lg:inline">sales@guardivex.com</span>
-                </button>
+            <div className="flex items-center gap-3 sm:gap-4 min-w-0 text-[11px] font-medium text-[#334155] dark:text-slate-300">
+              <HeaderStatusBadge label="Live SOC Grid" className="hidden min-[380px]:inline-flex border-emerald-500/20 bg-emerald-500/8 text-emerald-600 dark:text-emerald-300" />
+              <div className="hidden md:flex items-center gap-2 border-l border-[#D7E6F3] pl-4 dark:border-cyan-300/10">
+                <CloudCheck size={14} weight="duotone" className="text-[#126BFF] dark:text-cyan-300" />
+                <span>12,582 Endpoints Protected</span>
+              </div>
+              <div className="hidden lg:flex items-center gap-2 border-l border-[#D7E6F3] pl-4 dark:border-cyan-300/10">
+                <Pulse size={14} weight="duotone" className="text-emerald-500 dark:text-emerald-300" />
+                <span>99.99% Uptime</span>
+              </div>
+              <div className="hidden xl:flex items-center gap-2 border-l border-[#D7E6F3] pl-4 dark:border-cyan-300/10">
+                <Gauge size={14} weight="duotone" className="text-[#126BFF] dark:text-cyan-300" />
+                <span>&lt; 2.3s Response Time</span>
               </div>
             </div>
             <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
-              <a
-                href="tel:1-800-SENTINEL"
-                className="hidden xl:flex items-center gap-1.5 text-muted-foreground hover:text-foreground transition-colors text-[10px] font-semibold group dark:hover:text-[#F8FAFC]"
-              >
-                <Phone size={13} weight="bold" className="group-hover:scale-110 transition-transform" />
-                <span className="tracking-wide">1-800-SENTINEL</span>
-                <Badge variant="outline" className="text-[9px] px-1.5 py-0 h-4 ml-1 border-accent/50 text-accent font-bold tracking-wider bg-accent/10">24/7</Badge>
-              </a>
               <button
                 onClick={() => onOpenLiveChat("I need help with my deployment")}
-                className={`${ENTERPRISE_CONTROL_CLASS} hidden lg:flex h-7 text-[12px] font-semibold hover:text-foreground hover:border-primary/18 hover:bg-background/95 dark:hover:text-[#E2E8F0] dark:hover:bg-[rgba(0,194,255,0.045)] group`}
+                className="hidden lg:flex h-7 items-center gap-1.5 rounded-sm border border-transparent px-2.5 text-[12px] font-medium text-[#334155] transition-colors hover:text-[#126BFF] dark:text-slate-300 dark:hover:text-cyan-300 group"
               >
                 <ChatCircle size={13} weight="bold" className="group-hover:scale-110 transition-transform" />
                 <span className="tracking-wide">Live Chat</span>
+                <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
               </button>
               <div className="hidden sm:flex items-center gap-1.5 sm:gap-2 pl-2 sm:pl-2.5 ml-2 sm:ml-2.5 border-l border-border/30">
                 {socialLinks.map((social) => (
@@ -435,11 +423,11 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
                 <BrandLogo
                   subtitle="SECURITY PLATFORM"
                   className="gap-2"
-                  markClassName="h-8 w-8 sm:h-9 sm:w-9 lg:h-9 lg:w-9"
+                  markClassName="h-10 w-10 sm:h-11 sm:w-11 lg:h-12 lg:w-12"
                   imgClassName="pr-0.5"
                   textContainerClassName="gap-0"
-                  titleClassName="text-[16px] sm:text-[18px] lg:text-[18px] text-[#07111F] group-hover:text-primary transition-colors font-bold tracking-[-0.02em] dark:text-[#E2E8F0]"
-                  subtitleClassName="hidden sm:block text-[8px] lg:text-[8.5px] text-[#64748B] tracking-[0.1em] leading-none mt-0.5 dark:text-[#94A3B8]"
+                  titleClassName="text-[18px] sm:text-[20px] lg:text-[21px] text-[#07111F] group-hover:text-[#126BFF] transition-colors font-bold tracking-[-0.02em] dark:text-[#E2E8F0] dark:group-hover:text-cyan-300"
+                  subtitleClassName="hidden sm:block text-[8.5px] lg:text-[9px] text-[#64748B] tracking-[0.1em] leading-none mt-0.5 dark:text-[#94A3B8]"
                 />
               </button>
               
@@ -487,8 +475,7 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
               <Button 
                 onClick={handleLoginClick}
                 size="default"
-                variant="secondary"
-                className="h-7 px-2.5 sm:px-3 font-semibold text-[0.8rem] sm:text-[0.84rem] transition-all duration-150 group rounded-sm"
+                className="h-9 rounded-md border border-[#126BFF]/30 bg-[#126BFF] px-4 font-semibold text-white shadow-[0_12px_28px_-22px_rgba(18,107,255,0.78)] transition-all duration-150 hover:bg-[#075CE0] group dark:bg-gradient-to-r dark:from-[#0077ff] dark:to-[#00c7d8] dark:hover:from-[#006eea] dark:hover:to-[#00b9c9]"
               >
                 <span>Sign In</span>
                 <ArrowRight size={15} weight="bold" className="ml-1 sm:ml-1.5 group-hover:translate-x-1 transition-transform sm:w-[17px] sm:h-[17px]" />

@@ -11,7 +11,7 @@ import {
   Gauge, ListChecks, Bell, Plug, Certificate, HardDrives,
   Camera, Lock, Siren, NetworkX, Thermometer, ChartLine,
   DesktopTower, Package, CloudCheck, Lightning, WindowsLogo, LinuxLogo,
-  Key, Buildings, Warning, Broadcast, Circle, Phone, Users,
+  Key, Buildings, Warning, Broadcast, Circle, Phone, Users, Headset,
   LinkedinLogo, TwitterLogo, GithubLogo, YoutubeLogo, EnvelopeSimple
 } from "@phosphor-icons/react"
 
@@ -255,176 +255,198 @@ export function WebsiteLayout({ currentPage, onNavigate, onLogin }: WebsiteLayou
 
 function HomePage({ onNavigate }: { onNavigate: (page: string) => void }) {
   const heroThreatStats = [
-    { label: "Critical Alerts", value: "23", delta: "+15%", tone: "text-red-400", icon: Warning },
-    { label: "High Alerts", value: "78", delta: "+8%", tone: "text-amber-400", icon: Siren },
-    { label: "Devices Online", value: "12,652", delta: "+3.6%", tone: "text-emerald-400", icon: HardDrives },
-    { label: "Active Users", value: "189", delta: "+2.1%", tone: "text-sky-400", icon: Users },
+    { label: "Critical Alerts", value: "23", delta: "+15%", tone: "text-red-500", accent: "border-red-500/18 bg-red-500/8", icon: Warning },
+    { label: "High Alerts", value: "78", delta: "+8%", tone: "text-amber-500", accent: "border-amber-500/18 bg-amber-500/8", icon: Siren },
+    { label: "Devices Online", value: "12,652", delta: "+3.6%", tone: "text-emerald-500", accent: "border-emerald-500/18 bg-emerald-500/8", icon: Monitor },
+    { label: "Active Users", value: "189", delta: "+2.1%", tone: "text-violet-500", accent: "border-violet-500/18 bg-violet-500/8", icon: Users },
   ]
 
   const alertSources = [
-    { label: "Front Gate Camera", value: 12, width: "w-[92%]", tone: "bg-red-500" },
-    { label: "Data Center NVR", value: 8, width: "w-[66%]", tone: "bg-amber-400" },
-    { label: "HQ Access Control", value: 5, width: "w-[44%]", tone: "bg-sky-400" },
+    { label: "Front Gate Camera", value: 12, width: "w-[88%]", tone: "bg-red-500" },
+    { label: "Data Center NVR", value: 8, width: "w-[66%]", tone: "bg-amber-500" },
+    { label: "HQ Access Control", value: 5, width: "w-[42%]", tone: "bg-blue-600" },
   ]
 
-  const heroModules = [
-    { icon: Camera, title: "Video Surveillance", desc: "Cameras & NVRs", detail: "Real-time monitoring, AI detection, and advanced video analytics.", iconColor: "text-primary" },
-    { icon: Lock, title: "Access Control", desc: "Doors & Readers", detail: "Centralized access management and identity enforcement.", iconColor: "text-accent" },
-    { icon: Siren, title: "Alarm Systems", desc: "Panels & Sensors", detail: "Integrate intrusion, fire, and environmental alarms.", iconColor: "text-indigo-400" },
-    { icon: NetworkX, title: "Network Infrastructure", desc: "Switches & Routers", detail: "Monitor health, bandwidth, and device performance.", iconColor: "text-emerald-400" },
+  const recentIncidents = [
+    { label: "Multiple failed login attempts", severity: "Critical", time: "2m ago", dot: "bg-red-500", chip: "bg-red-500/10 text-red-600 dark:text-red-300" },
+    { label: "Unauthorized access detected", severity: "High", time: "8m ago", dot: "bg-amber-500", chip: "bg-amber-500/10 text-amber-700 dark:text-amber-300" },
+    { label: "New device registered", severity: "Medium", time: "16m ago", dot: "bg-blue-600", chip: "bg-blue-500/10 text-blue-700 dark:text-blue-300" },
+  ]
+
+  const heroMetrics = [
+    { value: "5,000+", label: "Organizations", meta: "Trusted worldwide", icon: Buildings, tone: "text-blue-600 dark:text-blue-300" },
+    { value: "50,000+", label: "Devices", meta: "Monitored 24/7", icon: Broadcast, tone: "text-emerald-500 dark:text-emerald-300" },
+    { value: "99.99%", label: "Uptime SLA", meta: "Guaranteed", icon: ShieldCheck, tone: "text-blue-600 dark:text-cyan-300" },
+    { value: "24/7", label: "Enterprise Support", meta: "Always on", icon: Headset, tone: "text-violet-500 dark:text-violet-300" },
   ]
 
   return (
     <div className="relative guardivex-home-typography overflow-x-clip bg-[#F8FBFF] dark:bg-[#020817]">
-      <section className="relative overflow-hidden border-b border-[#CFE0EF] bg-[#F8FBFF] text-[#07111F] dark:border-[rgba(0,194,255,0.14)] dark:bg-[#020817] dark:text-white">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_0%_30%,rgba(0,119,255,0.03),transparent_25%),radial-gradient(circle_at_80%_18%,rgba(0,143,199,0.03),transparent_27%),linear-gradient(180deg,rgba(248,251,255,0.98),rgba(238,246,251,1))] dark:bg-[radial-gradient(circle_at_0%_30%,rgba(0,119,255,0.24),transparent_26%),radial-gradient(circle_at_80%_18%,rgba(0,194,255,0.12),transparent_28%),linear-gradient(180deg,rgba(2,8,23,0.86),rgba(2,8,23,0.98))]" />
-        <div className="absolute inset-0 opacity-[0.09] bg-[linear-gradient(rgba(0,119,255,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(0,143,199,0.08)_1px,transparent_1px)] bg-[size:32px_32px] dark:opacity-[0.18] dark:bg-[linear-gradient(rgba(0,194,255,0.10)_1px,transparent_1px),linear-gradient(90deg,rgba(0,194,255,0.08)_1px,transparent_1px)]" />
-        <div className="absolute left-[-9rem] top-10 hidden h-[25rem] w-[25rem] rounded-full border border-[#008FC7]/6 md:block dark:border-cyan-400/18" />
-        <div className="absolute left-[-6.5rem] top-20 hidden h-[16rem] w-[16rem] rounded-full border border-[#008FC7]/7 md:block dark:border-cyan-400/24" />
-        <div className="absolute left-[-3.5rem] top-32 hidden h-[8rem] w-[8rem] rounded-full border border-[#0077CC]/8 md:block dark:border-cyan-300/35" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_42%,rgba(0,119,255,0.04),transparent_1px)] [background-size:42px_42px] opacity-[0.08] dark:bg-[radial-gradient(circle_at_50%_42%,rgba(0,194,255,0.10),transparent_1px)] dark:opacity-35" />
+      <section className="relative overflow-hidden border-b border-[#D7E6F3] bg-[#F8FBFF] text-[#07111F] dark:border-cyan-300/12 dark:bg-[#020817] dark:text-[#F8FAFC]">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_28%_32%,rgba(0,119,255,0.08),transparent_28%),radial-gradient(circle_at_75%_10%,rgba(77,90,255,0.06),transparent_30%),linear-gradient(180deg,#FFFFFF_0%,#F8FBFF_54%,#EEF6FB_100%)] dark:bg-[radial-gradient(circle_at_28%_32%,rgba(0,119,255,0.18),transparent_28%),radial-gradient(circle_at_75%_10%,rgba(0,194,255,0.10),transparent_30%),linear-gradient(180deg,#020817_0%,#031024_54%,#020817_100%)]" />
+        <div className="absolute inset-0 opacity-[0.16] bg-[linear-gradient(rgba(0,119,255,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(0,143,199,0.07)_1px,transparent_1px)] bg-[size:36px_36px] dark:opacity-[0.18] dark:bg-[linear-gradient(rgba(0,194,255,0.10)_1px,transparent_1px),linear-gradient(90deg,rgba(0,194,255,0.08)_1px,transparent_1px)]" />
+        <div className="absolute left-[22%] top-[12%] hidden h-[25rem] w-[25rem] rounded-full border border-blue-500/10 md:block dark:border-cyan-300/12" />
+        <div className="absolute left-[28%] top-[24%] hidden h-[16rem] w-[16rem] rounded-full border border-blue-500/12 md:block dark:border-cyan-300/16" />
 
-        <div className="mx-auto w-full max-w-[1440px] px-8 pb-2 pt-5 md:pb-3 md:pt-6 xl:px-16 2xl:px-20 relative z-10">
-          <div className="grid items-center gap-7 lg:grid-cols-[0.9fr_1.02fr] xl:gap-9 2xl:gap-10">
-            <div className="max-w-[620px] text-left lg:pl-3 xl:pl-4 2xl:pl-5">
-              <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-[#CFE0EF] bg-white px-3 py-1 text-[9px] font-semibold uppercase tracking-[0.13em] text-[#334155] shadow-[0_6px_18px_-16px_rgba(7,17,31,0.35)] backdrop-blur-xl dark:border-cyan-400/16 dark:bg-[#061426]/76 dark:text-slate-200 dark:shadow-[inset_0_1px_0_rgba(255,255,255,0.05)]">
-                <span className="h-1.5 w-1.5 rounded-full bg-[#008FC7] shadow-[0_0_8px_rgba(0,143,199,0.45)] dark:bg-cyan-400 dark:shadow-[0_0_10px_rgba(0,194,255,0.9)]" />
-                <span>Unified SOC Command Center</span>
-                <span className="h-3 w-px bg-[#008FC7]/14 dark:bg-cyan-400/14" />
-                <span className="normal-case tracking-normal text-[#008FC7] dark:text-cyan-300">Enterprise Security Platform</span>
+        <div className="relative z-10 mx-auto w-full max-w-[1440px] px-6 pb-7 pt-9 sm:px-8 lg:pt-12 xl:px-14 2xl:px-16">
+          <div className="grid items-center gap-7 lg:grid-cols-[1fr_1.18fr] xl:gap-8">
+            <div className="grid items-center gap-6 md:grid-cols-[minmax(0,1fr)_220px] lg:grid-cols-[minmax(0,1fr)_200px] xl:grid-cols-[minmax(0,1fr)_240px]">
+              <div className="max-w-[470px]">
+                <h1 className="text-[2.72rem] font-heading font-semibold leading-[0.98] tracking-[-0.032em] text-[#07111F] sm:text-[3.35rem] lg:text-[3.55rem] xl:text-[4rem] dark:text-white">
+                  Enterprise Security <span className="block bg-gradient-to-r from-[#126BFF] to-[#6D3CFF] bg-clip-text text-transparent dark:from-[#37C5FF] dark:to-[#7C5CFF]">Platform</span>
+                </h1>
+                <div className="mt-4 h-0.5 w-10 rounded-full bg-[#126BFF] dark:bg-cyan-300" />
+                <p className="mt-4 max-w-[390px] text-[0.9rem] leading-[1.55] text-[#334155] dark:text-slate-300">
+                  Self-hosted enterprise security platform. Monitor devices, cameras, NVRs, access control, alarms, and network infrastructure from a unified SOC Command Center with real-time threat intelligence.
+                </p>
+
+                <div className="mt-5 flex w-full max-w-[430px] flex-col gap-3 sm:flex-row">
+                  <Button size="lg" onClick={() => onNavigate("download")} className="h-11 rounded-md border border-[#126BFF]/35 bg-[#126BFF] px-5 text-[0.86rem] font-semibold text-white shadow-[0_14px_30px_-24px_rgba(18,107,255,0.75)] hover:bg-[#075CE0] dark:bg-gradient-to-r dark:from-[#0077ff] dark:to-[#00c7d8] dark:hover:from-[#006eea] dark:hover:to-[#00b9c9]">
+                    <CloudArrowDown size={16} className="mr-2" weight="bold" />
+                    Download Enterprise Server
+                  </Button>
+                  <Button size="lg" variant="outline" className="h-11 rounded-md border border-[#D7E6F3] bg-white px-5 text-[0.86rem] font-semibold text-[#07111F] shadow-[0_10px_26px_-24px_rgba(7,17,31,0.38)] hover:border-[#126BFF]/35 hover:bg-[#F8FBFF] dark:border-cyan-300/16 dark:bg-[#071426]/78 dark:text-slate-100 dark:hover:border-cyan-300/32 dark:hover:bg-[#0A1A2E]">
+                    <Monitor size={16} className="mr-2" weight="bold" />
+                    Request Live Demo
+                  </Button>
+                </div>
+
+                <div className="mt-5 flex items-center gap-2 text-xs font-medium text-[#64748B] dark:text-slate-400">
+                  <ShieldCheck size={15} className="text-[#126BFF] dark:text-cyan-300" weight="duotone" />
+                  Trusted by 5,000+ organizations worldwide
+                </div>
               </div>
 
-              <h1 className="max-w-[620px] text-[2.16rem] font-semibold font-heading leading-[1.04] tracking-[-0.024em] text-balance text-[#07111F] sm:text-[2.67rem] lg:text-[2.96rem] xl:text-[3.05rem] dark:text-[#F8FAFC]">
-                Enterprise Security <span className="text-[#0077CC] dark:text-cyan-300">Platform</span>
-              </h1>
-
-              <p className="mt-3 max-w-[535px] text-[0.86rem] leading-[1.54] text-[#334155] sm:text-[0.92rem] dark:text-slate-300">
-                Self-hosted enterprise security platform. Monitor devices, cameras, NVRs, access control, alarms, and network infrastructure from a unified SOC Command Center with real-time threat intelligence.
-              </p>
-
-              <div className="mt-4 flex w-full max-w-[430px] flex-col gap-3 sm:flex-row">
-                <Button size="lg" onClick={() => onNavigate("download")} className="h-9 rounded-md border border-[#0077CC]/35 bg-gradient-to-r from-[#0077CC] to-[#00A7A8] px-5 text-[0.82rem] font-semibold text-white shadow-[0_10px_24px_-20px_rgba(0,119,204,0.75)] hover:from-[#006AB8] hover:to-[#009896] dark:from-[#0077ff] dark:to-[#00d6c4] dark:hover:from-[#006eea] dark:hover:to-[#00c5b5] dark:shadow-[0_12px_34px_-22px_rgba(0,194,255,0.9)]">
-                  <CloudArrowDown size={15} className="mr-2" weight="bold" />
-                  Download Enterprise Server
-                </Button>
-                <Button size="lg" variant="outline" className="h-9 rounded-md border border-[#CFE0EF] bg-white px-5 text-[0.82rem] font-semibold text-[#07111F] shadow-[0_8px_22px_-20px_rgba(7,17,31,0.35)] hover:border-[#008FC7]/45 hover:bg-[#F8FBFF] hover:text-[#07111F] dark:border-cyan-300/22 dark:bg-[#061426]/70 dark:text-slate-100 dark:hover:border-cyan-300/36 dark:hover:bg-[#0A1A2E] dark:hover:text-white">
-                  <Monitor size={15} className="mr-2" weight="bold" />
-                  Request Live Demo
-                </Button>
+              <div className="relative hidden min-h-[300px] items-center justify-center md:flex">
+                <div className="absolute h-[250px] w-[250px] rounded-full border border-blue-500/12 dark:border-cyan-300/16" />
+                <div className="absolute h-[190px] w-[310px] rotate-[-18deg] rounded-[50%] border border-blue-500/18 dark:border-cyan-300/24" />
+                <div className="absolute h-[130px] w-[260px] rotate-[17deg] rounded-[50%] border border-blue-500/14 dark:border-cyan-300/16" />
+                <span className="absolute right-8 top-16 h-2.5 w-2.5 rounded-full bg-[#126BFF] shadow-[0_0_18px_rgba(18,107,255,0.65)] dark:bg-cyan-300" />
+                <span className="absolute bottom-16 left-8 h-2.5 w-2.5 rounded-full bg-[#126BFF] shadow-[0_0_18px_rgba(18,107,255,0.65)] dark:bg-cyan-300" />
+                <div className="absolute bottom-8 h-8 w-44 rounded-[50%] border border-blue-500/20 bg-blue-500/5 blur-[1px] dark:border-cyan-300/16 dark:bg-cyan-300/5" />
+                <div className="relative flex h-36 w-36 items-center justify-center rounded-[2rem] border border-blue-500/18 bg-gradient-to-br from-white/96 to-blue-50 shadow-[0_30px_60px_-38px_rgba(18,107,255,0.75)] dark:border-cyan-300/18 dark:from-[#071426] dark:to-[#0A1A2E] dark:shadow-[0_34px_80px_-48px_rgba(0,194,255,0.75)]">
+                  <ShieldCheck size={92} weight="duotone" className="text-[#126BFF] drop-shadow-[0_12px_24px_rgba(18,107,255,0.25)] dark:text-cyan-300" />
+                </div>
               </div>
             </div>
 
-            <div className="w-full max-w-[760px] justify-self-end rounded-lg border border-[#CFE0EF] bg-white p-3 shadow-[0_18px_48px_-34px_rgba(7,17,31,0.38)] backdrop-blur-xl dark:rounded-xl dark:border-cyan-300/16 dark:bg-[#051225]/86 dark:shadow-[0_24px_80px_-48px_rgba(0,194,255,0.55)]">
-              <div className="mb-3 flex items-center justify-between gap-3">
-                <div className="flex items-center gap-2 text-[0.82rem] font-semibold text-[#07111F] dark:text-slate-100">
-                  <span className="h-2 w-2 rounded-full bg-emerald-400 shadow-[0_0_12px_rgba(52,211,153,0.9)]" />
-                  Real-time Threat Overview
+            <div className="w-full rounded-xl border border-[#D7E6F3] bg-white/92 p-4 shadow-[0_24px_70px_-48px_rgba(7,17,31,0.42)] backdrop-blur-xl dark:border-cyan-300/14 dark:bg-[#051225]/88 dark:shadow-[0_30px_90px_-58px_rgba(0,194,255,0.58)]">
+              <div className="mb-4 flex items-center justify-between gap-3">
+                <div className="flex items-center gap-2 text-[0.9rem] font-semibold text-[#07111F] dark:text-white">
+                  <span className="h-2.5 w-2.5 rounded-full bg-emerald-500 shadow-[0_0_14px_rgba(16,185,129,0.7)]" />
+                  Real-time Overview
                 </div>
-                <Badge variant="outline" className="h-6 rounded-md border-[#CFE0EF] bg-[#F8FBFF] px-2.5 text-[10px] text-[#334155] dark:border-cyan-300/16 dark:bg-[#071426] dark:text-slate-300">Last 24 Hours</Badge>
+                <div className="flex items-center gap-2">
+                  <Badge variant="outline" className="h-7 rounded-md border-[#D7E6F3] bg-[#F8FBFF] px-3 text-[10px] text-[#334155] dark:border-cyan-300/12 dark:bg-[#071426] dark:text-slate-300">Last 24 Hours</Badge>
+                  <span className="flex h-7 w-7 items-center justify-center rounded-md text-[#64748B] dark:text-slate-400">...</span>
+                </div>
               </div>
 
-              <div className="grid gap-2 lg:grid-cols-[0.38fr_1fr]">
-                <div className="grid gap-1.5">
-                  {heroThreatStats.map((item) => (
-                    <div key={item.label} className="flex items-center gap-2 rounded-sm border border-[#CFE0EF] bg-[#F8FBFF] px-2.5 py-1.5 shadow-[0_8px_18px_-18px_rgba(7,17,31,0.25)] dark:rounded-md dark:border-cyan-300/10 dark:bg-[#071426]/78 dark:shadow-none">
-                      <div className="flex h-8 w-8 items-center justify-center rounded-full border border-current/18 bg-current/8">
-                        <item.icon size={18} weight="duotone" className={item.tone} />
+              <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
+                {heroThreatStats.map((item) => (
+                  <div key={item.label} className="rounded-lg border border-[#D7E6F3] bg-[#F8FBFF] p-3 shadow-[0_10px_24px_-22px_rgba(7,17,31,0.3)] dark:border-cyan-300/10 dark:bg-[#071426]/78 dark:shadow-none">
+                    <div className="flex items-start gap-3">
+                      <div className={`flex h-10 w-10 items-center justify-center rounded-full border ${item.accent}`}>
+                        <item.icon size={22} weight="duotone" className={item.tone} />
                       </div>
-                      <div className="min-w-0 flex-1">
-                        <div className="text-[10px] text-[#334155] dark:text-slate-400">{item.label}</div>
-                        <div className={`font-mono text-lg font-semibold leading-tight ${item.tone}`}>{item.value}</div>
+                      <div className="min-w-0">
+                        <div className="text-[10px] font-medium text-[#64748B] dark:text-slate-400">{item.label}</div>
+                        <div className={`font-mono text-xl font-semibold leading-tight ${item.tone}`}>{item.value}</div>
+                        <div className="mt-1 text-[9px] text-[#64748B] dark:text-slate-500"><span className="text-emerald-500">↑ {item.delta}</span> vs yesterday</div>
                       </div>
-                      <div className="font-mono text-[10px] text-emerald-400">{item.delta}</div>
                     </div>
-                  ))}
-                </div>
+                  </div>
+                ))}
+              </div>
 
-                <div className="rounded-md border border-[#CFE0EF] bg-[#F8FBFF] p-3 shadow-[0_10px_26px_-24px_rgba(7,17,31,0.32)] dark:border-cyan-300/10 dark:bg-[#071426]/74 dark:shadow-none">
-                  <div className="mb-2 flex items-center justify-between text-[10px] font-semibold text-[#334155] dark:text-slate-300">
+              <div className="mt-3 grid gap-3 lg:grid-cols-[1.05fr_0.95fr]">
+                <div className="rounded-lg border border-[#D7E6F3] bg-white p-3 dark:border-cyan-300/10 dark:bg-[#061426]/82">
+                  <div className="mb-2 flex items-center justify-between text-[11px] font-semibold text-[#334155] dark:text-slate-300">
                     <span>Alerts Over Time</span>
-                    <div className="flex items-center gap-3 font-normal text-[9px] text-[#475569] dark:text-slate-400">
+                    <div className="flex items-center gap-3 font-normal text-[9px] text-[#64748B] dark:text-slate-400">
                       <span className="inline-flex items-center gap-1"><span className="h-1.5 w-3 rounded-full bg-red-500" />Critical</span>
-                      <span className="inline-flex items-center gap-1"><span className="h-1.5 w-3 rounded-full bg-amber-400" />High</span>
-                      <span className="inline-flex items-center gap-1"><span className="h-1.5 w-3 rounded-full bg-sky-400" />Medium</span>
+                      <span className="inline-flex items-center gap-1"><span className="h-1.5 w-3 rounded-full bg-amber-500" />High</span>
+                      <span className="inline-flex items-center gap-1"><span className="h-1.5 w-3 rounded-full bg-blue-600" />Medium</span>
                     </div>
                   </div>
-                  <div className="relative h-[126px] overflow-hidden rounded-sm border border-[#CFE0EF] bg-white dark:border-cyan-300/6 dark:bg-[#040D1B]">
-                    <div className="absolute inset-0 opacity-35 bg-[linear-gradient(rgba(148,163,184,0.18)_1px,transparent_1px),linear-gradient(90deg,rgba(148,163,184,0.12)_1px,transparent_1px)] bg-[size:100%_28px,42px_100%]" />
-                    <svg viewBox="0 0 520 126" className="absolute inset-0 h-full w-full" role="img" aria-label="Alert trend chart">
-                      <polyline points="0,90 34,76 68,68 102,78 136,62 170,64 204,58 238,44 272,24 306,44 340,58 374,66 408,60 442,66 476,56 520,48" fill="none" stroke="#ff1744" strokeWidth="3" />
-                      <polyline points="0,104 34,88 68,82 102,90 136,78 170,78 204,72 238,62 272,44 306,62 340,76 374,84 408,78 442,84 476,76 520,68" fill="none" stroke="#f59e0b" strokeWidth="3" />
-                      <polyline points="0,114 34,100 68,96 102,104 136,94 170,96 204,90 238,82 272,66 306,80 340,88 374,94 408,90 442,94 476,90 520,82" fill="none" stroke="#0ea5e9" strokeWidth="3" />
+                  <div className="relative h-[150px] overflow-hidden rounded-md border border-[#D7E6F3] bg-white dark:border-cyan-300/8 dark:bg-[#040D1B]">
+                    <div className="absolute inset-0 opacity-60 bg-[linear-gradient(rgba(148,163,184,0.16)_1px,transparent_1px),linear-gradient(90deg,rgba(148,163,184,0.12)_1px,transparent_1px)] bg-[size:100%_30px,48px_100%] dark:opacity-25" />
+                    <svg viewBox="0 0 520 150" className="absolute inset-0 h-full w-full" role="img" aria-label="Alert trend chart">
+                      <polyline points="0,112 34,92 68,78 102,90 136,68 170,70 204,62 238,42 272,20 306,44 340,62 374,74 408,66 442,76 476,64 520,56" fill="none" stroke="#ff1744" strokeWidth="3" />
+                      <polyline points="0,128 34,106 68,98 102,108 136,92 170,92 204,84 238,70 272,42 306,68 340,88 374,98 408,90 442,98 476,88 520,78" fill="none" stroke="#f59e0b" strokeWidth="3" />
+                      <polyline points="0,140 34,124 68,118 102,126 136,116 170,118 204,110 238,100 272,78 306,96 340,106 374,114 408,110 442,114 476,108 520,100" fill="none" stroke="#2563eb" strokeWidth="3" />
                     </svg>
-                    <div className="absolute bottom-2 left-4 right-4 flex justify-between font-mono text-[9px] text-[#475569] dark:text-slate-500">
-                      <span>00:00</span><span>08:00</span><span>12:00</span><span>20:00</span><span>24:00</span>
+                    <div className="absolute bottom-2 left-4 right-4 flex justify-between font-mono text-[9px] text-[#64748B] dark:text-slate-500">
+                      <span>00:00</span><span>04:00</span><span>08:00</span><span>12:00</span><span>16:00</span><span>20:00</span><span>24:00</span>
                     </div>
                   </div>
+                </div>
 
-                  <div className="mt-2 grid gap-2 md:grid-cols-[0.76fr_1fr]">
-                    <div className="rounded-sm border border-[#CFE0EF] bg-white p-2 shadow-[0_8px_18px_-18px_rgba(7,17,31,0.22)] dark:border-cyan-300/10 dark:bg-[#061426]/82 dark:shadow-none">
-                      <div className="mb-2 flex items-center justify-between text-[10px] font-semibold text-[#334155] dark:text-slate-300">
-                        <span>Top Alert Sources</span>
-                        <span className="text-[#008FC7] dark:text-cyan-300">See all</span>
+                <div className="relative overflow-hidden rounded-lg border border-[#D7E6F3] bg-white p-3 dark:border-cyan-300/10 dark:bg-[#061426]/82">
+                  <div className="mb-2 flex items-center justify-between text-[11px] font-semibold text-[#334155] dark:text-slate-300">
+                    <span>Threat Map</span>
+                    <span className="text-[10px] text-[#126BFF] dark:text-cyan-300">See all</span>
+                  </div>
+                  <div className="relative h-[150px] overflow-hidden rounded-md bg-[radial-gradient(circle_at_25%_44%,rgba(18,107,255,0.22)_0_4px,transparent_9px),radial-gradient(circle_at_54%_36%,rgba(18,107,255,0.22)_0_4px,transparent_10px),radial-gradient(circle_at_70%_62%,rgba(18,107,255,0.20)_0_4px,transparent_10px),radial-gradient(circle_at_82%_78%,rgba(18,107,255,0.18)_0_4px,transparent_10px),linear-gradient(90deg,transparent,rgba(18,107,255,0.05),transparent)] dark:bg-[radial-gradient(circle_at_25%_44%,rgba(0,194,255,0.28)_0_4px,transparent_9px),radial-gradient(circle_at_54%_36%,rgba(0,194,255,0.26)_0_4px,transparent_10px),radial-gradient(circle_at_70%_62%,rgba(0,194,255,0.24)_0_4px,transparent_10px),radial-gradient(circle_at_82%_78%,rgba(0,194,255,0.22)_0_4px,transparent_10px),linear-gradient(90deg,transparent,rgba(0,194,255,0.06),transparent)]">
+                    <div className="absolute inset-4 opacity-45 bg-[radial-gradient(circle,rgba(37,99,235,0.35)_1px,transparent_1.7px)] [background-size:9px_7px] dark:bg-[radial-gradient(circle,rgba(125,211,252,0.30)_1px,transparent_1.7px)]" />
+                    <div className="absolute left-[8%] top-[38%] h-10 w-28 rounded-[50%] border border-blue-500/12 dark:border-cyan-300/14" />
+                    <div className="absolute right-[9%] top-[34%] h-16 w-36 rounded-[50%] border border-blue-500/12 dark:border-cyan-300/14" />
+                    <div className="absolute bottom-[15%] left-[32%] h-14 w-28 rounded-[50%] border border-blue-500/12 dark:border-cyan-300/14" />
+                  </div>
+                </div>
+              </div>
+
+              <div className="mt-3 grid gap-3 lg:grid-cols-[0.9fr_1.1fr]">
+                <div className="rounded-lg border border-[#D7E6F3] bg-white p-3 dark:border-cyan-300/10 dark:bg-[#061426]/82">
+                  <div className="mb-2 flex items-center justify-between text-[11px] font-semibold text-[#334155] dark:text-slate-300">
+                    <span>Top Alert Sources</span>
+                    <span className="text-[10px] text-[#126BFF] dark:text-cyan-300">See all</span>
+                  </div>
+                  <div className="space-y-2.5">
+                    {alertSources.map((source) => (
+                      <div key={source.label} className="grid grid-cols-[1fr_96px_18px] items-center gap-2 text-[10px] text-[#334155] dark:text-slate-300">
+                        <span className="truncate">{source.label}</span>
+                        <span className="h-1.5 overflow-hidden rounded-full bg-[#D8E8F5] dark:bg-slate-800"><span className={`block h-full ${source.width} ${source.tone}`} /></span>
+                        <span className="font-mono text-[#07111F] dark:text-slate-200">{source.value}</span>
                       </div>
-                      <div className="space-y-2">
-                        {alertSources.map((source) => (
-                          <div key={source.label} className="grid grid-cols-[1fr_72px_14px] items-center gap-2 text-[10px] text-[#334155] dark:text-slate-300">
-                            <span className="truncate">{source.label}</span>
-                            <span className="h-1 overflow-hidden rounded-full bg-[#D8E8F5] dark:bg-slate-800"><span className={`block h-full ${source.width} ${source.tone}`} /></span>
-                            <span className="font-mono text-[#07111F] dark:text-slate-200">{source.value}</span>
-                          </div>
-                        ))}
+                    ))}
+                  </div>
+                </div>
+
+                <div className="rounded-lg border border-[#D7E6F3] bg-white p-3 dark:border-cyan-300/10 dark:bg-[#061426]/82">
+                  <div className="mb-2 flex items-center justify-between text-[11px] font-semibold text-[#334155] dark:text-slate-300">
+                    <span>Recent Incidents</span>
+                    <span className="text-[10px] text-[#126BFF] dark:text-cyan-300">See all</span>
+                  </div>
+                  <div className="space-y-2.5">
+                    {recentIncidents.map((incident) => (
+                      <div key={incident.label} className="grid grid-cols-[auto_1fr_auto_auto] items-center gap-2 text-[10px] text-[#334155] dark:text-slate-300">
+                        <span className={`h-1.5 w-1.5 rounded-full ${incident.dot}`} />
+                        <span className="truncate">{incident.label}</span>
+                        <span className={`rounded-sm px-1.5 py-0.5 font-medium ${incident.chip}`}>{incident.severity}</span>
+                        <span className="font-mono text-[#64748B] dark:text-slate-500">{incident.time}</span>
                       </div>
-                    </div>
-                    <div className="relative min-h-[86px] overflow-hidden rounded-sm border border-[#CFE0EF] bg-white p-2 shadow-[0_8px_18px_-18px_rgba(7,17,31,0.22)] dark:border-cyan-300/10 dark:bg-[#061426]/82 dark:shadow-none">
-                      <div className="mb-1 flex items-center justify-between text-[10px] font-semibold text-[#334155] dark:text-slate-300">
-                        <span>Threat Map</span>
-                        <span className="text-[#008FC7] dark:text-cyan-300">See all</span>
-                      </div>
-                      <div className="absolute inset-x-5 bottom-3 top-8 opacity-60 bg-[radial-gradient(circle_at_18%_58%,rgba(0,143,199,0.72)_0_2px,transparent_5px),radial-gradient(circle_at_35%_43%,rgba(0,143,199,0.6)_0_2px,transparent_5px),radial-gradient(circle_at_58%_52%,rgba(0,143,199,0.68)_0_2px,transparent_5px),radial-gradient(circle_at_78%_36%,rgba(0,143,199,0.52)_0_2px,transparent_5px),radial-gradient(circle_at_84%_68%,rgba(0,143,199,0.6)_0_2px,transparent_5px)] dark:opacity-80 dark:bg-[radial-gradient(circle_at_18%_58%,rgba(0,194,255,0.95)_0_2px,transparent_5px),radial-gradient(circle_at_35%_43%,rgba(0,194,255,0.8)_0_2px,transparent_5px),radial-gradient(circle_at_58%_52%,rgba(0,194,255,0.9)_0_2px,transparent_5px),radial-gradient(circle_at_78%_36%,rgba(0,194,255,0.7)_0_2px,transparent_5px),radial-gradient(circle_at_84%_68%,rgba(0,194,255,0.8)_0_2px,transparent_5px)]" />
-                      <div className="absolute inset-x-5 bottom-4 top-9 rounded-[48%] border border-[#CFE0EF] bg-[radial-gradient(ellipse_at_center,rgba(0,119,204,0.04),transparent_60%)] dark:border-cyan-300/10 dark:bg-[radial-gradient(ellipse_at_center,rgba(14,165,233,0.18),transparent_60%)]" />
-                    </div>
+                    ))}
                   </div>
                 </div>
               </div>
             </div>
           </div>
 
-          <div className="mt-10 grid grid-cols-2 gap-2 md:grid-cols-4">
-            {[
-              { value: "5,000+", label: "Organizations", icon: Buildings },
-              { value: "50,000+", label: "Devices Monitored", icon: Broadcast },
-              { value: "99.99%", label: "Uptime SLA", icon: CheckCircle },
-              { value: "24/7", label: "Enterprise Support", icon: ShieldCheck },
-            ].map((stat, i) => (
-              <div key={i} className="relative flex min-h-[50px] items-center justify-center gap-3 overflow-hidden rounded-sm border border-[#CFE0EF] bg-white px-3 py-2 text-center shadow-[0_10px_24px_-22px_rgba(7,17,31,0.35)] backdrop-blur-xl dark:rounded-md dark:border-cyan-300/14 dark:bg-[#071426]/70 dark:shadow-[inset_0_1px_0_rgba(255,255,255,0.04)]">
-                <stat.icon size={22} className="text-[#008FC7] opacity-85 dark:text-cyan-400" weight="duotone" />
-                <div className="text-left">
-                  <div className="font-heading text-[1.25rem] font-semibold leading-none tracking-[-0.025em] text-[#07111F] dark:text-white">{stat.value}</div>
-                  <div className="mt-1 text-[0.6rem] font-semibold uppercase leading-none tracking-[0.08em] text-[#334155] dark:text-slate-400">{stat.label}</div>
+          <div className="mt-4 rounded-xl border border-[#D7E6F3] bg-white/82 p-4 shadow-[0_18px_54px_-46px_rgba(7,17,31,0.4)] backdrop-blur-xl dark:border-cyan-300/12 dark:bg-[#071426]/66 dark:shadow-[0_24px_70px_-54px_rgba(0,194,255,0.44)]">
+            <div className="grid grid-cols-1 gap-px overflow-hidden rounded-lg border border-[#E3EDF7] bg-[#D7E6F3] sm:grid-cols-2 lg:grid-cols-4 dark:border-cyan-300/10 dark:bg-cyan-300/10">
+              {heroMetrics.map((stat) => (
+                <div key={stat.label} className="flex min-h-[82px] items-center justify-center gap-4 bg-white px-4 py-3 dark:bg-[#061426]/86">
+                  <stat.icon size={36} className={stat.tone} weight="duotone" />
+                  <div>
+                    <div className="font-heading text-[1.35rem] font-semibold leading-none tracking-[-0.02em] text-[#07111F] dark:text-white">{stat.value}</div>
+                    <div className="mt-1 text-[0.78rem] font-medium text-[#334155] dark:text-slate-300">{stat.label}</div>
+                    <div className={`mt-1 text-[0.62rem] font-semibold uppercase tracking-[0.1em] ${stat.tone}`}>{stat.meta}</div>
+                  </div>
                 </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="relative bg-[#EEF6FB] px-8 pb-5 pt-10 xl:px-16 2xl:px-20 dark:bg-[#020817]">
-        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-20 bg-gradient-to-b from-transparent to-[#EEF6FB] dark:to-[#031024]" />
-        <div className="mx-auto grid max-w-[1440px] grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {heroModules.map((feature, i) => (
-            <div key={i} className="group relative min-h-[84px] overflow-hidden rounded-md border border-[#CFE0EF] bg-white p-3.5 shadow-[0_10px_24px_-22px_rgba(7,17,31,0.35)] transition-all duration-200 hover:-translate-y-px hover:border-[#008FC7]/45 hover:bg-[#F8FBFF] before:absolute before:left-0 before:top-0 before:h-full before:w-0.5 before:bg-[#008FC7] dark:rounded-lg dark:border-cyan-300/14 dark:bg-[#071426]/84 dark:shadow-[inset_0_1px_0_rgba(255,255,255,0.04)] dark:hover:border-cyan-300/28 dark:hover:bg-[#091A31] dark:before:bg-cyan-400/80">
-              <div className="relative z-10 flex h-full items-start gap-3">
-                <feature.icon size={29} className={`${feature.iconColor} mt-0.5 shrink-0 opacity-90 transition-opacity duration-200 group-hover:opacity-100`} weight="duotone" />
-                <div className="min-w-0 pt-0.5">
-                  <div className="text-[0.98rem] font-semibold font-heading leading-tight tracking-[-0.01em] text-[#07111F] dark:text-slate-100">{feature.title}</div>
-                  <div className="text-[0.78rem] font-medium leading-tight text-[#334155] dark:text-slate-300">{feature.desc}</div>
-                  <div className="mt-1 text-[0.72rem] leading-snug text-[#475569] dark:text-slate-400">{feature.detail}</div>
-                </div>
-                <ArrowRight size={17} className="ml-auto mt-1 shrink-0 text-[#64748B] transition-transform group-hover:translate-x-1 group-hover:text-[#0077FF] dark:text-slate-400 dark:group-hover:text-cyan-300" weight="bold" />
-              </div>
+              ))}
             </div>
-          ))}
+          </div>
         </div>
       </section>
 
