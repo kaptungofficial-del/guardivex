@@ -12,17 +12,17 @@ export function ThemeSwitcher() {
 
   return (
     <div
-      className="inline-flex h-6.5 items-center gap-1 rounded-sm border border-[#D9E7F2]/72 bg-[rgba(255,255,255,0.68)] px-1.5 text-[#64748B] shadow-none backdrop-blur-xl transition-colors dark:border-[rgba(0,194,255,0.08)] dark:bg-[rgba(3,10,24,0.60)] dark:text-[#94A3B8]"
+      className="inline-flex h-8 items-center gap-1 rounded-md border border-[var(--gvx-hero-border)] bg-[var(--gvx-hero-card)] px-1.5 text-[var(--gvx-hero-muted)] shadow-[0_10px_24px_-22px_rgba(7,17,31,0.34)] backdrop-blur-xl transition-all duration-200 hover:border-[var(--gvx-hero-border-strong)] hover:bg-[var(--gvx-hero-surface-strong)]"
       title={isDark ? "Switch to light mode" : "Switch to dark mode"}
     >
-      <Sun size={10} weight="bold" className={isDark ? "opacity-32" : "text-warning opacity-80"} aria-hidden="true" />
+      <Sun size={11} weight="bold" className={isDark ? "opacity-35" : "text-warning opacity-85"} aria-hidden="true" />
       <Switch
         checked={isDark}
         onCheckedChange={handleThemeChange}
         aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
-        className="h-3.5 w-6.5 border border-border/40 data-[state=checked]:bg-primary/80 data-[state=unchecked]:bg-[#EAF7FF] dark:border-[rgba(0,194,255,0.12)] dark:data-[state=unchecked]:bg-[#0B1220]"
+        className="h-3.5 w-6.5 border border-[var(--gvx-hero-border)] data-[state=checked]:bg-[var(--gvx-hero-accent)] data-[state=unchecked]:bg-[var(--gvx-hero-bg-soft)]"
       />
-      <Moon size={10} weight="fill" className={isDark ? "text-primary opacity-80" : "opacity-32"} aria-hidden="true" />
+      <Moon size={11} weight="fill" className={isDark ? "text-[var(--gvx-hero-accent)] opacity-85" : "opacity-35"} aria-hidden="true" />
     </div>
   )
 }

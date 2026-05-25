@@ -367,38 +367,38 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
       <div className={ENTERPRISE_COMMAND_STRIP_CLASS}>
         <div className="max-w-[1440px] mx-auto px-5 sm:px-8 xl:px-14 2xl:px-16">
           <div className="flex items-center justify-between h-7 sm:h-8">
-            <div className="flex items-center gap-3 sm:gap-4 min-w-0 text-[11px] font-medium text-[#334155] dark:text-slate-300">
+            <div className="flex items-center gap-3 sm:gap-4 min-w-0 text-[11px] font-medium text-[var(--gvx-hero-muted)]">
               <HeaderStatusBadge label="Live SOC Grid" className="hidden min-[380px]:inline-flex border-emerald-500/20 bg-emerald-500/8 text-emerald-600 dark:text-emerald-300" />
-              <div className="hidden md:flex items-center gap-2 border-l border-[#D7E6F3] pl-4 dark:border-cyan-300/10">
-                <CloudCheck size={14} weight="duotone" className="text-[#126BFF] dark:text-cyan-300" />
+              <div className="hidden md:flex items-center gap-2 border-l border-[var(--gvx-hero-border)] pl-4">
+                <CloudCheck size={14} weight="duotone" className="text-[var(--gvx-hero-accent)]" />
                 <span>12,582 Endpoints Protected</span>
               </div>
-              <div className="hidden lg:flex items-center gap-2 border-l border-[#D7E6F3] pl-4 dark:border-cyan-300/10">
+              <div className="hidden lg:flex items-center gap-2 border-l border-[var(--gvx-hero-border)] pl-4">
                 <Pulse size={14} weight="duotone" className="text-emerald-500 dark:text-emerald-300" />
                 <span>99.99% Uptime</span>
               </div>
-              <div className="hidden xl:flex items-center gap-2 border-l border-[#D7E6F3] pl-4 dark:border-cyan-300/10">
-                <Gauge size={14} weight="duotone" className="text-[#126BFF] dark:text-cyan-300" />
+              <div className="hidden xl:flex items-center gap-2 border-l border-[var(--gvx-hero-border)] pl-4">
+                <Gauge size={14} weight="duotone" className="text-[var(--gvx-hero-accent)]" />
                 <span>&lt; 2.3s Response Time</span>
               </div>
             </div>
             <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
               <button
                 onClick={() => onOpenLiveChat("I need help with my deployment")}
-                className="hidden lg:flex h-7 items-center gap-1.5 rounded-sm border border-transparent px-2.5 text-[12px] font-medium text-[#334155] transition-colors hover:text-[#126BFF] dark:text-slate-300 dark:hover:text-cyan-300 group"
+                className="hidden lg:flex h-7 items-center gap-1.5 rounded-md border border-transparent px-2.5 text-[12px] font-medium text-[var(--gvx-hero-muted)] transition-all duration-200 hover:-translate-y-px hover:bg-[var(--gvx-hero-card)] hover:text-[var(--gvx-hero-accent)] group"
               >
                 <ChatCircle size={13} weight="bold" className="group-hover:scale-110 transition-transform" />
                 <span className="tracking-wide">Live Chat</span>
                 <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
               </button>
-              <div className="hidden sm:flex items-center gap-1.5 sm:gap-2 pl-2 sm:pl-2.5 ml-2 sm:ml-2.5 border-l border-border/30">
+              <div className="hidden sm:flex items-center gap-1.5 sm:gap-2 pl-2 sm:pl-2.5 ml-2 sm:ml-2.5 border-l border-[var(--gvx-hero-border)]">
                 {socialLinks.map((social) => (
                   <a
                     key={social.label}
                     href={social.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-7 h-7 flex items-center justify-center rounded-md text-muted-foreground hover:text-primary hover:bg-[rgba(0,194,255,0.055)] border border-transparent hover:border-primary/15 transition-all duration-200 group"
+                    className="w-7 h-7 flex items-center justify-center rounded-md text-[var(--gvx-hero-muted)] hover:text-[var(--gvx-hero-accent)] hover:bg-[var(--gvx-hero-card)] border border-transparent hover:border-[var(--gvx-hero-border)] transition-all duration-200 group"
                     aria-label={social.label}
                   >
                     <social.icon size={15} weight="fill" className="group-hover:scale-110 transition-transform" />
@@ -431,7 +431,7 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
                 />
               </button>
               
-              <div className="hidden lg:flex items-center gap-2 min-w-0">
+              <div className="hidden lg:flex items-center gap-1.5 min-w-0">
                 {navItems.map((item) => {
                   const isDropdownOpen = item.id === "product" ? productDropdownOpen : 
                                         item.id === "enterprise" ? enterpriseDropdownOpen :
@@ -467,7 +467,7 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
                 onClick={() => handleNavigate("download")}
                 variant="outline"
                 size="default"
-                className="hidden h-8 items-center gap-1 rounded-md border-[var(--gvx-hero-border)] bg-[var(--gvx-hero-card)] px-3 text-[0.78rem] font-semibold text-[var(--gvx-hero-text)] shadow-none transition-all duration-200 hover:-translate-y-px hover:border-[var(--gvx-hero-border-strong)] hover:bg-[var(--gvx-hero-surface-strong)] xl:flex group"
+                className="hidden h-8 items-center gap-1 rounded-md border-[var(--gvx-hero-border)] bg-[var(--gvx-hero-card)] px-3 text-[0.78rem] font-semibold text-[var(--gvx-hero-text)] shadow-[0_12px_28px_-26px_rgba(7,17,31,0.34)] transition-all duration-200 hover:-translate-y-px hover:border-[var(--gvx-hero-border-strong)] hover:bg-[var(--gvx-hero-surface-strong)] xl:flex group"
               >
                 <CloudArrowDown size={17} weight="bold" className="group-hover:scale-110 transition-transform sm:w-[18px] sm:h-[18px]" />
                 <span>Download Trial</span>
@@ -475,7 +475,7 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
               <Button 
                 onClick={handleLoginClick}
                 size="default"
-                className="h-9 rounded-md border border-[color:var(--gvx-hero-accent)] bg-[var(--gvx-hero-accent)] px-4 font-semibold text-white shadow-[0_14px_30px_-24px_var(--gvx-hero-glow)] transition-all duration-200 hover:-translate-y-px hover:brightness-95 group"
+                className="h-9 rounded-md border border-[var(--gvx-hero-border-strong)] bg-[var(--gvx-hero-surface-strong)] px-4 font-semibold text-[var(--gvx-hero-text)] shadow-[0_14px_30px_-26px_rgba(7,17,31,0.34)] transition-all duration-200 hover:-translate-y-px hover:border-[color:var(--gvx-hero-accent)] hover:text-[var(--gvx-hero-accent)] group"
               >
                 <span>Sign In</span>
                 <ArrowRight size={15} weight="bold" className="ml-1 sm:ml-1.5 group-hover:translate-x-1 transition-transform sm:w-[17px] sm:h-[17px]" />
@@ -523,13 +523,13 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
                       </button>
                     ))}
                   </div>
-                  <div className="mt-2.5 border-t border-border pt-2.5 dark:border-[rgba(0,119,255,0.26)]">
+                  <div className="mt-2.5 border-t border-[var(--gvx-hero-border)] pt-2.5">
                     <button
                       onClick={() => {
                         handleNavigate(activeDesktopDropdownId || "home")
                         closeAllDesktopDropdowns()
                       }}
-                      className="flex h-7 w-full items-center justify-center gap-2 rounded-lg border border-[#D9E7F2] bg-[rgba(255,255,255,0.82)] px-3 text-[12px] font-medium text-[#07111F] shadow-none backdrop-blur-xl transition-all duration-150 hover:border-primary/30 hover:bg-[rgba(255,255,255,0.9)] dark:border-[rgba(0,119,255,0.26)] dark:bg-[#07111F] dark:text-[#F8FAFC] dark:hover:bg-[rgba(0,199,232,0.12)]"
+                      className="flex h-8 w-full items-center justify-center gap-2 rounded-lg border border-[var(--gvx-hero-border)] bg-[var(--gvx-hero-card)] px-3 text-[12px] font-medium text-[var(--gvx-hero-text)] shadow-[0_12px_28px_-26px_rgba(7,17,31,0.32)] backdrop-blur-xl transition-all duration-150 hover:border-[var(--gvx-hero-border-strong)] hover:bg-[var(--gvx-hero-surface-strong)]"
                     >
                       <span>View All {activeDesktopDropdown.title}</span>
                       <ArrowRight size={13} weight="bold" className="transition-transform group-hover:translate-x-0.5" />

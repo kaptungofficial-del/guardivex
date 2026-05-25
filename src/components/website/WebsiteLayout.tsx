@@ -255,10 +255,10 @@ export function WebsiteLayout({ currentPage, onNavigate, onLogin }: WebsiteLayou
 
 function HomePage({ onNavigate }: { onNavigate: (page: string) => void }) {
   const heroThreatStats = [
-    { label: "Critical", value: "23", delta: "+15%", tone: "text-red-500 dark:text-red-300", accent: "bg-red-500/10", icon: Warning },
-    { label: "High", value: "78", delta: "+8%", tone: "text-amber-500 dark:text-amber-300", accent: "bg-amber-500/10", icon: Siren },
-    { label: "Devices", value: "12,652", delta: "+3.6%", tone: "text-emerald-500 dark:text-emerald-300", accent: "bg-emerald-500/10", icon: Monitor },
-    { label: "Users", value: "189", delta: "+2.1%", tone: "text-violet-500 dark:text-violet-300", accent: "bg-violet-500/10", icon: Users },
+    { label: "Critical", value: "23", delta: "+15%", context: "7 open cases", tone: "text-red-500 dark:text-red-300", accent: "bg-red-500/10", icon: Warning },
+    { label: "High", value: "78", delta: "+8%", context: "22 assigned", tone: "text-amber-500 dark:text-amber-300", accent: "bg-amber-500/10", icon: Siren },
+    { label: "Devices", value: "12,652", delta: "+3.6%", context: "98.7% healthy", tone: "text-emerald-500 dark:text-emerald-300", accent: "bg-emerald-500/10", icon: Monitor },
+    { label: "Users", value: "189", delta: "+2.1%", context: "42 active now", tone: "text-violet-500 dark:text-violet-300", accent: "bg-violet-500/10", icon: Users },
   ]
 
   const alertSources = [
@@ -284,39 +284,39 @@ function HomePage({ onNavigate }: { onNavigate: (page: string) => void }) {
     <div className="relative guardivex-home-typography overflow-x-clip bg-[var(--gvx-hero-bg)] text-[var(--gvx-hero-text)]">
       <section className="relative isolate overflow-hidden border-b border-[var(--gvx-hero-border)] bg-[var(--gvx-hero-bg)]">
         <div className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,var(--gvx-hero-bg)_0%,var(--gvx-hero-bg-soft)_100%)]" />
-        <div className="absolute left-[6%] top-[-16rem] -z-10 h-[34rem] w-[34rem] rounded-full bg-[radial-gradient(circle,var(--gvx-hero-glow),transparent_66%)] blur-3xl" />
-        <div className="absolute right-[-10rem] top-[8rem] -z-10 h-[38rem] w-[38rem] rounded-full bg-[radial-gradient(circle,var(--gvx-hero-glow),transparent_64%)] blur-3xl" />
-        <div className="absolute inset-0 -z-10 opacity-[0.055] bg-[linear-gradient(var(--gvx-hero-accent)_1px,transparent_1px),linear-gradient(90deg,var(--gvx-hero-accent)_1px,transparent_1px)] bg-[size:44px_44px]" />
+        <div className="absolute left-[8%] top-[-18rem] -z-10 h-[34rem] w-[34rem] rounded-full bg-[radial-gradient(circle,var(--gvx-hero-glow),transparent_68%)] blur-3xl" />
+        <div className="absolute right-[-14rem] top-[6rem] -z-10 h-[42rem] w-[42rem] rounded-full bg-[radial-gradient(circle,var(--gvx-hero-glow),transparent_68%)] blur-3xl" />
+        <div className="absolute inset-0 -z-10 opacity-[0.032] bg-[linear-gradient(var(--gvx-hero-accent)_1px,transparent_1px),linear-gradient(90deg,var(--gvx-hero-accent)_1px,transparent_1px)] bg-[size:56px_56px]" />
 
-        <div className="mx-auto w-full max-w-[1440px] px-5 py-12 sm:px-8 lg:px-10 lg:py-16 xl:px-14 2xl:px-16">
-          <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-12 lg:gap-8 xl:gap-12">
+        <div className="mx-auto w-full max-w-[1440px] px-5 py-14 sm:px-8 lg:px-10 lg:py-20 xl:px-14 2xl:px-16">
+          <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-10 xl:gap-14">
             <div className="lg:col-span-5">
-              <div className="max-w-[560px]">
-                <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-[var(--gvx-hero-border)] bg-[var(--gvx-hero-surface)] px-2.5 py-1 text-[10px] font-semibold uppercase text-[var(--gvx-hero-muted)] shadow-[0_10px_30px_-26px_rgba(7,17,31,0.32)] backdrop-blur-xl transition-colors hover:border-[var(--gvx-hero-border-strong)]">
+              <div className="max-w-[510px]">
+                <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-[var(--gvx-hero-border)] bg-[var(--gvx-hero-surface)] px-2.5 py-1 text-[9px] font-semibold uppercase tracking-[0.13em] text-[var(--gvx-hero-muted)] shadow-[0_10px_30px_-26px_rgba(7,17,31,0.32)] backdrop-blur-xl transition-colors hover:border-[var(--gvx-hero-border-strong)]">
                   <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 shadow-[0_0_12px_rgba(16,185,129,0.65)]" />
                   Unified SOC Platform
                 </div>
 
-                <h1 className="font-heading text-[clamp(2.65rem,6vw,4.65rem)] font-semibold leading-[0.96] text-[var(--gvx-hero-text)]">
+                <h1 className="max-w-[11ch] font-heading text-[clamp(2.45rem,5.2vw,4.1rem)] font-medium leading-[0.99] tracking-[-0.035em] text-[var(--gvx-hero-text)]">
                   Enterprise security, <span className="block bg-gradient-to-r from-[var(--gvx-hero-accent)] to-[var(--gvx-hero-accent-2)] bg-clip-text text-transparent">commanded clearly.</span>
                 </h1>
 
-                <p className="mt-5 max-w-[520px] text-[clamp(0.98rem,1.4vw,1.08rem)] leading-[1.62] text-[var(--gvx-hero-muted)]">
+                <p className="mt-5 max-w-[440px] text-[clamp(0.94rem,1.2vw,1.02rem)] leading-[1.7] text-[var(--gvx-hero-muted)]">
                   A self-hosted security operations platform for devices, cameras, access control, alarms, and network infrastructure, unified in one real-time command center.
                 </p>
 
-                <div className="mt-7 flex flex-col gap-3 sm:flex-row">
-                  <Button size="lg" onClick={() => onNavigate("download")} className="h-11 rounded-md border border-[color:var(--gvx-hero-accent)] bg-[var(--gvx-hero-accent)] px-5 text-[0.88rem] font-semibold text-white shadow-[0_18px_38px_-26px_var(--gvx-hero-glow)] transition-all duration-200 hover:-translate-y-0.5 hover:brightness-95 focus-visible:ring-[var(--gvx-hero-accent)]">
+                <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
+                  <Button size="lg" onClick={() => onNavigate("download")} className="h-11 rounded-md border border-[color:var(--gvx-hero-accent)] bg-[var(--gvx-hero-accent)] px-5 text-[0.86rem] font-semibold text-white shadow-[0_18px_38px_-28px_var(--gvx-hero-glow)] transition-all duration-200 hover:-translate-y-0.5 hover:brightness-95 focus-visible:ring-[var(--gvx-hero-accent)]">
                     <CloudArrowDown size={16} className="mr-2" weight="bold" />
                     Deploy Enterprise Server
                   </Button>
-                  <Button size="lg" variant="outline" className="h-11 rounded-md border-[var(--gvx-hero-border)] bg-[var(--gvx-hero-surface)] px-5 text-[0.88rem] font-semibold text-[var(--gvx-hero-text)] shadow-[0_16px_34px_-30px_rgba(7,17,31,0.4)] backdrop-blur-xl transition-all duration-200 hover:-translate-y-0.5 hover:border-[var(--gvx-hero-border-strong)] hover:bg-[var(--gvx-hero-surface-strong)]">
+                  <Button size="lg" variant="outline" className="h-11 rounded-md border-[var(--gvx-hero-border)] bg-[var(--gvx-hero-surface)] px-5 text-[0.86rem] font-semibold text-[var(--gvx-hero-text)] shadow-[0_16px_34px_-32px_rgba(7,17,31,0.34)] backdrop-blur-xl transition-all duration-200 hover:-translate-y-0.5 hover:border-[var(--gvx-hero-border-strong)] hover:bg-[var(--gvx-hero-surface-strong)]">
                     <Monitor size={16} className="mr-2" weight="bold" />
                     View SOC Demo
                   </Button>
                 </div>
 
-                <div className="mt-6 grid max-w-[520px] grid-cols-1 gap-2 text-xs text-[var(--gvx-hero-subtle)] sm:grid-cols-3">
+                <div className="mt-7 grid max-w-[440px] grid-cols-1 gap-2.5 text-xs text-[var(--gvx-hero-subtle)] sm:grid-cols-3">
                   {["SOC 2 ready", "Self-hosted", "24/7 support"].map((label) => (
                     <div key={label} className="flex items-center gap-2">
                       <CheckCircle size={14} weight="fill" className="text-emerald-500" />
@@ -328,12 +328,12 @@ function HomePage({ onNavigate }: { onNavigate: (page: string) => void }) {
             </div>
 
             <div className="relative lg:col-span-7">
-              <div className="absolute inset-x-8 top-8 -z-10 h-64 rounded-full bg-[radial-gradient(ellipse,var(--gvx-hero-glow),transparent_70%)] blur-3xl" />
-              <div className="rounded-2xl border border-[var(--gvx-hero-border)] bg-[var(--gvx-hero-surface)] p-3 shadow-[var(--gvx-hero-shadow)] backdrop-blur-2xl transition-transform duration-300 hover:-translate-y-1 sm:p-4">
-                <div className="rounded-xl border border-[var(--gvx-hero-border)] bg-[var(--gvx-hero-surface-strong)] p-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.10)] sm:p-5">
-                  <div className="mb-5 flex items-center justify-between gap-4">
+              <div className="absolute inset-x-10 top-8 -z-10 h-72 rounded-full bg-[radial-gradient(ellipse,var(--gvx-hero-glow),transparent_72%)] blur-3xl" />
+              <div className="rounded-[1.35rem] border border-[var(--gvx-hero-border)] bg-[var(--gvx-hero-surface)] p-2.5 shadow-[var(--gvx-hero-shadow)] backdrop-blur-2xl transition-transform duration-300 hover:-translate-y-1 sm:p-3">
+                <div className="rounded-2xl border border-[var(--gvx-hero-border)] bg-[var(--gvx-hero-surface-strong)] p-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.10)] sm:p-5">
+                  <div className="mb-5 flex items-center justify-between gap-4 border-b border-[var(--gvx-hero-border)] pb-4">
                     <div>
-                      <div className="flex items-center gap-2 text-sm font-semibold text-[var(--gvx-hero-text)]">
+                      <div className="flex items-center gap-2 text-[0.95rem] font-semibold text-[var(--gvx-hero-text)]">
                         <span className="h-2 w-2 rounded-full bg-emerald-500 shadow-[0_0_14px_rgba(16,185,129,0.68)]" />
                         Live SOC Overview
                       </div>
@@ -344,7 +344,7 @@ function HomePage({ onNavigate }: { onNavigate: (page: string) => void }) {
 
                   <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
                     {heroThreatStats.map((item) => (
-                      <div key={item.label} className="group rounded-xl bg-[var(--gvx-hero-card)] p-3 transition-all duration-200 hover:-translate-y-0.5 hover:bg-[var(--gvx-hero-surface-strong)]">
+                      <div key={item.label} className="group rounded-xl bg-[var(--gvx-hero-card)] p-3 shadow-[0_14px_32px_-30px_rgba(7,17,31,0.42)] ring-1 ring-[var(--gvx-hero-border)]/70 transition-all duration-200 hover:-translate-y-0.5 hover:bg-[var(--gvx-hero-surface-strong)] hover:ring-[var(--gvx-hero-border-strong)]">
                         <div className="flex items-center justify-between gap-2">
                           <div className={`flex h-8 w-8 items-center justify-center rounded-lg ${item.accent}`}>
                             <item.icon size={17} weight="duotone" className={item.tone} />
@@ -353,12 +353,13 @@ function HomePage({ onNavigate }: { onNavigate: (page: string) => void }) {
                         </div>
                         <div className="mt-3 text-[10px] font-medium text-[var(--gvx-hero-subtle)]">{item.label}</div>
                         <div className={`mt-0.5 font-mono text-xl font-semibold leading-none ${item.tone}`}>{item.value}</div>
+                        <div className="mt-2 text-[9px] text-[var(--gvx-hero-subtle)]">{item.context}</div>
                       </div>
                     ))}
                   </div>
 
                   <div className="mt-4 grid gap-4 xl:grid-cols-[1.12fr_0.88fr]">
-                    <div className="rounded-xl bg-[var(--gvx-hero-card)] p-4">
+                    <div className="rounded-xl bg-[var(--gvx-hero-card)] p-4 shadow-[0_16px_36px_-34px_rgba(7,17,31,0.38)] ring-1 ring-[var(--gvx-hero-border)]/70">
                       <div className="mb-3 flex items-center justify-between gap-3">
                         <span className="text-xs font-semibold text-[var(--gvx-hero-muted)]">Alerts Over Time</span>
                         <div className="flex items-center gap-3 text-[10px] text-[var(--gvx-hero-subtle)]">
@@ -367,8 +368,8 @@ function HomePage({ onNavigate }: { onNavigate: (page: string) => void }) {
                           <span className="inline-flex items-center gap-1"><span className="h-1.5 w-3 rounded-full bg-[var(--gvx-hero-accent)]" />Medium</span>
                         </div>
                       </div>
-                      <div className="relative h-[178px] overflow-hidden rounded-lg bg-[linear-gradient(180deg,rgba(255,255,255,0.36),transparent)] dark:bg-[linear-gradient(180deg,rgba(255,255,255,0.035),transparent)]">
-                        <div className="absolute inset-0 opacity-40 bg-[linear-gradient(rgba(100,116,139,0.18)_1px,transparent_1px),linear-gradient(90deg,rgba(100,116,139,0.12)_1px,transparent_1px)] bg-[size:100%_34px,56px_100%]" />
+                      <div className="relative h-[178px] overflow-hidden rounded-lg bg-[linear-gradient(180deg,rgba(255,255,255,0.24),transparent)] dark:bg-[linear-gradient(180deg,rgba(255,255,255,0.035),transparent)]">
+                        <div className="absolute inset-0 opacity-25 bg-[linear-gradient(rgba(100,116,139,0.18)_1px,transparent_1px),linear-gradient(90deg,rgba(100,116,139,0.12)_1px,transparent_1px)] bg-[size:100%_34px,56px_100%]" />
                         <svg viewBox="0 0 560 178" className="absolute inset-0 h-full w-full" role="img" aria-label="Alert trend chart">
                           <defs>
                             <linearGradient id="guardivexCriticalFill" x1="0" x2="0" y1="0" y2="1">
@@ -388,20 +389,21 @@ function HomePage({ onNavigate }: { onNavigate: (page: string) => void }) {
                     </div>
 
                     <div className="grid gap-4">
-                      <div className="rounded-xl bg-[var(--gvx-hero-card)] p-4">
+                      <div className="rounded-xl bg-[var(--gvx-hero-card)] p-4 shadow-[0_16px_36px_-34px_rgba(7,17,31,0.38)] ring-1 ring-[var(--gvx-hero-border)]/70">
                         <div className="mb-3 flex items-center justify-between text-xs font-semibold text-[var(--gvx-hero-muted)]">
                           <span>Threat Map</span>
                           <span className="text-[var(--gvx-hero-accent)]">See all</span>
                         </div>
-                        <div className="relative h-[118px] overflow-hidden rounded-lg bg-[radial-gradient(circle_at_25%_44%,var(--gvx-hero-accent-soft)_0_6px,transparent_14px),radial-gradient(circle_at_58%_38%,var(--gvx-hero-accent-soft)_0_6px,transparent_14px),radial-gradient(circle_at_78%_66%,var(--gvx-hero-accent-soft)_0_6px,transparent_14px)]">
-                          <div className="absolute inset-4 opacity-45 bg-[radial-gradient(circle,var(--gvx-hero-accent)_1px,transparent_1.7px)] [background-size:9px_7px]" />
+                        <div className="relative h-[118px] overflow-hidden rounded-lg bg-[radial-gradient(circle_at_25%_44%,var(--gvx-hero-accent-soft)_0_5px,transparent_13px),radial-gradient(circle_at_58%_38%,var(--gvx-hero-accent-soft)_0_5px,transparent_13px),radial-gradient(circle_at_78%_66%,var(--gvx-hero-accent-soft)_0_5px,transparent_13px)]">
+                          <div className="absolute inset-4 opacity-30 bg-[radial-gradient(circle,var(--gvx-hero-accent)_1px,transparent_1.7px)] [background-size:10px_8px]" />
                           <div className="absolute inset-x-8 top-9 h-12 rounded-[50%] border border-[var(--gvx-hero-border)]" />
                           <div className="absolute bottom-5 left-10 h-10 w-24 rounded-[50%] border border-[var(--gvx-hero-border)]" />
+                          <div className="absolute bottom-4 right-5 rounded-md bg-[var(--gvx-hero-surface-strong)] px-2 py-1 text-[9px] font-medium text-[var(--gvx-hero-muted)] shadow-[0_12px_28px_-24px_rgba(7,17,31,0.34)]">23 regions</div>
                         </div>
                       </div>
 
                       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-1">
-                        <div className="rounded-xl bg-[var(--gvx-hero-card)] p-4">
+                        <div className="rounded-xl bg-[var(--gvx-hero-card)] p-4 ring-1 ring-[var(--gvx-hero-border)]/70">
                           <div className="mb-3 flex items-center justify-between text-xs font-semibold text-[var(--gvx-hero-muted)]">
                             <span>Top Sources</span>
                             <span className="text-[var(--gvx-hero-accent)]">Open</span>
@@ -417,7 +419,7 @@ function HomePage({ onNavigate }: { onNavigate: (page: string) => void }) {
                           </div>
                         </div>
 
-                        <div className="rounded-xl bg-[var(--gvx-hero-card)] p-4">
+                        <div className="rounded-xl bg-[var(--gvx-hero-card)] p-4 ring-1 ring-[var(--gvx-hero-border)]/70">
                           <div className="mb-3 text-xs font-semibold text-[var(--gvx-hero-muted)]">Recent Incidents</div>
                           <div className="space-y-2.5">
                             {recentIncidents.slice(0, 2).map((incident) => (
@@ -437,11 +439,11 @@ function HomePage({ onNavigate }: { onNavigate: (page: string) => void }) {
             </div>
           </div>
 
-          <div className="mt-8 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-10 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
             {heroMetrics.map((stat) => (
-              <div key={stat.label} className="group flex min-h-[92px] items-center gap-4 rounded-xl border border-[var(--gvx-hero-border)] bg-[var(--gvx-hero-surface)] px-4 py-4 shadow-[0_18px_44px_-38px_rgba(7,17,31,0.38)] backdrop-blur-xl transition-all duration-200 hover:-translate-y-0.5 hover:border-[var(--gvx-hero-border-strong)] hover:bg-[var(--gvx-hero-surface-strong)]">
-                <div className="flex h-11 w-11 items-center justify-center rounded-lg bg-[var(--gvx-hero-accent-soft)]">
-                  <stat.icon size={24} className={stat.tone} weight="duotone" />
+              <div key={stat.label} className="group flex min-h-[88px] items-center gap-4 rounded-xl border border-[var(--gvx-hero-border)] bg-[var(--gvx-hero-surface)] px-4 py-4 shadow-[0_18px_44px_-40px_rgba(7,17,31,0.34)] backdrop-blur-xl transition-all duration-200 hover:-translate-y-0.5 hover:border-[var(--gvx-hero-border-strong)] hover:bg-[var(--gvx-hero-surface-strong)]">
+                <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-[var(--gvx-hero-accent-soft)]">
+                  <stat.icon size={22} className={stat.tone} weight="duotone" />
                 </div>
                 <div>
                   <div className="font-heading text-[1.25rem] font-semibold leading-none text-[var(--gvx-hero-text)]">{stat.value}</div>
