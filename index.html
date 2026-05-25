@@ -11,13 +11,23 @@
         (function () {
             try {
                 var key = "sentinelgrid-theme";
-                var storedTheme = window.localStorage.getItem(key);
+                var rawTheme = window.localStorage.getItem(key);
+                var storedTheme = null;
+
+                if (rawTheme !== null) {
+                    try {
+                        storedTheme = JSON.parse(rawTheme);
+                    } catch (parseError) {
+                        storedTheme = rawTheme;
+                    }
+                }
+
                 var theme = storedTheme === "light" || storedTheme === "dark" ? storedTheme : "dark";
                 var root = document.documentElement;
                 root.classList.remove("light", "dark");
                 root.classList.add(theme);
                 root.style.colorScheme = theme;
-                if (storedTheme === null) {
+                if (rawTheme === null || storedTheme !== theme) {
                     window.localStorage.setItem(key, JSON.stringify("dark"));
                 }
             } catch (error) {

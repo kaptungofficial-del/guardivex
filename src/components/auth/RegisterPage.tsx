@@ -1,5 +1,5 @@
 ﻿import { useState } from "react"
-import { ShieldCheck, ArrowLeft, Eye, EyeSlash, Lock, Envelope, User, Buildings } from "@phosphor-icons/react"
+import { ShieldCheck, Eye, EyeSlash, Lock, Envelope, User, Buildings } from "@phosphor-icons/react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"

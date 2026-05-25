@@ -295,7 +295,7 @@ function HomePage({ onNavigate }: { onNavigate: (page: string) => void }) {
               <Button
                 size="lg"
                 variant="outline"
-                className="border border-[#D9E7F2] bg-[rgba(255,255,255,0.82)] text-[#07111F] hover:border-primary/35 hover:bg-[rgba(255,255,255,0.9)] shadow-none backdrop-blur-xl w-full sm:w-auto h-8.5 sm:h-9.5 text-[0.9375rem] font-semibold px-5 sm:px-6 transition-all"
+                className="border border-[#D9E7F2] bg-[rgba(255,255,255,0.82)] text-[#07111F] hover:border-primary/35 hover:bg-[rgba(255,255,255,0.9)] shadow-none backdrop-blur-xl w-full sm:w-auto h-8.5 sm:h-9.5 text-[0.9375rem] font-semibold px-5 sm:px-6 transition-all dark:border-[rgba(0,119,255,0.26)] dark:bg-[rgba(11,22,40,0.72)] dark:text-[#F8FAFC] dark:hover:border-primary/40 dark:hover:bg-[rgba(0,199,232,0.10)]"
               >
                 <Monitor size={17} className="mr-1.5" weight="bold" />
                 Request Live Demo
@@ -817,13 +817,6 @@ function DashboardPreviewSection() {
       iconColor: "text-accent",
       hoverGradient: "hover:from-accent/20 hover:to-accent/10"
     },
-  ]
-
-  const devices = [
-    { icon: Camera, label: "Cameras", count: 584, status: 98, trend: "+2" },
-    { icon: Lock, label: "Access Control", count: 142, status: 100, trend: "0" },
-    { icon: Siren, label: "Alarm Panels", count: 89, status: 95, trend: "-1" },
-    { icon: NetworkX, label: "Network", count: 432, status: 97, trend: "+5" },
   ]
 
   const siteHealth = [

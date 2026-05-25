@@ -9,7 +9,7 @@
 }
 
 @layer utilities {
-  .guardivex-typography {
+  .guardivex-home-typography {
     font-feature-settings: "ss01", "ss02", "cv01", "cv02";
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;

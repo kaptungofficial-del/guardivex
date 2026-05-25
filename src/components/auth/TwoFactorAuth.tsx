@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react"
-import { ShieldCheck, ArrowLeft, CheckCircle } from "@phosphor-icons/react"
+import { ShieldCheck, CheckCircle } from "@phosphor-icons/react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { InputOTP, InputOTPGroup, InputOTPSlot } from "@/components/ui/input-otp"

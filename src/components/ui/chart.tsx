@@ -138,7 +138,6 @@ function ChartTooltipContent({
   labelFormatter,
   labelClassName,
   formatter,
-  color,
   nameKey,
   labelKey,
 }: ComponentProps<typeof RechartsPrimitive.Tooltip> &

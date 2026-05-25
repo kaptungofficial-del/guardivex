@@ -1,12 +1,11 @@
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
-import { List, X, Phone, ChatCircle, CloudArrowDown, Circle, LinkedinLogo, TwitterLogo, GithubLogo, YoutubeLogo, EnvelopeSimple, ArrowRight, CaretDown, VideoCamera, LockKey, BellRinging, WifiHigh, Gauge, CloudCheck, ChartLine, Pulse, Buildings, Users, Globe, ChartLineUp, Package, Certificate, Book, Code, FileText, GraduationCap, Question, Terminal, Headset, VideoConference, FileDoc, Ticket, ClockCounterClockwise, CreditCard, IdentificationBadge, Devices, Briefcase, Receipt } from "@phosphor-icons/react"
+import { List, X, Phone, ChatCircle, CloudArrowDown, LinkedinLogo, TwitterLogo, GithubLogo, YoutubeLogo, EnvelopeSimple, ArrowRight, CaretDown, VideoCamera, LockKey, BellRinging, WifiHigh, Gauge, CloudCheck, ChartLine, Pulse, Buildings, Users, Globe, ChartLineUp, Package, Certificate, Book, Code, FileText, GraduationCap, Question, Terminal, Headset, VideoConference, FileDoc, Ticket, ClockCounterClockwise, CreditCard, IdentificationBadge, Devices, Briefcase, Receipt } from "@phosphor-icons/react"
 import { useState, useRef, useEffect } from "react"
 import { ThemeSwitcher } from "@/components/ThemeSwitcher"
 import { BrandLogo } from "@/components/BrandLogo"
 import {
   ENTERPRISE_COMMAND_STRIP_CLASS,
-  ENTERPRISE_DROPDOWN_ACTION_CLASS,
   ENTERPRISE_DROPDOWN_ICON_CLASS,
   ENTERPRISE_DROPDOWN_ITEM_CLASS,
   ENTERPRISE_CONTROL_CLASS,
@@ -32,11 +31,6 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
   const [docsDropdownOpen, setDocsDropdownOpen] = useState(false)
   const [supportDropdownOpen, setSupportDropdownOpen] = useState(false)
   const [licensingDropdownOpen, setLicensingDropdownOpen] = useState(false)
-  const dropdownTimeoutRef = useRef<number | null>(null)
-  const enterpriseTimeoutRef = useRef<number | null>(null)
-  const docsTimeoutRef = useRef<number | null>(null)
-  const supportTimeoutRef = useRef<number | null>(null)
-  const licensingTimeoutRef = useRef<number | null>(null)
   const desktopNavRef = useRef<HTMLDivElement | null>(null)
   
   const productFeatures = [
@@ -560,12 +554,6 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
             <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3.5 sm:py-6 md:py-8">
               <div className="flex flex-col gap-1.5 sm:gap-2">
                 {navItems.map((item) => {
-                  const isDropdownOpen = item.id === "product" ? productDropdownOpen : 
-                                        item.id === "enterprise" ? enterpriseDropdownOpen :
-                                        item.id === "documentation" ? docsDropdownOpen :
-                                        item.id === "support" ? supportDropdownOpen :
-                                        item.id === "licensing" ? licensingDropdownOpen : false
-                  
                   return (
                     <div key={item.id}>
                       <button
