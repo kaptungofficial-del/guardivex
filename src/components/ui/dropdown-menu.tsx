@@ -44,7 +44,7 @@ function DropdownMenuContent({
         data-slot="dropdown-menu-content"
         sideOffset={sideOffset}
         className={cn(
-          "bg-white/96 text-[#07111F] border border-[#D8E8F5] data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 z-50 max-h-(--radix-dropdown-menu-content-available-height) min-w-[8rem] origin-(--radix-dropdown-menu-content-transform-origin) overflow-x-hidden overflow-y-auto rounded-xl p-1.5 shadow-[0_16px_28px_-22px_rgba(8,17,31,0.18)] dark:border-cyan-500/20 dark:bg-[rgba(7,17,31,0.96)] dark:text-[#F8FAFC] dark:shadow-[0_16px_28px_-22px_rgba(2,6,18,0.75)]",
+          "bg-popover text-popover-foreground border border-border data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 z-50 max-h-(--radix-dropdown-menu-content-available-height) min-w-[8rem] origin-(--radix-dropdown-menu-content-transform-origin) overflow-x-hidden overflow-y-auto rounded-xl p-1.5 shadow-sm dark:border-[rgba(0,119,255,0.26)] dark:bg-[rgba(7,17,31,0.96)] dark:text-[#F8FAFC] dark:shadow-[0_16px_28px_-22px_rgba(2,6,18,0.75)]",
           className
         )}
         {...props}
@@ -76,7 +76,7 @@ function DropdownMenuItem({
       data-inset={inset}
       data-variant={variant}
       className={cn(
-        "focus:bg-cyan-50 dark:focus:bg-slate-800/85 focus:text-[#07111F] dark:focus:text-[#F8FAFC] dark:text-slate-100 data-[variant=destructive]:text-destructive data-[variant=destructive]:focus:bg-destructive/10 dark:data-[variant=destructive]:focus:bg-destructive/20 data-[variant=destructive]:focus:text-destructive data-[variant=destructive]:*:[svg]:!text-destructive [&_svg:not([class*='text-'])]:text-muted-foreground dark:[&_svg:not([class*='text-'])]:text-slate-300 relative flex cursor-default items-center gap-2 rounded-md px-2.5 py-1.75 text-sm outline-hidden select-none data-[disabled]:pointer-events-none data-[disabled]:opacity-50 data-[inset]:pl-8 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+        "focus:bg-secondary dark:focus:bg-[rgba(0,199,232,0.10)] focus:text-[#07111F] dark:focus:text-[#F8FAFC] dark:text-slate-100 data-[variant=destructive]:text-destructive data-[variant=destructive]:focus:bg-destructive/10 dark:data-[variant=destructive]:focus:bg-destructive/20 data-[variant=destructive]:focus:text-destructive data-[variant=destructive]:*:[svg]:!text-destructive [&_svg:not([class*='text-'])]:text-muted-foreground dark:[&_svg:not([class*='text-'])]:text-slate-300 relative flex cursor-default items-center gap-2 rounded-md px-2.5 py-1.75 text-sm outline-hidden select-none data-[disabled]:pointer-events-none data-[disabled]:opacity-50 data-[inset]:pl-8 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
         className
       )}
       {...props}
@@ -213,7 +213,7 @@ function DropdownMenuSubTrigger({
       data-slot="dropdown-menu-sub-trigger"
       data-inset={inset}
       className={cn(
-        "focus:bg-cyan-50 focus:text-[#07111F] dark:text-slate-100 data-[state=open]:bg-cyan-50 data-[state=open]:text-[#07111F] dark:data-[state=open]:bg-slate-800/85 dark:data-[state=open]:text-[#F8FAFC] flex cursor-default items-center rounded-md px-2 py-1.5 text-sm outline-hidden select-none data-[inset]:pl-8",
+        "focus:bg-secondary focus:text-[#07111F] dark:text-slate-100 data-[state=open]:bg-secondary data-[state=open]:text-[#07111F] dark:data-[state=open]:bg-slate-800/85 dark:data-[state=open]:text-[#F8FAFC] flex cursor-default items-center rounded-md px-2 py-1.5 text-sm outline-hidden select-none data-[inset]:pl-8",
         className
       )}
       {...props}

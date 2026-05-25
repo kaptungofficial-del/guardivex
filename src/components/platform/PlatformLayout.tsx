@@ -76,8 +76,8 @@ export function PlatformLayout({ children, currentPage, onNavigate, onLogout, cr
   return (
     <div className="flex h-screen bg-background premium-shell overflow-hidden">
       <div className="pointer-events-none absolute inset-0 -z-10">
-        <div className="glow-orb absolute -top-20 left-[-4rem] h-72 w-72 rounded-full bg-slate-500/10" />
-        <div className="glow-orb absolute top-12 right-[-5rem] h-80 w-80 rounded-full bg-slate-600/10 [animation-delay:1.4s]" />
+        <div className="glow-orb absolute -top-20 left-[-4rem] h-72 w-72 rounded-full bg-primary/10" />
+        <div className="glow-orb absolute top-12 right-[-5rem] h-80 w-80 rounded-full bg-accent/10 [animation-delay:1.4s]" />
       </div>
       {sidebarOpen && (
         <div 
@@ -87,10 +87,10 @@ export function PlatformLayout({ children, currentPage, onNavigate, onLogout, cr
       )}
 
       <aside className={cn(
-        "fixed lg:relative inset-y-0 left-0 z-50 w-64 sm:w-72 border-r border-[#D8E8F5] bg-white/90 backdrop-blur-md flex flex-col transition-transform duration-300 lg:translate-x-0 dark:border-cyan-500/20 dark:bg-[rgba(7,17,31,0.92)]",
+        "fixed lg:relative inset-y-0 left-0 z-50 w-64 sm:w-72 border-r border-border bg-white/90 backdrop-blur-md flex flex-col transition-transform duration-300 lg:translate-x-0 dark:border-[rgba(0,119,255,0.26)] dark:bg-[rgba(7,17,31,0.92)]",
         sidebarOpen ? "translate-x-0" : "-translate-x-full"
       )}>
-        <div className="p-4 sm:p-6 border-b border-[#D8E8F5] dark:border-cyan-500/15">
+        <div className="p-4 sm:p-6 border-b border-border dark:border-[rgba(0,119,255,0.22)]">
           <div className="flex items-center justify-between">
             <BrandLogo
               subtitle="Security Platform"
@@ -113,7 +113,7 @@ export function PlatformLayout({ children, currentPage, onNavigate, onLogout, cr
         <nav className="flex-1 overflow-y-auto p-3 sm:p-3.5 space-y-3 sm:space-y-4">
           {navSections.map((section) => (
             <div key={section.title}>
-              <div className="text-[10px] sm:text-xs font-semibold text-[#5B677A] dark:text-[#94A3B8] mb-1.5 px-2 sm:px-3 tracking-[0.1em]">
+              <div className="text-[10px] sm:text-xs font-semibold text-[#64748B] dark:text-[#94A3B8] mb-1.5 px-2 sm:px-3 tracking-[0.1em]">
                 {section.title}
               </div>
               <div className="space-y-0.5 sm:space-y-1">
@@ -128,8 +128,8 @@ export function PlatformLayout({ children, currentPage, onNavigate, onLogout, cr
                       className={cn(
                         "w-full flex items-center gap-2.5 sm:gap-3 px-2.5 sm:px-3 py-1.5 sm:py-2 rounded-md text-xs sm:text-sm transition-all active:scale-98 border",
                         isActive 
-                          ? "bg-cyan-50 text-[#07111F] border-cyan-500/20 font-semibold dark:bg-[rgba(0,199,232,0.10)] dark:text-[#F8FAFC]" 
-                          : "border-transparent text-[#5B677A] hover:bg-[#F6F9FC] hover:text-[#07111F] dark:text-muted-foreground dark:hover:bg-[rgba(0,199,232,0.08)] dark:hover:text-[#F8FAFC]"
+                          ? "bg-secondary text-[#07111F] border-primary/20 font-semibold dark:bg-[rgba(0,199,232,0.10)] dark:text-[#F8FAFC]" 
+                          : "border-transparent text-[#64748B] hover:bg-secondary hover:text-[#07111F] dark:text-muted-foreground dark:hover:bg-[rgba(0,199,232,0.08)] dark:hover:text-[#F8FAFC]"
                       )}
                     >
                       <Icon size={16} weight={isActive ? "fill" : "regular"} className="shrink-0 sm:w-[18px] sm:h-[18px]" />
@@ -147,9 +147,9 @@ export function PlatformLayout({ children, currentPage, onNavigate, onLogout, cr
           ))}
         </nav>
 
-        <div className="p-3 sm:p-4 border-t border-[#D8E8F5] dark:border-cyan-500/15">
-          <div className="p-2.5 sm:p-3 bg-[#F8FBFF] rounded-xl border border-[#D8E8F5] dark:bg-slate-900/70 dark:border-cyan-500/15">
-            <div className="text-[10px] sm:text-xs text-[#5B677A] dark:text-[#94A3B8] mb-1">License</div>
+        <div className="p-3 sm:p-4 border-t border-border dark:border-[rgba(0,119,255,0.22)]">
+          <div className="p-2.5 sm:p-3 bg-secondary rounded-xl border border-border dark:bg-slate-900/70 dark:border-[rgba(0,119,255,0.22)]">
+            <div className="text-[10px] sm:text-xs text-[#64748B] dark:text-[#94A3B8] mb-1">License</div>
             <div className="flex items-center justify-between gap-2">
               <span className="text-xs sm:text-sm font-semibold capitalize truncate">{license.tier}</span>
               <Badge 

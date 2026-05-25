@@ -10,15 +10,15 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default:
-          "border border-primary/60 bg-[linear-gradient(135deg,#00C7E8_0%,#008FC7_55%,#00E5C3_100%)] text-primary-foreground shadow-[0_16px_28px_-18px_rgba(0,199,232,0.68)] hover:border-primary hover:shadow-[0_18px_32px_-18px_rgba(0,199,232,0.78)]",
+          "border border-primary/60 bg-[linear-gradient(135deg,#0077FF_0%,#00C7E8_55%,#00D7C3_100%)] text-primary-foreground shadow-sm hover:border-primary/80 hover:shadow-[0_10px_18px_-16px_rgba(7,17,31,0.18)]",
         destructive:
           "bg-destructive text-destructive-foreground shadow-xs hover:bg-destructive/90 focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40 dark:bg-destructive/60",
         outline:
-          "border border-border/70 bg-background text-foreground shadow-[0_12px_24px_-20px_rgba(15,23,42,0.14)] hover:border-primary/40 hover:bg-accent/10 dark:border-[rgba(0,199,232,0.22)] dark:bg-[linear-gradient(180deg,rgba(11,22,40,0.90),rgba(7,17,31,0.82))] dark:text-[#F8FAFC] dark:shadow-[0_12px_24px_-20px_rgba(2,6,18,0.72)] dark:hover:bg-[linear-gradient(180deg,rgba(11,22,40,0.96),rgba(7,17,31,0.9))]",
+          "border border-border bg-background text-foreground shadow-sm hover:border-primary/40 hover:bg-secondary dark:border-[rgba(0,119,255,0.26)] dark:bg-[linear-gradient(180deg,rgba(11,22,40,0.90),rgba(7,17,31,0.82))] dark:text-[#F8FAFC] dark:hover:bg-[linear-gradient(180deg,rgba(11,22,40,0.96),rgba(7,17,31,0.9))]",
         secondary:
-          "border border-border/70 bg-card text-foreground shadow-[0_12px_24px_-18px_rgba(15,23,42,0.12)] hover:border-primary/40 hover:bg-accent/10 dark:border-[rgba(0,199,232,0.22)] dark:bg-[linear-gradient(180deg,rgba(11,22,40,0.92),rgba(7,17,31,0.88))] dark:text-[#F8FAFC] dark:shadow-[0_12px_24px_-18px_rgba(7,17,31,0.72)] dark:hover:bg-[linear-gradient(180deg,rgba(11,22,40,0.98),rgba(7,17,31,0.94))]",
+          "border border-border bg-white text-foreground shadow-sm hover:border-primary/40 hover:bg-secondary dark:border-[rgba(0,119,255,0.26)] dark:bg-[linear-gradient(180deg,rgba(11,22,40,0.92),rgba(7,17,31,0.88))] dark:text-[#F8FAFC] dark:shadow-[0_12px_24px_-18px_rgba(7,17,31,0.72)] dark:hover:bg-[linear-gradient(180deg,rgba(11,22,40,0.98),rgba(7,17,31,0.94))]",
         ghost:
-          "hover:bg-cyan-50 hover:text-foreground dark:hover:bg-[rgba(0,199,232,0.10)]",
+          "hover:bg-secondary hover:text-foreground dark:hover:bg-[rgba(0,199,232,0.10)]",
         link: "text-primary underline-offset-4 hover:underline",
       },
       size: {

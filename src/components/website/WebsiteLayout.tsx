@@ -255,16 +255,16 @@ export function WebsiteLayout({ currentPage, onNavigate, onLogin }: WebsiteLayou
 
 function HomePage({ onNavigate }: { onNavigate: (page: string) => void }) {
   return (
-    <div className="relative guardivex-home-typography">
+    <div className="relative guardivex-home-typography overflow-x-clip">
       <section className="relative overflow-hidden bg-gradient-to-b from-background via-card/5 to-background">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_20%_-20%,rgba(6,182,212,0.10),transparent_50%)]" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_80%_50%,rgba(59,130,246,0.08),transparent_60%)]" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_100%,rgba(14,165,233,0.06),transparent_70%)]" />
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(6,182,212,0.02)_1px,transparent_1px),linear-gradient(to_bottom,rgba(59,130,246,0.02)_1px,transparent_1px)] bg-[size:6rem_6rem]" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_20%_-20%,rgba(0,119,255,0.04),transparent_50%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_80%_50%,rgba(0,199,232,0.03),transparent_60%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_100%,rgba(0,215,195,0.025),transparent_70%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(0,119,255,0.015)_1px,transparent_1px),linear-gradient(to_bottom,rgba(0,199,232,0.015)_1px,transparent_1px)] bg-[size:6rem_6rem]" />
 
-        <div className="container mx-auto px-4 sm:px-6 pt-4 md:pt-6 pb-6 md:pb-8 relative z-10">
+        <div className="container mx-auto px-4 sm:px-6 pt-2.5 sm:pt-4 md:pt-6 pb-5 sm:pb-6 md:pb-8 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
-            <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-gradient-to-r from-primary/15 via-primary/10 to-primary/15 border border-primary/30 text-primary text-[10px] sm:text-xs font-semibold mb-3 sm:mb-4 shadow-lg shadow-primary/5 cursor-default">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary border border-border text-[9px] sm:text-xs font-semibold mb-2.5 sm:mb-4 shadow-sm cursor-default text-[#07111F] dark:bg-gradient-to-r dark:from-primary/15 dark:via-accent/10 dark:to-primary/15 dark:border-primary/30 dark:text-[#F8FAFC]">
               <div className="flex items-center gap-2">
                 <div className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
                 <span className="font-bold tracking-[0.12em]">UNIFIED SOC COMMAND CENTER</span>
@@ -273,21 +273,21 @@ function HomePage({ onNavigate }: { onNavigate: (page: string) => void }) {
               <span className="text-primary/80 font-medium">Enterprise Security Platform</span>
             </div>
 
-            <h1 className="mx-auto max-w-3xl text-[clamp(2.1rem,5vw,3.35rem)] sm:text-[clamp(2.35rem,4.6vw,3.85rem)] md:text-[clamp(2.55rem,4.1vw,4.15rem)] font-bold font-heading mb-3 md:mb-4 leading-[1.04] tracking-[-0.04em] text-balance px-2">
-              <span className="inline-block bg-gradient-to-r from-foreground via-foreground to-foreground/75 bg-clip-text text-transparent">
+            <h1 className="mx-auto max-w-3xl text-3xl sm:text-[clamp(2.35rem,4.6vw,3.85rem)] md:text-[clamp(2.55rem,4.1vw,4.15rem)] font-extrabold font-heading mb-3 md:mb-4 leading-[1.04] tracking-[-0.04em] text-balance px-2 text-[#07111F] dark:font-bold dark:bg-gradient-to-r dark:from-foreground dark:via-foreground dark:to-foreground/75 dark:bg-clip-text dark:text-transparent">
+              <span className="inline-block">
                 Enterprise Security Platform
               </span>
             </h1>
 
-            <p className="text-sm sm:text-base md:text-[1.02rem] text-muted-foreground mb-4 md:mb-4.5 max-w-2xl mx-auto leading-relaxed px-2 font-medium text-balance">
+            <p className="text-[0.92rem] sm:text-base md:text-[1.02rem] text-[#475569] dark:text-slate-300 mb-4 md:mb-4.5 max-w-xl sm:max-w-2xl mx-auto leading-[1.7] px-2 font-medium text-balance">
               Self-hosted enterprise security platform. Monitor devices, cameras, NVRs, access control, alarms, and network infrastructure from a unified SOC Command Center with real-time threat intelligence.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-2.5 sm:gap-3 justify-center px-4 mb-6 md:mb-7">
+            <div className="mx-auto flex w-full max-w-[340px] flex-col gap-3 justify-center px-0 sm:max-w-none sm:flex-row sm:gap-3 sm:px-4 mb-5 md:mb-7">
               <Button
                 size="lg"
                 onClick={() => onNavigate("download")}
-                className="bg-gradient-to-r from-primary via-primary to-accent hover:shadow-2xl hover:shadow-primary/20 text-primary-foreground w-full sm:w-auto h-10.5 text-sm font-bold px-5.5 sm:px-6.5 transition-all border border-primary/20"
+                className="bg-gradient-to-r from-[#0077FF] via-[#00C7E8] to-[#00D7C3] hover:from-[#0A6AE6] hover:via-[#00B9D8] hover:to-[#00C7B1] hover:shadow-sm text-white w-full sm:w-auto h-10 sm:h-11 text-sm font-bold px-5 sm:px-6 transition-all border border-primary/20"
               >
                 <CloudArrowDown size={19} className="mr-2" weight="bold" />
                 Download Enterprise Server
@@ -295,14 +295,14 @@ function HomePage({ onNavigate }: { onNavigate: (page: string) => void }) {
               <Button
                 size="lg"
                 variant="outline"
-                className="border-2 border-border/60 hover:border-primary/40 hover:bg-primary/5 backdrop-blur-sm w-full sm:w-auto h-10.5 text-sm font-bold px-5.5 sm:px-6.5 transition-all"
+                className="border border-border bg-white text-[#07111F] hover:border-primary/40 hover:bg-secondary shadow-sm backdrop-blur-0 w-full sm:w-auto h-10 sm:h-11 text-sm font-bold px-5 sm:px-6 transition-all"
               >
                 <Monitor size={19} className="mr-2" weight="bold" />
                 Request Live Demo
               </Button>
             </div>
 
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-2.5 md:gap-3 max-w-3xl mx-auto px-4">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-3 max-w-3xl mx-auto px-4">
               {[
                 { value: "5,000+", label: "Organizations", icon: Buildings },
                 { value: "50,000+", label: "Devices Monitored", icon: Broadcast },
@@ -311,10 +311,10 @@ function HomePage({ onNavigate }: { onNavigate: (page: string) => void }) {
               ].map((stat, i) => (
                 <div key={i} className="group relative">
                   <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity blur-xl" />
-                  <div className="relative bg-card/55 backdrop-blur-sm border border-border/50 rounded-xl p-2.5 md:p-3 hover:border-primary/30 transition-all cursor-default">
-                    <stat.icon size={20} className="text-primary mb-1 mx-auto opacity-70" weight="duotone" />
-                    <div className="text-[1.05rem] md:text-[1.45rem] font-bold text-foreground mb-0.5 font-heading">{stat.value}</div>
-                    <div className="text-xs text-muted-foreground font-medium">{stat.label}</div>
+                  <div className="relative min-h-[88px] bg-card border border-border shadow-sm rounded-xl p-2 sm:p-3 hover:border-primary/30 transition-all cursor-default dark:bg-card/55 dark:border-border/50 dark:shadow-none">
+                    <stat.icon size={18} className="text-primary mb-1 mx-auto opacity-70" weight="duotone" />
+                    <div className="text-[0.95rem] md:text-[1.45rem] font-bold text-foreground mb-0.5 font-heading">{stat.value}</div>
+                    <div className="text-xs text-[#64748B] dark:text-muted-foreground font-medium">{stat.label}</div>
                   </div>
                 </div>
               ))}
@@ -326,12 +326,12 @@ function HomePage({ onNavigate }: { onNavigate: (page: string) => void }) {
       <section className="container mx-auto px-4 sm:px-6 py-9 md:py-11 border-t border-border/40">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
           {[
-            { icon: Camera, title: "Video Surveillance", desc: "Cameras & NVRs", gradient: "from-blue-500/10 to-cyan-500/10", iconColor: "text-blue-500" },
-            { icon: Lock, title: "Access Control", desc: "Doors & Readers", gradient: "from-emerald-500/10 to-green-500/10", iconColor: "text-emerald-500" },
-            { icon: Siren, title: "Alarm Systems", desc: "Panels & Sensors", gradient: "from-red-500/10 to-orange-500/10", iconColor: "text-red-500" },
-            { icon: NetworkX, title: "Network Infrastructure", desc: "Switches & Routers", gradient: "from-purple-500/10 to-pink-500/10", iconColor: "text-purple-500" },
+            { icon: Camera, title: "Video Surveillance", desc: "Cameras & NVRs", gradient: "from-primary/10 to-accent/10", iconColor: "text-primary" },
+            { icon: Lock, title: "Access Control", desc: "Doors & Readers", gradient: "from-accent/10 to-success/10", iconColor: "text-accent" },
+            { icon: Siren, title: "Alarm Systems", desc: "Panels & Sensors", gradient: "from-primary/10 to-success/10", iconColor: "text-primary" },
+            { icon: NetworkX, title: "Network Infrastructure", desc: "Switches & Routers", gradient: "from-accent/10 to-primary/10", iconColor: "text-accent" },
           ].map((feature, i) => (
-            <div key={i} className="group relative overflow-hidden rounded-2xl border border-border/40 bg-card/35 backdrop-blur-sm p-4.5 md:p-5 hover:border-primary/40 transition-all duration-500 cursor-default">
+            <div key={i} className="group relative overflow-hidden rounded-2xl border border-border bg-card p-4.5 md:p-5 hover:border-primary/40 transition-all duration-500 cursor-default shadow-sm">
               <div className={`absolute inset-0 bg-gradient-to-br ${feature.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
               <div className="relative z-10">
                 <feature.icon size={38} className={`${feature.iconColor} mb-4 group-hover:scale-110 transition-transform duration-500`} weight="duotone" />
@@ -349,7 +349,7 @@ function HomePage({ onNavigate }: { onNavigate: (page: string) => void }) {
 
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-7 md:py-10 border-t border-border/60">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
-          <Card className="bg-card/70 border-border/70">
+          <Card className="bg-card border-border">
             <CardHeader className="p-4 sm:p-6">
               <Monitor size={32} className="text-primary mb-2 sm:mb-3" weight="duotone" />
               <CardTitle className="text-base sm:text-lg text-foreground">Self-Hosted Control</CardTitle>
@@ -358,7 +358,7 @@ function HomePage({ onNavigate }: { onNavigate: (page: string) => void }) {
               </CardDescription>
             </CardHeader>
           </Card>
-          <Card className="bg-card/70 border-border/70">
+          <Card className="bg-card border-border">
             <CardHeader className="p-4 sm:p-6">
               <ShieldCheck size={32} className="text-primary mb-2 sm:mb-3" weight="duotone" />
               <CardTitle className="text-base sm:text-lg text-foreground">SOC Command Center</CardTitle>
@@ -367,7 +367,7 @@ function HomePage({ onNavigate }: { onNavigate: (page: string) => void }) {
               </CardDescription>
             </CardHeader>
           </Card>
-          <Card className="bg-card/70 border-border/70">
+          <Card className="bg-card border-border">
             <CardHeader className="p-4 sm:p-6">
               <CloudArrowDown size={32} className="text-primary mb-2 sm:mb-3" weight="duotone" />
               <CardTitle className="text-base sm:text-lg text-foreground">Optional Cloud Services</CardTitle>
