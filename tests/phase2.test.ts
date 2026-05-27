@@ -59,7 +59,7 @@ describe("Phase 2 safety and infrastructure contracts", () => {
   })
 
   it("defines retry and dead-letter capable queue topology", () => {
-    expect(Object.values(queueNames)).toEqual(["event-ingestion", "event-processing", "audit-writes", "notifications", "AI-analysis", "command-review"])
+    expect(Object.values(queueNames)).toEqual(["event-ingestion", "event-processing", "audit-writes", "notifications", "AI-analysis", "command-review", "command-execution", "alert-fanout", "device-heartbeat"])
     expect(defaultJobOptions.attempts).toBe(5)
     expect(defaultJobOptions.backoff).toMatchObject({ type: "exponential" })
   })
