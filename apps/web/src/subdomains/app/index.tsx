@@ -26,6 +26,7 @@ const PlatformLayout = lazy(() => import("@/components/platform/PlatformLayout")
 const SOCDashboardPage = lazy(() => import("@/components/platform/SOCDashboardPage").then((module) => ({ default: module.SOCDashboardPage })))
 const SitesPage = lazy(() => import("@/components/pages/SitesPage").then((module) => ({ default: module.SitesPage })))
 const DevicesPage = lazy(() => import("@/components/pages/DevicesPage").then((module) => ({ default: module.DevicesPage })))
+const DeviceDetailPage = lazy(() => import("@/components/pages/DeviceDetailPage").then((module) => ({ default: module.DeviceDetailPage })))
 const AlertsPage = lazy(() => import("@/components/pages/AlertsPage").then((module) => ({ default: module.AlertsPage })))
 const IncidentsPage = lazy(() => import("@/components/pages/IncidentsPage").then((module) => ({ default: module.IncidentsPage })))
 const SettingsPage = lazy(() => import("@/components/pages/SettingsPage").then((module) => ({ default: module.SettingsPage })))
@@ -37,10 +38,15 @@ const TenantActivityPage = lazy(() => import("@/components/pages/OperationalPage
 const DeviceHealthPage = lazy(() => import("@/components/pages/OperationalPages").then((module) => ({ default: module.DeviceHealthPage })))
 const EventTimelinePage = lazy(() => import("@/components/pages/OperationalPages").then((module) => ({ default: module.EventTimelinePage })))
 const IncidentCorrelationPage = lazy(() => import("@/components/pages/OperationalPages").then((module) => ({ default: module.IncidentCorrelationPage })))
-const AiRecommendationsPage = lazy(() => import("@/components/pages/OperationalPages").then((module) => ({ default: module.AiRecommendationsPage })))
+const AIAssistantPage = lazy(() => import("@/components/pages/AIAssistantPage").then((module) => ({ default: module.AIAssistantPage })))
 
 const AUTH_ROUTES = new Set(["/login", "/register", "/reset-password"])
 const PLATFORM_ROUTES = new Set(["/dashboard", "/sites", "/devices", "/alerts", "/incidents", "/integrations", "/license", "/system-health", "/audit-logs", "/command-approvals", "/denied-actions", "/session-history", "/tenant-activity", "/device-health", "/event-timeline", "/incident-correlation", "/ai-recommendations", "/users", "/settings"])
+const DEVICE_DETAIL_ROUTE_PATTERN = /^\/devices\/([0-9a-fA-F-]{36})$/
+
+function isPlatformRoute(path: string) {
+  return PLATFORM_ROUTES.has(path) || DEVICE_DETAIL_ROUTE_PATTERN.test(path)
+}
 
 interface PlatformData {
   sites: Site[]
@@ -135,7 +141,7 @@ function renderPlatformPage(platformPage: PlatformPageView, data: PlatformData, 
   if (platformPage === "device-health") return <DeviceHealthPage />
   if (platformPage === "event-timeline") return <EventTimelinePage />
   if (platformPage === "incident-correlation") return <IncidentCorrelationPage />
-  if (platformPage === "ai-recommendations") return <AiRecommendationsPage />
+  if (platformPage === "ai-recommendations") return <AIAssistantPage />
 
   if (platformPage === "integrations") {
     return (
@@ -237,7 +243,7 @@ export function AppSubdomain() {
       navigate("/dashboard")
       return
     }
-    if (!isAuthenticated && PLATFORM_ROUTES.has(currentPath)) {
+    if (!isAuthenticated && isPlatformRoute(currentPath)) {
       navigate("/login")
       return
     }
@@ -305,16 +311,17 @@ export function AppSubdomain() {
     )
   }
 
-  if (PLATFORM_ROUTES.has(currentPath)) {
+  if (isPlatformRoute(currentPath)) {
     const criticalAlertsCount = platformData.alerts.filter((alert) => !alert.acknowledged && (alert.severity === "critical" || alert.severity === "high")).length
-    const platformPage = currentPath.slice(1) as PlatformPageView
+    const deviceDetailMatch = currentPath.match(DEVICE_DETAIL_ROUTE_PATTERN)
+    const platformPage = deviceDetailMatch ? "device-detail" as PlatformPageView : currentPath.slice(1) as PlatformPageView
 
     return (
       <Suspense fallback={<LoadingSpinner />}>
         <>
           {isAuthenticated && <SessionTimeoutWarning onLogout={handleLogout} onExtendSession={handleExtendSession} sessionDurationMs={30 * 60 * 1000} warningThresholdMs={5 * 60 * 1000} />}
-          <PlatformLayout currentPage={platformPage} onNavigate={handleNavigatePlatform} onLogout={handleLogout} criticalAlerts={criticalAlertsCount} license={license}>
-            {renderPlatformPage(platformPage, platformData, license)}
+          <PlatformLayout currentPage={platformPage} onNavigate={handleNavigatePlatform} onLogout={handleLogout} criticalAlerts={criticalAlertsCount} license={license} permissions={authUser?.permissions ?? []}>
+            {deviceDetailMatch ? <DeviceDetailPage deviceId={deviceDetailMatch[1]} onBack={() => navigate("/devices")} /> : platformPage === "devices" ? <DevicesPage devices={platformData.devices} onSelectDevice={(deviceId) => navigate(`/devices/${deviceId}`)} /> : renderPlatformPage(platformPage, platformData, license)}
           </PlatformLayout>
         </>
       </Suspense>

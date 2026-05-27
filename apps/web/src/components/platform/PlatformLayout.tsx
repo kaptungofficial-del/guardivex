@@ -23,6 +23,7 @@ interface PlatformLayoutProps {
   onLogout: () => void
   criticalAlerts: number
   license: LicenseInfo
+  permissions?: string[]
 }
 
 interface NavItem {
@@ -30,6 +31,7 @@ interface NavItem {
   label: string
   icon: Icon
   badge?: number | string
+  permissions?: string[]
 }
 
 interface NavSection {
@@ -37,8 +39,10 @@ interface NavSection {
   items: NavItem[]
 }
 
-export function PlatformLayout({ children, currentPage, onNavigate, onLogout, criticalAlerts, license }: PlatformLayoutProps) {
+export function PlatformLayout({ children, currentPage, onNavigate, onLogout, criticalAlerts, license, permissions = [] }: PlatformLayoutProps) {
   const [sidebarOpen, setSidebarOpen] = useState(false)
+  const permissionSet = new Set(permissions)
+  const canSee = (item: NavItem) => !item.permissions || item.permissions.some((permission) => permissionSet.has(permission))
 
   const navSections: NavSection[] = [
     {
@@ -50,38 +54,38 @@ export function PlatformLayout({ children, currentPage, onNavigate, onLogout, cr
     {
       title: "INFRASTRUCTURE",
       items: [
-        { id: "sites" as PlatformPageView, label: "Sites", icon: Buildings },
-        { id: "devices" as PlatformPageView, label: "Devices", icon: Devices },
+        { id: "sites" as PlatformPageView, label: "Sites", icon: Buildings, permissions: ["sites:read"] },
+        { id: "devices" as PlatformPageView, label: "Devices", icon: Devices, permissions: ["devices:read"] },
       ]
     },
     {
       title: "SECURITY",
       items: [
-        { id: "alerts" as PlatformPageView, label: "Alerts", icon: Bell, badge: criticalAlerts },
-        { id: "incidents" as PlatformPageView, label: "Incidents", icon: ShieldWarning },
-        { id: "event-timeline" as PlatformPageView, label: "Event Timeline", icon: Database },
-        { id: "incident-correlation" as PlatformPageView, label: "Incident Correlation", icon: GitBranch },
+        { id: "alerts" as PlatformPageView, label: "Alerts", icon: Bell, badge: criticalAlerts, permissions: ["alerts:read"] },
+        { id: "incidents" as PlatformPageView, label: "Incidents", icon: ShieldWarning, permissions: ["incidents:read"] },
+        { id: "event-timeline" as PlatformPageView, label: "Event Timeline", icon: Database, permissions: ["events:read", "devices:read"] },
+        { id: "incident-correlation" as PlatformPageView, label: "Incident Correlation", icon: GitBranch, permissions: ["incidents:read"] },
       ]
     },
     {
       title: "AUDIT & REVIEW",
       items: [
-        { id: "audit-logs" as PlatformPageView, label: "Audit Logs", icon: ClipboardText },
-        { id: "command-approvals" as PlatformPageView, label: "Command Approvals", icon: CheckCircle },
-        { id: "denied-actions" as PlatformPageView, label: "Denied Actions", icon: ShieldWarning },
-        { id: "session-history" as PlatformPageView, label: "Session History", icon: ClockCounterClockwise },
-        { id: "tenant-activity" as PlatformPageView, label: "Tenant Activity", icon: Pulse },
+        { id: "audit-logs" as PlatformPageView, label: "Audit Logs", icon: ClipboardText, permissions: ["audit:read"] },
+        { id: "command-approvals" as PlatformPageView, label: "Command Approvals", icon: CheckCircle, permissions: ["commands:approve"] },
+        { id: "denied-actions" as PlatformPageView, label: "Denied Actions", icon: ShieldWarning, permissions: ["audit:read"] },
+        { id: "session-history" as PlatformPageView, label: "Session History", icon: ClockCounterClockwise, permissions: ["sessions:read", "audit:read"] },
+        { id: "tenant-activity" as PlatformPageView, label: "Tenant Activity", icon: Pulse, permissions: ["audit:read"] },
       ]
     },
     {
       title: "PLATFORM",
       items: [
-        { id: "integrations" as PlatformPageView, label: "Integrations", icon: Plugs },
-        { id: "device-health" as PlatformPageView, label: "Device Health", icon: Heartbeat },
-        { id: "ai-recommendations" as PlatformPageView, label: "AI Recommendations", icon: Robot },
+        { id: "integrations" as PlatformPageView, label: "Integrations", icon: Plugs, permissions: ["integrations:read", "devices:read"] },
+        { id: "device-health" as PlatformPageView, label: "Device Health", icon: Heartbeat, permissions: ["devices:read"] },
+        { id: "ai-recommendations" as PlatformPageView, label: "AI Assistant", icon: Robot, permissions: ["ai:read", "incidents:read"] },
         { id: "license" as PlatformPageView, label: "License Status", icon: Key, badge: license.status === "expiring" ? "!" : undefined },
         { id: "system-health" as PlatformPageView, label: "System Health", icon: Monitor },
-        { id: "users" as PlatformPageView, label: "Users & Roles", icon: Users },
+        { id: "users" as PlatformPageView, label: "Users & Roles", icon: Users, permissions: ["users:read"] },
       ]
     },
     {
@@ -139,13 +143,13 @@ export function PlatformLayout({ children, currentPage, onNavigate, onLogout, cr
         </div>
 
         <nav className="flex-1 overflow-y-auto p-3 sm:p-3.5 space-y-3 sm:space-y-4">
-          {navSections.map((section) => (
+          {navSections.filter((section) => section.items.some(canSee)).map((section) => (
             <div key={section.title}>
               <div className="text-[10px] sm:text-xs font-semibold text-[#64748B] dark:text-[#94A3B8] mb-1.5 px-2 sm:px-3 tracking-[0.1em]">
                 {section.title}
               </div>
               <div className="space-y-0.5 sm:space-y-1">
-                {section.items.map((item) => {
+                {section.items.filter(canSee).map((item) => {
                   const Icon = item.icon
                   const isActive = currentPage === item.id
                   

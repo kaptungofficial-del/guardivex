@@ -10,9 +10,10 @@ import { formatDistanceToNow } from "date-fns"
 
 interface DevicesPageProps {
   devices: Device[]
+  onSelectDevice?: (deviceId: string) => void
 }
 
-export function DevicesPage({ devices }: DevicesPageProps) {
+export function DevicesPage({ devices, onSelectDevice }: DevicesPageProps) {
   const [searchQuery, setSearchQuery] = useState("")
   const [statusFilter, setStatusFilter] = useState<string>("all")
   const [typeFilter, setTypeFilter] = useState<string>("all")
@@ -24,6 +25,9 @@ export function DevicesPage({ devices }: DevicesPageProps) {
       case "offline":
         return "text-destructive"
       case "warning":
+      case "degraded":
+      case "maintenance":
+      case "unknown":
         return "text-warning"
     }
   }
@@ -37,8 +41,11 @@ export function DevicesPage({ devices }: DevicesPageProps) {
       case "camera":
         return Camera
       case "access_control":
+      case "access_control_panel":
+      case "door_contact":
         return Lock
       case "alarm":
+      case "alarm_panel":
         return Siren
       default:
         return Circle
@@ -46,8 +53,9 @@ export function DevicesPage({ devices }: DevicesPageProps) {
   }
 
   const filteredDevices = devices.filter((device) => {
+    const siteName = device.siteName ?? ""
     const matchesSearch = device.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                         device.siteName.toLowerCase().includes(searchQuery.toLowerCase())
+               siteName.toLowerCase().includes(searchQuery.toLowerCase())
     const matchesStatus = statusFilter === "all" || device.status === statusFilter
     const matchesType = typeFilter === "all" || device.type === typeFilter
     return matchesSearch && matchesStatus && matchesType
@@ -82,6 +90,9 @@ export function DevicesPage({ devices }: DevicesPageProps) {
                 <SelectItem value="online">Online</SelectItem>
                 <SelectItem value="offline">Offline</SelectItem>
                 <SelectItem value="warning">Warning</SelectItem>
+                <SelectItem value="degraded">Degraded</SelectItem>
+                <SelectItem value="maintenance">Maintenance</SelectItem>
+                <SelectItem value="unknown">Unknown</SelectItem>
               </SelectContent>
             </Select>
             <Select value={typeFilter} onValueChange={setTypeFilter}>
@@ -93,7 +104,10 @@ export function DevicesPage({ devices }: DevicesPageProps) {
                 <SelectItem value="camera">Camera</SelectItem>
                 <SelectItem value="sensor">Sensor</SelectItem>
                 <SelectItem value="access_control">Access Control</SelectItem>
+                <SelectItem value="access_control_panel">Access Control Panel</SelectItem>
                 <SelectItem value="alarm">Alarm</SelectItem>
+                <SelectItem value="alarm_panel">Alarm Panel</SelectItem>
+                <SelectItem value="network_switch">Network Switch</SelectItem>
               </SelectContent>
             </Select>
           </div>
@@ -121,16 +135,16 @@ export function DevicesPage({ devices }: DevicesPageProps) {
                     return (
                       <TableRow key={device.id} className="hover:bg-secondary/50">
                         <TableCell className="font-mono text-sm font-medium">
-                          <div className="flex items-center gap-2">
+                          <button type="button" onClick={() => onSelectDevice?.(device.id)} className="flex items-center gap-2 text-left hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40">
                             <DeviceIcon size={16} className="text-muted-foreground" />
                             {device.name}
-                          </div>
+                          </button>
                         </TableCell>
                         <TableCell className="text-sm capitalize">
                           {device.type.replace("_", " ")}
                         </TableCell>
-                        <TableCell className="text-sm">{device.siteName}</TableCell>
-                        <TableCell className="text-sm text-muted-foreground hidden lg:table-cell">{device.location}</TableCell>
+                        <TableCell className="text-sm">{device.siteName ?? "-"}</TableCell>
+                        <TableCell className="text-sm text-muted-foreground hidden lg:table-cell">{device.location ?? "-"}</TableCell>
                         <TableCell>
                           <Badge variant="secondary" className="flex items-center gap-1.5 w-fit">
                             <StatusIcon size={10} weight="fill" className={getStatusColor(device.status)} />
@@ -138,10 +152,10 @@ export function DevicesPage({ devices }: DevicesPageProps) {
                           </Badge>
                         </TableCell>
                         <TableCell className="text-sm text-muted-foreground hidden xl:table-cell">
-                          {formatDistanceToNow(new Date(device.lastSeen), { addSuffix: true })}
+                          {device.lastSeen ?? device.lastSeenAt ? formatDistanceToNow(new Date(device.lastSeen ?? device.lastSeenAt!), { addSuffix: true }) : "-"}
                         </TableCell>
-                        <TableCell className="text-sm font-mono hidden lg:table-cell">{device.uptime}%</TableCell>
-                        <TableCell className="text-sm font-mono text-muted-foreground hidden xl:table-cell">{device.firmware}</TableCell>
+                        <TableCell className="text-sm font-mono hidden lg:table-cell">{device.uptime !== undefined ? `${device.uptime}%` : "-"}</TableCell>
+                        <TableCell className="text-sm font-mono text-muted-foreground hidden xl:table-cell">{device.firmware ?? "-"}</TableCell>
                       </TableRow>
                     )
                   })}

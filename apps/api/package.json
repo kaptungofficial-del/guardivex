@@ -12,12 +12,13 @@
     "typecheck": "tsc -p tsconfig.json --noEmit"
   },
   "dependencies": {
-    "@fastify/cors": "^10.0.1",
     "@fastify/cookie": "^11.0.2",
+    "@fastify/cors": "^10.0.1",
     "@fastify/helmet": "^13.0.1",
     "@fastify/jwt": "^9.0.1",
     "@fastify/rate-limit": "^10.2.2",
     "@fastify/sensible": "^6.0.1",
+    "@fastify/websocket": "^11.2.0",
     "@guardivex/adapters": "file:../../packages/adapters",
     "@guardivex/database": "file:../../packages/database",
     "@guardivex/policy": "file:../../packages/policy",

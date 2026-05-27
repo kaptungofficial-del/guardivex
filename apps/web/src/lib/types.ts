@@ -1,16 +1,18 @@
 export interface Device {
   id: string
   name: string
-  type: "camera" | "nvr" | "access_control" | "alarm" | "network" | "sensor"
-  status: "online" | "offline" | "warning"
-  siteId: string
-  siteName: string
-  location: string
-  lastSeen: string
-  uptime: number
-  firmware: string
+  type: "camera" | "nvr" | "access_control" | "access_control_panel" | "door_contact" | "alarm" | "alarm_panel" | "network" | "network_switch" | "sensor" | "server"
+  status: "online" | "offline" | "warning" | "degraded" | "maintenance" | "unknown"
+  siteId?: string | null
+  siteName?: string
+  location?: string | null
+  lastSeen?: string
+  lastSeenAt?: string | null
+  uptime?: number
+  firmware?: string
   ipAddress?: string
   model?: string
+  serial?: string | null
 }
 
 export interface Site {
@@ -117,6 +119,7 @@ export type PlatformPageView =
   | "dashboard" 
   | "sites" 
   | "devices" 
+  | "device-detail"
   | "alerts" 
   | "incidents" 
   | "integrations"

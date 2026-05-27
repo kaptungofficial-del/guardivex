@@ -17,6 +17,7 @@ import {
   ArrowUp
 } from "@phosphor-icons/react"
 import { useIsMobile } from "@/hooks/use-mobile"
+import { useRealtimeDashboard } from "@/hooks/use-realtime-dashboard"
 import { MobileDashboardCards } from "./MobileDashboardCards"
 import type { DashboardMetrics, SystemHealth, LicenseInfo, ActivityLog, Device, Alert } from "@/lib/types"
 
@@ -31,6 +32,7 @@ interface SOCDashboardPageProps {
 
 export function SOCDashboardPage({ metrics, systemHealth, license, activityLogs, alerts }: SOCDashboardPageProps) {
   const isMobile = useIsMobile()
+  const realtime = useRealtimeDashboard()
   const [activityFilter, setActivityFilter] = useState<"all" | "failed" | "login">("all")
   const [alertFilter, setAlertFilter] = useState<"all" | "actionable" | "unacknowledged">("all")
 
@@ -110,8 +112,18 @@ export function SOCDashboardPage({ metrics, systemHealth, license, activityLogs,
         {!isMobile && (
           <div className="mt-3 flex flex-wrap items-center gap-2">
             <Badge variant="outline" className="uppercase text-[10px]">Live View</Badge>
+            <Badge variant={realtime.connected ? "default" : "outline"} className="uppercase text-[10px]">WS {realtime.connected ? "connected" : "offline"}</Badge>
             <Badge variant={actionableAlertsCount > 0 ? "destructive" : "outline"} className="text-[10px]">
               {actionableAlertsCount} actionable alerts
+            </Badge>
+            <Badge variant={realtime.liveAlerts.length > 0 ? "destructive" : "outline"} className="text-[10px]">
+              {realtime.liveAlerts.length} live alerts
+            </Badge>
+            <Badge variant={realtime.heartbeatUpdates.length > 0 ? "default" : "outline"} className="text-[10px]">
+              {realtime.heartbeatUpdates.length} heartbeat updates
+            </Badge>
+            <Badge variant={realtime.incidentUpdates.length > 0 ? "default" : "outline"} className="text-[10px]">
+              {realtime.incidentUpdates.length} incident updates
             </Badge>
             <Badge variant={degradedServicesCount > 0 ? "destructive" : "outline"} className="text-[10px]">
               {degradedServicesCount} degraded services

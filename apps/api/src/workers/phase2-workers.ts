@@ -1,8 +1,10 @@
-import { Prisma, prisma } from "@guardivex/database"
 import { getReadOnlyAdapter } from "@guardivex/adapters"
 import { createStructuredWorker, queueNames } from "@guardivex/queues"
-import { normalizedEventSchema, vendorRawEventSchema } from "@guardivex/shared"
+import { vendorRawEventSchema } from "@guardivex/shared"
 import { env } from "../config/env.js"
+import { processAlertFanout, processDeviceHeartbeat } from "./alert-evaluator.worker.js"
+import { processCommandExecution } from "./command-executor.worker.js"
+import { processNormalizedEvent } from "./event-processor.worker.js"
 
 export function startPhase2Workers() {
   const redisUrl = env.REDIS_URL
@@ -15,36 +17,14 @@ export function startPhase2Workers() {
       return adapter.ingestEvent(rawEvent)
     }, { redisUrl }),
 
-    createStructuredWorker(queueNames.eventProcessing, async (job) => {
-      const event = normalizedEventSchema.parse(job.data)
-      const existing = await prisma.event.findFirst({
-        where: { tenantId: event.tenantId, correlationId: event.correlationId },
-        select: { id: true },
-      })
-      if (existing) return
-
-      await prisma.event.create({
-        data: {
-          tenantId: event.tenantId,
-          siteId: event.siteId,
-          deviceId: event.deviceId,
-          type: event.type,
-          severity: event.severity,
-          message: `${event.sourceVendor} ${event.type}`,
-          payload: event.normalizedPayload as Prisma.InputJsonValue,
-          sourceVendor: event.sourceVendor,
-          sourceDevice: event.sourceDevice,
-          rawPayload: event.rawPayload as Prisma.InputJsonValue,
-          normalizedPayload: event.normalizedPayload as Prisma.InputJsonValue,
-          correlationId: event.correlationId,
-          occurredAt: new Date(event.timestamp),
-        },
-      })
-    }, { redisUrl }),
+    createStructuredWorker(queueNames.eventProcessing, processNormalizedEvent, { redisUrl }),
 
     createStructuredWorker(queueNames.auditWrites, async (job) => job.data, { redisUrl }),
     createStructuredWorker(queueNames.notifications, async (job) => job.data, { redisUrl }),
     createStructuredWorker(queueNames.aiAnalysis, async (job) => job.data, { redisUrl }),
     createStructuredWorker(queueNames.commandReview, async (job) => job.data, { redisUrl }),
+    createStructuredWorker(queueNames.commandExecution, processCommandExecution, { redisUrl }),
+    createStructuredWorker(queueNames.alertFanout, processAlertFanout, { redisUrl }),
+    createStructuredWorker(queueNames.deviceHeartbeat, processDeviceHeartbeat, { redisUrl }),
   ]
 }

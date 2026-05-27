@@ -19,6 +19,39 @@ export interface AuthUser {
   permissions: string[]
 }
 
+export interface AiRecommendation {
+  id: string
+  incidentId?: string | null
+  status: "drafted" | "reviewed" | "converted_to_command_request" | "dismissed"
+  summary: string
+  recommendation: string
+  suggestedAction?: string | null
+  draftCommand: unknown
+  evidence: unknown
+  createdAt: string
+  reviewedAt?: string | null
+}
+
+export interface CreateAiRecommendationInput {
+  incidentId?: string
+  signals: string[]
+  severity?: string
+}
+
+export interface CommandReviewInput {
+  decision: "approved" | "rejected"
+  comment: string
+}
+
+export interface DeviceDetail extends Device {
+  site?: { id: string; name: string } | null
+  building?: { id: string; name: string } | null
+  door?: { id: string; name: string } | null
+  deviceTypeCatalog?: { id: string; label: string; category: string } | null
+  events: Array<{ id: string; type: string; severity: string; message: string; occurredAt: string }>
+  alerts: Array<{ id: string; title: string; severity: string; message: string; createdAt: string }>
+}
+
 export class ApiError extends Error {
   constructor(message: string, public status: number) {
     super(message)
@@ -129,7 +162,14 @@ export async function getIncidentCorrelation() {
 }
 
 export async function getAiRecommendations() {
-  return apiRequest<{ data: unknown[] }>("/ai/recommendations")
+  return apiRequest<{ data: AiRecommendation[] }>("/ai/recommendations")
+}
+
+export async function createAiRecommendation(input: CreateAiRecommendationInput) {
+  return apiRequest<{ data: AiRecommendation }>("/ai/recommendations", {
+    method: "POST",
+    body: JSON.stringify(input),
+  })
 }
 
 export async function getSites() {
@@ -138,6 +178,10 @@ export async function getSites() {
 
 export async function getDevices() {
   return apiRequest<{ data: Device[] }>("/devices")
+}
+
+export async function getDevice(id: string) {
+  return apiRequest<{ data: DeviceDetail }>(`/devices/${id}`)
 }
 
 export async function getAlerts() {
@@ -150,4 +194,11 @@ export async function getIncidents() {
 
 export async function getCommands() {
   return apiRequest<{ data: unknown[] }>("/commands")
+}
+
+export async function reviewCommand(commandId: string, input: CommandReviewInput) {
+  return apiRequest<{ data: unknown }>(`/commands/${commandId}/approvals`, {
+    method: "POST",
+    body: JSON.stringify(input),
+  })
 }

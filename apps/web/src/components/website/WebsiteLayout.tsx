@@ -282,17 +282,17 @@ function HomePage({ onNavigate }: { onNavigate: (page: string) => void }) {
 
   return (
     <div className="relative guardivex-home-typography overflow-x-clip bg-[var(--gvx-hero-bg)] text-[var(--gvx-hero-text)]">
-      <section className="relative isolate overflow-hidden border-b border-[var(--gvx-hero-border)] bg-[var(--gvx-hero-bg)] lg:max-h-[760px]">
+      <section className="relative isolate overflow-hidden border-b border-[var(--gvx-hero-border)] bg-[var(--gvx-hero-bg)]">
         <div className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,var(--gvx-hero-bg)_0%,var(--gvx-hero-bg-soft)_100%)]" />
         <div className="absolute left-[6%] top-[-24rem] -z-10 h-[42rem] w-[42rem] rounded-full bg-[radial-gradient(circle,var(--gvx-hero-glow),transparent_70%)] blur-[88px]" />
         <div className="absolute right-[-18rem] top-[8rem] -z-10 h-[38rem] w-[38rem] rounded-full bg-[radial-gradient(circle,var(--gvx-hero-glow),transparent_74%)] blur-[104px]" />
         <div className="absolute inset-0 -z-10 opacity-[0.016] bg-[linear-gradient(var(--gvx-hero-accent)_1px,transparent_1px),linear-gradient(90deg,var(--gvx-hero-accent)_1px,transparent_1px)] bg-[size:64px_64px]" />
 
-        <div className="mx-auto w-full max-w-[1280px] px-5 pb-10 pt-6 sm:px-8 sm:pb-11 sm:pt-7 lg:px-10 lg:pb-14 lg:pt-8 xl:px-12 xl:pb-16 xl:pt-10 2xl:px-14">
-          <div className="grid grid-cols-1 items-center gap-6 sm:gap-7 lg:grid-cols-[minmax(0,0.42fr)_minmax(0,0.58fr)] lg:gap-7 xl:gap-9">
+        <div className="mx-auto w-full max-w-[1240px] px-5 pb-7 pt-5 sm:px-8 sm:pb-8 sm:pt-6 lg:px-10 lg:pb-9 lg:pt-7 xl:px-12 xl:pb-10 xl:pt-8 2xl:px-14">
+          <div className="grid grid-cols-1 items-center gap-5 sm:gap-6 lg:grid-cols-[minmax(0,0.40fr)_minmax(0,0.60fr)] lg:gap-6 xl:gap-8">
             <div>
-              <div className="max-w-[520px]">
-                <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-[var(--gvx-hero-border)] bg-[var(--gvx-hero-surface)] px-2.5 py-1 text-[9px] font-semibold uppercase tracking-[0.12em] text-[var(--gvx-hero-muted)] shadow-[0_10px_28px_-26px_rgba(7,17,31,0.28)] backdrop-blur-xl transition-colors hover:border-[var(--gvx-hero-border-strong)]">
+              <div className="max-w-[500px]">
+                <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-[var(--gvx-hero-border)] bg-[var(--gvx-hero-surface)] px-2.5 py-1 text-[9px] font-semibold uppercase tracking-[0.12em] text-[var(--gvx-hero-muted)] shadow-[0_10px_28px_-26px_rgba(7,17,31,0.28)] backdrop-blur-xl transition-colors hover:border-[var(--gvx-hero-border-strong)]">
                   <span className="relative flex h-1.5 w-1.5">
                     <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-30" />
                     <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-emerald-500" />
@@ -300,33 +300,33 @@ function HomePage({ onNavigate }: { onNavigate: (page: string) => void }) {
                   Unified SOC Platform
                 </div>
 
-                <h1 className="max-w-[520px] font-heading text-[clamp(2.8rem,4vw,4.8rem)] font-extrabold leading-[0.92] tracking-normal text-[var(--gvx-hero-text)]">
+                <h1 className="max-w-[500px] font-heading text-[clamp(2.3rem,3.35vw,4.05rem)] font-extrabold leading-[0.96] tracking-normal text-[var(--gvx-hero-text)]">
                   <span className="block">Enterprise Security</span>
-                  <span className="block bg-gradient-to-r from-[var(--gvx-hero-accent)] via-[#4f8fe8] to-[var(--gvx-hero-accent-2)] bg-clip-text text-transparent opacity-95">commanded</span>
+                  <span className="block bg-gradient-to-r from-[var(--gvx-hero-accent)] via-[#4f8fe8] to-[var(--gvx-hero-accent-2)] bg-clip-text text-transparent opacity-95">Command Center</span>
                 </h1>
 
-                <div className="mt-5 h-px w-28 bg-gradient-to-r from-[var(--gvx-hero-accent)] via-[var(--gvx-hero-border-strong)] to-transparent opacity-70" />
+                <div className="mt-4 h-px w-24 bg-gradient-to-r from-[var(--gvx-hero-accent)] via-[var(--gvx-hero-border-strong)] to-transparent opacity-70" />
 
-                <p className="mt-5 max-w-[500px] text-base leading-[1.65] text-[var(--gvx-hero-muted)] opacity-85">
+                <p className="mt-4 max-w-[460px] text-[0.98rem] leading-[1.58] text-[var(--gvx-hero-muted)] opacity-85 sm:text-base">
                   A self-hosted security operations platform for devices, cameras, access control, alarms, and network infrastructure, unified in one real-time command center.
                 </p>
 
-                <div className="mt-6 flex flex-col items-start gap-3 sm:flex-row sm:items-center">
-                  <Button size="lg" onClick={() => onNavigate("download")} className="h-[46px] w-fit max-w-full rounded-md border border-[color:var(--gvx-hero-accent)] bg-[var(--gvx-hero-accent)] bg-none px-4 text-[0.84rem] font-semibold text-white shadow-[0_16px_32px_-24px_rgba(15,23,42,0.36)] transition-all duration-200 hover:-translate-y-0.5 hover:brightness-95 focus-visible:ring-[var(--gvx-hero-accent)]">
+                <div className="mt-5 flex flex-col items-start gap-2.5 sm:flex-row sm:items-center">
+                  <Button size="lg" onClick={() => onNavigate("download")} className="h-[42px] w-fit max-w-full rounded-md border border-[color:var(--gvx-hero-accent)] bg-[var(--gvx-hero-accent)] bg-none px-3.5 text-[0.82rem] font-semibold text-white shadow-[0_16px_32px_-24px_rgba(15,23,42,0.36)] transition-all duration-200 hover:-translate-y-0.5 hover:brightness-95 focus-visible:ring-[var(--gvx-hero-accent)] sm:px-4">
                     <CloudArrowDown size={16} className="mr-2" weight="bold" />
                     Deploy Enterprise Server
                   </Button>
-                  <Button size="lg" variant="outline" className="h-[46px] w-fit max-w-full rounded-md border-[var(--gvx-hero-border)] bg-[var(--gvx-hero-surface)] px-4 text-[0.84rem] font-semibold text-[var(--gvx-hero-text)] shadow-[0_14px_30px_-28px_rgba(7,17,31,0.30)] backdrop-blur-xl transition-all duration-200 hover:-translate-y-0.5 hover:border-[var(--gvx-hero-border-strong)] hover:bg-[var(--gvx-hero-surface-strong)]">
+                  <Button size="lg" variant="outline" className="h-[42px] w-fit max-w-full rounded-md border-[var(--gvx-hero-border)] bg-[var(--gvx-hero-surface)] px-3.5 text-[0.82rem] font-semibold text-[var(--gvx-hero-text)] shadow-[0_14px_30px_-28px_rgba(7,17,31,0.30)] backdrop-blur-xl transition-all duration-200 hover:-translate-y-0.5 hover:border-[var(--gvx-hero-border-strong)] hover:bg-[var(--gvx-hero-surface-strong)] sm:px-4">
                     <Monitor size={16} className="mr-2" weight="bold" />
                     View SOC Demo
                   </Button>
                 </div>
 
-                <p className="mt-3 max-w-[480px] text-[0.78rem] font-medium leading-relaxed text-[var(--gvx-hero-subtle)]">
+                <p className="mt-2.5 max-w-[460px] text-[0.75rem] font-medium leading-relaxed text-[var(--gvx-hero-subtle)]">
                   Trusted by enterprise campuses and critical infrastructure teams.
                 </p>
 
-                <div className="mt-4 grid max-w-[480px] grid-cols-1 gap-2 text-xs text-[var(--gvx-hero-subtle)] sm:grid-cols-3">
+                <div className="mt-3 grid max-w-[460px] grid-cols-1 gap-1.5 text-xs text-[var(--gvx-hero-subtle)] sm:grid-cols-3">
                   {["SOC 2 ready", "Self-hosted", "24/7 support"].map((label) => (
                     <div key={label} className="flex items-center gap-2">
                       <CheckCircle size={14} weight="fill" className="text-emerald-500" />
@@ -339,25 +339,25 @@ function HomePage({ onNavigate }: { onNavigate: (page: string) => void }) {
 
             <div className="relative">
               <div className="absolute inset-x-12 top-10 -z-10 h-40 rounded-full bg-[radial-gradient(ellipse,var(--gvx-hero-glow),transparent_74%)] blur-[64px]" />
-              <div className="ml-auto w-full max-w-[720px] rounded-lg border border-[var(--gvx-hero-border)] bg-[var(--gvx-hero-surface)] p-1 shadow-[var(--gvx-hero-shadow)] backdrop-blur-2xl transition-transform duration-300 hover:-translate-y-0.5 sm:p-1.5 lg:max-h-[500px] lg:overflow-hidden">
+              <div className="ml-auto w-full max-w-[690px] rounded-lg border border-[var(--gvx-hero-border)] bg-[var(--gvx-hero-surface)] p-1 shadow-[var(--gvx-hero-shadow)] backdrop-blur-2xl transition-transform duration-300 hover:-translate-y-0.5 sm:p-1.5">
                 <div className="rounded-lg border border-[var(--gvx-hero-border)] bg-[var(--gvx-hero-surface-strong)] p-2.5 shadow-[inset_0_1px_0_rgba(255,255,255,0.10)] sm:p-3">
                   <div className="mb-2 flex items-center justify-between gap-3 border-b border-[var(--gvx-hero-border)] pb-2">
                     <div>
-                      <div className="flex items-center gap-2 text-[0.9rem] font-semibold text-[var(--gvx-hero-text)]">
+                        <div className="flex items-center gap-2 text-[0.86rem] font-semibold text-[var(--gvx-hero-text)]">
                         <span className="relative flex h-2 w-2">
                           <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-25" />
                           <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
                         </span>
                         Live SOC Overview
                       </div>
-                      <p className="mt-1 text-xs text-[var(--gvx-hero-subtle)]">Normalized detections across sites and infrastructure</p>
+                      <p className="mt-0.5 text-[11px] text-[var(--gvx-hero-subtle)]">Normalized detections across sites and infrastructure</p>
                     </div>
                     <Badge variant="outline" className="h-6 rounded-md border-[var(--gvx-hero-border)] bg-[var(--gvx-hero-card)] px-2.5 text-[9px] text-[var(--gvx-hero-muted)]">Last 24 Hours</Badge>
                   </div>
 
                   <div className="grid grid-cols-2 gap-1.5 xl:grid-cols-4">
                     {heroThreatStats.map((item) => (
-                      <div key={item.label} className="group rounded-md bg-[var(--gvx-hero-card)] p-1.5 shadow-[0_12px_28px_-28px_rgba(7,17,31,0.34)] ring-1 ring-[var(--gvx-hero-border)]/70 transition-all duration-200 hover:-translate-y-0.5 hover:bg-[var(--gvx-hero-surface-strong)] hover:ring-[var(--gvx-hero-border-strong)]">
+                      <div key={item.label} className="group rounded-md bg-[var(--gvx-hero-card)] p-1.5 shadow-[0_12px_28px_-28px_rgba(7,17,31,0.34)] ring-1 ring-[var(--gvx-hero-border)]/70 transition-all duration-200 hover:-translate-y-0.5 hover:bg-[var(--gvx-hero-surface-strong)] hover:ring-[var(--gvx-hero-border-strong)] sm:p-2">
                         <div className="flex items-center justify-between gap-2">
                           <div className={`flex h-5 w-5 items-center justify-center rounded-md ${item.accent}`}>
                             <item.icon size={13} weight="duotone" className={item.tone} />
@@ -365,7 +365,7 @@ function HomePage({ onNavigate }: { onNavigate: (page: string) => void }) {
                           <span className="inline-flex items-center gap-1 font-mono text-[9px] text-emerald-500"><span className="h-1 w-1 rounded-full bg-emerald-500" />{item.delta}</span>
                         </div>
                         <div className="mt-1.5 text-[9px] font-medium text-[var(--gvx-hero-subtle)]">{item.label}</div>
-                        <div className={`mt-0.5 font-mono text-[0.95rem] font-semibold leading-none sm:text-base ${item.tone}`}>{item.value}</div>
+                        <div className={`mt-0.5 font-mono text-[0.92rem] font-semibold leading-none sm:text-[0.98rem] ${item.tone}`}>{item.value}</div>
                         <div className="mt-1 hidden text-[9px] text-[var(--gvx-hero-subtle)] sm:block">{item.context}</div>
                       </div>
                     ))}
@@ -381,7 +381,7 @@ function HomePage({ onNavigate }: { onNavigate: (page: string) => void }) {
                           <span className="inline-flex items-center gap-1"><span className="h-1.5 w-3 rounded-full bg-[var(--gvx-hero-accent)]" />Medium</span>
                         </div>
                       </div>
-                      <div className="relative h-[88px] overflow-hidden rounded-md bg-[linear-gradient(180deg,rgba(255,255,255,0.24),transparent)] dark:bg-[linear-gradient(180deg,rgba(255,255,255,0.035),transparent)] sm:h-[96px] xl:h-[104px]">
+                      <div className="relative h-[78px] overflow-hidden rounded-md bg-[linear-gradient(180deg,rgba(255,255,255,0.24),transparent)] dark:bg-[linear-gradient(180deg,rgba(255,255,255,0.035),transparent)] sm:h-[88px] xl:h-[92px]">
                         <div className="absolute inset-0 opacity-[0.18] bg-[linear-gradient(rgba(100,116,139,0.18)_1px,transparent_1px),linear-gradient(90deg,rgba(100,116,139,0.12)_1px,transparent_1px)] bg-[size:100%_32px,64px_100%]" />
                         <svg viewBox="0 0 560 178" className="absolute inset-0 h-full w-full" role="img" aria-label="Alert trend chart">
                           <defs>
@@ -407,7 +407,7 @@ function HomePage({ onNavigate }: { onNavigate: (page: string) => void }) {
                           <span>Threat Map</span>
                           <span className="text-[var(--gvx-hero-accent)]">See all</span>
                         </div>
-                        <div className="relative h-[58px] overflow-hidden rounded-md bg-[radial-gradient(circle_at_25%_44%,var(--gvx-hero-accent-soft)_0_4px,transparent_11px),radial-gradient(circle_at_58%_38%,var(--gvx-hero-accent-soft)_0_4px,transparent_11px),radial-gradient(circle_at_78%_66%,var(--gvx-hero-accent-soft)_0_4px,transparent_11px)] sm:h-[64px] xl:h-[68px]">
+                        <div className="relative h-[52px] overflow-hidden rounded-md bg-[radial-gradient(circle_at_25%_44%,var(--gvx-hero-accent-soft)_0_4px,transparent_11px),radial-gradient(circle_at_58%_38%,var(--gvx-hero-accent-soft)_0_4px,transparent_11px),radial-gradient(circle_at_78%_66%,var(--gvx-hero-accent-soft)_0_4px,transparent_11px)] sm:h-[58px] xl:h-[60px]">
                           <div className="absolute inset-4 opacity-20 bg-[radial-gradient(circle,var(--gvx-hero-accent)_1px,transparent_1.7px)] [background-size:12px_10px]" />
                           <div className="absolute bottom-4 right-5 rounded-md bg-[var(--gvx-hero-surface-strong)] px-2 py-1 text-[9px] font-medium text-[var(--gvx-hero-muted)] shadow-[0_12px_28px_-24px_rgba(7,17,31,0.34)]">23 regions</div>
                         </div>
@@ -453,15 +453,15 @@ function HomePage({ onNavigate }: { onNavigate: (page: string) => void }) {
             </div>
           </div>
 
-          <div className="mt-4 rounded-lg border border-[var(--gvx-hero-border)] bg-[var(--gvx-hero-surface)] p-1.5 shadow-[0_14px_36px_-34px_rgba(7,17,31,0.24)] backdrop-blur-xl sm:p-2 lg:mt-5">
+          <div className="mt-3 rounded-lg border border-[var(--gvx-hero-border)] bg-[var(--gvx-hero-surface)] p-1.5 shadow-[0_14px_36px_-34px_rgba(7,17,31,0.24)] backdrop-blur-xl sm:p-2 lg:mt-4">
             <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-4">
               {heroMetrics.map((stat) => (
-                <div key={stat.label} className="group flex min-h-[52px] items-center gap-2.5 rounded-md border border-[var(--gvx-hero-border)]/80 bg-[var(--gvx-hero-card)] px-2.5 py-1.5 transition-all duration-200 hover:-translate-y-0.5 hover:border-[var(--gvx-hero-border-strong)] hover:bg-[var(--gvx-hero-surface-strong)] sm:min-h-[56px] sm:py-2">
-                  <div className="flex h-8 w-8 items-center justify-center rounded-md bg-[var(--gvx-hero-accent-soft)]">
-                    <stat.icon size={18} className={stat.tone} weight="duotone" />
+                <div key={stat.label} className="group flex min-h-[48px] items-center gap-2.5 rounded-md border border-[var(--gvx-hero-border)]/80 bg-[var(--gvx-hero-card)] px-2.5 py-1.5 transition-all duration-200 hover:-translate-y-0.5 hover:border-[var(--gvx-hero-border-strong)] hover:bg-[var(--gvx-hero-surface-strong)] sm:min-h-[52px] sm:py-1.5">
+                  <div className="flex h-7 w-7 items-center justify-center rounded-md bg-[var(--gvx-hero-accent-soft)]">
+                    <stat.icon size={16} className={stat.tone} weight="duotone" />
                   </div>
                   <div>
-                    <div className="font-heading text-[1rem] font-semibold leading-none text-[var(--gvx-hero-text)]">{stat.value}</div>
+                    <div className="font-heading text-[0.95rem] font-semibold leading-none text-[var(--gvx-hero-text)]">{stat.value}</div>
                     <div className="mt-0.5 text-[11px] font-medium text-[var(--gvx-hero-muted)]">{stat.label}</div>
                     <div className={`mt-0.5 text-[0.58rem] font-semibold uppercase ${stat.tone}`}>{stat.meta}</div>
                   </div>

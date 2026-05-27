@@ -10,6 +10,9 @@ export const queueNames = {
   notifications: "notifications",
   aiAnalysis: "AI-analysis",
   commandReview: "command-review",
+  commandExecution: "command-execution",
+  alertFanout: "alert-fanout",
+  deviceHeartbeat: "device-heartbeat",
 } as const
 
 export type QueueName = (typeof queueNames)[keyof typeof queueNames]
@@ -22,6 +25,9 @@ export interface QueuePayloads {
   [queueNames.notifications]: { tenantId: string; channel: "email" | "sms" | "push" | "webhook"; subject: string; body: string; metadata?: Record<string, unknown> }
   [queueNames.aiAnalysis]: { tenantId: string; incidentId?: string; eventIds?: string[]; promptType: "incident_summary" | "alert_correlation" | "anomaly_detection" | "draft_recommendation" }
   [queueNames.commandReview]: { tenantId: string; commandRequestId: string; requestedById: string; action: string }
+  [queueNames.commandExecution]: { tenantId: string; commandRequestId: string; approvedById?: string; requestedById?: string; action: string }
+  [queueNames.alertFanout]: { tenantId: string; alertId: string; severity: "info" | "low" | "medium" | "high" | "critical"; channels?: Array<"email" | "sms" | "push" | "webhook"> }
+  [queueNames.deviceHeartbeat]: { tenantId: string; deviceId: string; status: "online" | "offline" | "degraded" | "maintenance" | "unknown"; checkedAt: string; telemetry?: Record<string, unknown> }
 }
 
 export interface QueueRuntimeOptions {

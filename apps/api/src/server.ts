@@ -1,4 +1,5 @@
 import "./types.js"
+import { fileURLToPath } from "node:url"
 import Fastify from "fastify"
 import cookie from "@fastify/cookie"
 import cors from "@fastify/cors"
@@ -19,6 +20,7 @@ import { incidentRoutes } from "./routes/incidents.js"
 import { metricsRoutes } from "./routes/metrics.js"
 import { operationsRoutes } from "./routes/operations.js"
 import { resourceRoutes } from "./routes/resources.js"
+import { registerRealtimeGateway } from "./realtime/websocket-gateway.js"
 import { httpRequestCounter, startTracing } from "./services/observability.js"
 
 export function buildServer() {
@@ -67,6 +69,7 @@ export function buildServer() {
   app.register(healthRoutes)
   app.register(metricsRoutes)
   app.register(authRoutes)
+  app.register(registerRealtimeGateway)
   app.register(resourceRoutes)
   app.register(incidentRoutes)
   app.register(commandRoutes)
@@ -77,7 +80,7 @@ export function buildServer() {
   return app
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) {
+if (process.argv[1] && fileURLToPath(import.meta.url) === process.argv[1]) {
   const app = buildServer()
   app.listen({ host: "0.0.0.0", port: env.PORT }).catch((error) => {
     app.log.error(error)

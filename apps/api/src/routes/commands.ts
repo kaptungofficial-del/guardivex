@@ -1,13 +1,12 @@
 import type { FastifyPluginAsync } from "fastify"
 import { z } from "zod"
 import { Prisma, prisma } from "@guardivex/database"
+import { enqueue, queueNames } from "@guardivex/queues"
 import { commandApprovalSchema, commandRequestCreateSchema } from "@guardivex/shared"
 import { requirePermission } from "../middleware/rbac.js"
 import { writeAuditLog } from "../services/audit.js"
-import { evaluateCommandPolicy } from "../services/rules-engine.js"
-import { evaluateAndRecordPolicy } from "../services/policy.js"
-import { executeApprovedCommand } from "../adapters/command-executors/safe-executor.js"
 import { env } from "../config/env.js"
+import { commandGuardMetadata, guardDangerousCommand } from "../core/security/command-guard.js"
 
 const idParamsSchema = z.object({ id: z.string().uuid() })
 
@@ -24,43 +23,26 @@ export const commandRoutes: FastifyPluginAsync = async (fastify) => {
 
   fastify.post("/commands", { preHandler: [fastify.authenticate, requirePermission("commands:request")] }, async (request, reply) => {
     const body = commandRequestCreateSchema.parse(request.body)
-    const decision = evaluateCommandPolicy({
+    const decision = await guardDangerousCommand({
+      principal: {
+        userId: request.auth!.userId,
+        tenantId: request.auth!.tenantId,
+        roles: request.auth!.roles,
+        permissions: request.auth!.permissions,
+      },
       action: body.action,
-      hasDeviceTarget: Boolean(body.targetDeviceId),
-      hasDoorTarget: Boolean(body.targetDoorId),
-      requesterPermissions: request.auth!.permissions,
+      targetDeviceId: body.targetDeviceId,
+      targetDoorId: body.targetDoorId,
+      reason: body.reason,
+      metadata: body.metadata,
+      environment: env.APP_ENV,
+      ipAddress: request.ip,
+      userAgent: request.headers["user-agent"],
     })
 
-    if (!decision.allowedToRequest) {
+    if (!decision.allowed) {
       await writeAuditLog(request, { action: "command.request", resource: "command", outcome: "denied", metadata: { decision } })
-      await reply.forbidden(decision.reasons.join("; "))
-      return
-    }
-
-    const [targetDevice, targetDoor] = await Promise.all([
-      body.targetDeviceId ? prisma.device.findFirst({ where: { id: body.targetDeviceId, tenantId: request.auth!.tenantId }, select: { id: true } }) : Promise.resolve(null),
-      body.targetDoorId ? prisma.door.findFirst({ where: { id: body.targetDoorId, tenantId: request.auth!.tenantId }, select: { id: true } }) : Promise.resolve(null),
-    ])
-
-    if ((body.targetDeviceId && !targetDevice) || (body.targetDoorId && !targetDoor)) {
-      await writeAuditLog(request, { action: "command.request", resource: "command", outcome: "denied", metadata: { reason: "Target is outside tenant scope or missing" } })
-      await reply.forbidden("Command target is outside tenant scope or missing")
-      return
-    }
-
-    const policy = await evaluateAndRecordPolicy({
-      tenantId: request.auth!.tenantId,
-      environment: env.APP_ENV,
-      action: body.action,
-      target: body.targetDoorId ? "door" : body.targetDeviceId ? "device" : "unknown",
-      requesterPermissions: request.auth!.permissions,
-      riskScore: decision.riskScore,
-      mfaVerified: false,
-    }, "command")
-
-    if (!policy.decision.allowed) {
-      await writeAuditLog(request, { action: "command.request", resource: "command", outcome: "denied", metadata: { decision: policy.decision } })
-      await reply.forbidden(policy.decision.reasons.join("; "))
+      await reply.forbidden(decision.denialReasons.join("; "))
       return
     }
 
@@ -72,16 +54,17 @@ export const commandRoutes: FastifyPluginAsync = async (fastify) => {
         targetDoorId: body.targetDoorId,
         action: body.action,
         reason: body.reason,
-        status: decision.requiresApproval || policy.decision.requiredActions.includes("require_approval") ? "approval_required" : "policy_review",
-        riskScore: decision.riskScore,
-        policyDecision: { ruleDecision: decision, deterministicPolicy: policy.decision } as unknown as Prisma.InputJsonValue,
-        policyEvaluationId: policy.record.id,
+        status: decision.status,
+        riskScore: decision.risk.score,
+        policyDecision: commandGuardMetadata(decision),
+        policyEvaluationId: decision.policyEvaluationId,
         metadata: body.metadata as Prisma.InputJsonValue,
         expiresAt: new Date(Date.now() + 1000 * 60 * 15),
       },
     })
 
     await writeAuditLog(request, { action: "command.request", resource: "command", resourceId: command.id, outcome: "success", metadata: { decision } })
+    await enqueue(queueNames.commandReview, { tenantId: request.auth!.tenantId, commandRequestId: command.id, requestedById: request.auth!.userId, action: body.action }, { redisUrl: env.REDIS_URL })
     return { data: command }
   })
 
@@ -109,6 +92,12 @@ export const commandRoutes: FastifyPluginAsync = async (fastify) => {
     await prisma.commandRequest.update({ where: { id: command.id }, data: { status } })
     await writeAuditLog(request, { action: body.decision === "approved" ? "command.approve" : "command.reject", resource: "command", resourceId: command.id, outcome: "success" })
 
+    if (body.decision === "approved") {
+      await prisma.commandRequest.update({ where: { id: command.id }, data: { status: "queued" } })
+      await enqueue(queueNames.commandExecution, { tenantId: request.auth!.tenantId, commandRequestId: command.id, approvedById: request.auth!.userId, requestedById: command.requestedById, action: command.action }, { redisUrl: env.REDIS_URL })
+      await writeAuditLog(request, { action: "command.queue", resource: "command", resourceId: command.id, outcome: "success" })
+    }
+
     return { data: approval }
   })
 
@@ -121,29 +110,14 @@ export const commandRoutes: FastifyPluginAsync = async (fastify) => {
       return
     }
 
-    if (command.status !== "approved") {
-      await reply.conflict("Only approved commands can enter the execution service")
+    if (command.status !== "approved" && command.status !== "queued") {
+      await reply.conflict("Only approved commands can enter the execution queue")
       return
     }
 
-    const result = await executeApprovedCommand(command)
-    const execution = await prisma.commandExecution.create({
-      data: {
-        tenantId: request.auth!.tenantId,
-        commandRequestId: command.id,
-        executedById: request.auth!.userId,
-        status: result.status,
-        executor: result.executor,
-        requestPayload: { action: command.action, targetDeviceId: command.targetDeviceId, targetDoorId: command.targetDoorId },
-        responsePayload: result.responsePayload as Prisma.InputJsonValue,
-        errorMessage: result.errorMessage,
-        startedAt: new Date(),
-        completedAt: new Date(),
-      },
-    })
-
-    await prisma.commandRequest.update({ where: { id: command.id }, data: { status: result.status } })
-    await writeAuditLog(request, { action: result.status === "failed" ? "command.fail" : "command.execute", resource: "command", resourceId: command.id, outcome: result.status === "failed" ? "failure" : "success" })
-    return { data: execution }
+    await prisma.commandRequest.update({ where: { id: command.id }, data: { status: "queued" } })
+    const job = await enqueue(queueNames.commandExecution, { tenantId: request.auth!.tenantId, commandRequestId: command.id, approvedById: request.auth!.userId, requestedById: command.requestedById, action: command.action }, { redisUrl: env.REDIS_URL })
+    await writeAuditLog(request, { action: "command.queue", resource: "command", resourceId: command.id, outcome: "success", metadata: { jobId: job.id } })
+    return { data: { commandRequestId: command.id, status: "queued", jobId: job.id } }
   })
 }
