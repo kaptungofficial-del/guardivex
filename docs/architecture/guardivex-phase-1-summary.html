@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Guardivex Phase 1 Architecture Summary</title>
+  <style>
+    body { font-family: Inter, Arial, sans-serif; color: #0f172a; margin: 48px; line-height: 1.55; }
+    h1 { font-size: 30px; margin: 0 0 8px; }
+    h2 { font-size: 18px; margin: 28px 0 8px; color: #0f3b66; }
+    p { margin: 0 0 10px; }
+    ul { margin: 8px 0 0 20px; padding: 0; }
+    li { margin: 4px 0; }
+    code { background: #eef2f7; padding: 2px 5px; border-radius: 4px; }
+    .meta { color: #64748b; margin-bottom: 24px; }
+    .box { border: 1px solid #d8e3ee; background: #f8fbff; border-radius: 8px; padding: 14px 16px; margin: 14px 0; }
+    .critical { border-color: #fecaca; background: #fff7f7; }
+  </style>
+</head>
+<body>
+  <h1>Guardivex Phase 1 Architecture Summary</h1>
+  <p class="meta">Senior enterprise security-platform architecture conversion summary</p>
+
+  <div class="box critical">
+    <strong>Safety rule:</strong> AI must never directly control doors, panels, alarms, relays, or switch ports. AI may only recommend actions or draft command requests. Commands must pass RBAC, rules evaluation, approval workflow, audit logging, and the command execution service.
+  </div>
+
+  <h2>Implemented Structure</h2>
+  <ul>
+    <li><code>apps/web</code>: Vite React TypeScript frontend for Cloudflare Pages.</li>
+    <li><code>apps/api</code>: Fastify TypeScript API for Hetzner VPS.</li>
+    <li><code>packages/shared</code>: Zod schemas and shared command/security contracts.</li>
+    <li><code>packages/database</code>: Prisma schema/client for Postgres.</li>
+  </ul>
+
+  <h2>Backend Foundation</h2>
+  <ul>
+    <li>Fastify server with Helmet, CORS, rate limiting, JWT auth, Zod validation, and centralized error handling.</li>
+    <li>Argon2 password verification and opaque refresh session storage.</li>
+    <li>RBAC middleware that rehydrates permissions from Postgres instead of trusting token claims.</li>
+    <li>Tenant-scoped users, sites, devices, events, alerts, incidents, commands, and audit routes.</li>
+  </ul>
+
+  <h2>Database Foundation</h2>
+  <ul>
+    <li>Postgres + Prisma schema for tenants, users, roles, permissions, sessions, sites, doors, devices, events, alerts, incidents, audit logs, command requests, approvals, and executions.</li>
+    <li>Seed script creates the first tenant, owner role, full permission set, and hashed admin password.</li>
+  </ul>
+
+  <h2>Command Safety</h2>
+  <ul>
+    <li>Command requests are policy-reviewed and require approval.</li>
+    <li>Approvals are recorded separately from requests.</li>
+    <li>Execution uses a safe-null executor in Phase 1, recording attempts without controlling hardware.</li>
+  </ul>
+
+  <h2>Infrastructure</h2>
+  <ul>
+    <li><code>docker-compose.yml</code> for Postgres and API.</li>
+    <li>Dockerfiles for API and optional web image.</li>
+    <li><code>.env.example</code> for local/staging/production environment structure.</li>
+    <li>GitHub Actions CI plus Cloudflare Pages/API image workflows.</li>
+  </ul>
+
+  <h2>Validation</h2>
+  <ul>
+    <li><code>npm install</code> completed.</li>
+    <li><code>npm run build</code> completed for shared, database, API, and web.</li>
+    <li>Frontend runs from <code>apps/web</code> at <code>http://127.0.0.1:5000/</code>.</li>
+  </ul>
+
+  <h2>Next Critical Steps</h2>
+  <ul>
+    <li>Run migrations and seed the first tenant/admin.</li>
+    <li>Move refresh tokens to HttpOnly secure cookies before production.</li>
+    <li>Add tests for auth, tenant isolation, RBAC denial, audit creation, and command approval paths.</li>
+    <li>Build command request and audit log UI screens.</li>
+    <li>Add read-only hardware adapters before any live control adapters.</li>
+  </ul>
+</body>
+</html>

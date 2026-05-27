@@ -6,7 +6,7 @@ import tseslint from "typescript-eslint"
 
 export default tseslint.config(
   {
-    ignores: ["dist", "node_modules"],
+    ignores: ["dist", "**/dist/**", "node_modules", "**/node_modules/**", "src"],
   },
   {
     files: ["**/*.{js,mjs,cjs,ts,tsx}"],

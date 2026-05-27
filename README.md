@@ -1,92 +1,57 @@
-﻿# guardivex
+# Guardivex
 
-## Unified Security Infrastructure Platform
+Guardivex is an enterprise physical security operations platform foundation for monitoring sites, devices, doors, events, alerts, incidents, and controlled command workflows.
 
-guardivex is an enterprise security infrastructure platform designed to monitor and manage security devices, cameras, NVRs, access control systems, alarms, network devices, and system health from a centralized SOC Command Center.
+## Current Architecture
 
-Built for:
-- Enterprises
-- Security Integrators
-- MSPs
-- Warehouses
-- Retail
-- Data Centers
-- Multi-site Organizations
+```text
+apps/web                 Vite React TypeScript frontend for Cloudflare Pages
+apps/api                 Node.js TypeScript Fastify API for Hetzner VPS
+packages/shared          Zod schemas and shared TypeScript contracts
+packages/database        Prisma schema/client for Postgres
+packages/adapters        Read-only hardware adapter interfaces and vendor adapters
+packages/policy          Deterministic IF/THEN policy engine
+packages/queues          Redis/BullMQ queue topology and worker helpers
+workers/api              Legacy Cloudflare Worker API stub
+```
 
----
+## Safety Model
 
-# Core Products
+AI must never directly unlock doors, disable switch ports, bypass alarms, or control physical hardware. AI may only recommend actions or draft command requests.
 
-## guardivex Security Platform
-On-premise downloadable platform installed on customer infrastructure.
+All physical commands must pass through:
 
-### Features
-- Device Monitoring
-- Camera & NVR Health
-- Access Control Monitoring
-- Alarm Monitoring
-- Network Visibility
-- Incident Management
-- Alert Engine
-- System Health Monitoring
-- Multi-site Monitoring
-- License Management
+1. RBAC
+2. Rules engine
+3. Approval workflow
+4. Audit logging
+5. Command execution service
 
----
+Phase 1 uses a safe-null command executor. Phase 2 adds read-only hardware adapters, normalized events, Redis/BullMQ infrastructure, deterministic policy evaluation, audit hash chaining, advisory AI recommendations, and operational review UI. It still does not send live hardware commands.
 
-## guardivex SOC Command Center
-
-Centralized monitoring dashboard for:
-- Security Operations
-- Device Health
-- Critical Alerts
-- Incident Response
-- Website/API Activity
-- Server Health
-- Update Status
-- License Status
-
----
-
-## guardivex Cloud
-
-Optional cloud services:
-- License Activation
-- Software Updates
-- Remote Relay
-- Push Notifications
-- Support Services
-
----
-
-# Technology Stack
-
-## Frontend
-- Next.js
-- TypeScript
-- Tailwind CSS
-- shadcn/ui
-
-## Backend (Planned)
-- FastAPI
-- PostgreSQL
-- Redis
-- MQTT/NATS
-
-## Mobile (Planned)
-- Flutter
-
-## Deployment
-- Docker Compose
-- Linux Server
-- Windows Server
-- VMware / Hyper-V
-
----
-
-# Development
-
-## Install Dependencies
+## Development
 
 ```bash
 npm install
+npm run db:generate
+npm run dev:api
+npm run dev:web
+```
+
+Copy `.env.example` to `.env` before running the API.
+
+## Build
+
+```bash
+npm run build
+```
+
+## Deployment
+
+- Frontend: Cloudflare Pages from `apps/web/dist`
+- Backend: Dockerized Fastify API on Hetzner VPS
+- Database: Postgres via Docker Compose or managed Postgres
+- Queue/runtime cache: Redis via Docker Compose or managed Redis
+
+See [docs/architecture/phase-1-platform-foundation.md](docs/architecture/phase-1-platform-foundation.md) for the Phase 1 migration and architecture plan.
+See [docs/architecture/phase-2-operational-infrastructure.md](docs/architecture/phase-2-operational-infrastructure.md) for Phase 2 queues, adapters, policy engine, UI, and production risks.

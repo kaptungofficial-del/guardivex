@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "strict": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true,
+    "resolveJsonModule": true,
+    "paths": {
+      "@/*": ["./apps/web/src/*"],
+      "@guardivex/shared": ["./packages/shared/src/index.ts"],
+      "@guardivex/adapters": ["./packages/adapters/src/index.ts"],
+      "@guardivex/policy": ["./packages/policy/src/index.ts"],
+      "@guardivex/queues": ["./packages/queues/src/index.ts"],
+      "@guardivex/database": ["./packages/database/src/index.ts"]
+    }
+  }
+}

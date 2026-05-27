@@ -1,0 +1,50 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:16-alpine
+        env:
+          POSTGRES_USER: guardivex
+          POSTGRES_PASSWORD: guardivex_dev_password
+          POSTGRES_DB: guardivex
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U guardivex -d guardivex"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+    env:
+      DATABASE_URL: postgresql://guardivex:guardivex_dev_password@localhost:5432/guardivex?schema=public
+      JWT_ACCESS_SECRET: ci-jwt-secret-change-me-000000000000000000
+      VITE_API_URL: http://127.0.0.1:4000
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run db:generate
+      - run: npm run typecheck
+      - run: npm run test
+      - run: npm run lint
+      - run: npm run build
+      - run: docker compose config
+        env:
+          JWT_ACCESS_SECRET: ci-jwt-secret-change-me-000000000000000000
+          JWT_REFRESH_SECRET: ci-refresh-secret-change-me-000000000000000
+          COOKIE_SECRET: ci-cookie-secret-change-me-0000000000000000
+      - run: docker compose build api
+        env:
+          JWT_ACCESS_SECRET: ci-jwt-secret-change-me-000000000000000000
+          JWT_REFRESH_SECRET: ci-refresh-secret-change-me-000000000000000
+          COOKIE_SECRET: ci-cookie-secret-change-me-0000000000000000

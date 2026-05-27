@@ -2,7 +2,7 @@ import fs from "node:fs"
 import path from "node:path"
 
 const ROOT = process.cwd()
-const TARGETS = ["src", "index.html"]
+const TARGETS = ["apps/web/src", "apps/web/index.html"]
 const FILE_EXTENSIONS = new Set([".ts", ".tsx", ".js", ".jsx", ".css", ".html", ".md"])
 
 const ALLOW_CONTEXT_PATTERNS = [
@@ -20,6 +20,8 @@ const ALLOW_CONTEXT_PATTERNS = [
   /\bsystemctl status guardivex\b/gi,
   /\bservice guardivex\b/gi,
   /\bguardivex\/deploy\b/gi,
+  /guardivex[A-Za-z0-9_-]*/g,
+  /guardivex\.[A-Za-z0-9_.-]+/g,
 ]
 
 function walkFiles(entryPath) {

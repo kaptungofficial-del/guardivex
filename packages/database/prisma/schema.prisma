@@ -1,0 +1,526 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum UserStatus {
+  active
+  disabled
+  invited
+  locked
+}
+
+enum DeviceType {
+  camera
+  nvr
+  access_control_panel
+  door_contact
+  alarm_panel
+  network_switch
+  sensor
+  server
+}
+
+enum DeviceStatus {
+  online
+  offline
+  degraded
+  maintenance
+  unknown
+}
+
+enum DoorStatus {
+  secured
+  unlocked
+  forced_open
+  held_open
+  unknown
+}
+
+enum Severity {
+  info
+  low
+  medium
+  high
+  critical
+}
+
+enum AlertStatus {
+  open
+  acknowledged
+  suppressed
+  resolved
+}
+
+enum IncidentStatus {
+  open
+  investigating
+  contained
+  resolved
+  closed
+}
+
+enum CommandStatus {
+  requested
+  policy_review
+  approval_required
+  approved
+  rejected
+  expired
+  queued
+  executing
+  succeeded
+  failed
+  cancelled
+}
+
+enum ApprovalDecision {
+  approved
+  rejected
+}
+
+enum AuditOutcome {
+  success
+  denied
+  failure
+}
+
+enum EnvironmentName {
+  dev
+  staging
+  production
+}
+
+enum AiRecommendationStatus {
+  drafted
+  reviewed
+  converted_to_command_request
+  dismissed
+}
+
+model Tenant {
+  id        String   @id @default(uuid()) @db.Uuid
+  name      String
+  slug      String   @unique
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  users             User[]
+  roles             Role[]
+  permissions       Permission[]
+  sites             Site[]
+  doors             Door[]
+  devices           Device[]
+  events            Event[]
+  alerts            Alert[]
+  incidents         Incident[]
+  auditLogs         AuditLog[]
+  commandRequests   CommandRequest[]
+  commandApprovals  CommandApproval[]
+  commandExecutions CommandExecution[]
+  sessions          Session[]
+  adapterHeartbeats  AdapterHeartbeat[]
+  policyEvaluations  PolicyEvaluation[]
+  aiRecommendations  AiRecommendation[]
+  loginAttempts      LoginAttempt[]
+}
+
+model User {
+  id           String     @id @default(uuid()) @db.Uuid
+  tenantId     String     @db.Uuid
+  email        String
+  name         String
+  passwordHash String
+  status       UserStatus @default(active)
+  lastLoginAt  DateTime?
+  createdAt    DateTime   @default(now())
+  updatedAt    DateTime   @updatedAt
+
+  tenant            Tenant             @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  roles             UserRole[]
+  sessions          Session[]
+  auditLogs         AuditLog[]
+  commandRequests   CommandRequest[]    @relation("CommandRequester")
+  commandApprovals  CommandApproval[]   @relation("CommandApprover")
+  commandExecutions CommandExecution[]  @relation("CommandExecutor")
+  assignedIncidents Incident[]          @relation("IncidentAssignee")
+  aiRecommendations AiRecommendation[] @relation("AiRecommendationReviewer")
+
+  @@unique([tenantId, email])
+  @@index([tenantId, status])
+}
+
+model Role {
+  id          String   @id @default(uuid()) @db.Uuid
+  tenantId    String   @db.Uuid
+  name        String
+  description String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  tenant      Tenant           @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  users       UserRole[]
+  permissions RolePermission[]
+
+  @@unique([tenantId, name])
+}
+
+model Permission {
+  id          String   @id @default(uuid()) @db.Uuid
+  tenantId    String   @db.Uuid
+  key         String
+  description String?
+  createdAt   DateTime @default(now())
+
+  tenant Tenant           @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  roles  RolePermission[]
+
+  @@unique([tenantId, key])
+}
+
+model UserRole {
+  userId String @db.Uuid
+  roleId String @db.Uuid
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  role Role @relation(fields: [roleId], references: [id], onDelete: Cascade)
+
+  @@id([userId, roleId])
+}
+
+model RolePermission {
+  roleId       String @db.Uuid
+  permissionId String @db.Uuid
+
+  role       Role       @relation(fields: [roleId], references: [id], onDelete: Cascade)
+  permission Permission @relation(fields: [permissionId], references: [id], onDelete: Cascade)
+
+  @@id([roleId, permissionId])
+}
+
+model Session {
+  id               String   @id @default(uuid()) @db.Uuid
+  tenantId         String   @db.Uuid
+  userId           String   @db.Uuid
+  refreshTokenHash String   @unique
+  userAgent        String?
+  ipAddress        String?
+  deviceFingerprint String?
+  deviceName       String?
+  lastSeenAt       DateTime?
+  expiresAt        DateTime
+  revokedAt        DateTime?
+  createdAt        DateTime @default(now())
+
+  tenant Tenant @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([tenantId, userId])
+}
+
+model Site {
+  id        String   @id @default(uuid()) @db.Uuid
+  tenantId  String   @db.Uuid
+  name      String
+  address   String?
+  timezone  String   @default("UTC")
+  status    String   @default("operational")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  tenant    Tenant     @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  doors     Door[]
+  devices   Device[]
+  events    Event[]
+  alerts    Alert[]
+  incidents Incident[]
+
+  @@index([tenantId, status])
+}
+
+model Door {
+  id        String     @id @default(uuid()) @db.Uuid
+  tenantId  String     @db.Uuid
+  siteId    String     @db.Uuid
+  name      String
+  location  String?
+  status    DoorStatus @default(unknown)
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+
+  tenant          Tenant           @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  site            Site             @relation(fields: [siteId], references: [id], onDelete: Cascade)
+  devices         Device[]
+  commandRequests CommandRequest[]
+
+  @@index([tenantId, siteId])
+}
+
+model Device {
+  id          String       @id @default(uuid()) @db.Uuid
+  tenantId    String       @db.Uuid
+  siteId      String?      @db.Uuid
+  doorId      String?      @db.Uuid
+  name        String
+  type        DeviceType
+  vendor      String?
+  model       String?
+  serial      String?
+  ipAddress   String?
+  status      DeviceStatus @default(unknown)
+  lastSeenAt  DateTime?
+  metadata    Json         @default("{}")
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
+
+  tenant          Tenant           @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  site            Site?            @relation(fields: [siteId], references: [id], onDelete: SetNull)
+  door            Door?            @relation(fields: [doorId], references: [id], onDelete: SetNull)
+  events          Event[]
+  alerts          Alert[]
+  commandRequests CommandRequest[]
+
+  @@index([tenantId, type])
+  @@index([tenantId, status])
+}
+
+model Event {
+  id        String   @id @default(uuid()) @db.Uuid
+  tenantId  String   @db.Uuid
+  siteId    String?  @db.Uuid
+  deviceId  String?  @db.Uuid
+  type      String
+  severity  Severity @default(info)
+  message   String
+  payload   Json     @default("{}")
+  sourceVendor String?
+  sourceDevice String?
+  rawPayload Json @default("{}")
+  normalizedPayload Json @default("{}")
+  correlationId String?
+  occurredAt DateTime @default(now())
+  createdAt DateTime @default(now())
+
+  tenant Tenant @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  site   Site?  @relation(fields: [siteId], references: [id], onDelete: SetNull)
+  device Device? @relation(fields: [deviceId], references: [id], onDelete: SetNull)
+  alerts Alert[]
+
+  @@index([tenantId, occurredAt])
+  @@index([tenantId, severity])
+  @@index([tenantId, correlationId])
+}
+
+model Alert {
+  id             String      @id @default(uuid()) @db.Uuid
+  tenantId       String      @db.Uuid
+  siteId         String?     @db.Uuid
+  deviceId       String?     @db.Uuid
+  sourceEventId  String?     @db.Uuid
+  severity       Severity
+  status         AlertStatus @default(open)
+  title          String
+  message        String
+  acknowledgedAt DateTime?
+  resolvedAt     DateTime?
+  createdAt      DateTime    @default(now())
+  updatedAt      DateTime    @updatedAt
+
+  tenant      Tenant    @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  site        Site?     @relation(fields: [siteId], references: [id], onDelete: SetNull)
+  device      Device?   @relation(fields: [deviceId], references: [id], onDelete: SetNull)
+  sourceEvent Event?    @relation(fields: [sourceEventId], references: [id], onDelete: SetNull)
+  incidents   Incident[]
+
+  @@index([tenantId, status])
+  @@index([tenantId, severity])
+}
+
+model Incident {
+  id          String         @id @default(uuid()) @db.Uuid
+  tenantId    String         @db.Uuid
+  siteId      String?        @db.Uuid
+  alertId     String?        @db.Uuid
+  assignedToId String?       @db.Uuid
+  title       String
+  description String
+  priority    Severity
+  status      IncidentStatus @default(open)
+  createdAt   DateTime       @default(now())
+  updatedAt   DateTime       @updatedAt
+  resolvedAt  DateTime?
+
+  tenant     Tenant @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  site       Site?  @relation(fields: [siteId], references: [id], onDelete: SetNull)
+  alert      Alert? @relation(fields: [alertId], references: [id], onDelete: SetNull)
+  assignedTo User?  @relation("IncidentAssignee", fields: [assignedToId], references: [id], onDelete: SetNull)
+
+  @@index([tenantId, status])
+}
+
+model AuditLog {
+  id        String       @id @default(uuid()) @db.Uuid
+  tenantId  String       @db.Uuid
+  userId    String?      @db.Uuid
+  action    String
+  resource  String
+  resourceId String?
+  outcome   AuditOutcome
+  ipAddress String?
+  userAgent String?
+  metadata  Json         @default("{}")
+  previousHash String?
+  recordHash String?     @unique
+  createdAt DateTime     @default(now())
+
+  tenant Tenant @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  user   User?  @relation(fields: [userId], references: [id], onDelete: SetNull)
+
+  @@index([tenantId, createdAt])
+  @@index([tenantId, action])
+}
+
+model CommandRequest {
+  id             String        @id @default(uuid()) @db.Uuid
+  tenantId       String        @db.Uuid
+  requestedById  String        @db.Uuid
+  targetDeviceId String?       @db.Uuid
+  targetDoorId   String?       @db.Uuid
+  action         String
+  reason         String
+  status         CommandStatus @default(requested)
+  riskScore      Int           @default(0)
+  policyDecision Json          @default("{}")
+  policyEvaluationId String?   @db.Uuid
+  metadata       Json          @default("{}")
+  expiresAt      DateTime?
+  createdAt      DateTime      @default(now())
+  updatedAt      DateTime      @updatedAt
+
+  tenant      Tenant             @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  requestedBy User               @relation("CommandRequester", fields: [requestedById], references: [id], onDelete: Restrict)
+  targetDevice Device?           @relation(fields: [targetDeviceId], references: [id], onDelete: SetNull)
+  targetDoor   Door?             @relation(fields: [targetDoorId], references: [id], onDelete: SetNull)
+  approvals    CommandApproval[]
+  executions   CommandExecution[]
+
+  @@index([tenantId, status])
+  @@index([tenantId, createdAt])
+}
+
+model AdapterHeartbeat {
+  id          String       @id @default(uuid()) @db.Uuid
+  tenantId    String       @db.Uuid
+  siteId      String?      @db.Uuid
+  deviceId    String?      @db.Uuid
+  vendor      String
+  adapterName String
+  status      DeviceStatus @default(unknown)
+  message     String?
+  telemetry   Json         @default("{}")
+  checkedAt   DateTime     @default(now())
+  createdAt   DateTime     @default(now())
+
+  tenant Tenant @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+
+  @@index([tenantId, vendor, checkedAt])
+  @@index([tenantId, status])
+}
+
+model PolicyEvaluation {
+  id              String          @id @default(uuid()) @db.Uuid
+  tenantId        String          @db.Uuid
+  environment     EnvironmentName
+  resource        String
+  resourceId      String?
+  allowed         Boolean
+  requiredActions Json            @default("[]")
+  matchedPolicies Json            @default("[]")
+  reasons         Json            @default("[]")
+  riskScore       Int             @default(0)
+  input           Json            @default("{}")
+  createdAt       DateTime        @default(now())
+
+  tenant Tenant @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+
+  @@index([tenantId, createdAt])
+  @@index([tenantId, allowed])
+}
+
+model AiRecommendation {
+  id             String                 @id @default(uuid()) @db.Uuid
+  tenantId       String                 @db.Uuid
+  incidentId     String?                @db.Uuid
+  reviewedById   String?                @db.Uuid
+  status         AiRecommendationStatus @default(drafted)
+  summary        String
+  recommendation String
+  suggestedAction String?
+  draftCommand   Json                   @default("{}")
+  evidence       Json                   @default("[]")
+  createdAt      DateTime               @default(now())
+  reviewedAt     DateTime?
+
+  tenant     Tenant    @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  reviewedBy User?     @relation("AiRecommendationReviewer", fields: [reviewedById], references: [id], onDelete: SetNull)
+
+  @@index([tenantId, status])
+  @@index([tenantId, createdAt])
+}
+
+model LoginAttempt {
+  id        String   @id @default(uuid()) @db.Uuid
+  tenantId  String?  @db.Uuid
+  email     String
+  ipAddress String?
+  userAgent String?
+  success   Boolean
+  reason    String?
+  createdAt DateTime @default(now())
+
+  tenant Tenant? @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+
+  @@index([email, createdAt])
+  @@index([ipAddress, createdAt])
+}
+
+model CommandApproval {
+  id               String           @id @default(uuid()) @db.Uuid
+  tenantId         String           @db.Uuid
+  commandRequestId String           @db.Uuid
+  approverId       String           @db.Uuid
+  decision         ApprovalDecision
+  comment          String
+  createdAt        DateTime         @default(now())
+
+  tenant         Tenant         @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  commandRequest CommandRequest @relation(fields: [commandRequestId], references: [id], onDelete: Cascade)
+  approver       User           @relation("CommandApprover", fields: [approverId], references: [id], onDelete: Restrict)
+
+  @@index([tenantId, commandRequestId])
+}
+
+model CommandExecution {
+  id               String        @id @default(uuid()) @db.Uuid
+  tenantId         String        @db.Uuid
+  commandRequestId String        @db.Uuid
+  executedById     String?       @db.Uuid
+  status           CommandStatus
+  executor         String
+  requestPayload   Json          @default("{}")
+  responsePayload  Json          @default("{}")
+  errorMessage     String?
+  startedAt        DateTime?
+  completedAt      DateTime?
+  createdAt        DateTime      @default(now())
+
+  tenant         Tenant         @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  commandRequest CommandRequest @relation(fields: [commandRequestId], references: [id], onDelete: Cascade)
+  executedBy     User?          @relation("CommandExecutor", fields: [executedById], references: [id], onDelete: SetNull)
+
+  @@index([tenantId, commandRequestId])
+}
