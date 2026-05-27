@@ -10,7 +10,7 @@
     "build": "npm run build -w @guardivex/shared && npm run build -w @guardivex/adapters && npm run build -w @guardivex/policy && npm run build -w @guardivex/queues && npm run build -w @guardivex/database && npm run build -w @guardivex/api && npm run build -w @guardivex/web",
     "build:web": "npm run build -w @guardivex/web",
     "build:api": "npm run build -w @guardivex/api",
-    "typecheck": "npm run typecheck -w @guardivex/shared && npm run typecheck -w @guardivex/adapters && npm run typecheck -w @guardivex/policy && npm run typecheck -w @guardivex/queues && npm run typecheck -w @guardivex/database && npm run typecheck -w @guardivex/api && npm run build -w @guardivex/web",
+    "typecheck": "npm run build",
     "lint": "npm run brand:check && eslint .",
     "brand:check": "node scripts/check-branding.mjs",
     "db:generate": "npm run db:generate -w @guardivex/database",
