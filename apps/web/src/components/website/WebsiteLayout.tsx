@@ -373,20 +373,20 @@ function HomePage({ onNavigate }: { onNavigate: (page: string) => void }) {
                     <Badge variant="outline" className="h-6 rounded-md border-[var(--gvx-hero-border)] bg-[var(--gvx-hero-card)] px-2.5 text-[9px] text-[var(--gvx-hero-muted)]">Last 24 Hours</Badge>
                   </div>
 
-                  <div className="mb-2 grid min-h-[120px] grid-cols-1 gap-2 overflow-hidden rounded-md border border-[var(--gvx-hero-border)] bg-[var(--gvx-hero-card)] p-2 sm:grid-cols-[1fr_1fr_0.9fr] sm:min-h-[132px]">
+                  <div className="mb-2 grid min-h-[88px] grid-cols-1 gap-1.5 overflow-hidden rounded-md border border-[var(--gvx-hero-border)] bg-[var(--gvx-hero-card)] p-1.5 sm:grid-cols-[1fr_1fr_0.9fr] sm:min-h-[96px]">
                     {heroCameraFeeds.map((feed, index) => (
                       <div
                         key={feed.label}
-                        className={`group relative min-h-[104px] overflow-hidden rounded-md border border-[var(--gvx-hero-border)] bg-slate-200 shadow-[0_16px_34px_-34px_rgba(7,17,31,0.42)] ${feed.visualClassName} ${index === 0 ? "sm:col-span-1" : ""}`}
+                        className={`group relative min-h-[76px] overflow-hidden rounded-md border border-[var(--gvx-hero-border)] bg-slate-200 shadow-[0_14px_28px_-30px_rgba(7,17,31,0.42)] sm:min-h-[84px] ${feed.visualClassName} ${index === 0 ? "sm:col-span-1" : ""}`}
                       >
                         <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(2,8,23,0.02),rgba(2,8,23,0.34))] dark:bg-[linear-gradient(180deg,rgba(2,8,23,0.12),rgba(2,8,23,0.58))]" />
-                        <div className="absolute inset-x-0 top-0 flex items-center justify-between bg-black/18 px-2 py-1 text-[8px] font-semibold uppercase text-white/78 backdrop-blur-[2px]">
+                        <div className="absolute inset-x-0 top-0 flex items-center justify-between bg-black/18 px-1.5 py-0.5 text-[7px] font-semibold uppercase text-white/78 backdrop-blur-[2px]">
                           <span>CAM 0{index + 1}</span>
                           <span className="inline-flex items-center gap-1"><span className="h-1 w-1 rounded-full bg-emerald-400" />Live</span>
                         </div>
-                        <div className="absolute bottom-0 left-0 right-0 p-2 text-white">
-                          <div className="text-[11px] font-semibold leading-tight drop-shadow">{feed.label}</div>
-                          <div className="mt-0.5 text-[9px] font-medium text-white/72">{feed.status}</div>
+                        <div className="absolute bottom-0 left-0 right-0 p-1.5 text-white">
+                          <div className="text-[10px] font-semibold leading-tight drop-shadow">{feed.label}</div>
+                          <div className="mt-0.5 hidden text-[8px] font-medium text-white/72 sm:block">{feed.status}</div>
                         </div>
                       </div>
                     ))}
