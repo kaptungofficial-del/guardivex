@@ -64,8 +64,8 @@ export function WebsiteLayout({ currentPage, onNavigate, onLogin }: WebsiteLayou
                 <BrandLogo
                   subtitle="SECURITY PLATFORM"
                   markClassName="w-20 h-20"
-                  titleClassName="text-2xl font-extrabold tracking-normal"
-                  subtitleClassName="text-[10px] tracking-[0.14em] mt-1.5 text-muted-foreground/80"
+                  titleClassName="bg-[linear-gradient(135deg,#008ff0_0%,#00d7e6_58%,#82a83d_100%)] bg-clip-text text-2xl font-extrabold tracking-normal text-transparent"
+                  subtitleClassName="text-[10px] tracking-[0.14em] mt-1.5 text-[var(--gvx-hero-muted)]"
                 />
               </div>
               <p className="text-sm text-muted-foreground dark:text-slate-300 max-w-md leading-relaxed">
@@ -284,7 +284,7 @@ function HomePage({ onNavigate }: { onNavigate: (page: string) => void }) {
                 Enterprise security operations
               </div>
 
-              <h1 className="mx-auto max-w-[820px] font-heading text-[clamp(2.45rem,4.5vw,4.75rem)] font-extrabold leading-[0.96] tracking-normal text-[var(--gvx-hero-text)]">
+              <h1 className="mx-auto max-w-[820px] bg-[linear-gradient(135deg,var(--gvx-hero-text)_0%,var(--gvx-hero-accent)_54%,var(--gvx-hero-accent-2)_100%)] bg-clip-text font-heading text-[clamp(2.45rem,4.5vw,4.75rem)] font-extrabold leading-[0.96] tracking-normal text-transparent">
                 A command center for enterprise security operations
               </h1>
 

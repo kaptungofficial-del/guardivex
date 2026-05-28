@@ -426,8 +426,8 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
                   markClassName="h-12 w-12 sm:h-14 sm:w-14 lg:h-16 lg:w-16"
                   imgClassName="pr-0.5"
                   textContainerClassName="gap-0"
-                  titleClassName="text-[20px] sm:text-[22px] lg:text-[24px] text-[#07111F] group-hover:text-[var(--gvx-hero-accent)] transition-colors font-bold tracking-normal dark:text-[#E2E8F0] dark:group-hover:text-cyan-300"
-                  subtitleClassName="hidden sm:block text-[9px] lg:text-[9.5px] text-[#64748B] tracking-[0.1em] leading-none mt-0.5 dark:text-[#94A3B8]"
+                  titleClassName="bg-[linear-gradient(135deg,#008ff0_0%,#00d7e6_58%,#82a83d_100%)] bg-clip-text text-[20px] sm:text-[22px] lg:text-[24px] font-bold tracking-normal text-transparent transition-opacity group-hover:opacity-85"
+                  subtitleClassName="hidden sm:block text-[9px] lg:text-[9.5px] text-[#4f6d74] tracking-[0.1em] leading-none mt-0.5 dark:text-[#9ac7d2]"
                 />
               </button>
               
