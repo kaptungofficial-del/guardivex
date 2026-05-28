@@ -273,6 +273,24 @@ function HomePage({ onNavigate }: { onNavigate: (page: string) => void }) {
     { label: "New device registered", severity: "Medium", time: "16m ago", dot: "bg-blue-600", chip: "bg-blue-500/10 text-blue-700 dark:text-blue-300" },
   ]
 
+  const heroCameraFeeds = [
+    {
+      label: "North Lobby",
+      status: "Motion verified",
+      visualClassName: "hero-feed-lobby",
+    },
+    {
+      label: "Data Center",
+      status: "Access normal",
+      visualClassName: "hero-feed-datacenter",
+    },
+    {
+      label: "Parking East",
+      status: "Perimeter clear",
+      visualClassName: "hero-feed-parking",
+    },
+  ]
+
   const heroMetrics = [
     { value: "5,000+", label: "Organizations", meta: "Trusted worldwide", icon: Buildings, tone: "text-[var(--gvx-hero-accent)]" },
     { value: "50,000+", label: "Devices", meta: "Monitored 24/7", icon: Broadcast, tone: "text-emerald-500 dark:text-emerald-300" },
@@ -343,7 +361,7 @@ function HomePage({ onNavigate }: { onNavigate: (page: string) => void }) {
                 <div className="rounded-lg border border-[var(--gvx-hero-border)] bg-[var(--gvx-hero-surface-strong)] p-2.5 shadow-[inset_0_1px_0_rgba(255,255,255,0.10)] sm:p-3">
                   <div className="mb-2 flex items-center justify-between gap-3 border-b border-[var(--gvx-hero-border)] pb-2">
                     <div>
-                        <div className="flex items-center gap-2 text-[0.86rem] font-semibold text-[var(--gvx-hero-text)]">
+                      <div className="flex items-center gap-2 text-[0.86rem] font-semibold text-[var(--gvx-hero-text)]">
                         <span className="relative flex h-2 w-2">
                           <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-25" />
                           <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
@@ -353,6 +371,25 @@ function HomePage({ onNavigate }: { onNavigate: (page: string) => void }) {
                       <p className="mt-0.5 text-[11px] text-[var(--gvx-hero-subtle)]">Normalized detections across sites and infrastructure</p>
                     </div>
                     <Badge variant="outline" className="h-6 rounded-md border-[var(--gvx-hero-border)] bg-[var(--gvx-hero-card)] px-2.5 text-[9px] text-[var(--gvx-hero-muted)]">Last 24 Hours</Badge>
+                  </div>
+
+                  <div className="mb-2 grid min-h-[120px] grid-cols-1 gap-2 overflow-hidden rounded-md border border-[var(--gvx-hero-border)] bg-[var(--gvx-hero-card)] p-2 sm:grid-cols-[1fr_1fr_0.9fr] sm:min-h-[132px]">
+                    {heroCameraFeeds.map((feed, index) => (
+                      <div
+                        key={feed.label}
+                        className={`group relative min-h-[104px] overflow-hidden rounded-md border border-[var(--gvx-hero-border)] bg-slate-200 shadow-[0_16px_34px_-34px_rgba(7,17,31,0.42)] ${feed.visualClassName} ${index === 0 ? "sm:col-span-1" : ""}`}
+                      >
+                        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(2,8,23,0.02),rgba(2,8,23,0.34))] dark:bg-[linear-gradient(180deg,rgba(2,8,23,0.12),rgba(2,8,23,0.58))]" />
+                        <div className="absolute inset-x-0 top-0 flex items-center justify-between bg-black/18 px-2 py-1 text-[8px] font-semibold uppercase text-white/78 backdrop-blur-[2px]">
+                          <span>CAM 0{index + 1}</span>
+                          <span className="inline-flex items-center gap-1"><span className="h-1 w-1 rounded-full bg-emerald-400" />Live</span>
+                        </div>
+                        <div className="absolute bottom-0 left-0 right-0 p-2 text-white">
+                          <div className="text-[11px] font-semibold leading-tight drop-shadow">{feed.label}</div>
+                          <div className="mt-0.5 text-[9px] font-medium text-white/72">{feed.status}</div>
+                        </div>
+                      </div>
+                    ))}
                   </div>
 
                   <div className="grid grid-cols-2 gap-1.5 xl:grid-cols-4">

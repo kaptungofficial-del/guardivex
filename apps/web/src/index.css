@@ -240,6 +240,27 @@ h6 {
   overflow-wrap: anywhere;
 }
 
+.hero-feed-lobby {
+  background-image:
+    linear-gradient(135deg, rgba(15, 23, 42, 0.16), rgba(20, 119, 212, 0.14)),
+    radial-gradient(circle at 72% 26%, rgba(255, 255, 255, 0.42) 0 10%, transparent 22%),
+    linear-gradient(160deg, rgba(226, 232, 240, 0.9) 0 12%, rgba(148, 163, 184, 0.28) 12% 26%, rgba(15, 23, 42, 0.16) 26% 100%);
+}
+
+.hero-feed-datacenter {
+  background-image:
+    linear-gradient(135deg, rgba(15, 23, 42, 0.18), rgba(16, 185, 129, 0.13)),
+    repeating-linear-gradient(90deg, rgba(148, 163, 184, 0.42) 0 5px, transparent 5px 16px),
+    linear-gradient(180deg, rgba(248, 250, 252, 0.76), rgba(30, 41, 59, 0.18));
+}
+
+.hero-feed-parking {
+  background-image:
+    linear-gradient(135deg, rgba(15, 23, 42, 0.14), rgba(107, 114, 128, 0.16)),
+    radial-gradient(circle at 24% 34%, rgba(255, 255, 255, 0.48) 0 8%, transparent 18%),
+    linear-gradient(150deg, rgba(203, 213, 225, 0.78) 0 34%, rgba(71, 85, 105, 0.18) 34% 100%);
+}
+
 .premium-shell {
   position: relative;
   isolation: isolate;
