@@ -255,55 +255,66 @@ export function WebsiteLayout({ currentPage, onNavigate, onLogin }: WebsiteLayou
 
 function HomePage({ onNavigate }: { onNavigate: (page: string) => void }) {
   const heroCapabilities = [
-    { label: "Unified visibility", detail: "Monitor sites, devices, incidents, and alerts from one tenant-scoped operating view.", icon: Buildings },
-    { label: "Approval-first controls", detail: "High-risk actions are routed through policy, review, and audit before execution.", icon: Lock },
-    { label: "Realtime response", detail: "Live event streams keep security teams aligned across facilities and infrastructure.", icon: Broadcast },
+    { label: "Tenant-scoped visibility", detail: "Unify sites, devices, incidents, alerts, and audit history in one controlled operations view.", icon: Buildings },
+    { label: "Human-approved action", detail: "High-risk commands route through policy checks, approvals, and immutable audit records.", icon: Lock },
+    { label: "Realtime coordination", detail: "Live event streams keep SOC, IT, and facility teams aligned during active response.", icon: Broadcast },
   ]
 
-  const heroAssurances = ["Self-hosted deployment", "Human-approved commands", "Audit-ready operations"]
+  const heroAssurances = ["Self-hosted or hybrid", "AI recommendation-only", "Audit-ready controls"]
+
+  const heroTrustSignals = ["SOC operations", "Access control", "Video infrastructure", "Network security"]
 
   const heroMetrics = [
-    { value: "5,000+", label: "Organizations", meta: "Trusted worldwide", icon: Buildings, tone: "text-[var(--gvx-hero-accent)]" },
-    { value: "50,000+", label: "Devices", meta: "Monitored 24/7", icon: Broadcast, tone: "text-emerald-500 dark:text-emerald-300" },
-    { value: "99.99%", label: "Uptime SLA", meta: "Guaranteed", icon: ShieldCheck, tone: "text-[var(--gvx-hero-accent)]" },
-    { value: "24/7", label: "Enterprise Support", meta: "Always on", icon: Headset, tone: "text-violet-500 dark:text-violet-300" },
+    { value: "5,000+", label: "Organizations", meta: "Multi-site teams", icon: Buildings, tone: "text-[var(--gvx-hero-accent)]" },
+    { value: "50,000+", label: "Devices", meta: "Monitored endpoints", icon: Broadcast, tone: "text-emerald-500 dark:text-emerald-300" },
+    { value: "99.99%", label: "Uptime SLA", meta: "Operational target", icon: ShieldCheck, tone: "text-[var(--gvx-hero-accent)]" },
+    { value: "24/7", label: "Support", meta: "Enterprise coverage", icon: Headset, tone: "text-violet-500 dark:text-violet-300" },
   ]
 
   return (
     <div className="relative guardivex-home-typography overflow-x-clip bg-[var(--gvx-hero-bg)] text-[var(--gvx-hero-text)]">
       <section className="relative isolate overflow-hidden border-b border-[var(--gvx-hero-border)] bg-[var(--gvx-hero-bg)]">
         <div className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,var(--gvx-hero-bg)_0%,var(--gvx-hero-bg-soft)_100%)]" />
-        <div className="absolute inset-0 -z-10 opacity-[0.022] bg-[linear-gradient(var(--gvx-hero-accent)_1px,transparent_1px),linear-gradient(90deg,var(--gvx-hero-accent)_1px,transparent_1px)] bg-[size:72px_72px]" />
-        <div className="absolute inset-x-0 bottom-0 -z-10 h-28 bg-[linear-gradient(180deg,transparent,var(--gvx-hero-bg-soft))]" />
+        <div className="absolute inset-0 -z-10 opacity-[0.028] bg-[linear-gradient(var(--gvx-hero-accent)_1px,transparent_1px),linear-gradient(90deg,var(--gvx-hero-accent)_1px,transparent_1px)] bg-[size:68px_68px]" />
+        <div className="absolute left-1/2 top-8 -z-10 h-64 w-[min(760px,90vw)] -translate-x-1/2 rounded-full bg-[radial-gradient(circle,var(--gvx-hero-glow),transparent_68%)]" />
+        <div className="absolute inset-x-0 bottom-0 -z-10 h-32 bg-[linear-gradient(180deg,transparent,var(--gvx-hero-bg-soft))]" />
 
-        <div className="mx-auto w-full max-w-[1120px] px-5 py-12 sm:px-8 sm:py-14 lg:px-10 lg:py-16 xl:px-12">
-          <div className="mx-auto max-w-[900px] text-center">
-            <div className="mx-auto max-w-[790px]">
-              <div className="mb-5 inline-flex items-center gap-2 rounded-md border border-[var(--gvx-hero-border)] bg-[var(--gvx-hero-surface)] px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.12em] text-[var(--gvx-hero-muted)] shadow-[0_12px_28px_-26px_rgba(7,17,31,0.28)] backdrop-blur-xl">
+        <div className="mx-auto w-full max-w-[1160px] px-5 py-14 sm:px-8 sm:py-16 lg:px-10 lg:py-18 xl:px-12">
+          <div className="mx-auto max-w-[940px] text-center">
+            <div className="mx-auto max-w-[840px]">
+              <div className="mb-5 inline-flex items-center gap-2 rounded-md border border-[var(--gvx-hero-border)] bg-[var(--gvx-menu-bg)] px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.12em] text-[var(--gvx-hero-muted)] shadow-[0_12px_28px_-26px_rgba(7,17,31,0.28)]">
                 <ShieldCheck size={14} weight="fill" className="text-[var(--gvx-hero-accent)]" />
-                Enterprise security operations
+                Enterprise security command center
               </div>
 
-              <h1 className="mx-auto max-w-[820px] bg-[linear-gradient(135deg,var(--gvx-hero-text)_0%,var(--gvx-hero-accent)_54%,var(--gvx-hero-accent-2)_100%)] bg-clip-text font-heading text-[clamp(2.45rem,4.5vw,4.75rem)] font-extrabold leading-[0.96] tracking-normal text-transparent">
-                A command center for enterprise security operations
+              <h1 className="mx-auto max-w-[860px] bg-[linear-gradient(135deg,var(--gvx-hero-text)_0%,var(--gvx-hero-accent)_52%,var(--gvx-hero-accent-2)_100%)] bg-clip-text font-heading text-[clamp(2.55rem,4.7vw,5rem)] font-extrabold leading-[0.96] tracking-normal text-transparent">
+                Control security operations without unsafe automation
               </h1>
 
-              <p className="mx-auto mt-5 max-w-[690px] text-[1rem] leading-[1.65] text-[var(--gvx-hero-muted)] sm:text-[1.08rem]">
-                Guardivex brings cameras, access control, alarms, network devices, incidents, approvals, and audit trails into one controlled platform for security teams that need visibility without unsafe automation.
+              <p className="mx-auto mt-5 max-w-[720px] text-[1rem] leading-[1.65] text-[var(--gvx-hero-muted)] sm:text-[1.1rem]">
+                Guardivex unifies cameras, access control, alarms, network devices, incidents, approvals, and audit trails for security teams that need fast visibility with human-governed response.
               </p>
 
-              <div className="mt-7 flex flex-col items-center justify-center gap-3 sm:flex-row">
-                <Button size="lg" onClick={() => onNavigate("download")} className="h-11 rounded-md border border-[color:var(--gvx-hero-accent)] bg-[var(--gvx-hero-accent)] bg-none px-4 text-[0.86rem] font-semibold text-white shadow-[0_18px_36px_-28px_rgba(15,23,42,0.42)] transition-all duration-200 hover:-translate-y-0.5 hover:brightness-95 focus-visible:ring-[var(--gvx-hero-accent)]">
+              <div className="mx-auto mt-6 flex max-w-[760px] flex-wrap items-center justify-center gap-2.5 text-[0.76rem] font-semibold text-[var(--gvx-hero-subtle)]">
+                {heroTrustSignals.map((label) => (
+                  <span key={label} className="rounded-md border border-[var(--gvx-menu-border)] bg-[var(--gvx-menu-bg)] px-3 py-1.5">
+                    {label}
+                  </span>
+                ))}
+              </div>
+
+              <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
+                <Button size="lg" onClick={() => onNavigate("download")} className="h-12 rounded-md border border-[color:var(--gvx-hero-accent)] bg-[linear-gradient(135deg,var(--gvx-hero-accent),var(--gvx-hero-accent-2))] bg-none px-5 text-[0.9rem] font-semibold text-white shadow-[0_20px_42px_-28px_rgba(0,143,240,0.70)] transition-all duration-200 hover:-translate-y-0.5 hover:brightness-95 focus-visible:ring-[var(--gvx-hero-accent)]">
                   <CloudArrowDown size={17} className="mr-2" weight="bold" />
                   Deploy Enterprise Server
                 </Button>
-                <Button size="lg" variant="outline" className="h-11 rounded-md border-[var(--gvx-hero-border)] bg-[var(--gvx-hero-surface)] px-4 text-[0.86rem] font-semibold text-[var(--gvx-hero-text)] shadow-[0_16px_34px_-30px_rgba(7,17,31,0.30)] backdrop-blur-xl transition-all duration-200 hover:-translate-y-0.5 hover:border-[var(--gvx-hero-border-strong)] hover:bg-[var(--gvx-hero-surface-strong)]">
+                <Button size="lg" variant="outline" onClick={() => onNavigate("product")} className="h-12 rounded-md border-[var(--gvx-menu-border)] bg-[var(--gvx-menu-bg)] px-5 text-[0.9rem] font-semibold text-[var(--gvx-hero-text)] shadow-[0_16px_34px_-30px_rgba(7,17,31,0.30)] transition-all duration-200 hover:-translate-y-0.5 hover:border-[var(--gvx-hero-border-strong)] hover:bg-[var(--gvx-menu-hover)]">
                   <Monitor size={17} className="mr-2" weight="bold" />
-                  View SOC Demo
+                  Explore Platform
                 </Button>
               </div>
 
-              <div className="mx-auto mt-5 flex max-w-[720px] flex-wrap items-center justify-center gap-x-5 gap-y-2 border-y border-[var(--gvx-hero-border)] py-3 text-[0.78rem] font-medium text-[var(--gvx-hero-muted)]">
+              <div className="mx-auto mt-6 flex max-w-[760px] flex-wrap items-center justify-center gap-x-5 gap-y-2 rounded-lg border border-[var(--gvx-menu-border)] bg-[var(--gvx-menu-bg)] px-4 py-3 text-[0.78rem] font-medium text-[var(--gvx-hero-muted)] shadow-[0_14px_36px_-34px_rgba(7,17,31,0.34)]">
                 {heroAssurances.map((label) => (
                   <span key={label} className="inline-flex items-center gap-2">
                     <CheckCircle size={14} weight="fill" className="text-emerald-500" />
@@ -312,29 +323,30 @@ function HomePage({ onNavigate }: { onNavigate: (page: string) => void }) {
                 ))}
               </div>
 
-              <div className="mx-auto mt-7 grid max-w-[820px] grid-cols-1 gap-3 text-left sm:grid-cols-3">
+              <div className="mx-auto mt-7 grid max-w-[900px] grid-cols-1 gap-3 text-left sm:grid-cols-3">
                 {heroCapabilities.map((item) => (
-                  <div key={item.label} className="rounded-md border border-[var(--gvx-hero-border)] bg-[var(--gvx-hero-surface)] p-4 shadow-[0_16px_38px_-34px_rgba(7,17,31,0.30)] backdrop-blur-xl transition-colors hover:border-[var(--gvx-hero-border-strong)] hover:bg-[var(--gvx-hero-surface-strong)]">
-                    <div className="mb-3 flex h-9 w-9 items-center justify-center rounded-md bg-[var(--gvx-hero-accent-soft)]">
-                      <item.icon size={18} weight="duotone" className="text-[var(--gvx-hero-accent)]" />
+                  <div key={item.label} className="rounded-lg border border-[var(--gvx-menu-border)] bg-[var(--gvx-menu-bg)] p-4 shadow-[0_18px_42px_-36px_rgba(7,17,31,0.34)] transition-colors hover:border-[var(--gvx-hero-border-strong)] hover:bg-[var(--gvx-menu-hover)]">
+                    <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-md border border-[var(--gvx-hero-border)] bg-[var(--gvx-hero-accent-soft)]">
+                      <item.icon size={19} weight="duotone" className="text-[var(--gvx-hero-accent)]" />
                     </div>
-                    <div className="text-[0.86rem] font-semibold text-[var(--gvx-hero-text)]">{item.label}</div>
-                    <p className="mt-1.5 text-[0.76rem] leading-relaxed text-[var(--gvx-hero-subtle)]">{item.detail}</p>
+                    <div className="text-[0.9rem] font-semibold text-[var(--gvx-hero-text)]">{item.label}</div>
+                    <p className="mt-1.5 text-[0.78rem] leading-relaxed text-[var(--gvx-hero-subtle)]">{item.detail}</p>
                   </div>
                 ))}
               </div>
             </div>
           </div>
 
-          <div className="mt-8 grid grid-cols-2 gap-0 overflow-hidden rounded-lg border border-[var(--gvx-hero-border)] bg-[var(--gvx-hero-surface)] shadow-[0_18px_44px_-40px_rgba(7,17,31,0.30)] backdrop-blur-xl sm:grid-cols-4">
+          <div className="mt-9 grid grid-cols-2 gap-0 overflow-hidden rounded-xl border border-[var(--gvx-menu-border)] bg-[var(--gvx-menu-bg)] shadow-[0_24px_60px_-46px_rgba(7,17,31,0.42)] sm:grid-cols-4">
             {heroMetrics.map((stat) => (
-              <div key={stat.label} className="flex min-h-[72px] items-center gap-3 border-[var(--gvx-hero-border)] px-4 py-3 even:border-l sm:border-l sm:first:border-l-0">
-                <div className="flex h-8 w-8 items-center justify-center rounded-md bg-[var(--gvx-hero-accent-soft)]">
+              <div key={stat.label} className="flex min-h-[86px] items-center gap-3 border-[var(--gvx-menu-border)] px-4 py-3 even:border-l sm:border-l sm:first:border-l-0">
+                <div className="flex h-9 w-9 items-center justify-center rounded-md border border-[var(--gvx-hero-border)] bg-[var(--gvx-hero-accent-soft)]">
                   <stat.icon size={17} className={stat.tone} weight="duotone" />
                 </div>
                 <div>
-                  <div className="font-heading text-[1rem] font-semibold leading-none text-[var(--gvx-hero-text)]">{stat.value}</div>
-                  <div className="mt-1 text-[11px] font-medium text-[var(--gvx-hero-muted)]">{stat.label}</div>
+                  <div className="font-heading text-[1.05rem] font-semibold leading-none text-[var(--gvx-hero-text)]">{stat.value}</div>
+                  <div className="mt-1 text-[11px] font-semibold text-[var(--gvx-hero-muted)]">{stat.label}</div>
+                  <div className="mt-0.5 text-[10px] font-medium text-[var(--gvx-hero-subtle)]">{stat.meta}</div>
                 </div>
               </div>
             ))}
