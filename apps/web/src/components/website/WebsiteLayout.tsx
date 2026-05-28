@@ -261,34 +261,10 @@ function HomePage({ onNavigate }: { onNavigate: (page: string) => void }) {
     { label: "Users", value: "189", delta: "+2.1%", context: "42 active now", tone: "text-violet-500 dark:text-violet-300", accent: "bg-violet-500/10", icon: Users },
   ]
 
-  const alertSources = [
-    { label: "Front Gate Camera", value: 12, width: "w-[88%]", tone: "bg-red-500" },
-    { label: "Data Center NVR", value: 8, width: "w-[66%]", tone: "bg-amber-500" },
-    { label: "HQ Access Control", value: 5, width: "w-[42%]", tone: "bg-blue-600" },
-  ]
-
-  const recentIncidents = [
-    { label: "Multiple failed login attempts", severity: "Critical", time: "2m ago", dot: "bg-red-500", chip: "bg-red-500/10 text-red-600 dark:text-red-300" },
-    { label: "Unauthorized access detected", severity: "High", time: "8m ago", dot: "bg-amber-500", chip: "bg-amber-500/10 text-amber-700 dark:text-amber-300" },
-    { label: "New device registered", severity: "Medium", time: "16m ago", dot: "bg-blue-600", chip: "bg-blue-500/10 text-blue-700 dark:text-blue-300" },
-  ]
-
-  const heroCameraFeeds = [
-    {
-      label: "North Lobby",
-      status: "Motion verified",
-      visualClassName: "hero-feed-lobby",
-    },
-    {
-      label: "Data Center",
-      status: "Access normal",
-      visualClassName: "hero-feed-datacenter",
-    },
-    {
-      label: "Parking East",
-      status: "Perimeter clear",
-      visualClassName: "hero-feed-parking",
-    },
+  const heroCapabilities = [
+    { label: "Tenant-safe monitoring", detail: "Sites, devices, alerts, and incidents stay scoped by organization.", icon: Buildings },
+    { label: "Human approval gates", detail: "High-risk commands require review before any worker action.", icon: Lock },
+    { label: "Realtime operations", detail: "Live alerts, device health, and incident updates stream into the SOC.", icon: Broadcast },
   ]
 
   const heroMetrics = [
@@ -302,186 +278,113 @@ function HomePage({ onNavigate }: { onNavigate: (page: string) => void }) {
     <div className="relative guardivex-home-typography overflow-x-clip bg-[var(--gvx-hero-bg)] text-[var(--gvx-hero-text)]">
       <section className="relative isolate overflow-hidden border-b border-[var(--gvx-hero-border)] bg-[var(--gvx-hero-bg)]">
         <div className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,var(--gvx-hero-bg)_0%,var(--gvx-hero-bg-soft)_100%)]" />
-        <div className="absolute left-[6%] top-[-24rem] -z-10 h-[42rem] w-[42rem] rounded-full bg-[radial-gradient(circle,var(--gvx-hero-glow),transparent_70%)] blur-[88px]" />
-        <div className="absolute right-[-18rem] top-[8rem] -z-10 h-[38rem] w-[38rem] rounded-full bg-[radial-gradient(circle,var(--gvx-hero-glow),transparent_74%)] blur-[104px]" />
-        <div className="absolute inset-0 -z-10 opacity-[0.016] bg-[linear-gradient(var(--gvx-hero-accent)_1px,transparent_1px),linear-gradient(90deg,var(--gvx-hero-accent)_1px,transparent_1px)] bg-[size:64px_64px]" />
+        <div className="absolute inset-0 -z-10 opacity-[0.022] bg-[linear-gradient(var(--gvx-hero-accent)_1px,transparent_1px),linear-gradient(90deg,var(--gvx-hero-accent)_1px,transparent_1px)] bg-[size:72px_72px]" />
+        <div className="absolute inset-x-0 bottom-0 -z-10 h-28 bg-[linear-gradient(180deg,transparent,var(--gvx-hero-bg-soft))]" />
 
-        <div className="mx-auto w-full max-w-[1240px] px-5 pb-7 pt-5 sm:px-8 sm:pb-8 sm:pt-6 lg:px-10 lg:pb-9 lg:pt-7 xl:px-12 xl:pb-10 xl:pt-8 2xl:px-14">
-          <div className="grid grid-cols-1 items-center gap-5 sm:gap-6 lg:grid-cols-[minmax(0,0.40fr)_minmax(0,0.60fr)] lg:gap-6 xl:gap-8">
-            <div>
-              <div className="max-w-[500px]">
-                <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-[var(--gvx-hero-border)] bg-[var(--gvx-hero-surface)] px-2.5 py-1 text-[9px] font-semibold uppercase tracking-[0.12em] text-[var(--gvx-hero-muted)] shadow-[0_10px_28px_-26px_rgba(7,17,31,0.28)] backdrop-blur-xl transition-colors hover:border-[var(--gvx-hero-border-strong)]">
-                  <span className="relative flex h-1.5 w-1.5">
-                    <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-30" />
-                    <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-emerald-500" />
-                  </span>
-                  Unified SOC Platform
-                </div>
+        <div className="mx-auto w-full max-w-[1180px] px-5 py-10 sm:px-8 sm:py-12 lg:px-10 lg:py-14 xl:px-12">
+          <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-[minmax(0,0.96fr)_minmax(420px,0.74fr)] lg:gap-10">
+            <div className="max-w-[670px]">
+              <div className="mb-4 inline-flex items-center gap-2 rounded-md border border-[var(--gvx-hero-border)] bg-[var(--gvx-hero-surface)] px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.12em] text-[var(--gvx-hero-muted)] shadow-[0_12px_28px_-26px_rgba(7,17,31,0.28)] backdrop-blur-xl">
+                <ShieldCheck size={14} weight="fill" className="text-[var(--gvx-hero-accent)]" />
+                Enterprise SOC platform
+              </div>
 
-                <h1 className="max-w-[500px] font-heading text-[clamp(2.3rem,3.35vw,4.05rem)] font-extrabold leading-[0.96] tracking-normal text-[var(--gvx-hero-text)]">
-                  <span className="block">Enterprise Security</span>
-                  <span className="block bg-gradient-to-r from-[var(--gvx-hero-accent)] via-[#4f8fe8] to-[var(--gvx-hero-accent-2)] bg-clip-text text-transparent opacity-95">Command Center</span>
-                </h1>
+              <h1 className="max-w-[680px] font-heading text-[clamp(2.55rem,5vw,5.4rem)] font-extrabold leading-[0.93] tracking-normal text-[var(--gvx-hero-text)]">
+                Enterprise Security Operations Platform
+              </h1>
 
-                <div className="mt-4 h-px w-24 bg-gradient-to-r from-[var(--gvx-hero-accent)] via-[var(--gvx-hero-border-strong)] to-transparent opacity-70" />
+              <p className="mt-5 max-w-[610px] text-[1rem] leading-[1.65] text-[var(--gvx-hero-muted)] sm:text-[1.08rem]">
+                Guardivex unifies cameras, access control, alarms, network devices, incidents, approvals, and audit trails in one self-hosted command center built for enterprise security teams.
+              </p>
 
-                <p className="mt-4 max-w-[460px] text-[0.98rem] leading-[1.58] text-[var(--gvx-hero-muted)] opacity-85 sm:text-base">
-                  A self-hosted security operations platform for devices, cameras, access control, alarms, and network infrastructure, unified in one real-time command center.
-                </p>
+              <div className="mt-6 flex flex-col items-start gap-3 sm:flex-row sm:items-center">
+                <Button size="lg" onClick={() => onNavigate("download")} className="h-11 rounded-md border border-[color:var(--gvx-hero-accent)] bg-[var(--gvx-hero-accent)] bg-none px-4 text-[0.86rem] font-semibold text-white shadow-[0_18px_36px_-28px_rgba(15,23,42,0.42)] transition-all duration-200 hover:-translate-y-0.5 hover:brightness-95 focus-visible:ring-[var(--gvx-hero-accent)]">
+                  <CloudArrowDown size={17} className="mr-2" weight="bold" />
+                  Deploy Enterprise Server
+                </Button>
+                <Button size="lg" variant="outline" className="h-11 rounded-md border-[var(--gvx-hero-border)] bg-[var(--gvx-hero-surface)] px-4 text-[0.86rem] font-semibold text-[var(--gvx-hero-text)] shadow-[0_16px_34px_-30px_rgba(7,17,31,0.30)] backdrop-blur-xl transition-all duration-200 hover:-translate-y-0.5 hover:border-[var(--gvx-hero-border-strong)] hover:bg-[var(--gvx-hero-surface-strong)]">
+                  <Monitor size={17} className="mr-2" weight="bold" />
+                  View SOC Demo
+                </Button>
+              </div>
 
-                <div className="mt-5 flex flex-col items-start gap-2.5 sm:flex-row sm:items-center">
-                  <Button size="lg" onClick={() => onNavigate("download")} className="h-[42px] w-fit max-w-full rounded-md border border-[color:var(--gvx-hero-accent)] bg-[var(--gvx-hero-accent)] bg-none px-3.5 text-[0.82rem] font-semibold text-white shadow-[0_16px_32px_-24px_rgba(15,23,42,0.36)] transition-all duration-200 hover:-translate-y-0.5 hover:brightness-95 focus-visible:ring-[var(--gvx-hero-accent)] sm:px-4">
-                    <CloudArrowDown size={16} className="mr-2" weight="bold" />
-                    Deploy Enterprise Server
-                  </Button>
-                  <Button size="lg" variant="outline" className="h-[42px] w-fit max-w-full rounded-md border-[var(--gvx-hero-border)] bg-[var(--gvx-hero-surface)] px-3.5 text-[0.82rem] font-semibold text-[var(--gvx-hero-text)] shadow-[0_14px_30px_-28px_rgba(7,17,31,0.30)] backdrop-blur-xl transition-all duration-200 hover:-translate-y-0.5 hover:border-[var(--gvx-hero-border-strong)] hover:bg-[var(--gvx-hero-surface-strong)] sm:px-4">
-                    <Monitor size={16} className="mr-2" weight="bold" />
-                    View SOC Demo
-                  </Button>
-                </div>
-
-                <p className="mt-2.5 max-w-[460px] text-[0.75rem] font-medium leading-relaxed text-[var(--gvx-hero-subtle)]">
-                  Trusted by enterprise campuses and critical infrastructure teams.
-                </p>
-
-                <div className="mt-3 grid max-w-[460px] grid-cols-1 gap-1.5 text-xs text-[var(--gvx-hero-subtle)] sm:grid-cols-3">
-                  {["SOC 2 ready", "Self-hosted", "24/7 support"].map((label) => (
-                    <div key={label} className="flex items-center gap-2">
-                      <CheckCircle size={14} weight="fill" className="text-emerald-500" />
-                      <span className="font-medium">{label}</span>
+              <div className="mt-7 grid max-w-[640px] grid-cols-1 gap-3 sm:grid-cols-3">
+                {heroCapabilities.map((item) => (
+                  <div key={item.label} className="rounded-md border border-[var(--gvx-hero-border)] bg-[var(--gvx-hero-surface)] p-3 shadow-[0_14px_34px_-32px_rgba(7,17,31,0.28)] backdrop-blur-xl">
+                    <div className="mb-2 flex h-8 w-8 items-center justify-center rounded-md bg-[var(--gvx-hero-accent-soft)]">
+                      <item.icon size={17} weight="duotone" className="text-[var(--gvx-hero-accent)]" />
                     </div>
-                  ))}
-                </div>
+                    <div className="text-[0.8rem] font-semibold text-[var(--gvx-hero-text)]">{item.label}</div>
+                    <p className="mt-1 text-[0.72rem] leading-relaxed text-[var(--gvx-hero-subtle)]">{item.detail}</p>
+                  </div>
+                ))}
               </div>
             </div>
 
-            <div className="relative">
-              <div className="absolute inset-x-12 top-10 -z-10 h-40 rounded-full bg-[radial-gradient(ellipse,var(--gvx-hero-glow),transparent_74%)] blur-[64px]" />
-              <div className="ml-auto w-full max-w-[690px] rounded-lg border border-[var(--gvx-hero-border)] bg-[var(--gvx-hero-surface)] p-1 shadow-[var(--gvx-hero-shadow)] backdrop-blur-2xl transition-transform duration-300 hover:-translate-y-0.5 sm:p-1.5">
-                <div className="rounded-lg border border-[var(--gvx-hero-border)] bg-[var(--gvx-hero-surface-strong)] p-2.5 shadow-[inset_0_1px_0_rgba(255,255,255,0.10)] sm:p-3">
-                  <div className="mb-2 flex items-center justify-between gap-3 border-b border-[var(--gvx-hero-border)] pb-2">
-                    <div>
-                      <div className="flex items-center gap-2 text-[0.86rem] font-semibold text-[var(--gvx-hero-text)]">
-                        <span className="relative flex h-2 w-2">
-                          <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-25" />
-                          <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
-                        </span>
-                        Live SOC Overview
-                      </div>
-                      <p className="mt-0.5 text-[11px] text-[var(--gvx-hero-subtle)]">Normalized detections across sites and infrastructure</p>
+            <div className="w-full rounded-lg border border-[var(--gvx-hero-border)] bg-[var(--gvx-hero-surface)] p-2 shadow-[var(--gvx-hero-shadow)] backdrop-blur-2xl">
+              <div className="overflow-hidden rounded-md border border-[var(--gvx-hero-border)] bg-[var(--gvx-hero-surface-strong)]">
+                <div className="flex items-center justify-between border-b border-[var(--gvx-hero-border)] px-3 py-2.5">
+                  <div>
+                    <div className="flex items-center gap-2 text-[0.86rem] font-semibold text-[var(--gvx-hero-text)]">
+                      <span className="h-2 w-2 rounded-full bg-emerald-500 shadow-[0_0_0_4px_rgba(16,185,129,0.12)]" />
+                      Live Operations Snapshot
                     </div>
-                    <Badge variant="outline" className="h-6 rounded-md border-[var(--gvx-hero-border)] bg-[var(--gvx-hero-card)] px-2.5 text-[9px] text-[var(--gvx-hero-muted)]">Last 24 Hours</Badge>
+                    <p className="mt-0.5 text-[11px] text-[var(--gvx-hero-subtle)]">Production-safe monitoring and command review</p>
                   </div>
+                  <Badge variant="outline" className="h-6 rounded-md border-[var(--gvx-hero-border)] bg-[var(--gvx-hero-card)] px-2.5 text-[9px] text-[var(--gvx-hero-muted)]">Main SOC</Badge>
+                </div>
 
-                  <div className="mb-2 grid min-h-[88px] grid-cols-1 gap-1.5 overflow-hidden rounded-md border border-[var(--gvx-hero-border)] bg-[var(--gvx-hero-card)] p-1.5 sm:grid-cols-[1fr_1fr_0.9fr] sm:min-h-[96px]">
-                    {heroCameraFeeds.map((feed, index) => (
-                      <div
-                        key={feed.label}
-                        className={`group relative min-h-[76px] overflow-hidden rounded-md border border-[var(--gvx-hero-border)] bg-slate-200 shadow-[0_14px_28px_-30px_rgba(7,17,31,0.42)] sm:min-h-[84px] ${feed.visualClassName} ${index === 0 ? "sm:col-span-1" : ""}`}
-                      >
-                        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(2,8,23,0.02),rgba(2,8,23,0.34))] dark:bg-[linear-gradient(180deg,rgba(2,8,23,0.12),rgba(2,8,23,0.58))]" />
-                        <div className="absolute inset-x-0 top-0 flex items-center justify-between bg-black/18 px-1.5 py-0.5 text-[7px] font-semibold uppercase text-white/78 backdrop-blur-[2px]">
-                          <span>CAM 0{index + 1}</span>
-                          <span className="inline-flex items-center gap-1"><span className="h-1 w-1 rounded-full bg-emerald-400" />Live</span>
-                        </div>
-                        <div className="absolute bottom-0 left-0 right-0 p-1.5 text-white">
-                          <div className="text-[10px] font-semibold leading-tight drop-shadow">{feed.label}</div>
-                          <div className="mt-0.5 hidden text-[8px] font-medium text-white/72 sm:block">{feed.status}</div>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-
-                  <div className="grid grid-cols-2 gap-1.5 xl:grid-cols-4">
-                    {heroThreatStats.map((item) => (
-                      <div key={item.label} className="group rounded-md bg-[var(--gvx-hero-card)] p-1.5 shadow-[0_12px_28px_-28px_rgba(7,17,31,0.34)] ring-1 ring-[var(--gvx-hero-border)]/70 transition-all duration-200 hover:-translate-y-0.5 hover:bg-[var(--gvx-hero-surface-strong)] hover:ring-[var(--gvx-hero-border-strong)] sm:p-2">
+                <div className="grid gap-2 p-3">
+                  <div className="grid grid-cols-2 gap-2">
+                    {heroThreatStats.slice(0, 4).map((item) => (
+                      <div key={item.label} className="rounded-md border border-[var(--gvx-hero-border)]/80 bg-[var(--gvx-hero-card)] p-2.5">
                         <div className="flex items-center justify-between gap-2">
-                          <div className={`flex h-5 w-5 items-center justify-center rounded-md ${item.accent}`}>
-                            <item.icon size={13} weight="duotone" className={item.tone} />
+                          <div className={`flex h-7 w-7 items-center justify-center rounded-md ${item.accent}`}>
+                            <item.icon size={15} weight="duotone" className={item.tone} />
                           </div>
-                          <span className="inline-flex items-center gap-1 font-mono text-[9px] text-emerald-500"><span className="h-1 w-1 rounded-full bg-emerald-500" />{item.delta}</span>
+                          <span className="font-mono text-[10px] text-emerald-500">{item.delta}</span>
                         </div>
-                        <div className="mt-1.5 text-[9px] font-medium text-[var(--gvx-hero-subtle)]">{item.label}</div>
-                        <div className={`mt-0.5 font-mono text-[0.92rem] font-semibold leading-none sm:text-[0.98rem] ${item.tone}`}>{item.value}</div>
-                        <div className="mt-1 hidden text-[9px] text-[var(--gvx-hero-subtle)] sm:block">{item.context}</div>
+                        <div className="mt-2 text-[10px] font-medium uppercase tracking-[0.08em] text-[var(--gvx-hero-subtle)]">{item.label}</div>
+                        <div className={`mt-1 font-mono text-[1.1rem] font-semibold leading-none ${item.tone}`}>{item.value}</div>
+                        <div className="mt-1 text-[10px] text-[var(--gvx-hero-subtle)]">{item.context}</div>
                       </div>
                     ))}
                   </div>
 
-                  <div className="mt-2 grid gap-2 xl:grid-cols-[1.12fr_0.88fr]">
-                    <div className="rounded-md bg-[var(--gvx-hero-card)] p-2 shadow-[0_14px_32px_-32px_rgba(7,17,31,0.34)] ring-1 ring-[var(--gvx-hero-border)]/70 transition-all duration-200 hover:ring-[var(--gvx-hero-border-strong)]">
-                      <div className="mb-2 flex items-center justify-between gap-3">
-                        <span className="text-xs font-semibold text-[var(--gvx-hero-muted)]">Alerts Over Time</span>
-                        <div className="flex items-center gap-3 text-[10px] text-[var(--gvx-hero-subtle)]">
-                          <span className="inline-flex items-center gap-1"><span className="h-1.5 w-3 rounded-full bg-red-500/80" />Critical</span>
-                          <span className="inline-flex items-center gap-1"><span className="h-1.5 w-3 rounded-full bg-amber-500" />High</span>
-                          <span className="inline-flex items-center gap-1"><span className="h-1.5 w-3 rounded-full bg-[var(--gvx-hero-accent)]" />Medium</span>
-                        </div>
-                      </div>
-                      <div className="relative h-[78px] overflow-hidden rounded-md bg-[linear-gradient(180deg,rgba(255,255,255,0.24),transparent)] dark:bg-[linear-gradient(180deg,rgba(255,255,255,0.035),transparent)] sm:h-[88px] xl:h-[92px]">
-                        <div className="absolute inset-0 opacity-[0.18] bg-[linear-gradient(rgba(100,116,139,0.18)_1px,transparent_1px),linear-gradient(90deg,rgba(100,116,139,0.12)_1px,transparent_1px)] bg-[size:100%_32px,64px_100%]" />
-                        <svg viewBox="0 0 560 178" className="absolute inset-0 h-full w-full" role="img" aria-label="Alert trend chart">
-                          <defs>
-                            <linearGradient id="guardivexCriticalFill" x1="0" x2="0" y1="0" y2="1">
-                              <stop offset="0%" stopColor="#ef4444" stopOpacity="0.10" />
-                              <stop offset="100%" stopColor="#ef4444" stopOpacity="0" />
-                            </linearGradient>
-                          </defs>
-                          <path d="M0 132 L40 124 L80 118 L120 121 L160 110 L200 112 L240 106 L280 98 L320 84 L360 94 L400 102 L440 108 L480 104 L520 110 L560 101 L560 178 L0 178 Z" fill="url(#guardivexCriticalFill)" />
-                          <polyline points="0,132 40,124 80,118 120,121 160,110 200,112 240,106 280,98 320,84 360,94 400,102 440,108 480,104 520,110 560,101" fill="none" stroke="#ef4444" strokeOpacity="0.82" strokeWidth="2.35" strokeLinecap="round" strokeLinejoin="round" />
-                          <polyline points="0,146 40,140 80,136 120,138 160,132 200,134 240,128 280,120 320,111 360,118 400,126 440,130 480,126 520,131 560,124" fill="none" stroke="#f59e0b" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                          <polyline points="0,158 40,153 80,150 120,151 160,146 200,148 240,144 280,138 320,130 360,136 400,140 440,144 480,142 520,145 560,139" fill="none" stroke="var(--gvx-hero-accent)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                        </svg>
-                        <div className="absolute bottom-2 left-4 right-4 flex justify-between font-mono text-[9px] text-[var(--gvx-hero-subtle)]">
-                          <span>00:00</span><span>08:00</span><span>12:00</span><span>20:00</span><span>24:00</span>
-                        </div>
+                  <div className="rounded-md border border-[var(--gvx-hero-border)]/80 bg-[var(--gvx-hero-card)] p-3">
+                    <div className="mb-3 flex items-center justify-between gap-3">
+                      <span className="text-xs font-semibold text-[var(--gvx-hero-muted)]">Alert Trend</span>
+                      <div className="flex items-center gap-2 text-[10px] text-[var(--gvx-hero-subtle)]">
+                        <span className="inline-flex items-center gap-1"><span className="h-1.5 w-3 rounded-full bg-red-500" />Critical</span>
+                        <span className="inline-flex items-center gap-1"><span className="h-1.5 w-3 rounded-full bg-[var(--gvx-hero-accent)]" />Resolved</span>
                       </div>
                     </div>
+                    <div className="relative h-[104px] overflow-hidden rounded-md bg-[linear-gradient(180deg,rgba(255,255,255,0.28),transparent)] dark:bg-[linear-gradient(180deg,rgba(255,255,255,0.04),transparent)]">
+                      <div className="absolute inset-0 opacity-[0.2] bg-[linear-gradient(rgba(100,116,139,0.18)_1px,transparent_1px),linear-gradient(90deg,rgba(100,116,139,0.12)_1px,transparent_1px)] bg-[size:100%_34px,64px_100%]" />
+                      <svg viewBox="0 0 560 178" className="absolute inset-0 h-full w-full" role="img" aria-label="Security alert trend chart">
+                        <path d="M0 135 L45 127 L90 120 L135 125 L180 108 L225 112 L270 102 L315 88 L360 96 L405 110 L450 104 L495 112 L560 100 L560 178 L0 178 Z" fill="rgba(239,68,68,0.10)" />
+                        <polyline points="0,135 45,127 90,120 135,125 180,108 225,112 270,102 315,88 360,96 405,110 450,104 495,112 560,100" fill="none" stroke="#ef4444" strokeOpacity="0.82" strokeWidth="2.3" strokeLinecap="round" strokeLinejoin="round" />
+                        <polyline points="0,154 45,150 90,145 135,146 180,140 225,136 270,130 315,122 360,126 405,120 450,114 495,110 560,102" fill="none" stroke="var(--gvx-hero-accent)" strokeWidth="2.1" strokeLinecap="round" strokeLinejoin="round" />
+                      </svg>
+                    </div>
+                  </div>
 
-                    <div className="grid gap-2">
-                      <div className="rounded-md bg-[var(--gvx-hero-card)] p-2 shadow-[0_14px_32px_-32px_rgba(7,17,31,0.34)] ring-1 ring-[var(--gvx-hero-border)]/70 transition-all duration-200 hover:ring-[var(--gvx-hero-border-strong)]">
-                        <div className="mb-2 flex items-center justify-between text-xs font-semibold text-[var(--gvx-hero-muted)]">
-                          <span>Threat Map</span>
-                          <span className="text-[var(--gvx-hero-accent)]">See all</span>
-                        </div>
-                        <div className="relative h-[52px] overflow-hidden rounded-md bg-[radial-gradient(circle_at_25%_44%,var(--gvx-hero-accent-soft)_0_4px,transparent_11px),radial-gradient(circle_at_58%_38%,var(--gvx-hero-accent-soft)_0_4px,transparent_11px),radial-gradient(circle_at_78%_66%,var(--gvx-hero-accent-soft)_0_4px,transparent_11px)] sm:h-[58px] xl:h-[60px]">
-                          <div className="absolute inset-4 opacity-20 bg-[radial-gradient(circle,var(--gvx-hero-accent)_1px,transparent_1.7px)] [background-size:12px_10px]" />
-                          <div className="absolute bottom-4 right-5 rounded-md bg-[var(--gvx-hero-surface-strong)] px-2 py-1 text-[9px] font-medium text-[var(--gvx-hero-muted)] shadow-[0_12px_28px_-24px_rgba(7,17,31,0.34)]">23 regions</div>
-                        </div>
+                  <div className="grid gap-2 sm:grid-cols-[1fr_0.92fr]">
+                    <div className="rounded-md border border-emerald-500/20 bg-emerald-500/10 p-3">
+                      <div className="flex items-center gap-2 text-xs font-semibold text-emerald-600 dark:text-emerald-300">
+                        <CheckCircle size={15} weight="fill" />
+                        AI recommendations only
                       </div>
-
-                      <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 xl:grid-cols-1">
-                        <div className="rounded-md bg-[var(--gvx-hero-card)] p-2 ring-1 ring-[var(--gvx-hero-border)]/70 transition-all duration-200 hover:ring-[var(--gvx-hero-border-strong)]">
-                          <div className="mb-2 flex items-center justify-between text-xs font-semibold text-[var(--gvx-hero-muted)]">
-                            <span>Top Sources</span>
-                            <span className="text-[var(--gvx-hero-accent)]">Open</span>
-                          </div>
-                          <div className="space-y-2">
-                            {alertSources.map((source) => (
-                              <div key={source.label} className="grid grid-cols-[1fr_72px_18px] items-center gap-2 text-[10px] text-[var(--gvx-hero-muted)]">
-                                <span className="truncate">{source.label}</span>
-                                <span className="h-1.5 overflow-hidden rounded-full bg-[var(--gvx-hero-accent-soft)]"><span className={`block h-full rounded-full ${source.width} ${source.tone}`} /></span>
-                                <span className="font-mono text-[var(--gvx-hero-text)]">{source.value}</span>
-                              </div>
-                            ))}
-                          </div>
-                        </div>
-
-                        <div className="rounded-md bg-[var(--gvx-hero-card)] p-2 ring-1 ring-[var(--gvx-hero-border)]/70 transition-all duration-200 hover:ring-[var(--gvx-hero-border-strong)]">
-                          <div className="mb-2 flex items-center justify-between text-xs font-semibold text-[var(--gvx-hero-muted)]">
-                            <span>Recent Incidents</span>
-                            <span className="inline-flex items-center gap-1 text-[9px] font-medium text-emerald-500"><span className="h-1 w-1 rounded-full bg-emerald-500" />Live</span>
-                          </div>
-                          <div className="space-y-2">
-                            {recentIncidents.slice(0, 2).map((incident) => (
-                              <div key={incident.label} className="grid grid-cols-[auto_1fr_auto] items-center gap-2 text-[10px] text-[var(--gvx-hero-muted)]">
-                                <span className={`h-1.5 w-1.5 rounded-full ${incident.dot}`} />
-                                <span className="truncate">{incident.label}</span>
-                                <span className="font-mono text-[var(--gvx-hero-subtle)]">{incident.time}</span>
-                              </div>
-                            ))}
-                          </div>
-                        </div>
+                      <p className="mt-1.5 text-[11px] leading-relaxed text-[var(--gvx-hero-muted)]">
+                        AI can summarize, prioritize, and draft next steps. It cannot unlock doors, disable alarms, or control hardware.
+                      </p>
+                    </div>
+                    <div className="rounded-md border border-[var(--gvx-hero-border)] bg-[var(--gvx-hero-card)] p-3">
+                      <div className="text-xs font-semibold text-[var(--gvx-hero-muted)]">Review Queue</div>
+                      <div className="mt-2 space-y-2 text-[11px] text-[var(--gvx-hero-muted)]">
+                        <div className="flex items-center justify-between gap-2"><span>Door lockdown request</span><span className="text-amber-500">Pending</span></div>
+                        <div className="flex items-center justify-between gap-2"><span>Switch port disable</span><span className="text-red-500">Blocked</span></div>
+                        <div className="flex items-center justify-between gap-2"><span>Incident summary</span><span className="text-emerald-500">Ready</span></div>
                       </div>
                     </div>
                   </div>
@@ -490,21 +393,18 @@ function HomePage({ onNavigate }: { onNavigate: (page: string) => void }) {
             </div>
           </div>
 
-          <div className="mt-3 rounded-lg border border-[var(--gvx-hero-border)] bg-[var(--gvx-hero-surface)] p-1.5 shadow-[0_14px_36px_-34px_rgba(7,17,31,0.24)] backdrop-blur-xl sm:p-2 lg:mt-4">
-            <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-4">
-              {heroMetrics.map((stat) => (
-                <div key={stat.label} className="group flex min-h-[48px] items-center gap-2.5 rounded-md border border-[var(--gvx-hero-border)]/80 bg-[var(--gvx-hero-card)] px-2.5 py-1.5 transition-all duration-200 hover:-translate-y-0.5 hover:border-[var(--gvx-hero-border-strong)] hover:bg-[var(--gvx-hero-surface-strong)] sm:min-h-[52px] sm:py-1.5">
-                  <div className="flex h-7 w-7 items-center justify-center rounded-md bg-[var(--gvx-hero-accent-soft)]">
-                    <stat.icon size={16} className={stat.tone} weight="duotone" />
-                  </div>
-                  <div>
-                    <div className="font-heading text-[0.95rem] font-semibold leading-none text-[var(--gvx-hero-text)]">{stat.value}</div>
-                    <div className="mt-0.5 text-[11px] font-medium text-[var(--gvx-hero-muted)]">{stat.label}</div>
-                    <div className={`mt-0.5 text-[0.58rem] font-semibold uppercase ${stat.tone}`}>{stat.meta}</div>
-                  </div>
+          <div className="mt-8 grid grid-cols-2 gap-2 border-t border-[var(--gvx-hero-border)] pt-5 sm:grid-cols-4">
+            {heroMetrics.map((stat) => (
+              <div key={stat.label} className="flex items-center gap-3 rounded-md bg-transparent px-1 py-1.5">
+                <div className="flex h-8 w-8 items-center justify-center rounded-md bg-[var(--gvx-hero-accent-soft)]">
+                  <stat.icon size={17} className={stat.tone} weight="duotone" />
                 </div>
-              ))}
-            </div>
+                <div>
+                  <div className="font-heading text-[1rem] font-semibold leading-none text-[var(--gvx-hero-text)]">{stat.value}</div>
+                  <div className="mt-1 text-[11px] font-medium text-[var(--gvx-hero-muted)]">{stat.label}</div>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
