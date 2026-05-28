@@ -255,10 +255,12 @@ export function WebsiteLayout({ currentPage, onNavigate, onLogin }: WebsiteLayou
 
 function HomePage({ onNavigate }: { onNavigate: (page: string) => void }) {
   const heroCapabilities = [
-    { label: "Tenant-safe monitoring", detail: "Sites, devices, alerts, and incidents stay scoped by organization.", icon: Buildings },
-    { label: "Human approval gates", detail: "High-risk commands require review before any worker action.", icon: Lock },
-    { label: "Realtime operations", detail: "Live alerts, device health, and incident updates stream into the SOC.", icon: Broadcast },
+    { label: "Unified visibility", detail: "Monitor sites, devices, incidents, and alerts from one tenant-scoped operating view.", icon: Buildings },
+    { label: "Approval-first controls", detail: "High-risk actions are routed through policy, review, and audit before execution.", icon: Lock },
+    { label: "Realtime response", detail: "Live event streams keep security teams aligned across facilities and infrastructure.", icon: Broadcast },
   ]
+
+  const heroAssurances = ["Self-hosted deployment", "Human-approved commands", "Audit-ready operations"]
 
   const heroMetrics = [
     { value: "5,000+", label: "Organizations", meta: "Trusted worldwide", icon: Buildings, tone: "text-[var(--gvx-hero-accent)]" },
@@ -274,23 +276,23 @@ function HomePage({ onNavigate }: { onNavigate: (page: string) => void }) {
         <div className="absolute inset-0 -z-10 opacity-[0.022] bg-[linear-gradient(var(--gvx-hero-accent)_1px,transparent_1px),linear-gradient(90deg,var(--gvx-hero-accent)_1px,transparent_1px)] bg-[size:72px_72px]" />
         <div className="absolute inset-x-0 bottom-0 -z-10 h-28 bg-[linear-gradient(180deg,transparent,var(--gvx-hero-bg-soft))]" />
 
-        <div className="mx-auto w-full max-w-[1180px] px-5 py-10 sm:px-8 sm:py-12 lg:px-10 lg:py-14 xl:px-12">
-          <div className="mx-auto max-w-[860px] text-center">
-            <div className="mx-auto max-w-[760px]">
-              <div className="mb-4 inline-flex items-center gap-2 rounded-md border border-[var(--gvx-hero-border)] bg-[var(--gvx-hero-surface)] px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.12em] text-[var(--gvx-hero-muted)] shadow-[0_12px_28px_-26px_rgba(7,17,31,0.28)] backdrop-blur-xl">
+        <div className="mx-auto w-full max-w-[1120px] px-5 py-12 sm:px-8 sm:py-14 lg:px-10 lg:py-16 xl:px-12">
+          <div className="mx-auto max-w-[900px] text-center">
+            <div className="mx-auto max-w-[790px]">
+              <div className="mb-5 inline-flex items-center gap-2 rounded-md border border-[var(--gvx-hero-border)] bg-[var(--gvx-hero-surface)] px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.12em] text-[var(--gvx-hero-muted)] shadow-[0_12px_28px_-26px_rgba(7,17,31,0.28)] backdrop-blur-xl">
                 <ShieldCheck size={14} weight="fill" className="text-[var(--gvx-hero-accent)]" />
-                Enterprise SOC platform
+                Enterprise security operations
               </div>
 
-              <h1 className="mx-auto max-w-[780px] font-heading text-[clamp(2.55rem,5vw,5.4rem)] font-extrabold leading-[0.93] tracking-normal text-[var(--gvx-hero-text)]">
-                Enterprise Security Operations Platform
+              <h1 className="mx-auto max-w-[820px] font-heading text-[clamp(2.45rem,4.5vw,4.75rem)] font-extrabold leading-[0.96] tracking-normal text-[var(--gvx-hero-text)]">
+                A command center for enterprise security operations
               </h1>
 
-              <p className="mx-auto mt-5 max-w-[650px] text-[1rem] leading-[1.65] text-[var(--gvx-hero-muted)] sm:text-[1.08rem]">
-                Guardivex unifies cameras, access control, alarms, network devices, incidents, approvals, and audit trails in one self-hosted command center built for enterprise security teams.
+              <p className="mx-auto mt-5 max-w-[690px] text-[1rem] leading-[1.65] text-[var(--gvx-hero-muted)] sm:text-[1.08rem]">
+                Guardivex brings cameras, access control, alarms, network devices, incidents, approvals, and audit trails into one controlled platform for security teams that need visibility without unsafe automation.
               </p>
 
-              <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
+              <div className="mt-7 flex flex-col items-center justify-center gap-3 sm:flex-row">
                 <Button size="lg" onClick={() => onNavigate("download")} className="h-11 rounded-md border border-[color:var(--gvx-hero-accent)] bg-[var(--gvx-hero-accent)] bg-none px-4 text-[0.86rem] font-semibold text-white shadow-[0_18px_36px_-28px_rgba(15,23,42,0.42)] transition-all duration-200 hover:-translate-y-0.5 hover:brightness-95 focus-visible:ring-[var(--gvx-hero-accent)]">
                   <CloudArrowDown size={17} className="mr-2" weight="bold" />
                   Deploy Enterprise Server
@@ -301,23 +303,32 @@ function HomePage({ onNavigate }: { onNavigate: (page: string) => void }) {
                 </Button>
               </div>
 
-              <div className="mx-auto mt-7 grid max-w-[760px] grid-cols-1 gap-3 text-left sm:grid-cols-3">
+              <div className="mx-auto mt-5 flex max-w-[720px] flex-wrap items-center justify-center gap-x-5 gap-y-2 border-y border-[var(--gvx-hero-border)] py-3 text-[0.78rem] font-medium text-[var(--gvx-hero-muted)]">
+                {heroAssurances.map((label) => (
+                  <span key={label} className="inline-flex items-center gap-2">
+                    <CheckCircle size={14} weight="fill" className="text-emerald-500" />
+                    {label}
+                  </span>
+                ))}
+              </div>
+
+              <div className="mx-auto mt-7 grid max-w-[820px] grid-cols-1 gap-3 text-left sm:grid-cols-3">
                 {heroCapabilities.map((item) => (
-                  <div key={item.label} className="rounded-md border border-[var(--gvx-hero-border)] bg-[var(--gvx-hero-surface)] p-3 shadow-[0_14px_34px_-32px_rgba(7,17,31,0.28)] backdrop-blur-xl">
-                    <div className="mb-2 flex h-8 w-8 items-center justify-center rounded-md bg-[var(--gvx-hero-accent-soft)]">
-                      <item.icon size={17} weight="duotone" className="text-[var(--gvx-hero-accent)]" />
+                  <div key={item.label} className="rounded-md border border-[var(--gvx-hero-border)] bg-[var(--gvx-hero-surface)] p-4 shadow-[0_16px_38px_-34px_rgba(7,17,31,0.30)] backdrop-blur-xl transition-colors hover:border-[var(--gvx-hero-border-strong)] hover:bg-[var(--gvx-hero-surface-strong)]">
+                    <div className="mb-3 flex h-9 w-9 items-center justify-center rounded-md bg-[var(--gvx-hero-accent-soft)]">
+                      <item.icon size={18} weight="duotone" className="text-[var(--gvx-hero-accent)]" />
                     </div>
-                    <div className="text-[0.8rem] font-semibold text-[var(--gvx-hero-text)]">{item.label}</div>
-                    <p className="mt-1 text-[0.72rem] leading-relaxed text-[var(--gvx-hero-subtle)]">{item.detail}</p>
+                    <div className="text-[0.86rem] font-semibold text-[var(--gvx-hero-text)]">{item.label}</div>
+                    <p className="mt-1.5 text-[0.76rem] leading-relaxed text-[var(--gvx-hero-subtle)]">{item.detail}</p>
                   </div>
                 ))}
               </div>
             </div>
           </div>
 
-          <div className="mt-8 grid grid-cols-2 gap-2 border-t border-[var(--gvx-hero-border)] pt-5 sm:grid-cols-4">
+          <div className="mt-8 grid grid-cols-2 gap-0 overflow-hidden rounded-lg border border-[var(--gvx-hero-border)] bg-[var(--gvx-hero-surface)] shadow-[0_18px_44px_-40px_rgba(7,17,31,0.30)] backdrop-blur-xl sm:grid-cols-4">
             {heroMetrics.map((stat) => (
-              <div key={stat.label} className="flex items-center gap-3 rounded-md bg-transparent px-1 py-1.5">
+              <div key={stat.label} className="flex min-h-[72px] items-center gap-3 border-[var(--gvx-hero-border)] px-4 py-3 even:border-l sm:border-l sm:first:border-l-0">
                 <div className="flex h-8 w-8 items-center justify-center rounded-md bg-[var(--gvx-hero-accent-soft)]">
                   <stat.icon size={17} className={stat.tone} weight="duotone" />
                 </div>
