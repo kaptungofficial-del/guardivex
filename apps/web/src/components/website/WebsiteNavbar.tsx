@@ -412,7 +412,7 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
 
       <nav className="sticky top-0 z-50 px-0">
         <div className={`mx-auto px-5 sm:px-8 xl:px-14 2xl:px-16 ${ENTERPRISE_HEADER_SURFACE_CLASS}`}>
-          <div ref={desktopNavRef} onMouseLeave={closeAllDesktopDropdowns} className="relative flex h-[52px] min-w-0 items-center justify-between gap-4 overflow-visible">
+          <div ref={desktopNavRef} onMouseLeave={closeAllDesktopDropdowns} className="relative flex h-[64px] min-w-0 items-center justify-between gap-4 overflow-visible">
             <div className="flex min-w-0 items-center gap-5">
               <button 
                 onClick={() => handleNavigate("home")} 
@@ -423,11 +423,11 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
                 <BrandLogo
                   subtitle="SECURITY PLATFORM"
                   className="gap-2"
-                  markClassName="h-9 w-9 sm:h-10 sm:w-10 lg:h-11 lg:w-11"
+                  markClassName="h-12 w-12 sm:h-14 sm:w-14 lg:h-16 lg:w-16"
                   imgClassName="pr-0.5"
                   textContainerClassName="gap-0"
-                  titleClassName="text-[17px] sm:text-[19px] lg:text-[20px] text-[#07111F] group-hover:text-[#126BFF] transition-colors font-bold tracking-normal dark:text-[#E2E8F0] dark:group-hover:text-cyan-300"
-                  subtitleClassName="hidden sm:block text-[8.5px] lg:text-[9px] text-[#64748B] tracking-[0.1em] leading-none mt-0.5 dark:text-[#94A3B8]"
+                  titleClassName="text-[20px] sm:text-[22px] lg:text-[24px] text-[#07111F] group-hover:text-[var(--gvx-hero-accent)] transition-colors font-bold tracking-normal dark:text-[#E2E8F0] dark:group-hover:text-cyan-300"
+                  subtitleClassName="hidden sm:block text-[9px] lg:text-[9.5px] text-[#64748B] tracking-[0.1em] leading-none mt-0.5 dark:text-[#94A3B8]"
                 />
               </button>
               

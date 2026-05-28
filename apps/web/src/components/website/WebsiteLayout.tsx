@@ -63,8 +63,8 @@ export function WebsiteLayout({ currentPage, onNavigate, onLogin }: WebsiteLayou
               <div className="flex items-center gap-3.5">
                 <BrandLogo
                   subtitle="SECURITY PLATFORM"
-                  markClassName="w-16 h-16"
-                  titleClassName="text-xl font-extrabold tracking-normal"
+                  markClassName="w-20 h-20"
+                  titleClassName="text-2xl font-extrabold tracking-normal"
                   subtitleClassName="text-[10px] tracking-[0.14em] mt-1.5 text-muted-foreground/80"
                 />
               </div>
