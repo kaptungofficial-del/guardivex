@@ -641,7 +641,7 @@ function TopBar({
             <BrandLogo
               subtitle="Docs"
               className="gap-0.5 sm:gap-1"
-              markClassName="w-8 h-8 sm:w-9 sm:h-9"
+              markClassName="w-9 h-9 sm:w-10 sm:h-10"
               titleClassName="text-[15px] sm:text-base font-semibold tracking-tight"
               subtitleClassName="hidden sm:block text-[9px] tracking-[0.18em] mt-0.5"
             />

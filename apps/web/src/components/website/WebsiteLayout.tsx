@@ -64,8 +64,8 @@ export function WebsiteLayout({ currentPage, onNavigate, onLogin }: WebsiteLayou
                 <BrandLogo
                   subtitle="SECURITY PLATFORM"
                   markClassName="w-20 h-20"
-                  titleClassName="bg-[linear-gradient(135deg,#008ff0_0%,#00d7e6_58%,#82a83d_100%)] bg-clip-text text-2xl font-extrabold tracking-normal text-transparent"
-                  subtitleClassName="text-[10px] tracking-[0.14em] mt-1.5 text-[var(--gvx-hero-muted)]"
+                  titleClassName="text-2xl font-extrabold tracking-normal"
+                  subtitleClassName="text-[10px] tracking-[0.14em] mt-1.5"
                 />
               </div>
               <p className="text-sm text-muted-foreground dark:text-slate-300 max-w-md leading-relaxed">

@@ -145,7 +145,7 @@ export function PlatformLayout({ children, currentPage, onNavigate, onLogout, cr
         <nav className="flex-1 overflow-y-auto p-3 sm:p-3.5 space-y-3 sm:space-y-4">
           {navSections.filter((section) => section.items.some(canSee)).map((section) => (
             <div key={section.title}>
-              <div className="text-[10px] sm:text-xs font-semibold text-[#64748B] dark:text-[#94A3B8] mb-1.5 px-2 sm:px-3 tracking-[0.1em]">
+              <div className="brand-muted-text text-[10px] sm:text-xs font-semibold mb-1.5 px-2 sm:px-3 tracking-[0.1em]">
                 {section.title}
               </div>
               <div className="space-y-0.5 sm:space-y-1">
@@ -160,8 +160,8 @@ export function PlatformLayout({ children, currentPage, onNavigate, onLogout, cr
                       className={cn(
                         "w-full flex items-center gap-2.5 sm:gap-3 px-2.5 sm:px-3 py-1.5 sm:py-2 rounded-md text-xs sm:text-sm transition-all active:scale-98 border",
                         isActive 
-                          ? "bg-secondary text-[#07111F] border-primary/20 font-semibold dark:bg-[rgba(0,199,232,0.10)] dark:text-[#F8FAFC]" 
-                          : "border-transparent text-[#64748B] hover:bg-secondary hover:text-[#07111F] dark:text-muted-foreground dark:hover:bg-[rgba(0,199,232,0.08)] dark:hover:text-[#F8FAFC]"
+                            ? "bg-secondary text-foreground border-primary/20 font-semibold dark:bg-[rgba(0,215,230,0.10)]" 
+                            : "border-transparent brand-muted-text hover:bg-secondary hover:text-foreground dark:hover:bg-[rgba(0,215,230,0.08)]"
                       )}
                     >
                       <Icon size={16} weight={isActive ? "fill" : "regular"} className="shrink-0 sm:w-[18px] sm:h-[18px]" />
@@ -181,7 +181,7 @@ export function PlatformLayout({ children, currentPage, onNavigate, onLogout, cr
 
         <div className="p-3 sm:p-4 border-t border-border dark:border-[rgba(0,119,255,0.22)]">
           <div className="p-2.5 sm:p-3 bg-secondary rounded-xl border border-border dark:bg-slate-900/70 dark:border-[rgba(0,119,255,0.22)]">
-            <div className="text-[10px] sm:text-xs text-[#64748B] dark:text-[#94A3B8] mb-1">License</div>
+            <div className="brand-muted-text text-[10px] sm:text-xs mb-1">License</div>
             <div className="flex items-center justify-between gap-2">
               <span className="text-xs sm:text-sm font-semibold capitalize truncate">{license.tier}</span>
               <Badge 

@@ -15,7 +15,7 @@ export const ENTERPRISE_ICON_CONTROL_CLASS =
   "inline-flex h-[1.625rem] w-[1.625rem] items-center justify-center rounded-md border border-[var(--gvx-hero-border)] bg-[var(--gvx-hero-card)] text-[var(--gvx-hero-muted)] font-medium shadow-[0_10px_24px_-22px_rgba(7,17,31,0.38)] transition-all duration-200 hover:-translate-y-px hover:text-[var(--gvx-hero-accent)] hover:border-[var(--gvx-hero-border-strong)] hover:bg-[var(--gvx-hero-surface-strong)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/30 focus-visible:ring-offset-2 focus-visible:ring-offset-background"
 
 export const ENTERPRISE_SEARCH_SHELL_CLASS =
-  "hidden sm:flex items-center gap-2 h-[1.625rem] px-2.5 rounded-sm border border-[#D9E7F2]/80 bg-[rgba(255,255,255,0.72)] text-sm text-[#07111F] shadow-none backdrop-blur-xl dark:border-[rgba(0,194,255,0.10)] dark:bg-[rgba(11,18,32,0.62)] dark:text-muted-foreground"
+  "hidden sm:flex items-center gap-2 h-[1.625rem] px-2.5 rounded-sm border border-[var(--gvx-hero-border)] bg-[var(--gvx-hero-card)] text-sm text-[var(--gvx-hero-text)] shadow-none backdrop-blur-xl"
 
 export const ENTERPRISE_NAV_ITEM_CLASS =
   "relative inline-flex items-center gap-1 rounded-md border whitespace-nowrap px-2.5 py-1.5 text-[12.5px] font-medium transition-all duration-200"
@@ -36,7 +36,7 @@ export const ENTERPRISE_DROPDOWN_ICON_CLASS =
   "w-8 h-8 rounded-md bg-secondary border border-border flex items-center justify-center flex-shrink-0 dark:bg-[rgba(11,18,32,0.88)] dark:border-[rgba(0,194,255,0.14)]"
 
 export const ENTERPRISE_DROPDOWN_ACTION_CLASS =
-  "w-full flex items-center justify-center gap-2 h-[1.875rem] px-3 rounded-sm border border-[#D9E7F2]/80 bg-[rgba(255,255,255,0.74)] text-[#07111F] shadow-none backdrop-blur-xl transition-all duration-150 group hover:border-primary/18 hover:bg-[rgba(255,255,255,0.86)] dark:border-[rgba(0,194,255,0.10)] dark:bg-[rgba(11,18,32,0.72)] dark:text-[#E2E8F0] dark:hover:border-primary/18 dark:hover:bg-[rgba(0,194,255,0.055)] dark:hover:shadow-none"
+  "w-full flex items-center justify-center gap-2 h-[1.875rem] px-3 rounded-sm border border-[var(--gvx-hero-border)] bg-[var(--gvx-hero-card)] text-[var(--gvx-hero-text)] shadow-none backdrop-blur-xl transition-all duration-150 group hover:border-[var(--gvx-hero-border-strong)] hover:bg-[var(--gvx-hero-surface-strong)]"
 
 interface HeaderStatusBadgeProps {
   label: string
