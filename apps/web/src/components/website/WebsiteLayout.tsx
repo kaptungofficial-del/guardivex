@@ -254,13 +254,6 @@ export function WebsiteLayout({ currentPage, onNavigate, onLogin }: WebsiteLayou
 }
 
 function HomePage({ onNavigate }: { onNavigate: (page: string) => void }) {
-  const heroThreatStats = [
-    { label: "Critical", value: "23", delta: "+15%", context: "7 open cases", tone: "text-red-500 dark:text-red-300", accent: "bg-red-500/10", icon: Warning },
-    { label: "High", value: "78", delta: "+8%", context: "22 assigned", tone: "text-amber-500 dark:text-amber-300", accent: "bg-amber-500/10", icon: Siren },
-    { label: "Devices", value: "12,652", delta: "+3.6%", context: "98.7% healthy", tone: "text-emerald-500 dark:text-emerald-300", accent: "bg-emerald-500/10", icon: Monitor },
-    { label: "Users", value: "189", delta: "+2.1%", context: "42 active now", tone: "text-violet-500 dark:text-violet-300", accent: "bg-violet-500/10", icon: Users },
-  ]
-
   const heroCapabilities = [
     { label: "Tenant-safe monitoring", detail: "Sites, devices, alerts, and incidents stay scoped by organization.", icon: Buildings },
     { label: "Human approval gates", detail: "High-risk commands require review before any worker action.", icon: Lock },
@@ -282,22 +275,22 @@ function HomePage({ onNavigate }: { onNavigate: (page: string) => void }) {
         <div className="absolute inset-x-0 bottom-0 -z-10 h-28 bg-[linear-gradient(180deg,transparent,var(--gvx-hero-bg-soft))]" />
 
         <div className="mx-auto w-full max-w-[1180px] px-5 py-10 sm:px-8 sm:py-12 lg:px-10 lg:py-14 xl:px-12">
-          <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-[minmax(0,0.96fr)_minmax(420px,0.74fr)] lg:gap-10">
-            <div className="max-w-[670px]">
+          <div className="mx-auto max-w-[860px] text-center">
+            <div className="mx-auto max-w-[760px]">
               <div className="mb-4 inline-flex items-center gap-2 rounded-md border border-[var(--gvx-hero-border)] bg-[var(--gvx-hero-surface)] px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.12em] text-[var(--gvx-hero-muted)] shadow-[0_12px_28px_-26px_rgba(7,17,31,0.28)] backdrop-blur-xl">
                 <ShieldCheck size={14} weight="fill" className="text-[var(--gvx-hero-accent)]" />
                 Enterprise SOC platform
               </div>
 
-              <h1 className="max-w-[680px] font-heading text-[clamp(2.55rem,5vw,5.4rem)] font-extrabold leading-[0.93] tracking-normal text-[var(--gvx-hero-text)]">
+              <h1 className="mx-auto max-w-[780px] font-heading text-[clamp(2.55rem,5vw,5.4rem)] font-extrabold leading-[0.93] tracking-normal text-[var(--gvx-hero-text)]">
                 Enterprise Security Operations Platform
               </h1>
 
-              <p className="mt-5 max-w-[610px] text-[1rem] leading-[1.65] text-[var(--gvx-hero-muted)] sm:text-[1.08rem]">
+              <p className="mx-auto mt-5 max-w-[650px] text-[1rem] leading-[1.65] text-[var(--gvx-hero-muted)] sm:text-[1.08rem]">
                 Guardivex unifies cameras, access control, alarms, network devices, incidents, approvals, and audit trails in one self-hosted command center built for enterprise security teams.
               </p>
 
-              <div className="mt-6 flex flex-col items-start gap-3 sm:flex-row sm:items-center">
+              <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
                 <Button size="lg" onClick={() => onNavigate("download")} className="h-11 rounded-md border border-[color:var(--gvx-hero-accent)] bg-[var(--gvx-hero-accent)] bg-none px-4 text-[0.86rem] font-semibold text-white shadow-[0_18px_36px_-28px_rgba(15,23,42,0.42)] transition-all duration-200 hover:-translate-y-0.5 hover:brightness-95 focus-visible:ring-[var(--gvx-hero-accent)]">
                   <CloudArrowDown size={17} className="mr-2" weight="bold" />
                   Deploy Enterprise Server
@@ -308,7 +301,7 @@ function HomePage({ onNavigate }: { onNavigate: (page: string) => void }) {
                 </Button>
               </div>
 
-              <div className="mt-7 grid max-w-[640px] grid-cols-1 gap-3 sm:grid-cols-3">
+              <div className="mx-auto mt-7 grid max-w-[760px] grid-cols-1 gap-3 text-left sm:grid-cols-3">
                 {heroCapabilities.map((item) => (
                   <div key={item.label} className="rounded-md border border-[var(--gvx-hero-border)] bg-[var(--gvx-hero-surface)] p-3 shadow-[0_14px_34px_-32px_rgba(7,17,31,0.28)] backdrop-blur-xl">
                     <div className="mb-2 flex h-8 w-8 items-center justify-center rounded-md bg-[var(--gvx-hero-accent-soft)]">
@@ -318,77 +311,6 @@ function HomePage({ onNavigate }: { onNavigate: (page: string) => void }) {
                     <p className="mt-1 text-[0.72rem] leading-relaxed text-[var(--gvx-hero-subtle)]">{item.detail}</p>
                   </div>
                 ))}
-              </div>
-            </div>
-
-            <div className="w-full rounded-lg border border-[var(--gvx-hero-border)] bg-[var(--gvx-hero-surface)] p-2 shadow-[var(--gvx-hero-shadow)] backdrop-blur-2xl">
-              <div className="overflow-hidden rounded-md border border-[var(--gvx-hero-border)] bg-[var(--gvx-hero-surface-strong)]">
-                <div className="flex items-center justify-between border-b border-[var(--gvx-hero-border)] px-3 py-2.5">
-                  <div>
-                    <div className="flex items-center gap-2 text-[0.86rem] font-semibold text-[var(--gvx-hero-text)]">
-                      <span className="h-2 w-2 rounded-full bg-emerald-500 shadow-[0_0_0_4px_rgba(16,185,129,0.12)]" />
-                      Live Operations Snapshot
-                    </div>
-                    <p className="mt-0.5 text-[11px] text-[var(--gvx-hero-subtle)]">Production-safe monitoring and command review</p>
-                  </div>
-                  <Badge variant="outline" className="h-6 rounded-md border-[var(--gvx-hero-border)] bg-[var(--gvx-hero-card)] px-2.5 text-[9px] text-[var(--gvx-hero-muted)]">Main SOC</Badge>
-                </div>
-
-                <div className="grid gap-2 p-3">
-                  <div className="grid grid-cols-2 gap-2">
-                    {heroThreatStats.slice(0, 4).map((item) => (
-                      <div key={item.label} className="rounded-md border border-[var(--gvx-hero-border)]/80 bg-[var(--gvx-hero-card)] p-2.5">
-                        <div className="flex items-center justify-between gap-2">
-                          <div className={`flex h-7 w-7 items-center justify-center rounded-md ${item.accent}`}>
-                            <item.icon size={15} weight="duotone" className={item.tone} />
-                          </div>
-                          <span className="font-mono text-[10px] text-emerald-500">{item.delta}</span>
-                        </div>
-                        <div className="mt-2 text-[10px] font-medium uppercase tracking-[0.08em] text-[var(--gvx-hero-subtle)]">{item.label}</div>
-                        <div className={`mt-1 font-mono text-[1.1rem] font-semibold leading-none ${item.tone}`}>{item.value}</div>
-                        <div className="mt-1 text-[10px] text-[var(--gvx-hero-subtle)]">{item.context}</div>
-                      </div>
-                    ))}
-                  </div>
-
-                  <div className="rounded-md border border-[var(--gvx-hero-border)]/80 bg-[var(--gvx-hero-card)] p-3">
-                    <div className="mb-3 flex items-center justify-between gap-3">
-                      <span className="text-xs font-semibold text-[var(--gvx-hero-muted)]">Alert Trend</span>
-                      <div className="flex items-center gap-2 text-[10px] text-[var(--gvx-hero-subtle)]">
-                        <span className="inline-flex items-center gap-1"><span className="h-1.5 w-3 rounded-full bg-red-500" />Critical</span>
-                        <span className="inline-flex items-center gap-1"><span className="h-1.5 w-3 rounded-full bg-[var(--gvx-hero-accent)]" />Resolved</span>
-                      </div>
-                    </div>
-                    <div className="relative h-[104px] overflow-hidden rounded-md bg-[linear-gradient(180deg,rgba(255,255,255,0.28),transparent)] dark:bg-[linear-gradient(180deg,rgba(255,255,255,0.04),transparent)]">
-                      <div className="absolute inset-0 opacity-[0.2] bg-[linear-gradient(rgba(100,116,139,0.18)_1px,transparent_1px),linear-gradient(90deg,rgba(100,116,139,0.12)_1px,transparent_1px)] bg-[size:100%_34px,64px_100%]" />
-                      <svg viewBox="0 0 560 178" className="absolute inset-0 h-full w-full" role="img" aria-label="Security alert trend chart">
-                        <path d="M0 135 L45 127 L90 120 L135 125 L180 108 L225 112 L270 102 L315 88 L360 96 L405 110 L450 104 L495 112 L560 100 L560 178 L0 178 Z" fill="rgba(239,68,68,0.10)" />
-                        <polyline points="0,135 45,127 90,120 135,125 180,108 225,112 270,102 315,88 360,96 405,110 450,104 495,112 560,100" fill="none" stroke="#ef4444" strokeOpacity="0.82" strokeWidth="2.3" strokeLinecap="round" strokeLinejoin="round" />
-                        <polyline points="0,154 45,150 90,145 135,146 180,140 225,136 270,130 315,122 360,126 405,120 450,114 495,110 560,102" fill="none" stroke="var(--gvx-hero-accent)" strokeWidth="2.1" strokeLinecap="round" strokeLinejoin="round" />
-                      </svg>
-                    </div>
-                  </div>
-
-                  <div className="grid gap-2 sm:grid-cols-[1fr_0.92fr]">
-                    <div className="rounded-md border border-emerald-500/20 bg-emerald-500/10 p-3">
-                      <div className="flex items-center gap-2 text-xs font-semibold text-emerald-600 dark:text-emerald-300">
-                        <CheckCircle size={15} weight="fill" />
-                        AI recommendations only
-                      </div>
-                      <p className="mt-1.5 text-[11px] leading-relaxed text-[var(--gvx-hero-muted)]">
-                        AI can summarize, prioritize, and draft next steps. It cannot unlock doors, disable alarms, or control hardware.
-                      </p>
-                    </div>
-                    <div className="rounded-md border border-[var(--gvx-hero-border)] bg-[var(--gvx-hero-card)] p-3">
-                      <div className="text-xs font-semibold text-[var(--gvx-hero-muted)]">Review Queue</div>
-                      <div className="mt-2 space-y-2 text-[11px] text-[var(--gvx-hero-muted)]">
-                        <div className="flex items-center justify-between gap-2"><span>Door lockdown request</span><span className="text-amber-500">Pending</span></div>
-                        <div className="flex items-center justify-between gap-2"><span>Switch port disable</span><span className="text-red-500">Blocked</span></div>
-                        <div className="flex items-center justify-between gap-2"><span>Incident summary</span><span className="text-emerald-500">Ready</span></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
               </div>
             </div>
           </div>
