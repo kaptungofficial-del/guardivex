@@ -321,7 +321,7 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
               : null
 
   const desktopDropdownClass =
-    "w-[min(720px,calc(100vw-48px))] max-w-[calc(100vw-48px)] max-h-[70vh] overflow-y-auto overflow-x-hidden rounded-md border border-border/65 bg-white/90 p-2.5 text-[#07111F] shadow-none backdrop-blur-xl dark:border-[rgba(0,194,255,0.08)] dark:bg-[rgba(3,10,24,0.90)] dark:text-[#E2E8F0] dark:shadow-none"
+    "w-[min(720px,calc(100vw-48px))] max-w-[calc(100vw-48px)] max-h-[70vh] overflow-y-auto overflow-x-hidden rounded-md border border-[var(--gvx-menu-border)] bg-[var(--gvx-menu-bg)] p-2.5 text-[var(--gvx-hero-text)] shadow-[0_24px_70px_-48px_rgba(7,17,31,0.42)] dark:shadow-[0_24px_70px_-48px_rgba(0,0,0,0.72)]"
 
   useEffect(() => {
     const handleDocumentMouseDown = (event: MouseEvent) => {
@@ -511,7 +511,7 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
                           handleNavigate(activeDesktopDropdownId || "home")
                           closeAllDesktopDropdowns()
                         }}
-                        className={`${ENTERPRISE_DROPDOWN_ITEM_CLASS} gap-1.5 rounded-lg p-1.5 hover:bg-secondary dark:hover:bg-[rgba(0,199,232,0.12)]`}
+                        className={`${ENTERPRISE_DROPDOWN_ITEM_CLASS} gap-1.5 rounded-lg p-1.5 hover:bg-[var(--gvx-menu-hover)]`}
                       >
                         <div className={`${ENTERPRISE_DROPDOWN_ICON_CLASS} h-8 w-8 rounded-md`}>
                           <feature.icon size={16} weight="bold" className={feature.color} />
@@ -529,7 +529,7 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
                         handleNavigate(activeDesktopDropdownId || "home")
                         closeAllDesktopDropdowns()
                       }}
-                      className="flex h-8 w-full items-center justify-center gap-2 rounded-lg border border-[var(--gvx-hero-border)] bg-[var(--gvx-hero-card)] px-3 text-[12px] font-medium text-[var(--gvx-hero-text)] shadow-[0_12px_28px_-26px_rgba(7,17,31,0.32)] backdrop-blur-xl transition-all duration-150 hover:border-[var(--gvx-hero-border-strong)] hover:bg-[var(--gvx-hero-surface-strong)]"
+                      className="flex h-8 w-full items-center justify-center gap-2 rounded-lg border border-[var(--gvx-menu-border)] bg-[var(--gvx-menu-hover)] px-3 text-[12px] font-medium text-[var(--gvx-hero-text)] shadow-[0_12px_28px_-26px_rgba(7,17,31,0.32)] transition-all duration-150 hover:border-[var(--gvx-hero-border-strong)] hover:text-[var(--gvx-hero-accent)]"
                     >
                       <span>View All {activeDesktopDropdown.title}</span>
                       <ArrowRight size={13} weight="bold" className="transition-transform group-hover:translate-x-0.5" />
@@ -543,7 +543,7 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
       </nav>
 
       {mobileMenuOpen && (
-        <div className="lg:hidden fixed inset-0 top-[calc(1.5rem+3.25rem)] z-40 bg-[rgba(255,255,255,0.92)] backdrop-blur-2xl overflow-y-auto border-t border-[#D9E7F2] dark:bg-[rgba(7,17,31,0.96)] dark:border-[rgba(0,119,255,0.26)]">
+        <div className="lg:hidden fixed inset-0 top-[calc(1.5rem+3.25rem)] z-40 overflow-y-auto border-t border-[var(--gvx-menu-border)] bg-[var(--gvx-menu-bg)]">
           <div className="h-full">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3.5 sm:py-6 md:py-8">
               <div className="flex flex-col gap-1.5 sm:gap-2">
@@ -556,8 +556,8 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
                         }}
                         className={`w-full px-4 sm:px-6 py-3.5 sm:py-4 text-left text-[1rem] sm:text-[1.06rem] tracking-[0.01em] font-medium rounded-lg transition-all flex items-center justify-between active:scale-98 ${
                           currentPage === item.id
-                            ? "text-[#07111F] bg-cyan-50 border border-cyan-500/20 dark:text-[#F8FAFC] dark:bg-[rgba(0,199,232,0.10)]"
-                            : "text-[#5B677A] hover:text-[#07111F] hover:bg-[#F6F9FC] active:bg-cyan-50 dark:text-muted-foreground dark:hover:text-[#F8FAFC] dark:hover:bg-[rgba(0,199,232,0.08)] dark:active:bg-[rgba(0,199,232,0.12)]"
+                            ? "text-[var(--gvx-hero-text)] bg-[var(--gvx-menu-hover)] border border-[var(--gvx-menu-border)]"
+                            : "text-[var(--gvx-hero-muted)] hover:text-[var(--gvx-hero-text)] hover:bg-[var(--gvx-menu-hover)] active:bg-[var(--gvx-menu-hover)]"
                         }`}
                       >
                         <span>{item.label}</span>

@@ -93,6 +93,9 @@
   --gvx-hero-accent-soft: rgba(0, 143, 240, 0.08);
   --gvx-hero-glow: rgba(0, 215, 230, 0.07);
   --gvx-hero-shadow: 0 22px 68px -56px rgba(15, 23, 42, 0.30);
+  --gvx-menu-bg: #fbfdf8;
+  --gvx-menu-hover: #edf6ef;
+  --gvx-menu-border: rgba(93, 128, 91, 0.28);
 }
 
 .dark {
@@ -150,6 +153,9 @@
   --gvx-hero-accent-soft: rgba(0, 183, 255, 0.08);
   --gvx-hero-glow: rgba(0, 215, 230, 0.10);
   --gvx-hero-shadow: 0 32px 92px -66px rgba(15, 23, 42, 0.78);
+  --gvx-menu-bg: #071a23;
+  --gvx-menu-hover: #0b2531;
+  --gvx-menu-border: rgba(0, 215, 230, 0.22);
 }
 
 @theme {

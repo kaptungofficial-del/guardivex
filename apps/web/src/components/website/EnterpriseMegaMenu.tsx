@@ -128,7 +128,7 @@ export function EnterpriseMegaMenu({ onNavigate, onClose }: EnterpriseMegaMenuPr
   }
 
   return (
-    <div className="absolute top-full left-0 right-0 mt-0 bg-card/98 backdrop-blur-xl border-b border-border shadow-2xl">
+    <div className="absolute top-full left-0 right-0 mt-0 border-b border-[var(--gvx-menu-border)] bg-[var(--gvx-menu-bg)] shadow-2xl">
       <div className="container mx-auto px-6 py-10">
         <div className="grid grid-cols-12 gap-8">
           <div className="col-span-9 grid grid-cols-3 gap-8">

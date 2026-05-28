@@ -27,10 +27,10 @@ export const ENTERPRISE_NAV_ITEM_INACTIVE_CLASS =
   "text-[var(--gvx-hero-muted)] border-transparent hover:-translate-y-px hover:text-[var(--gvx-hero-text)] hover:border-[var(--gvx-hero-border)] hover:bg-[var(--gvx-hero-card)]"
 
 export const ENTERPRISE_DROPDOWN_PANEL_CLASS =
-  "w-[min(720px,calc(100vw-32px))] max-w-[calc(100vw-2rem)] max-h-[70vh] overflow-y-auto overflow-x-hidden rounded-xl border border-[var(--gvx-hero-border)] bg-[var(--gvx-hero-surface-strong)] p-2.5 opacity-100 shadow-[0_24px_70px_-50px_rgba(7,17,31,0.45)] backdrop-blur-2xl"
+  "w-[min(720px,calc(100vw-32px))] max-w-[calc(100vw-2rem)] max-h-[70vh] overflow-y-auto overflow-x-hidden rounded-xl border border-[var(--gvx-menu-border)] bg-[var(--gvx-menu-bg)] p-2.5 opacity-100 shadow-[0_24px_70px_-50px_rgba(7,17,31,0.45)] dark:shadow-[0_24px_70px_-50px_rgba(0,0,0,0.74)]"
 
 export const ENTERPRISE_DROPDOWN_ITEM_CLASS =
-  "flex items-start gap-2.5 p-2 rounded-lg border border-transparent text-left transition-all duration-150 group hover:border-[var(--gvx-hero-border)] hover:bg-[var(--gvx-hero-card)]"
+  "flex items-start gap-2.5 p-2 rounded-lg border border-transparent text-left transition-all duration-150 group hover:border-[var(--gvx-menu-border)] hover:bg-[var(--gvx-menu-hover)]"
 
 export const ENTERPRISE_DROPDOWN_ICON_CLASS =
   "w-8 h-8 rounded-md bg-secondary border border-border flex items-center justify-center flex-shrink-0 dark:bg-[rgba(11,18,32,0.88)] dark:border-[rgba(0,194,255,0.14)]"
