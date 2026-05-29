@@ -261,13 +261,6 @@ function HomePage({ onNavigate }: { onNavigate: (page: string) => void }) {
 
   const heroAssurances = ["No direct hardware control", "Tenant-scoped research", "Human approval gates"]
 
-  const heroPipeline = [
-    { step: "01", label: "Ingest", detail: "Logs, endpoints, cloud, access" },
-    { step: "02", label: "Correlate", detail: "Signals, IOCs, identities" },
-    { step: "03", label: "Research", detail: "Hypotheses, timelines, notes" },
-    { step: "04", label: "Govern", detail: "Approvals, audit, evidence" },
-  ]
-
   return (
     <div className="relative guardivex-home-typography overflow-x-clip bg-[var(--gvx-hero-bg)] text-[var(--gvx-hero-text)]">
       <section className="relative isolate overflow-hidden border-b border-[var(--gvx-hero-border)] bg-[var(--gvx-hero-bg)]">
@@ -276,98 +269,82 @@ function HomePage({ onNavigate }: { onNavigate: (page: string) => void }) {
         <div className="absolute left-1/2 top-8 -z-10 h-64 w-[min(760px,90vw)] -translate-x-1/2 rounded-full bg-[radial-gradient(circle,var(--gvx-hero-glow),transparent_68%)]" />
         <div className="absolute inset-x-0 bottom-0 -z-10 h-32 bg-[linear-gradient(180deg,transparent,var(--gvx-hero-bg-soft))]" />
 
-        <div className="mx-auto w-full max-w-[1060px] px-5 py-12 text-center sm:px-8 sm:py-14 lg:px-10 lg:py-16 xl:px-12">
-          <div className="inline-flex items-center gap-2 rounded-md border border-[var(--gvx-hero-border)] bg-[var(--gvx-menu-bg)] px-3 py-1.5 text-[9.5px] font-semibold uppercase tracking-[0.12em] text-[var(--gvx-hero-muted)] shadow-[0_12px_28px_-26px_rgba(7,17,31,0.28)]">
-            <ShieldCheck size={13} weight="fill" className="text-[var(--gvx-hero-accent)]" />
-            Cyber threat research platform
+        <div className="mx-auto grid w-full max-w-[1120px] gap-8 px-5 py-12 sm:px-8 sm:py-14 lg:grid-cols-[minmax(0,1fr)_360px] lg:items-center lg:px-10 lg:py-16 xl:px-12">
+          <div className="text-center lg:text-left">
+            <div className="inline-flex items-center gap-2 rounded-md border border-[var(--gvx-hero-border)] bg-[var(--gvx-menu-bg)] px-3 py-1.5 text-[9.5px] font-semibold uppercase tracking-[0.12em] text-[var(--gvx-hero-muted)] shadow-[0_12px_28px_-26px_rgba(7,17,31,0.28)]">
+              <ShieldCheck size={13} weight="fill" className="text-[var(--gvx-hero-accent)]" />
+              Cyber threat research platform
+            </div>
+
+            <h1 className="mx-auto mt-5 max-w-[740px] bg-[linear-gradient(135deg,var(--gvx-hero-text)_0%,var(--gvx-hero-accent)_56%,var(--gvx-hero-accent-2)_100%)] bg-clip-text font-heading text-[clamp(2.45rem,5vw,4.8rem)] font-extrabold leading-[0.98] tracking-normal text-transparent lg:mx-0">
+              Investigate threats without unsafe automation.
+            </h1>
+
+            <p className="mx-auto mt-4 max-w-[640px] text-[1rem] leading-[1.65] text-[var(--gvx-hero-muted)] sm:text-[1.06rem] lg:mx-0">
+              Guardivex gives security teams a governed research workspace for telemetry, IOCs, incidents, and defensible evidence.
+            </p>
+
+            <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row lg:justify-start">
+              <Button size="lg" onClick={() => onNavigate("download")} className="h-11 rounded-md border border-[color:var(--gvx-hero-accent)] bg-[linear-gradient(135deg,var(--gvx-hero-accent),var(--gvx-hero-accent-2))] bg-none px-4 text-[0.84rem] font-semibold text-white shadow-[0_20px_42px_-28px_rgba(0,143,240,0.70)] transition-all duration-200 hover:-translate-y-0.5 hover:brightness-95 focus-visible:ring-[var(--gvx-hero-accent)]">
+                <CloudArrowDown size={16} className="mr-2" weight="bold" />
+                Deploy Research Server
+              </Button>
+              <Button size="lg" variant="outline" onClick={() => onNavigate("product")} className="h-11 rounded-md border-[var(--gvx-menu-border)] bg-[var(--gvx-menu-bg)] px-4 text-[0.84rem] font-semibold text-[var(--gvx-hero-text)] shadow-none transition-all duration-200 hover:-translate-y-0.5 hover:border-[var(--gvx-hero-border-strong)] hover:bg-[var(--gvx-menu-hover)]">
+                <Monitor size={16} className="mr-2" weight="bold" />
+                View Console
+              </Button>
+            </div>
           </div>
 
-          <h1 className="mx-auto mt-5 max-w-[780px] bg-[linear-gradient(135deg,var(--gvx-hero-text)_0%,var(--gvx-hero-accent)_56%,var(--gvx-hero-accent-2)_100%)] bg-clip-text font-heading text-[clamp(2.35rem,5vw,4.7rem)] font-extrabold leading-[0.98] tracking-normal text-transparent">
-            Cyber research without unsafe automation.
-          </h1>
-
-          <p className="mx-auto mt-4 max-w-[660px] text-[1rem] leading-[1.65] text-[var(--gvx-hero-muted)] sm:text-[1.06rem]">
-            Guardivex helps teams investigate telemetry, IOCs, incidents, and evidence while keeping AI limited to recommendations and human-reviewed workflows.
-          </p>
-
-          <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
-            <Button size="lg" onClick={() => onNavigate("download")} className="h-11 rounded-md border border-[color:var(--gvx-hero-accent)] bg-[linear-gradient(135deg,var(--gvx-hero-accent),var(--gvx-hero-accent-2))] bg-none px-4 text-[0.84rem] font-semibold text-white shadow-[0_20px_42px_-28px_rgba(0,143,240,0.70)] transition-all duration-200 hover:-translate-y-0.5 hover:brightness-95 focus-visible:ring-[var(--gvx-hero-accent)]">
-              <CloudArrowDown size={16} className="mr-2" weight="bold" />
-              Deploy Research Server
-            </Button>
-            <Button size="lg" variant="outline" onClick={() => onNavigate("product")} className="h-11 rounded-md border-[var(--gvx-menu-border)] bg-[var(--gvx-menu-bg)] px-4 text-[0.84rem] font-semibold text-[var(--gvx-hero-text)] shadow-none transition-all duration-200 hover:-translate-y-0.5 hover:border-[var(--gvx-hero-border-strong)] hover:bg-[var(--gvx-menu-hover)]">
-              <Monitor size={16} className="mr-2" weight="bold" />
-              View Research Console
-            </Button>
-          </div>
-
-          <div className="mx-auto mt-8 grid max-w-[820px] gap-2 sm:grid-cols-3">
-            {heroAssurances.map((label) => (
-              <div key={label} className="flex items-center justify-center gap-2 rounded-lg border border-[var(--gvx-menu-border)] bg-[var(--gvx-menu-bg)] px-3 py-3 text-[0.76rem] font-semibold text-[var(--gvx-hero-muted)] shadow-[0_18px_42px_-38px_rgba(7,17,31,0.38)]">
-                <CheckCircle size={14} weight="fill" className="text-emerald-500" />
-                {label}
+          <div className="rounded-xl border border-[var(--gvx-menu-border)] bg-[var(--gvx-menu-bg)] p-4 text-left shadow-[0_24px_60px_-46px_rgba(7,17,31,0.42)]">
+            <div className="mb-4 flex items-center justify-between gap-3 border-b border-[var(--gvx-menu-border)] pb-3">
+              <div>
+                <div className="text-[0.68rem] font-semibold uppercase tracking-[0.14em] text-[var(--gvx-hero-muted)]">AI boundary</div>
+                <div className="mt-0.5 text-sm font-semibold text-[var(--gvx-hero-text)]">Recommendation only</div>
               </div>
-            ))}
-          </div>
-
-          <div className="mx-auto mt-5 grid max-w-[920px] gap-2 sm:grid-cols-4">
-            {heroPipeline.map((item) => (
-              <div key={item.step} className="rounded-lg border border-[var(--gvx-menu-border)] bg-[var(--gvx-menu-bg)] p-3 text-left shadow-[0_18px_42px_-38px_rgba(7,17,31,0.38)]">
-                <div className="mb-2 flex items-center justify-between gap-2">
-                  <span className="text-[0.68rem] font-semibold uppercase tracking-[0.12em] text-[var(--gvx-hero-muted)]">{item.step}</span>
-                  <Circle size={8} weight="fill" className="text-[var(--gvx-hero-accent)]" />
+              <div className="flex h-9 w-9 items-center justify-center rounded-md border border-[var(--gvx-hero-border)] bg-[var(--gvx-hero-accent-soft)]">
+                <Lock size={17} weight="duotone" className="text-[var(--gvx-hero-accent)]" />
+              </div>
+            </div>
+            <div className="grid gap-2 text-[0.78rem] font-medium text-[var(--gvx-hero-muted)]">
+              {heroAssurances.map((label) => (
+                <div key={label} className="flex items-center gap-2 rounded-md border border-[var(--gvx-menu-border)] bg-[var(--gvx-hero-bg-soft)] px-3 py-2 dark:bg-[var(--gvx-hero-bg)]">
+                  <CheckCircle size={14} weight="fill" className="text-emerald-500" />
+                  {label}
                 </div>
-                <div className="text-[0.88rem] font-semibold text-[var(--gvx-hero-text)]">{item.label}</div>
-                <p className="mt-1 text-[0.66rem] leading-relaxed text-[var(--gvx-hero-subtle)]">{item.detail}</p>
-              </div>
-            ))}
-          </div>
-
-          <div className="mx-auto mt-5 grid max-w-[920px] gap-2 sm:grid-cols-3">
-            {heroCapabilities.map((item) => (
-              <div key={item.label} className="rounded-lg border border-[var(--gvx-menu-border)] bg-[var(--gvx-menu-bg)] p-4 text-left shadow-[0_18px_42px_-38px_rgba(7,17,31,0.38)]">
-                <div className="mb-3 flex h-8 w-8 items-center justify-center rounded-md border border-[var(--gvx-hero-border)] bg-[var(--gvx-hero-accent-soft)]">
-                  <item.icon size={16} weight="duotone" className="text-[var(--gvx-hero-accent)]" />
-                </div>
-                <div className="text-[0.84rem] font-semibold text-[var(--gvx-hero-text)]">{item.label}</div>
-                <p className="mt-1.5 text-[0.7rem] leading-relaxed text-[var(--gvx-hero-subtle)]">{item.detail}</p>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
       <DashboardPreviewSection />
 
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-7 md:py-10 border-t border-border/60">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
-          <Card className="bg-card border-border">
-            <CardHeader className="p-4 sm:p-6">
-              <Monitor size={32} className="text-primary mb-2 sm:mb-3" weight="duotone" />
-              <CardTitle className="text-base sm:text-lg text-foreground">Research Workspace</CardTitle>
-              <CardDescription className="text-sm text-muted-foreground">
-                Correlate telemetry, identities, IOCs, and case notes without jumping between disconnected tools.
-              </CardDescription>
-            </CardHeader>
-          </Card>
-          <Card className="bg-card border-border">
-            <CardHeader className="p-4 sm:p-6">
-              <ShieldCheck size={32} className="text-primary mb-2 sm:mb-3" weight="duotone" />
-              <CardTitle className="text-base sm:text-lg text-foreground">Governed AI</CardTitle>
-              <CardDescription className="text-sm text-muted-foreground">
-                Use AI for summaries, hypotheses, and recommendations while keeping action approval with people.
-              </CardDescription>
-            </CardHeader>
-          </Card>
-          <Card className="bg-card border-border">
-            <CardHeader className="p-4 sm:p-6">
-              <CloudArrowDown size={32} className="text-primary mb-2 sm:mb-3" weight="duotone" />
-              <CardTitle className="text-base sm:text-lg text-foreground">Controlled Deployment</CardTitle>
-              <CardDescription className="text-sm text-muted-foreground">
-                Run the platform in your environment with optional cloud services for updates, licensing, and support.
-              </CardDescription>
-            </CardHeader>
-          </Card>
+      <section className="border-t border-border/60 px-4 py-9 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-6xl">
+          <div className="mb-5 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
+            <div>
+              <div className="text-xs font-semibold uppercase tracking-[0.14em] text-primary">Platform pillars</div>
+              <h2 className="mt-2 text-2xl font-heading font-bold leading-tight text-foreground sm:text-3xl">Built for real investigations</h2>
+            </div>
+            <p className="max-w-md text-sm leading-6 text-muted-foreground dark:text-slate-300">
+              Focused capabilities for research teams that need evidence, governance, and operational context in one place.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 gap-3 md:grid-cols-3">
+            {heroCapabilities.map((item) => (
+              <Card key={item.label} className="border-border bg-card">
+                <CardHeader className="p-4 sm:p-5">
+                  <div className="mb-3 flex h-9 w-9 items-center justify-center rounded-md border border-primary/20 bg-primary/10">
+                    <item.icon size={18} className="text-primary" weight="duotone" />
+                  </div>
+                  <CardTitle className="text-base text-foreground">{item.label}</CardTitle>
+                  <CardDescription className="text-sm leading-6 text-muted-foreground">{item.detail}</CardDescription>
+                </CardHeader>
+              </Card>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -736,9 +713,9 @@ function SupportPage() {
 
 function DashboardPreviewSection() {
   const researchRows = [
-    { label: "Credential abuse", source: "Identity + endpoint", status: "Triage" },
+    { label: "Credential abuse campaign", source: "Identity + endpoint", status: "Triage" },
     { label: "Suspicious script chain", source: "EDR telemetry", status: "Research" },
-    { label: "New IOC cluster", source: "Threat intel", status: "Enriched" },
+    { label: "Emerging IOC cluster", source: "Threat intel", status: "Enriched" },
   ]
 
   const consoleStats = [
@@ -758,7 +735,7 @@ function DashboardPreviewSection() {
             One quiet workspace for investigation, evidence, and review.
           </h2>
           <p className="mt-3 max-w-xl text-sm leading-6 text-muted-foreground dark:text-slate-300">
-            The homepage should show what Guardivex is: a cyber research platform that helps analysts move from signal to finding without turning recommendations into uncontrolled actions.
+            Move from raw signals to defensible findings with analyst notes, correlated telemetry, and review-ready evidence trails.
           </p>
         </div>
 
@@ -766,7 +743,7 @@ function DashboardPreviewSection() {
           <div className="flex items-center justify-between border-b border-[var(--gvx-menu-border)] px-4 py-3">
             <div className="flex items-center gap-2 text-sm font-semibold text-foreground">
               <Database size={17} weight="duotone" className="text-primary" />
-              Investigation queue
+              Research queue
             </div>
             <Badge variant="outline" className="rounded-sm border-emerald-500/30 text-emerald-600 dark:text-emerald-300">
               Human review
