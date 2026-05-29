@@ -405,22 +405,22 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
       </div>
 
       <nav className="sticky top-0 z-50 px-0">
-        <div className={`mx-auto px-5 sm:px-8 xl:px-14 2xl:px-16 ${ENTERPRISE_HEADER_SURFACE_CLASS}`}>
-          <div ref={desktopNavRef} onMouseLeave={closeAllDesktopDropdowns} className="relative flex h-[64px] min-w-0 items-center justify-between gap-4 overflow-visible">
-            <div className="flex min-w-0 items-center gap-5">
+        <div className={`mx-auto px-3 min-[390px]:px-4 sm:px-8 xl:px-14 2xl:px-16 ${ENTERPRISE_HEADER_SURFACE_CLASS}`}>
+          <div ref={desktopNavRef} onMouseLeave={closeAllDesktopDropdowns} className="relative flex h-[64px] min-w-0 items-center justify-between gap-2 overflow-visible sm:gap-4">
+            <div className="flex min-w-0 flex-1 items-center gap-3 lg:gap-5">
               <button 
                 onClick={() => handleNavigate("home")} 
                 aria-label="Go to home"
                 title="Go to home"
-                className="flex items-center gap-1 group py-0 min-w-0 shrink-0"
+                className="group flex min-w-0 flex-1 items-center gap-1 py-0 lg:flex-none"
               >
                 <BrandLogo
                   subtitle="SECURITY PLATFORM"
-                  className="gap-2"
-                  markClassName="h-12 w-12 sm:h-14 sm:w-14 lg:h-16 lg:w-16"
+                  className="min-w-0 gap-1.5 sm:gap-2"
+                  markClassName="h-10 w-10 min-[390px]:h-11 min-[390px]:w-11 sm:h-14 sm:w-14 lg:h-16 lg:w-16"
                   imgClassName="pr-0.5"
-                  textContainerClassName="gap-0"
-                  titleClassName="text-[20px] sm:text-[22px] lg:text-[24px] font-bold tracking-normal transition-opacity group-hover:opacity-85"
+                  textContainerClassName="min-w-0 max-w-[92px] gap-0 min-[390px]:max-w-[116px] sm:max-w-none"
+                  titleClassName="truncate text-[16px] min-[390px]:text-[18px] sm:text-[22px] lg:text-[24px] font-bold tracking-normal transition-opacity group-hover:opacity-85"
                   subtitleClassName="hidden sm:block text-[9px] lg:text-[9.5px] tracking-[0.1em] leading-none mt-0.5"
                 />
               </button>
@@ -455,7 +455,7 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
               </div>
             </div>
 
-              <div className="flex shrink-0 items-center gap-1.5">
+              <div className="flex shrink-0 items-center gap-1 sm:gap-1.5">
               <ThemeSwitcher />
               <Button 
                 onClick={() => handleNavigate("download")}
@@ -469,10 +469,12 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
               <Button 
                 onClick={handleLoginClick}
                 size="default"
-                className="h-8 rounded-md border border-[var(--gvx-hero-border-strong)] bg-[var(--gvx-hero-surface-strong)] bg-none px-3.5 text-[0.8rem] font-semibold text-[var(--gvx-hero-text)] shadow-[0_12px_26px_-24px_rgba(7,17,31,0.30)] transition-all duration-200 hover:-translate-y-px hover:border-[color:var(--gvx-hero-accent)] hover:text-[var(--gvx-hero-accent)] group"
+                aria-label="Sign in"
+                title="Sign in"
+                className="h-8 w-8 rounded-md border border-[var(--gvx-hero-border-strong)] bg-[var(--gvx-hero-surface-strong)] bg-none px-0 text-[0.8rem] font-semibold text-[var(--gvx-hero-text)] shadow-[0_12px_26px_-24px_rgba(7,17,31,0.30)] transition-all duration-200 hover:-translate-y-px hover:border-[color:var(--gvx-hero-accent)] hover:text-[var(--gvx-hero-accent)] min-[430px]:w-auto min-[430px]:px-3.5 group"
               >
-                <span>Sign In</span>
-                <ArrowRight size={15} weight="bold" className="ml-1 sm:ml-1.5 group-hover:translate-x-1 transition-transform sm:w-[17px] sm:h-[17px]" />
+                <span className="hidden min-[430px]:inline">Sign In</span>
+                <ArrowRight size={15} weight="bold" className="transition-transform group-hover:translate-x-0.5 min-[430px]:ml-1 sm:ml-1.5 sm:w-[17px] sm:h-[17px]" />
               </Button>
               
               <button
