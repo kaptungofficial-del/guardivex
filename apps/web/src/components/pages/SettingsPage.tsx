@@ -123,21 +123,21 @@ export function SettingsPage() {
   }
 
   return (
-    <div className="p-6 space-y-6">
+    <div className="space-y-5 p-4 sm:space-y-6 sm:p-6">
       <div>
-        <h1 className="text-3xl font-bold tracking-tight">Settings</h1>
-        <p className="text-muted-foreground">Manage your security platform preferences</p>
+        <h1 className="text-2xl font-bold tracking-tight sm:text-3xl">Settings</h1>
+        <p className="text-sm text-muted-foreground sm:text-base">Manage your security platform preferences</p>
       </div>
 
       <div className="grid gap-6">
         <Card className="bg-card border-border">
           <CardHeader>
-            <div className="flex items-center justify-between">
-              <div>
+            <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+              <div className="min-w-0">
                 <CardTitle>Biometric Credentials</CardTitle>
                 <CardDescription>Manage registered biometric devices for authentication</CardDescription>
               </div>
-              <Button onClick={handleAddDevice} size="sm" className="gap-2">
+              <Button onClick={handleAddDevice} size="sm" className="w-full gap-2 sm:w-auto">
                 <Plus className="w-4 h-4" />
                 Add Device
               </Button>
@@ -161,16 +161,16 @@ export function SettingsPage() {
                 {(biometricDevices || []).map((device) => (
                   <div
                     key={device.id}
-                    className="flex items-start gap-4 p-4 border border-border rounded-lg hover:bg-secondary/20 transition-colors"
+                    className="flex flex-col gap-3 rounded-lg border border-border p-3 transition-colors hover:bg-secondary/20 min-[420px]:flex-row min-[420px]:items-start sm:p-4"
                   >
-                    <div className="flex-shrink-0 text-muted-foreground mt-1">
+                    <div className="mt-1 flex-shrink-0 text-muted-foreground">
                       {getDeviceIcon(device.deviceType)}
                     </div>
                     
                     <div className="flex-1 min-w-0">
-                      <div className="flex items-start justify-between gap-2 mb-2">
-                        <div className="flex items-center gap-2">
-                          <h4 className="font-semibold text-base">{device.name}</h4>
+                      <div className="mb-2 flex flex-col gap-2 min-[420px]:flex-row min-[420px]:items-start min-[420px]:justify-between">
+                        <div className="flex min-w-0 flex-wrap items-center gap-2">
+                          <h4 className="truncate text-base font-semibold">{device.name}</h4>
                           {device.trusted && (
                             <Badge variant="secondary" className="gap-1">
                               <CheckCircle className="w-3 h-3" />
@@ -182,24 +182,24 @@ export function SettingsPage() {
                           variant="ghost"
                           size="sm"
                           onClick={() => handleRemoveDevice(device)}
-                          className="text-destructive hover:text-destructive hover:bg-destructive/10 -mr-2"
+                          className="w-full justify-center text-destructive hover:bg-destructive/10 hover:text-destructive min-[420px]:-mr-2 min-[420px]:w-auto"
                         >
                           <Trash className="w-4 h-4" />
                         </Button>
                       </div>
 
-                      <div className="flex items-center gap-4 text-sm text-muted-foreground mb-2">
+                      <div className="mb-2 flex flex-wrap items-center gap-x-4 gap-y-1.5 text-sm text-muted-foreground">
                         <div className="flex items-center gap-1.5">
                           {getBiometricIcon(device.type)}
                           <span className="capitalize">
                             {device.type === "face_id" ? "Face ID" : device.type === "windows_hello" ? "Windows Hello" : "Fingerprint"}
                           </span>
                         </div>
-                        <span>•</span>
+                        <span className="hidden min-[420px]:inline">•</span>
                         <span>{device.platform}</span>
                       </div>
 
-                      <div className="flex items-start gap-4 text-xs text-muted-foreground">
+                      <div className="flex flex-col gap-1.5 text-xs text-muted-foreground sm:flex-row sm:flex-wrap sm:items-start sm:gap-4">
                         <div className="flex items-center gap-1">
                           <Clock className="w-3.5 h-3.5" />
                           <span>Registered: {formatDate(device.registeredAt)}</span>
@@ -245,8 +245,8 @@ export function SettingsPage() {
             <CardDescription>Configure how you receive alerts</CardDescription>
           </CardHeader>
           <CardContent className="space-y-6">
-            <div className="flex items-center justify-between">
-              <div className="space-y-0.5">
+            <div className="flex flex-col gap-3 min-[420px]:flex-row min-[420px]:items-center min-[420px]:justify-between">
+              <div className="space-y-0.5 pr-2">
                 <Label>Critical Alert Notifications</Label>
                 <p className="text-sm text-muted-foreground">
                   Receive immediate notifications for critical security alerts
@@ -255,8 +255,8 @@ export function SettingsPage() {
               <Switch defaultChecked />
             </div>
             <Separator />
-            <div className="flex items-center justify-between">
-              <div className="space-y-0.5">
+            <div className="flex flex-col gap-3 min-[420px]:flex-row min-[420px]:items-center min-[420px]:justify-between">
+              <div className="space-y-0.5 pr-2">
                 <Label>Incident Updates</Label>
                 <p className="text-sm text-muted-foreground">
                   Get notified when incidents are updated or resolved
@@ -265,8 +265,8 @@ export function SettingsPage() {
               <Switch defaultChecked />
             </div>
             <Separator />
-            <div className="flex items-center justify-between">
-              <div className="space-y-0.5">
+            <div className="flex flex-col gap-3 min-[420px]:flex-row min-[420px]:items-center min-[420px]:justify-between">
+              <div className="space-y-0.5 pr-2">
                 <Label>Device Status Changes</Label>
                 <p className="text-sm text-muted-foreground">
                   Alerts when devices go offline or come back online
@@ -275,8 +275,8 @@ export function SettingsPage() {
               <Switch />
             </div>
             <Separator />
-            <div className="flex items-center justify-between">
-              <div className="space-y-0.5">
+            <div className="flex flex-col gap-3 min-[420px]:flex-row min-[420px]:items-center min-[420px]:justify-between">
+              <div className="space-y-0.5 pr-2">
                 <Label>Weekly Reports</Label>
                 <p className="text-sm text-muted-foreground">
                   Receive weekly security summary reports via email
@@ -315,8 +315,8 @@ export function SettingsPage() {
             <CardDescription>Customize your dashboard appearance</CardDescription>
           </CardHeader>
           <CardContent className="space-y-6">
-            <div className="flex items-center justify-between">
-              <div className="space-y-0.5">
+            <div className="flex flex-col gap-3 min-[420px]:flex-row min-[420px]:items-center min-[420px]:justify-between">
+              <div className="space-y-0.5 pr-2">
                 <Label>Auto-refresh Dashboard</Label>
                 <p className="text-sm text-muted-foreground">
                   Automatically update metrics every 30 seconds
@@ -325,8 +325,8 @@ export function SettingsPage() {
               <Switch defaultChecked />
             </div>
             <Separator />
-            <div className="flex items-center justify-between">
-              <div className="space-y-0.5">
+            <div className="flex flex-col gap-3 min-[420px]:flex-row min-[420px]:items-center min-[420px]:justify-between">
+              <div className="space-y-0.5 pr-2">
                 <Label>Compact Mode</Label>
                 <p className="text-sm text-muted-foreground">
                   Display more information in less space

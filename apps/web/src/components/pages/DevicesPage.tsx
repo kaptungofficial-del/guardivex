@@ -113,7 +113,46 @@ export function DevicesPage({ devices, onSelectDevice }: DevicesPageProps) {
           </div>
         </CardHeader>
         <CardContent>
-          <div className="overflow-x-auto -mx-6 md:mx-0">
+          <div className="space-y-3 md:hidden">
+            {filteredDevices.map((device) => {
+              const StatusIcon = getStatusIcon(device.status)
+              const DeviceIcon = getDeviceIcon(device.type)
+
+              return (
+                <button
+                  key={device.id}
+                  type="button"
+                  onClick={() => onSelectDevice?.(device.id)}
+                  className="w-full rounded-lg border border-border bg-secondary/30 p-3 text-left transition-colors hover:bg-secondary/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40"
+                >
+                  <div className="flex items-start gap-3">
+                    <div className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-md border border-border bg-card text-muted-foreground">
+                      <DeviceIcon size={18} />
+                    </div>
+                    <div className="min-w-0 flex-1">
+                      <div className="flex flex-col gap-2 min-[420px]:flex-row min-[420px]:items-start min-[420px]:justify-between">
+                        <div className="min-w-0">
+                          <div className="truncate font-mono text-sm font-semibold">{device.name}</div>
+                          <div className="mt-1 text-xs capitalize text-muted-foreground">{device.type.replace("_", " ")}</div>
+                        </div>
+                        <Badge variant="secondary" className="flex w-fit items-center gap-1.5">
+                          <StatusIcon size={10} weight="fill" className={getStatusColor(device.status)} />
+                          <span className="capitalize">{device.status}</span>
+                        </Badge>
+                      </div>
+                      <div className="mt-3 grid gap-1.5 text-xs text-muted-foreground">
+                        <div className="truncate"><span className="font-medium text-foreground">Site:</span> {device.siteName ?? "-"}</div>
+                        <div className="truncate"><span className="font-medium text-foreground">Location:</span> {device.location ?? "-"}</div>
+                        <div><span className="font-medium text-foreground">Last seen:</span> {device.lastSeen ?? device.lastSeenAt ? formatDistanceToNow(new Date(device.lastSeen ?? device.lastSeenAt!), { addSuffix: true }) : "-"}</div>
+                      </div>
+                    </div>
+                  </div>
+                </button>
+              )
+            })}
+          </div>
+
+          <div className="hidden overflow-x-auto -mx-6 md:mx-0 md:block">
             <div className="min-w-[800px] md:min-w-0 px-6 md:px-0">
               <Table>
                 <TableHeader>

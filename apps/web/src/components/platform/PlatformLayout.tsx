@@ -106,7 +106,7 @@ export function PlatformLayout({ children, currentPage, onNavigate, onLogout, cr
     .find((item) => item.id === currentPage)?.label ?? "Platform"
 
   return (
-    <div className="flex h-screen bg-background premium-shell overflow-hidden">
+    <div className="flex h-[100dvh] min-h-[100svh] bg-background premium-shell overflow-hidden">
       <div className="pointer-events-none absolute inset-0 -z-10">
         <div className="glow-orb absolute -top-20 left-[-4rem] h-72 w-72 rounded-full bg-primary/10" />
         <div className="glow-orb absolute top-12 right-[-5rem] h-80 w-80 rounded-full bg-accent/10 [animation-delay:1.4s]" />
@@ -195,8 +195,8 @@ export function PlatformLayout({ children, currentPage, onNavigate, onLogout, cr
         </div>
       </aside>
 
-      <div className="flex-1 flex flex-col overflow-hidden w-full lg:w-auto">
-        <header className={cn("h-[3.5rem] sm:h-[3.7rem] flex items-center justify-between px-3 sm:px-4 lg:px-5 shrink-0 m-2 sm:m-2.5 rounded-2xl", ENTERPRISE_HEADER_SURFACE_CLASS)}>
+      <div className="flex min-w-0 flex-1 flex-col overflow-hidden w-full lg:w-auto">
+        <header className={cn("h-[3.5rem] sm:h-[3.7rem] flex items-center justify-between px-3 sm:px-4 lg:px-5 shrink-0 m-2 sm:m-2.5 rounded-xl sm:rounded-2xl", ENTERPRISE_HEADER_SURFACE_CLASS)}>
           <div className="flex items-center gap-2 sm:gap-3 min-w-0">
             <button
               onClick={() => setSidebarOpen(true)}
@@ -243,7 +243,7 @@ export function PlatformLayout({ children, currentPage, onNavigate, onLogout, cr
             </button>
           </div>
         </header>
-        <main className="flex-1 overflow-y-auto px-2 sm:px-3 pb-3">
+        <main className="min-w-0 flex-1 overflow-y-auto overflow-x-hidden px-2 sm:px-3 pb-3">
           {children}
         </main>
       </div>
