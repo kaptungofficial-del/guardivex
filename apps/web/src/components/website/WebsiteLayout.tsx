@@ -1,6 +1,5 @@
 import { useState } from "react"
 import { WebsiteNavbar } from "./WebsiteNavbar"
-import { VideoWalkthroughDemo } from "./VideoWalkthroughDemo"
 import { LiveChatWidget } from "./LiveChatWidget"
 import { BrandLogo } from "@/components/BrandLogo"
 import { Button } from "@/components/ui/button"
@@ -340,62 +339,53 @@ function HomePage({ onNavigate }: { onNavigate: (page: string) => void }) {
 
       <DashboardPreviewSection />
 
-      <VideoWalkthroughDemo />
-
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-7 md:py-10 border-t border-border/60">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
           <Card className="bg-card border-border">
             <CardHeader className="p-4 sm:p-6">
               <Monitor size={32} className="text-primary mb-2 sm:mb-3" weight="duotone" />
-              <CardTitle className="text-base sm:text-lg text-foreground">Self-Hosted Control</CardTitle>
+              <CardTitle className="text-base sm:text-lg text-foreground">Research Workspace</CardTitle>
               <CardDescription className="text-sm text-muted-foreground">
-                Install on your own server infrastructure with complete data sovereignty and control
+                Correlate telemetry, identities, IOCs, and case notes without jumping between disconnected tools.
               </CardDescription>
             </CardHeader>
           </Card>
           <Card className="bg-card border-border">
             <CardHeader className="p-4 sm:p-6">
               <ShieldCheck size={32} className="text-primary mb-2 sm:mb-3" weight="duotone" />
-              <CardTitle className="text-base sm:text-lg text-foreground">SOC Command Center</CardTitle>
+              <CardTitle className="text-base sm:text-lg text-foreground">Governed AI</CardTitle>
               <CardDescription className="text-sm text-muted-foreground">
-                Built-in security operations center for monitoring devices, alerts, and incidents
+                Use AI for summaries, hypotheses, and recommendations while keeping action approval with people.
               </CardDescription>
             </CardHeader>
           </Card>
           <Card className="bg-card border-border">
             <CardHeader className="p-4 sm:p-6">
               <CloudArrowDown size={32} className="text-primary mb-2 sm:mb-3" weight="duotone" />
-              <CardTitle className="text-base sm:text-lg text-foreground">Optional Cloud Services</CardTitle>
+              <CardTitle className="text-base sm:text-lg text-foreground">Controlled Deployment</CardTitle>
               <CardDescription className="text-sm text-muted-foreground">
-                Connect to Guardivex Cloud for licensing, updates, support, and remote access
+                Run the platform in your environment with optional cloud services for updates, licensing, and support.
               </CardDescription>
             </CardHeader>
           </Card>
         </div>
       </section>
 
-      <PlatformOverviewSection />
-      <ArchitectureDiagramSection />
-      <DeploymentOptionsSection />
-      <DownloadFlowSection onNavigate={onNavigate} />
-      <FeatureGridSection />
-      <PricingSection onNavigate={onNavigate} />
-
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-10">
         <div className="bg-card/70 dark:bg-slate-950/65 border border-border dark:border-slate-700/60 rounded-lg p-6 sm:p-8 md:p-10 text-center">
-          <h2 className="text-xl sm:text-2xl md:text-3xl font-heading font-bold text-foreground dark:text-slate-100 mb-2 sm:mb-3 leading-tight">Operational Deployment Metrics</h2>
+          <h2 className="text-xl sm:text-2xl md:text-3xl font-heading font-bold text-foreground dark:text-slate-100 mb-2 sm:mb-3 leading-tight">Ready for serious security research</h2>
           <p className="text-sm sm:text-base text-muted-foreground dark:text-slate-300 mb-6 sm:mb-8">
-            Join organizations monitoring thousands of devices across multiple sites
+            Start with the self-hosted platform, then add integrations and licensing as your environment grows.
           </p>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-8 max-w-3xl mx-auto">
-            {["5,000+", "50,000+", "99.9%", "24/7"].map((stat, i) => (
-              <div key={i}>
-                <div className="text-2xl sm:text-3xl font-bold text-primary mb-1 sm:mb-2">{stat}</div>
-                <div className="text-xs sm:text-sm text-muted-foreground">
-                  {["Organizations", "Devices", "Uptime", "Support"][i]}
-                </div>
-              </div>
-            ))}
+          <div className="flex flex-col justify-center gap-3 sm:flex-row">
+            <Button onClick={() => onNavigate("download")} className="h-11 rounded-md px-5 font-semibold">
+              <CloudArrowDown size={16} className="mr-2" weight="bold" />
+              Start Deployment
+            </Button>
+            <Button variant="outline" onClick={() => onNavigate("documentation")} className="h-11 rounded-md px-5 font-semibold">
+              Read Architecture
+              <ArrowRight size={16} className="ml-2" />
+            </Button>
           </div>
         </div>
       </section>
@@ -745,332 +735,63 @@ function SupportPage() {
 }
 
 function DashboardPreviewSection() {
-  const events = [
-    { icon: Warning, label: "Motion detected", site: "Building A - Lobby", time: "Just now", severity: "high" },
-    { icon: CheckCircle, label: "Device restored", site: "Building B - Camera 12", time: "2 min ago", severity: "success" },
-    { icon: Bell, label: "Access granted", site: "Building C - Main Entry", time: "3 min ago", severity: "info" },
-    { icon: Warning, label: "Network latency spike", site: "Building D - Switch Core", time: "5 min ago", severity: "warning" },
-    { icon: ShieldCheck, label: "Incident resolved", site: "Building A - Incident #892", time: "8 min ago", severity: "success" },
+  const researchRows = [
+    { label: "Credential abuse", source: "Identity + endpoint", status: "Triage" },
+    { label: "Suspicious script chain", source: "EDR telemetry", status: "Research" },
+    { label: "New IOC cluster", source: "Threat intel", status: "Enriched" },
   ]
 
-  const threatSeries = [
-    { label: "Motion", value: 86, tone: "bg-destructive", widthClass: "w-[86%]" },
-    { label: "Access", value: 72, tone: "bg-warning", widthClass: "w-[72%]" },
-    { label: "Network", value: 64, tone: "bg-info", widthClass: "w-[64%]" },
-    { label: "Policy", value: 48, tone: "bg-primary", widthClass: "w-[48%]" },
-  ]
-
-  const deviceMix = [
-    { label: "Cameras", value: 46, tone: "bg-primary", widthClass: "w-[46%]" },
-    { label: "Access", value: 18, tone: "bg-success", widthClass: "w-[18%]" },
-    { label: "Alarms", value: 14, tone: "bg-warning", widthClass: "w-[14%]" },
-    { label: "Network", value: 22, tone: "bg-accent", widthClass: "w-[22%]" },
-  ]
-
-  const statusCards = [
-    { 
-      icon: ShieldCheck, 
-      label: "Security Score", 
-      value: 87, 
-      badge: "Good", 
-      badgeClass: "bg-success/20 text-success border-success/30",
-      gradient: "from-primary/10 to-primary/5",
-      border: "border-primary/20",
-      iconColor: "text-primary",
-      hoverGradient: "hover:from-primary/20 hover:to-primary/10"
-    },
-    { 
-      icon: Warning, 
-      label: "Critical Alerts", 
-      value: 8, 
-      badge: "High", 
-      badgeClass: "bg-destructive/20 text-destructive border-destructive/30",
-      gradient: "from-destructive/10 to-destructive/5",
-      border: "border-destructive/20",
-      iconColor: "text-destructive",
-      hoverGradient: "hover:from-destructive/20 hover:to-destructive/10"
-    },
-    { 
-      icon: Broadcast, 
-      label: "Devices Online", 
-      value: "1,247", 
-      badge: "Live", 
-      badgeClass: "bg-success/20 text-success border-success/30",
-      gradient: "from-success/10 to-success/5",
-      border: "border-success/20",
-      iconColor: "text-success",
-      hoverGradient: "hover:from-success/20 hover:to-success/10"
-    },
-    { 
-      icon: Buildings, 
-      label: "Sites Monitored", 
-      value: 23, 
-      badge: "Active", 
-      badgeClass: "bg-accent/20 text-accent border-accent/30",
-      gradient: "from-accent/10 to-accent/5",
-      border: "border-accent/20",
-      iconColor: "text-accent",
-      hoverGradient: "hover:from-accent/20 hover:to-accent/10"
-    },
-  ]
-
-  const siteHealth = [
-    { name: "HQ North", devices: 234, status: "healthy", uptime: 99.9 },
-    { name: "HQ South", devices: 198, status: "healthy", uptime: 99.8 },
-    { name: "Warehouse A", devices: 156, status: "warning", uptime: 98.2 },
-    { name: "Warehouse B", devices: 143, status: "healthy", uptime: 99.7 },
-    { name: "Retail Store 1", devices: 89, status: "healthy", uptime: 99.9 },
-    { name: "Retail Store 2", devices: 76, status: "critical", uptime: 92.3 },
-  ]
-
-  const telemetryPanels = [
-    ["Ingest rate", "18.4k/s", "+4.2%"],
-    ["Rule latency", "42 ms", "p95"],
-    ["Open cases", "17", "6 high"],
-    ["Sensor drift", "0.8%", "stable"],
+  const consoleStats = [
+    ["Signals", "50k+"],
+    ["Mapped", "MITRE"],
+    ["AI actions", "0"],
   ]
 
   return (
-    <section className="relative overflow-hidden bg-[#EEF6FB] px-4 pb-5 pt-2 sm:px-6 lg:px-8 dark:bg-[#020817]">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_22%_0%,rgba(0,119,255,0.018),transparent_30%),radial-gradient(circle_at_72%_100%,rgba(0,143,199,0.014),transparent_38%)] dark:bg-[radial-gradient(circle_at_22%_0%,rgba(0,194,255,0.055),transparent_30%),radial-gradient(circle_at_72%_100%,rgba(0,224,184,0.035),transparent_38%)]" />
-      <div className="absolute inset-0 opacity-[0.04] bg-[linear-gradient(rgba(0,119,255,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(0,143,199,0.08)_1px,transparent_1px)] bg-[size:28px_28px] dark:opacity-[0.035] dark:bg-[linear-gradient(rgba(0,194,255,0.10)_1px,transparent_1px),linear-gradient(90deg,rgba(0,194,255,0.08)_1px,transparent_1px)]" />
-      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#CFE0EF] to-transparent dark:via-cyan-300/18" />
+    <section className="border-t border-border/60 bg-[var(--gvx-hero-bg-soft)] px-4 py-10 sm:px-6 lg:px-8 dark:bg-[#020817]">
+      <div className="mx-auto grid max-w-6xl gap-6 lg:grid-cols-[0.86fr_1.14fr] lg:items-center">
+        <div>
+          <Badge className="mb-4 rounded-sm border-[var(--gvx-menu-border)] bg-[var(--gvx-menu-bg)] text-[var(--gvx-hero-muted)]">
+            Research Console
+          </Badge>
+          <h2 className="max-w-xl text-2xl font-heading font-bold leading-tight text-foreground sm:text-3xl">
+            One quiet workspace for investigation, evidence, and review.
+          </h2>
+          <p className="mt-3 max-w-xl text-sm leading-6 text-muted-foreground dark:text-slate-300">
+            The homepage should show what Guardivex is: a cyber research platform that helps analysts move from signal to finding without turning recommendations into uncontrolled actions.
+          </p>
+        </div>
 
-      <div className="relative z-10 mx-auto max-w-[1280px]">
-        <div className="grid gap-4 lg:grid-cols-[0.28fr_1fr] lg:items-start">
-          <div className="rounded-md border border-[#CFE0EF] bg-white p-4 shadow-[0_10px_28px_-24px_rgba(7,17,31,0.34)] backdrop-blur-xl dark:rounded-lg dark:border-cyan-300/12 dark:bg-[#071426]/72 dark:shadow-[inset_0_1px_0_rgba(255,255,255,0.04)]">
-            <div className="mb-3 flex items-center gap-2 text-[0.92rem] font-semibold text-[#07111F] dark:text-slate-100">
-              <Circle size={9} weight="fill" className="text-[#008FC7] dark:text-cyan-400" />
-              SOC Console Snapshot
+        <div className="overflow-hidden rounded-lg border border-[var(--gvx-menu-border)] bg-[var(--gvx-menu-bg)] shadow-[0_22px_54px_-44px_rgba(7,17,31,0.42)]">
+          <div className="flex items-center justify-between border-b border-[var(--gvx-menu-border)] px-4 py-3">
+            <div className="flex items-center gap-2 text-sm font-semibold text-foreground">
+              <Database size={17} weight="duotone" className="text-primary" />
+              Investigation queue
             </div>
-            <p className="text-[0.82rem] leading-relaxed text-[#334155] dark:text-slate-400">
-              Unified telemetry, alert triage, and site posture in a cleaner production-grade SOC interface.
-            </p>
-            <div className="mt-4 grid gap-2">
-              {[
-                ["Open Incidents", "12", "+3", "text-red-400"],
-                ["Threat Score", "85", "+7", "text-amber-400"],
-                ["Sites Online", "98%", "+2%", "text-emerald-400"],
-              ].map(([label, value, meta, tone]) => (
-                <div key={label} className="rounded-sm border border-[#CFE0EF] bg-[#F8FBFF] p-2.5 shadow-[0_8px_18px_-18px_rgba(7,17,31,0.25)] dark:rounded-md dark:border-cyan-300/10 dark:bg-[#061426]/82 dark:shadow-none">
-                  <div className="text-[10px] text-[#334155] dark:text-slate-400">{label}</div>
-                  <div className="mt-1 flex items-end justify-between">
-                    <span className={`font-mono text-xl font-semibold leading-none ${tone}`}>{value}</span>
-                    <span className="font-mono text-[10px] text-emerald-400">{meta}</span>
-                  </div>
-                  <div className="mt-2 h-5 rounded-sm bg-[linear-gradient(135deg,transparent_20%,rgba(0,143,199,0.08)_21%,transparent_24%),linear-gradient(to_right,rgba(0,119,204,0.06),rgba(0,167,168,0.08))] dark:bg-[linear-gradient(135deg,transparent_20%,rgba(0,194,255,0.12)_21%,transparent_24%),linear-gradient(to_right,rgba(0,194,255,0.08),rgba(0,224,184,0.12))]" />
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <div className="overflow-hidden rounded-md border border-[#CFE0EF] bg-white shadow-[0_18px_48px_-38px_rgba(7,17,31,0.34)] dark:rounded-lg dark:border-cyan-300/12 dark:bg-[rgba(3,10,24,0.92)] dark:shadow-[0_22px_80px_-56px_rgba(0,194,255,0.55)]">
-          <div className="flex items-center gap-3 border-b border-[#D8E8F5]/80 bg-[#F8FBFF]/92 px-3 py-2 dark:border-[rgba(0,194,255,0.08)] dark:bg-[rgba(11,18,32,0.72)]">
-            <div className="flex gap-1.5">
-              <div className="h-2.5 w-2.5 rounded-full bg-slate-400/60" />
-              <div className="h-2.5 w-2.5 rounded-full bg-slate-400/60" />
-              <div className="h-2.5 w-2.5 rounded-full bg-slate-400/60" />
-            </div>
-            <div className="flex flex-1 items-center justify-center gap-2 text-[10px] font-mono text-[#334155] sm:text-xs dark:text-slate-400">
-              <Monitor size={14} className="hidden text-[#334155] sm:block dark:text-slate-400" weight="duotone" />
-              Guardivex SOC Console / Production Cluster
-            </div>
-            <Badge variant="outline" className="rounded-sm border-emerald-500/30 bg-emerald-500/8 text-[10px] text-emerald-700 dark:text-emerald-300">
-              <Circle size={6} weight="fill" className="text-emerald-500" />
-              <span className="ml-1 hidden xs:inline">Online</span>
+            <Badge variant="outline" className="rounded-sm border-emerald-500/30 text-emerald-600 dark:text-emerald-300">
+              Human review
             </Badge>
           </div>
 
-          <div className="grid grid-cols-2 gap-px border-b border-[#D8E8F5]/75 bg-[#D8E8F5]/70 dark:border-[rgba(0,194,255,0.08)] dark:bg-[rgba(0,194,255,0.06)] md:grid-cols-4">
-            {telemetryPanels.map(([label, value, meta]) => (
-              <div key={label} className="bg-white/92 px-3 py-2 dark:bg-[rgba(3,10,24,0.86)]">
-                <div className="text-[10px] uppercase tracking-[0.1em] text-muted-foreground">{label}</div>
-                <div className="mt-0.5 flex items-baseline gap-2">
-                  <span className="font-mono text-sm font-semibold text-foreground">{value}</span>
-                  <span className="font-mono text-[10px] text-primary/80">{meta}</span>
-                </div>
+          <div className="grid grid-cols-3 border-b border-[var(--gvx-menu-border)]">
+            {consoleStats.map(([label, value]) => (
+              <div key={label} className="border-r border-[var(--gvx-menu-border)] px-4 py-3 last:border-r-0">
+                <div className="text-[10px] uppercase tracking-[0.12em] text-muted-foreground">{label}</div>
+                <div className="mt-1 font-heading text-lg font-semibold text-foreground">{value}</div>
               </div>
             ))}
           </div>
 
-          <div className="grid gap-3 p-2.5 sm:p-3 lg:grid-cols-[1.15fr_0.85fr] lg:gap-3">
-            <div className="space-y-3">
-              <div className="rounded-md border border-[#D8E8F5]/72 bg-[#F8FBFF]/88 p-2.5 shadow-none dark:border-[rgba(0,194,255,0.08)] dark:bg-[rgba(11,18,32,0.58)]">
-                <div className="mb-3 flex items-center justify-between gap-3">
-                  <div>
-                    <div className="flex items-center gap-2 text-[13px] font-semibold text-foreground">
-                      <ChartLine size={15} weight="duotone" className="text-primary" />
-                      Threat Overview
-                    </div>
-                    <p className="mt-0.5 text-[11px] text-muted-foreground dark:text-slate-400">Last 60 minutes of normalized detections</p>
-                  </div>
-                  <Badge variant="outline" className="rounded-sm border-[#D8E8F5]/80 bg-white text-[10px] text-[#526173] dark:border-[rgba(0,194,255,0.10)] dark:bg-[rgba(3,10,24,0.72)] dark:text-slate-300">
-                    Updated live
-                  </Badge>
-                </div>
-
-                <div className="space-y-2.5">
-                  {threatSeries.map((item) => (
-                    <div key={item.label}>
-                      <div className="mb-1 flex items-center justify-between text-[11px] text-[#526173] dark:text-slate-400">
-                        <span>{item.label}</span>
-                        <span className="font-mono">{item.value}%</span>
-                      </div>
-                      <div className="h-1.5 overflow-hidden rounded-full bg-[#D8E8F5]/80 dark:bg-[rgba(15,23,42,0.84)]">
-                        <div className={`h-full rounded-full ${item.tone} ${item.widthClass} transition-[width] duration-700`} />
-                      </div>
-                    </div>
-                  ))}
-                </div>
-
-                <div className="mt-3 grid grid-cols-2 gap-2 sm:grid-cols-4">
-                  {statusCards.map((card) => (
-                    <div key={card.label} className="rounded-sm border border-[#D8E8F5]/70 bg-white/88 p-2 dark:border-[rgba(0,194,255,0.075)] dark:bg-[rgba(3,10,24,0.68)]">
-                      <div className="mb-1.5 flex items-center justify-between">
-                        <card.icon size={15} className="text-primary" weight="duotone" />
-                        <Badge className="rounded-sm border-[#D8E8F5]/80 bg-[#F8FBFF] text-[9px] text-[#526173] dark:border-[rgba(0,194,255,0.08)] dark:bg-[rgba(11,18,32,0.72)] dark:text-slate-300">
-                          {card.badge}
-                        </Badge>
-                      </div>
-                      <div className="font-mono text-base font-semibold text-foreground">{card.value}</div>
-                      <div className="mt-0.5 text-[9px] uppercase tracking-[0.08em] text-muted-foreground">{card.label}</div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              <div className="rounded-md border border-[#D8E8F5]/72 bg-white/88 p-2.5 shadow-none dark:border-[rgba(0,194,255,0.075)] dark:bg-[rgba(3,10,24,0.68)]">
-                <div className="mb-3 flex items-center justify-between">
-                  <h3 className="flex items-center gap-2 text-[13px] font-semibold text-foreground">
-                    <Buildings size={15} weight="duotone" className="text-primary" />
-                    Site Health Overview
-                  </h3>
-                  <Badge variant="outline" className="rounded-sm border-[#D8E8F5] bg-[#F8FBFF] text-xs text-[#526173] dark:border-slate-700 dark:bg-slate-900 dark:text-slate-300">
-                    23 Sites
-                  </Badge>
-                </div>
-                <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 xl:grid-cols-6">
-                  {siteHealth.map((site) => (
-                    <div
-                      key={site.name}
-                      className={`rounded-sm border p-1.5 ${
-                        site.status === "healthy"
-                          ? "border-emerald-500/20 bg-emerald-500/6"
-                          : site.status === "warning"
-                            ? "border-amber-500/20 bg-amber-500/6"
-                            : "border-red-500/20 bg-red-500/6"
-                      }`}
-                    >
-                      <div className="mb-1 truncate text-[11px] font-medium text-foreground" title={site.name}>
-                        {site.name}
-                      </div>
-                      <div className="mb-1.5 text-[10px] font-mono text-muted-foreground">{site.devices} devices</div>
-                      <div className={`mb-1 h-1 rounded-full ${site.status === "healthy" ? "bg-success" : site.status === "warning" ? "bg-warning" : "bg-destructive"}`} />
-                      <div className="text-xs font-mono text-muted-foreground">{site.uptime}%</div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-
-            <div className="space-y-4">
-              <div className="rounded-md border border-[#D8E8F5]/72 bg-white/88 p-2.5 shadow-none dark:border-[rgba(0,194,255,0.075)] dark:bg-[rgba(3,10,24,0.68)]">
-                <div className="mb-3 flex items-center justify-between">
-                  <h3 className="flex items-center gap-2 text-[13px] font-semibold text-foreground">
-                    <Bell size={15} weight="duotone" className="text-primary" />
-                    Incident Timeline
-                  </h3>
-                  <Badge variant="outline" className="rounded-sm border-[#D8E8F5]/80 bg-[#F8FBFF] text-[10px] text-[#526173] dark:border-[rgba(0,194,255,0.08)] dark:bg-[rgba(11,18,32,0.72)] dark:text-slate-300">
-                    Priority Queue
-                  </Badge>
-                </div>
-                <div className="space-y-2">
-                  {events.slice(0, 4).map((event) => (
-                    <div key={`${event.label}-${event.time}`} className="relative flex items-start gap-2.5 rounded-sm border border-[#D8E8F5]/70 bg-[#F8FBFF]/88 p-2 pl-2.5 dark:border-[rgba(0,194,255,0.06)] dark:bg-[rgba(11,18,32,0.56)] before:absolute before:left-0 before:top-2 before:h-5 before:w-px before:bg-primary/20">
-                      <event.icon
-                        size={16}
-                        className={`${
-                          event.severity === "high"
-                            ? "text-destructive"
-                            : event.severity === "warning"
-                              ? "text-warning"
-                              : event.severity === "success"
-                                ? "text-success"
-                                : "text-info"
-                        }`}
-                        weight="duotone"
-                      />
-                      <div className="min-w-0 flex-1">
-                        <div className="text-[12px] font-medium text-foreground">{event.label}</div>
-                        <div className="truncate text-[11px] text-muted-foreground">{event.site}</div>
-                      </div>
-                      <div className="whitespace-nowrap font-mono text-xs text-muted-foreground">{event.time}</div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              <div className="rounded-md border border-[#D8E8F5]/72 bg-[#F8FBFF]/88 p-2.5 shadow-none dark:border-[rgba(0,194,255,0.075)] dark:bg-[rgba(11,18,32,0.56)]">
-                <div className="mb-3 flex items-center justify-between">
-                  <h3 className="flex items-center gap-2 text-[13px] font-semibold text-foreground">
-                    <Gauge size={15} weight="duotone" className="text-primary" />
-                    Device Coverage
-                  </h3>
-                  <Badge variant="outline" className="rounded-sm border-[#D8E8F5]/80 bg-white text-[10px] text-[#526173] dark:border-[rgba(0,194,255,0.08)] dark:bg-[rgba(3,10,24,0.72)] dark:text-slate-300">
-                    12 Types
-                  </Badge>
-                </div>
-                <div className="grid gap-3 sm:grid-cols-[auto_1fr] sm:items-center">
-                  <div className="relative mx-auto h-32 w-32">
-                    <div className="absolute inset-0 rounded-full bg-[conic-gradient(from_210deg,#006dff_0%_46%,#00a884_46%_64%,#d99200_64%_78%,#008FC7_78%_100%)] dark:bg-[conic-gradient(from_210deg,#006dff_0%_46%,#00b894_46%_64%,#f5a400_64%_78%,#00c7e8_78%_100%)]" />
-                    <div className="absolute inset-[15px] flex flex-col items-center justify-center rounded-full border border-[#D8E8F5]/80 bg-white text-center dark:border-[rgba(0,194,255,0.08)] dark:bg-slate-950">
-                      <span className="text-[9px] uppercase tracking-[0.12em] text-muted-foreground">Coverage</span>
-                      <span className="text-2xl font-semibold font-heading text-foreground">96%</span>
-                      <span className="text-[10px] text-muted-foreground">1,247 devices</span>
-                    </div>
-                  </div>
-                  <div className="space-y-2.5">
-                    {deviceMix.map((item) => (
-                      <div key={item.label} className="space-y-1">
-                        <div className="flex items-center justify-between text-xs text-muted-foreground">
-                          <span>{item.label}</span>
-                          <span className="font-mono">{item.value}%</span>
-                        </div>
-                        <div className="h-2 overflow-hidden rounded-full bg-white dark:bg-slate-950/90">
-                          <div className={`h-full rounded-full ${item.tone} ${item.widthClass}`} />
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className="mt-4 text-center lg:col-start-2">
-          <p className="mb-3 text-sm font-medium text-[#64748B] dark:text-slate-400">
-            <span className="inline-block rounded-sm border border-[#CFE0EF] bg-white px-3 py-1 text-[#475569] shadow-none dark:border-cyan-300/10 dark:bg-[#071426]/78 dark:text-slate-300">
-              Enterprise Operations View
-            </span>
-          </p>
-          <div className="flex flex-wrap justify-center gap-2 text-xs text-[#64748B] dark:text-slate-400">
-            {[
-              "Real-time monitoring",
-              "Threat detection",
-              "Multi-site support",
-              "Custom integrations",
-              "Advanced analytics",
-              "24/7 uptime",
-            ].map((feature, i) => (
-              <div key={i} className="flex items-center gap-1.5 rounded-sm border border-[#CFE0EF] bg-white px-3 py-1.5 dark:border-cyan-300/10 dark:bg-[#061426]/82">
-                <CheckCircle size={14} className="text-success" weight="fill" />
-                <span>{feature}</span>
+          <div className="divide-y divide-[var(--gvx-menu-border)]">
+            {researchRows.map((row) => (
+              <div key={row.label} className="grid gap-2 px-4 py-3 sm:grid-cols-[minmax(0,1fr)_140px_96px] sm:items-center">
+                <div className="text-sm font-semibold text-foreground">{row.label}</div>
+                <div className="text-xs text-muted-foreground">{row.source}</div>
+                <div className="text-xs font-semibold text-primary">{row.status}</div>
               </div>
             ))}
           </div>
         </div>
-      </div>
       </div>
     </section>
   )
