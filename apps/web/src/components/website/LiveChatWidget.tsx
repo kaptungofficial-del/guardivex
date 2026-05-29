@@ -108,16 +108,16 @@ export function LiveChatWidget({
 
   if (!isOpen) {
     return (
-      <div className="fixed bottom-6 right-6 z-30 hidden xl:block">
+      <div className="fixed bottom-4 right-4 z-50 sm:bottom-6 sm:right-6">
         <Button
           onClick={() => onOpenChange(true)}
-          className="h-6 px-2 rounded-sm gap-1 border border-border/60 bg-white/84 bg-none text-[#07111F] shadow-none hover:border-primary/14 hover:bg-secondary/68 dark:border-[rgba(0,194,255,0.07)] dark:bg-[rgba(3,10,24,0.68)] dark:text-[#E2E8F0] dark:shadow-none dark:hover:border-primary/12 dark:hover:bg-[rgba(11,18,32,0.76)]"
+          className="h-11 rounded-full border border-border/70 bg-white px-3.5 text-[#07111F] shadow-[0_18px_42px_-28px_rgba(7,17,31,0.55)] hover:border-primary/25 hover:bg-secondary/80 dark:border-[rgba(0,194,255,0.16)] dark:bg-[rgba(3,10,24,0.92)] dark:text-[#E2E8F0] dark:hover:border-primary/24 dark:hover:bg-[rgba(11,18,32,0.96)]"
           aria-label="Open live chat"
           title="Open live chat"
         >
-          <ChatCircle size={12} weight="fill" className="opacity-70" />
-          <span className="font-semibold text-[9.5px]">Live Chat</span>
-          <Badge variant="secondary" className="ml-0.5 hidden xl:inline-flex px-1 py-0 h-3.5 text-[8px] border border-success/18 bg-success/8 text-success/90">
+          <ChatCircle size={18} weight="fill" className="opacity-80" />
+          <span className="hidden font-semibold text-[12px] min-[390px]:inline">Live Chat</span>
+          <Badge variant="secondary" className="ml-0.5 hidden px-1.5 py-0 h-4 text-[9px] border border-success/20 bg-success/10 text-success/90 sm:inline-flex">
             Online
           </Badge>
         </Button>
@@ -126,8 +126,8 @@ export function LiveChatWidget({
   }
 
   return (
-    <div className="fixed bottom-6 right-6 z-30 w-[min(19rem,calc(100vw-2rem))] sm:w-[244px]">
-      <div className="rounded-md border border-border/75 bg-white/95 shadow-none overflow-hidden dark:border-[rgba(0,194,255,0.09)] dark:bg-[rgba(3,10,24,0.92)] dark:shadow-none">
+    <div className="fixed bottom-4 right-4 z-50 w-[min(21rem,calc(100vw-2rem))] sm:bottom-6 sm:right-6 sm:w-[320px]">
+      <div className="overflow-hidden rounded-lg border border-border/75 bg-white/95 shadow-[0_24px_70px_-44px_rgba(7,17,31,0.55)] dark:border-[rgba(0,194,255,0.13)] dark:bg-[rgba(3,10,24,0.94)]">
         <div className="px-2.5 py-1.5 border-b border-border/70 bg-white/90 backdrop-blur-sm flex items-center justify-between dark:border-[rgba(0,194,255,0.08)] dark:bg-[rgba(11,18,32,0.72)]">
           <div className="flex items-center gap-2">
             <div className="relative flex items-center">
