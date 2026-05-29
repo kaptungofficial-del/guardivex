@@ -243,38 +243,46 @@ function HomePage({ onNavigate }: { onNavigate: (page: string) => void }) {
     <div className="relative guardivex-home-typography overflow-x-clip bg-[var(--gvx-hero-bg)] text-[var(--gvx-hero-text)]">
       <section className="relative isolate overflow-hidden border-b border-[var(--gvx-hero-border)] bg-[var(--gvx-hero-bg)]">
         <div className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,var(--gvx-hero-bg)_0%,var(--gvx-hero-bg-soft)_100%)]" />
-        <div className="absolute inset-0 -z-10 opacity-[0.028] bg-[linear-gradient(var(--gvx-hero-accent)_1px,transparent_1px),linear-gradient(90deg,var(--gvx-hero-accent)_1px,transparent_1px)] bg-[size:68px_68px]" />
-        <div className="absolute left-1/2 top-8 -z-10 h-64 w-[min(760px,90vw)] -translate-x-1/2 rounded-full bg-[radial-gradient(circle,var(--gvx-hero-glow),transparent_68%)]" />
-        <div className="absolute inset-x-0 bottom-0 -z-10 h-32 bg-[linear-gradient(180deg,transparent,var(--gvx-hero-bg-soft))]" />
+        <div className="absolute inset-0 -z-10 opacity-[0.026] bg-[linear-gradient(var(--gvx-hero-accent)_1px,transparent_1px),linear-gradient(90deg,var(--gvx-hero-accent)_1px,transparent_1px)] bg-[size:56px_56px] sm:bg-[size:68px_68px]" />
+        <div className="absolute left-1/2 top-4 -z-10 h-56 w-[min(680px,92vw)] -translate-x-1/2 rounded-full bg-[radial-gradient(circle,var(--gvx-hero-glow),transparent_68%)] sm:top-8 sm:h-72 lg:w-[min(880px,78vw)]" />
+        <div className="absolute inset-x-0 bottom-0 -z-10 h-28 bg-[linear-gradient(180deg,transparent,var(--gvx-hero-bg-soft))] sm:h-36" />
 
-        <div className="mx-auto grid w-full max-w-[1120px] gap-7 px-4 py-10 sm:px-8 sm:py-14 lg:grid-cols-[minmax(0,1fr)_360px] lg:items-center lg:px-10 lg:py-16 xl:px-12">
-          <div className="text-center lg:text-left">
-            <div className="inline-flex max-w-full items-center gap-2 rounded-md border border-[var(--gvx-hero-border)] bg-[var(--gvx-menu-bg)] px-3 py-1.5 text-[9.5px] font-semibold uppercase tracking-[0.12em] text-[var(--gvx-hero-muted)] shadow-[0_12px_28px_-26px_rgba(7,17,31,0.28)]">
+        <div className="mx-auto grid min-h-[calc(100svh-150px)] w-full max-w-[1180px] gap-6 px-4 py-8 sm:min-h-[520px] sm:px-8 sm:py-12 md:gap-8 lg:min-h-[560px] lg:grid-cols-[minmax(0,1fr)_380px] lg:items-center lg:px-10 lg:py-14 xl:px-12">
+          <div className="min-w-0 text-center lg:text-left">
+            <div className="inline-flex max-w-full items-center gap-2 rounded-md border border-[var(--gvx-hero-border)] bg-[var(--gvx-menu-bg)] px-3 py-1.5 text-[9px] font-semibold uppercase tracking-[0.11em] text-[var(--gvx-hero-muted)] shadow-[0_12px_28px_-26px_rgba(7,17,31,0.28)] sm:text-[9.5px]">
               <ShieldCheck size={13} weight="fill" className="text-[var(--gvx-hero-accent)]" />
               Cyber threat research platform
             </div>
 
-            <h1 className="mx-auto mt-5 max-w-[740px] bg-[linear-gradient(135deg,var(--gvx-hero-text)_0%,var(--gvx-hero-accent)_56%,var(--gvx-hero-accent-2)_100%)] bg-clip-text font-heading text-[clamp(2.05rem,10vw,4.8rem)] font-extrabold leading-[1.02] tracking-normal text-transparent sm:leading-[0.98] lg:mx-0">
+            <h1 className="mx-auto mt-4 max-w-[780px] bg-[linear-gradient(135deg,var(--gvx-hero-text)_0%,var(--gvx-hero-accent)_58%,var(--gvx-hero-accent-2)_100%)] bg-clip-text font-heading text-[clamp(2.25rem,9vw,4.7rem)] font-extrabold leading-[1.03] tracking-normal text-transparent [text-wrap:balance] sm:mt-5 sm:leading-[0.99] lg:mx-0">
               Investigate threats without unsafe automation.
             </h1>
 
-            <p className="mx-auto mt-4 max-w-[640px] text-[1rem] leading-[1.65] text-[var(--gvx-hero-muted)] sm:text-[1.06rem] lg:mx-0">
+            <p className="mx-auto mt-4 max-w-[660px] text-[0.98rem] leading-[1.68] text-[var(--gvx-hero-muted)] sm:text-[1.08rem] lg:mx-0">
               Guardivex gives security teams a governed research workspace for telemetry, IOCs, incidents, and defensible evidence.
             </p>
 
-            <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row lg:justify-start">
-              <Button size="lg" onClick={() => onNavigate("download")} className="h-11 w-full max-w-[320px] rounded-md border border-[color:var(--gvx-hero-accent)] bg-[linear-gradient(135deg,var(--gvx-hero-accent),var(--gvx-hero-accent-2))] bg-none px-4 text-[0.84rem] font-semibold text-white shadow-[0_20px_42px_-28px_rgba(0,143,240,0.70)] transition-all duration-200 hover:-translate-y-0.5 hover:brightness-95 focus-visible:ring-[var(--gvx-hero-accent)] sm:w-auto">
+            <div className="mx-auto mt-5 flex max-w-[520px] flex-wrap items-center justify-center gap-2 text-[11px] font-semibold text-[var(--gvx-hero-muted)] lg:mx-0 lg:justify-start">
+              {heroAssurances.map((label) => (
+                <span key={label} className="rounded-md border border-[var(--gvx-hero-border)] bg-[var(--gvx-menu-bg)] px-2.5 py-1 shadow-[0_10px_24px_-24px_rgba(7,17,31,0.30)]">
+                  {label}
+                </span>
+              ))}
+            </div>
+
+            <div className="mt-6 flex flex-col items-center justify-center gap-3 min-[440px]:flex-row lg:justify-start">
+              <Button size="lg" onClick={() => onNavigate("download")} className="h-11 w-full max-w-[330px] rounded-md border border-[color:var(--gvx-hero-accent)] bg-[linear-gradient(135deg,var(--gvx-hero-accent),var(--gvx-hero-accent-2))] bg-none px-4 text-[0.84rem] font-semibold text-white shadow-[0_20px_42px_-28px_rgba(0,143,240,0.70)] transition-all duration-200 hover:-translate-y-0.5 hover:brightness-95 focus-visible:ring-[var(--gvx-hero-accent)] min-[440px]:w-auto">
                 <CloudArrowDown size={16} className="mr-2" weight="bold" />
                 Deploy Research Server
               </Button>
-              <Button size="lg" variant="outline" onClick={() => onNavigate("product")} className="h-11 w-full max-w-[320px] rounded-md border-[var(--gvx-menu-border)] bg-[var(--gvx-menu-bg)] px-4 text-[0.84rem] font-semibold text-[var(--gvx-hero-text)] shadow-none transition-all duration-200 hover:-translate-y-0.5 hover:border-[var(--gvx-hero-border-strong)] hover:bg-[var(--gvx-menu-hover)] sm:w-auto">
+              <Button size="lg" variant="outline" onClick={() => onNavigate("product")} className="h-11 w-full max-w-[330px] rounded-md border-[var(--gvx-menu-border)] bg-[var(--gvx-menu-bg)] px-4 text-[0.84rem] font-semibold text-[var(--gvx-hero-text)] shadow-none transition-all duration-200 hover:-translate-y-0.5 hover:border-[var(--gvx-hero-border-strong)] hover:bg-[var(--gvx-menu-hover)] min-[440px]:w-auto">
                 <Monitor size={16} className="mr-2" weight="bold" />
                 View Console
               </Button>
             </div>
           </div>
 
-          <div className="rounded-xl border border-[var(--gvx-menu-border)] bg-[var(--gvx-menu-bg)] p-4 text-left shadow-[0_24px_60px_-46px_rgba(7,17,31,0.42)] sm:p-5">
+          <div className="mx-auto w-full max-w-[430px] rounded-xl border border-[var(--gvx-menu-border)] bg-[var(--gvx-menu-bg)] p-4 text-left shadow-[0_24px_60px_-46px_rgba(7,17,31,0.42)] sm:p-5 lg:mx-0 lg:max-w-none">
             <div className="mb-4 flex items-center justify-between gap-3 border-b border-[var(--gvx-menu-border)] pb-3">
               <div>
                 <div className="text-[0.68rem] font-semibold uppercase tracking-[0.14em] text-[var(--gvx-hero-muted)]">AI boundary</div>
@@ -282,6 +290,14 @@ function HomePage({ onNavigate }: { onNavigate: (page: string) => void }) {
               </div>
               <div className="flex h-9 w-9 items-center justify-center rounded-md border border-[var(--gvx-hero-border)] bg-[var(--gvx-hero-accent-soft)]">
                 <Lock size={17} weight="duotone" className="text-[var(--gvx-hero-accent)]" />
+              </div>
+            </div>
+            <div className="mb-3 rounded-md border border-[var(--gvx-menu-border)] bg-[var(--gvx-hero-bg-soft)] p-3 dark:bg-[var(--gvx-hero-bg)]">
+              <div className="text-[10px] font-semibold uppercase tracking-[0.14em] text-[var(--gvx-hero-subtle)]">Decision path</div>
+              <div className="mt-2 grid grid-cols-[auto_1fr] gap-x-2 gap-y-2 text-[0.78rem] text-[var(--gvx-hero-muted)]">
+                <span className="font-mono text-[var(--gvx-hero-accent)]">01</span><span>Signals become research findings.</span>
+                <span className="font-mono text-[var(--gvx-hero-accent)]">02</span><span>AI drafts recommendations only.</span>
+                <span className="font-mono text-[var(--gvx-hero-accent)]">03</span><span>Operators approve any action.</span>
               </div>
             </div>
             <div className="grid gap-2 text-[0.78rem] font-medium text-[var(--gvx-hero-muted)]">
@@ -703,8 +719,8 @@ function DashboardPreviewSection() {
   ]
 
   return (
-    <section className="border-t border-border/60 bg-[var(--gvx-hero-bg-soft)] px-4 py-10 sm:px-6 lg:px-8 dark:bg-[#020817]">
-      <div className="mx-auto grid max-w-6xl gap-6 lg:grid-cols-[0.86fr_1.14fr] lg:items-center">
+    <section className="border-t border-border/60 bg-[var(--gvx-hero-bg-soft)] px-4 py-8 sm:px-6 sm:py-10 lg:px-8 dark:bg-[#020817]">
+      <div className="mx-auto grid max-w-6xl gap-5 lg:grid-cols-[0.86fr_1.14fr] lg:items-center lg:gap-7">
         <div>
           <Badge className="mb-4 rounded-sm border-[var(--gvx-menu-border)] bg-[var(--gvx-menu-bg)] text-[var(--gvx-hero-muted)]">
             Research Console
@@ -718,7 +734,7 @@ function DashboardPreviewSection() {
         </div>
 
         <div className="overflow-hidden rounded-lg border border-[var(--gvx-menu-border)] bg-[var(--gvx-menu-bg)] shadow-[0_22px_54px_-44px_rgba(7,17,31,0.42)]">
-          <div className="flex items-center justify-between border-b border-[var(--gvx-menu-border)] px-4 py-3">
+          <div className="flex flex-col gap-2 border-b border-[var(--gvx-menu-border)] px-3 py-3 min-[420px]:flex-row min-[420px]:items-center min-[420px]:justify-between sm:px-4">
             <div className="flex items-center gap-2 text-sm font-semibold text-foreground">
               <Database size={17} weight="duotone" className="text-primary" />
               Research queue
@@ -728,9 +744,9 @@ function DashboardPreviewSection() {
             </Badge>
           </div>
 
-          <div className="grid grid-cols-3 border-b border-[var(--gvx-menu-border)]">
+          <div className="grid grid-cols-1 border-b border-[var(--gvx-menu-border)] min-[420px]:grid-cols-3">
             {consoleStats.map(([label, value]) => (
-              <div key={label} className="border-r border-[var(--gvx-menu-border)] px-4 py-3 last:border-r-0">
+              <div key={label} className="border-b border-[var(--gvx-menu-border)] px-3 py-3 last:border-b-0 min-[420px]:border-b-0 min-[420px]:border-r min-[420px]:last:border-r-0 sm:px-4">
                 <div className="text-[10px] uppercase tracking-[0.12em] text-muted-foreground">{label}</div>
                 <div className="mt-1 font-heading text-lg font-semibold text-foreground">{value}</div>
               </div>
@@ -739,7 +755,7 @@ function DashboardPreviewSection() {
 
           <div className="divide-y divide-[var(--gvx-menu-border)]">
             {researchRows.map((row) => (
-              <div key={row.label} className="grid gap-2 px-4 py-3 sm:grid-cols-[minmax(0,1fr)_140px_96px] sm:items-center">
+              <div key={row.label} className="grid gap-2 px-3 py-3 sm:grid-cols-[minmax(0,1fr)_140px_96px] sm:items-center sm:px-4">
                 <div className="text-sm font-semibold text-foreground">{row.label}</div>
                 <div className="text-xs text-muted-foreground">{row.source}</div>
                 <div className="text-xs font-semibold text-primary">{row.status}</div>
