@@ -214,6 +214,7 @@ export function PlatformLayout({ children, currentPage, onNavigate, onLogout, cr
               </h2>
             </div>
             <HeaderStatusBadge label="Operational" className="hidden md:inline-flex" />
+            <HeaderStatusBadge label="AI safe mode" className="hidden xl:inline-flex" />
           </div>
 
           <div className="flex items-center gap-2 shrink-0">

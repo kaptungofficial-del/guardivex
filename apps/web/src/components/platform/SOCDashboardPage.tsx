@@ -51,6 +51,45 @@ export function SOCDashboardPage({ metrics, systemHealth, license, activityLogs,
   const actionableAlertsCount = alerts.filter(
     (alert) => !alert.acknowledged && (alert.severity === "critical" || alert.severity === "high")
   ).length
+  const postureStatus = actionableAlertsCount > 0 || degradedServicesCount > 0 ? "Elevated" : "Controlled"
+  const telemetryStatus = realtime.connected ? "Live stream" : "Fallback mode"
+  const reviewQueueStatus = actionableAlertsCount > 0 ? `${actionableAlertsCount} actions` : "Clear"
+  const aiBoundaryStatus = "Recommendation-only"
+
+  const postureCards = [
+    {
+      label: "Risk posture",
+      value: postureStatus,
+      detail: actionableAlertsCount > 0 ? "High-priority alerts need review" : "No high-priority alert pressure",
+      icon: ShieldCheck,
+      className: postureStatus === "Controlled" ? "border-success/30 bg-success/5" : "border-warning/35 bg-warning/5",
+      iconClassName: postureStatus === "Controlled" ? "text-success" : "text-warning",
+    },
+    {
+      label: "Telemetry layer",
+      value: telemetryStatus,
+      detail: realtime.connected ? "Realtime gateway is connected" : "Showing cached and demo-safe data",
+      icon: Database,
+      className: realtime.connected ? "border-primary/30 bg-primary/5" : "border-border bg-card",
+      iconClassName: realtime.connected ? "text-primary" : "text-muted-foreground",
+    },
+    {
+      label: "Review queue",
+      value: reviewQueueStatus,
+      detail: "Unsafe operations stay behind approvals",
+      icon: Bell,
+      className: actionableAlertsCount > 0 ? "border-destructive/30 bg-destructive/5" : "border-border bg-card",
+      iconClassName: actionableAlertsCount > 0 ? "text-destructive" : "text-success",
+    },
+    {
+      label: "AI boundary",
+      value: aiBoundaryStatus,
+      detail: "No direct device, alarm, door, or port control",
+      icon: Key,
+      className: "border-primary/25 bg-primary/5",
+      iconClassName: "text-primary",
+    },
+  ]
 
   const sortedActivity = useMemo(
     () => [...activityLogs].sort((a, b) => new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime()),
@@ -133,6 +172,29 @@ export function SOCDashboardPage({ metrics, systemHealth, license, activityLogs,
             </Badge>
           </div>
         )}
+      </div>
+
+      <div className="grid grid-cols-1 gap-3 min-[520px]:grid-cols-2 xl:grid-cols-4">
+        {postureCards.map((item) => {
+          const Icon = item.icon
+
+          return (
+            <Card key={item.label} className={`overflow-hidden transition-colors ${item.className}`}>
+              <CardContent className="p-4">
+                <div className="flex items-start justify-between gap-3">
+                  <div className="min-w-0">
+                    <div className="text-[10px] font-semibold uppercase tracking-[0.12em] text-muted-foreground">{item.label}</div>
+                    <div className="mt-1 truncate font-heading text-lg font-bold text-foreground">{item.value}</div>
+                  </div>
+                  <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-md border border-border/70 bg-background/70">
+                    <Icon size={18} weight="duotone" className={item.iconClassName} />
+                  </div>
+                </div>
+                <p className="mt-3 text-xs leading-5 text-muted-foreground">{item.detail}</p>
+              </CardContent>
+            </Card>
+          )
+        })}
       </div>
 
       {isMobile && (
