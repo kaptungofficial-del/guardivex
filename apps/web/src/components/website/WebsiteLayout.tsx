@@ -20,6 +20,12 @@ interface WebsiteLayoutProps {
   onLogin: () => void
 }
 
+type ResearchCapability = {
+  label: string
+  detail: string
+  icon: typeof Database
+}
+
 export function WebsiteLayout({ currentPage, onNavigate, onLogin }: WebsiteLayoutProps) {
   const [isLiveChatOpen, setIsLiveChatOpen] = useState(false)
   const [liveChatPrefill, setLiveChatPrefill] = useState<string | undefined>()
@@ -231,7 +237,7 @@ export function WebsiteLayout({ currentPage, onNavigate, onLogin }: WebsiteLayou
 }
 
 function HomePage({ onNavigate }: { onNavigate: (page: string) => void }) {
-  const heroCapabilities = [
+  const heroCapabilities: ResearchCapability[] = [
     { label: "Threat intelligence desk", detail: "Map IOCs, tactics, identities, devices, and evidence into one research case.", icon: Database },
     { label: "Research-safe AI", detail: "Generate recommendations and response plans without direct control of physical systems.", icon: Lock },
     { label: "Case-grade evidence", detail: "Preserve analyst notes, approvals, timelines, and audit trails for every finding.", icon: Certificate },
@@ -296,39 +302,17 @@ function HomePage({ onNavigate }: { onNavigate: (page: string) => void }) {
 
       <DashboardPreviewSection />
 
-      <section className="border-t border-border/60 px-4 py-9 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-6xl">
-          <div className="mb-5 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
-            <div>
-              <div className="text-xs font-semibold uppercase tracking-[0.14em] text-primary">Platform pillars</div>
-              <h2 className="mt-2 text-2xl font-heading font-bold leading-tight text-foreground sm:text-3xl">Built for real investigations</h2>
-            </div>
-            <p className="max-w-md text-sm leading-6 text-muted-foreground dark:text-slate-300">
-              Focused capabilities for research teams that need evidence, governance, and operational context in one place.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 gap-3 md:grid-cols-3">
-            {heroCapabilities.map((item) => (
-              <Card key={item.label} className="border-border bg-card">
-                <CardHeader className="p-4 sm:p-5">
-                  <div className="mb-3 flex h-9 w-9 items-center justify-center rounded-md border border-primary/20 bg-primary/10">
-                    <item.icon size={18} className="text-primary" weight="duotone" />
-                  </div>
-                  <CardTitle className="text-base text-foreground">{item.label}</CardTitle>
-                  <CardDescription className="text-sm leading-6 text-muted-foreground">{item.detail}</CardDescription>
-                </CardHeader>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
+      <CyberResearchSystemSection capabilities={heroCapabilities} />
+      <InvestigationWorkflowSection />
 
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-10">
-        <div className="bg-card/70 dark:bg-slate-950/65 border border-border dark:border-slate-700/60 rounded-lg p-6 sm:p-8 md:p-10 text-center">
-          <h2 className="text-xl sm:text-2xl md:text-3xl font-heading font-bold text-foreground dark:text-slate-100 mb-2 sm:mb-3 leading-tight">Ready for serious security research</h2>
-          <p className="text-sm sm:text-base text-muted-foreground dark:text-slate-300 mb-6 sm:mb-8">
-            Start with the self-hosted platform, then add integrations and licensing as your environment grows.
+        <div className="rounded-lg border border-[var(--gvx-menu-border)] bg-[linear-gradient(135deg,var(--gvx-menu-bg),var(--gvx-hero-bg-soft))] p-6 text-center shadow-[0_24px_64px_-52px_rgba(7,17,31,0.42)] sm:p-8 md:p-10 dark:bg-slate-950/65">
+          <div className="mx-auto mb-3 inline-flex rounded-md border border-primary/20 bg-primary/10 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.14em] text-primary">
+            Research-ready deployment
+          </div>
+          <h2 className="mx-auto max-w-3xl text-xl sm:text-2xl md:text-3xl font-heading font-bold text-foreground dark:text-slate-100 mb-2 sm:mb-3 leading-tight">Launch a governed cyber research workspace</h2>
+          <p className="mx-auto max-w-2xl text-sm sm:text-base text-muted-foreground dark:text-slate-300 mb-6 sm:mb-8">
+            Start with the self-hosted console, connect telemetry sources, and keep every recommendation behind policy, approvals, and audit evidence.
           </p>
           <div className="flex flex-col items-center justify-center gap-3 sm:flex-row">
             <Button onClick={() => onNavigate("download")} className="h-11 w-full max-w-[320px] rounded-md px-5 font-semibold sm:w-auto">
@@ -343,6 +327,122 @@ function HomePage({ onNavigate }: { onNavigate: (page: string) => void }) {
         </div>
       </section>
     </div>
+  )
+}
+
+function CyberResearchSystemSection({ capabilities }: { capabilities: ResearchCapability[] }) {
+  const researchLayers = [
+    { label: "Telemetry intake", value: "Endpoint, identity, cloud", icon: HardDrives },
+    { label: "Signal enrichment", value: "IOCs, MITRE, timelines", icon: NetworkX },
+    { label: "Evidence custody", value: "Notes, approvals, audit", icon: Certificate },
+    { label: "Safe AI analysis", value: "Recommend, never execute", icon: Lock },
+  ]
+
+  return (
+    <section className="border-t border-border/60 bg-background px-4 py-10 sm:px-6 sm:py-12 lg:px-8">
+      <div className="mx-auto max-w-6xl">
+        <div className="mb-6 grid gap-4 lg:grid-cols-[minmax(0,0.92fr)_minmax(320px,1.08fr)] lg:items-end">
+          <div>
+            <div className="text-xs font-semibold uppercase tracking-[0.14em] text-primary">Cyber research system</div>
+            <h2 className="mt-2 max-w-2xl text-2xl font-heading font-bold leading-tight text-foreground sm:text-3xl">
+              A research console built for threat teams, not a generic dashboard.
+            </h2>
+          </div>
+          <p className="max-w-2xl text-sm leading-6 text-muted-foreground dark:text-slate-300 lg:justify-self-end">
+            Guardivex organizes raw signals into cases, connects technical context, and keeps every high-risk response behind deterministic review.
+          </p>
+        </div>
+
+        <div className="grid gap-3 lg:grid-cols-[minmax(0,1fr)_340px]">
+          <div className="grid grid-cols-1 gap-3 md:grid-cols-3">
+            {capabilities.map((item) => (
+              <Card key={item.label} className="border-border bg-card transition-colors hover:border-primary/35">
+                <CardHeader className="p-4 sm:p-5">
+                  <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-md border border-primary/20 bg-primary/10">
+                    <item.icon size={19} className="text-primary" weight="duotone" />
+                  </div>
+                  <CardTitle className="text-base text-foreground">{item.label}</CardTitle>
+                  <CardDescription className="text-sm leading-6 text-muted-foreground">{item.detail}</CardDescription>
+                </CardHeader>
+              </Card>
+            ))}
+          </div>
+
+          <div className="rounded-lg border border-[var(--gvx-menu-border)] bg-[var(--gvx-menu-bg)] p-4 shadow-[0_22px_54px_-46px_rgba(7,17,31,0.42)]">
+            <div className="mb-3 flex items-center justify-between gap-3">
+              <div>
+                <div className="text-[10px] font-semibold uppercase tracking-[0.14em] text-muted-foreground">Research stack</div>
+                <div className="mt-1 font-heading text-lg font-bold text-foreground">Operational layers</div>
+              </div>
+              <Gauge size={22} weight="duotone" className="text-primary" />
+            </div>
+            <div className="grid gap-2">
+              {researchLayers.map((item) => (
+                <div key={item.label} className="flex items-center gap-3 rounded-md border border-[var(--gvx-menu-border)] bg-[var(--gvx-hero-bg-soft)] px-3 py-2.5 dark:bg-[var(--gvx-hero-bg)]">
+                  <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md border border-primary/20 bg-primary/10">
+                    <item.icon size={16} weight="duotone" className="text-primary" />
+                  </div>
+                  <div className="min-w-0">
+                    <div className="text-sm font-semibold text-foreground">{item.label}</div>
+                    <div className="truncate text-xs text-muted-foreground">{item.value}</div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}
+
+function InvestigationWorkflowSection() {
+  const workflowSteps = [
+    { step: "01", title: "Collect", detail: "Normalize telemetry, alerts, IOCs, identities, and device context." },
+    { step: "02", title: "Correlate", detail: "Map evidence to campaigns, tactics, affected assets, and timelines." },
+    { step: "03", title: "Recommend", detail: "Generate AI-assisted findings without direct hardware execution." },
+    { step: "04", title: "Approve", detail: "Route response plans through policy, RBAC, and audit logging." },
+  ]
+
+  const safeguards = ["No autonomous unlocks", "No alarm disabling", "No switch-port changes", "Every command reviewed"]
+
+  return (
+    <section className="border-t border-border/60 bg-[var(--gvx-hero-bg-soft)] px-4 py-10 sm:px-6 sm:py-12 lg:px-8 dark:bg-[#020817]">
+      <div className="mx-auto grid max-w-6xl gap-6 lg:grid-cols-[360px_minmax(0,1fr)] lg:items-start">
+        <div>
+          <Badge className="mb-4 rounded-sm border-[var(--gvx-menu-border)] bg-[var(--gvx-menu-bg)] text-[var(--gvx-hero-muted)]">
+            Research workflow
+          </Badge>
+          <h2 className="text-2xl font-heading font-bold leading-tight text-foreground sm:text-3xl">
+            From signal to defensible decision.
+          </h2>
+          <p className="mt-3 text-sm leading-6 text-muted-foreground dark:text-slate-300">
+            The main workflow is designed for analysts who need speed, evidence quality, and controlled response boundaries.
+          </p>
+          <div className="mt-5 grid gap-2">
+            {safeguards.map((label) => (
+              <div key={label} className="flex items-center gap-2 text-sm font-medium text-foreground">
+                <CheckCircle size={15} weight="fill" className="text-success" />
+                {label}
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="grid gap-3 md:grid-cols-2">
+          {workflowSteps.map((item) => (
+            <div key={item.step} className="rounded-lg border border-[var(--gvx-menu-border)] bg-[var(--gvx-menu-bg)] p-4 shadow-[0_18px_42px_-38px_rgba(7,17,31,0.34)]">
+              <div className="mb-3 flex items-center justify-between gap-3">
+                <span className="font-mono text-xs font-bold text-primary">{item.step}</span>
+                <ArrowRight size={15} className="text-muted-foreground" />
+              </div>
+              <h3 className="font-heading text-lg font-bold text-foreground">{item.title}</h3>
+              <p className="mt-2 text-sm leading-6 text-muted-foreground">{item.detail}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
   )
 }
 
