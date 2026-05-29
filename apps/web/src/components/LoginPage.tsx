@@ -54,15 +54,21 @@ export function LoginPage({ onLogin, onBackToWebsite, onShowRegister, onShowPass
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsLoading(true)
-    
-    await new Promise(resolve => setTimeout(resolve, 1200))
-    
-    if (require2FA) {
-      setShow2FA(true)
-      setIsLoading(false)
-      toast.success("Login successful! Please complete 2FA verification")
-    } else {
+
+    try {
+      if (require2FA) {
+        setShow2FA(true)
+        toast.success("Login successful! Please complete 2FA verification")
+        return
+      }
+
       await onLogin({ email, password })
+    } catch (error) {
+      toast.error("Unable to sign in", {
+        description: error instanceof Error ? error.message : "Please check your credentials and try again",
+      })
+    } finally {
+      setIsLoading(false)
     }
   }
 

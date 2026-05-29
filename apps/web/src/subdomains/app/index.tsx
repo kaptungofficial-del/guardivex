@@ -216,10 +216,8 @@ export function AppSubdomain() {
   useEffect(() => {
     const handlePopState = () => {
       setIsNavigating(true)
-      setTimeout(() => {
-        setCurrentPath(window.location.pathname)
-        setIsNavigating(false)
-      }, 150)
+      setCurrentPath(window.location.pathname)
+      setIsNavigating(false)
     }
     window.addEventListener("popstate", handlePopState)
     return () => window.removeEventListener("popstate", handlePopState)
@@ -255,10 +253,8 @@ export function AppSubdomain() {
   const navigate = (path: string) => {
     setIsNavigating(true)
     window.history.pushState({}, "", path)
-    setTimeout(() => {
-      setCurrentPath(path)
-      setIsNavigating(false)
-    }, 150)
+    setCurrentPath(path)
+    setIsNavigating(false)
   }
 
   const handleLogin = async (credentials: LoginCredentials) => {
