@@ -282,32 +282,14 @@ function HomePage({ onNavigate }: { onNavigate: (page: string) => void }) {
             </div>
           </div>
 
-          <div className="mx-auto w-full max-w-[430px] rounded-xl border border-[var(--gvx-menu-border)] bg-[var(--gvx-menu-bg)] p-4 text-left shadow-[0_24px_60px_-46px_rgba(7,17,31,0.42)] sm:p-5 lg:mx-0 lg:max-w-none">
-            <div className="mb-4 flex items-center justify-between gap-3 border-b border-[var(--gvx-menu-border)] pb-3">
-              <div>
-                <div className="text-[0.68rem] font-semibold uppercase tracking-[0.14em] text-[var(--gvx-hero-muted)]">AI boundary</div>
-                <div className="mt-0.5 text-sm font-semibold text-[var(--gvx-hero-text)]">Recommendation only</div>
-              </div>
-              <div className="flex h-9 w-9 items-center justify-center rounded-md border border-[var(--gvx-hero-border)] bg-[var(--gvx-hero-accent-soft)]">
-                <Lock size={17} weight="duotone" className="text-[var(--gvx-hero-accent)]" />
-              </div>
-            </div>
-            <div className="mb-3 rounded-md border border-[var(--gvx-menu-border)] bg-[var(--gvx-hero-bg-soft)] p-3 dark:bg-[var(--gvx-hero-bg)]">
-              <div className="text-[10px] font-semibold uppercase tracking-[0.14em] text-[var(--gvx-hero-subtle)]">Decision path</div>
-              <div className="mt-2 grid grid-cols-[auto_1fr] gap-x-2 gap-y-2 text-[0.78rem] text-[var(--gvx-hero-muted)]">
-                <span className="font-mono text-[var(--gvx-hero-accent)]">01</span><span>Signals become research findings.</span>
-                <span className="font-mono text-[var(--gvx-hero-accent)]">02</span><span>AI drafts recommendations only.</span>
-                <span className="font-mono text-[var(--gvx-hero-accent)]">03</span><span>Operators approve any action.</span>
-              </div>
-            </div>
-            <div className="grid gap-2 text-[0.78rem] font-medium text-[var(--gvx-hero-muted)]">
-              {heroAssurances.map((label) => (
-                <div key={label} className="flex items-center gap-2 rounded-md border border-[var(--gvx-menu-border)] bg-[var(--gvx-hero-bg-soft)] px-3 py-2 dark:bg-[var(--gvx-hero-bg)]">
-                  <CheckCircle size={14} weight="fill" className="text-emerald-500" />
-                  {label}
-                </div>
-              ))}
-            </div>
+          <div className="mx-auto w-full max-w-[430px] lg:mx-0 lg:max-w-none">
+            <img
+              src="/ai-boundary.svg"
+              alt="AI boundary: recommendation-only decision path with human approval gates"
+              className="block h-auto w-full rounded-xl shadow-[0_28px_70px_-46px_rgba(7,17,31,0.55)]"
+              loading="eager"
+              decoding="async"
+            />
           </div>
         </div>
       </section>
