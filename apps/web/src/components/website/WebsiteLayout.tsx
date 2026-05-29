@@ -247,14 +247,14 @@ function HomePage({ onNavigate }: { onNavigate: (page: string) => void }) {
         <div className="absolute left-1/2 top-8 -z-10 h-64 w-[min(760px,90vw)] -translate-x-1/2 rounded-full bg-[radial-gradient(circle,var(--gvx-hero-glow),transparent_68%)]" />
         <div className="absolute inset-x-0 bottom-0 -z-10 h-32 bg-[linear-gradient(180deg,transparent,var(--gvx-hero-bg-soft))]" />
 
-        <div className="mx-auto grid w-full max-w-[1120px] gap-8 px-5 py-12 sm:px-8 sm:py-14 lg:grid-cols-[minmax(0,1fr)_360px] lg:items-center lg:px-10 lg:py-16 xl:px-12">
+        <div className="mx-auto grid w-full max-w-[1120px] gap-7 px-4 py-10 sm:px-8 sm:py-14 lg:grid-cols-[minmax(0,1fr)_360px] lg:items-center lg:px-10 lg:py-16 xl:px-12">
           <div className="text-center lg:text-left">
-            <div className="inline-flex items-center gap-2 rounded-md border border-[var(--gvx-hero-border)] bg-[var(--gvx-menu-bg)] px-3 py-1.5 text-[9.5px] font-semibold uppercase tracking-[0.12em] text-[var(--gvx-hero-muted)] shadow-[0_12px_28px_-26px_rgba(7,17,31,0.28)]">
+            <div className="inline-flex max-w-full items-center gap-2 rounded-md border border-[var(--gvx-hero-border)] bg-[var(--gvx-menu-bg)] px-3 py-1.5 text-[9.5px] font-semibold uppercase tracking-[0.12em] text-[var(--gvx-hero-muted)] shadow-[0_12px_28px_-26px_rgba(7,17,31,0.28)]">
               <ShieldCheck size={13} weight="fill" className="text-[var(--gvx-hero-accent)]" />
               Cyber threat research platform
             </div>
 
-            <h1 className="mx-auto mt-5 max-w-[740px] bg-[linear-gradient(135deg,var(--gvx-hero-text)_0%,var(--gvx-hero-accent)_56%,var(--gvx-hero-accent-2)_100%)] bg-clip-text font-heading text-[clamp(2.45rem,5vw,4.8rem)] font-extrabold leading-[0.98] tracking-normal text-transparent lg:mx-0">
+            <h1 className="mx-auto mt-5 max-w-[740px] bg-[linear-gradient(135deg,var(--gvx-hero-text)_0%,var(--gvx-hero-accent)_56%,var(--gvx-hero-accent-2)_100%)] bg-clip-text font-heading text-[clamp(2.05rem,10vw,4.8rem)] font-extrabold leading-[1.02] tracking-normal text-transparent sm:leading-[0.98] lg:mx-0">
               Investigate threats without unsafe automation.
             </h1>
 
@@ -263,18 +263,18 @@ function HomePage({ onNavigate }: { onNavigate: (page: string) => void }) {
             </p>
 
             <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row lg:justify-start">
-              <Button size="lg" onClick={() => onNavigate("download")} className="h-11 rounded-md border border-[color:var(--gvx-hero-accent)] bg-[linear-gradient(135deg,var(--gvx-hero-accent),var(--gvx-hero-accent-2))] bg-none px-4 text-[0.84rem] font-semibold text-white shadow-[0_20px_42px_-28px_rgba(0,143,240,0.70)] transition-all duration-200 hover:-translate-y-0.5 hover:brightness-95 focus-visible:ring-[var(--gvx-hero-accent)]">
+              <Button size="lg" onClick={() => onNavigate("download")} className="h-11 w-full max-w-[320px] rounded-md border border-[color:var(--gvx-hero-accent)] bg-[linear-gradient(135deg,var(--gvx-hero-accent),var(--gvx-hero-accent-2))] bg-none px-4 text-[0.84rem] font-semibold text-white shadow-[0_20px_42px_-28px_rgba(0,143,240,0.70)] transition-all duration-200 hover:-translate-y-0.5 hover:brightness-95 focus-visible:ring-[var(--gvx-hero-accent)] sm:w-auto">
                 <CloudArrowDown size={16} className="mr-2" weight="bold" />
                 Deploy Research Server
               </Button>
-              <Button size="lg" variant="outline" onClick={() => onNavigate("product")} className="h-11 rounded-md border-[var(--gvx-menu-border)] bg-[var(--gvx-menu-bg)] px-4 text-[0.84rem] font-semibold text-[var(--gvx-hero-text)] shadow-none transition-all duration-200 hover:-translate-y-0.5 hover:border-[var(--gvx-hero-border-strong)] hover:bg-[var(--gvx-menu-hover)]">
+              <Button size="lg" variant="outline" onClick={() => onNavigate("product")} className="h-11 w-full max-w-[320px] rounded-md border-[var(--gvx-menu-border)] bg-[var(--gvx-menu-bg)] px-4 text-[0.84rem] font-semibold text-[var(--gvx-hero-text)] shadow-none transition-all duration-200 hover:-translate-y-0.5 hover:border-[var(--gvx-hero-border-strong)] hover:bg-[var(--gvx-menu-hover)] sm:w-auto">
                 <Monitor size={16} className="mr-2" weight="bold" />
                 View Console
               </Button>
             </div>
           </div>
 
-          <div className="rounded-xl border border-[var(--gvx-menu-border)] bg-[var(--gvx-menu-bg)] p-4 text-left shadow-[0_24px_60px_-46px_rgba(7,17,31,0.42)]">
+          <div className="rounded-xl border border-[var(--gvx-menu-border)] bg-[var(--gvx-menu-bg)] p-4 text-left shadow-[0_24px_60px_-46px_rgba(7,17,31,0.42)] sm:p-5">
             <div className="mb-4 flex items-center justify-between gap-3 border-b border-[var(--gvx-menu-border)] pb-3">
               <div>
                 <div className="text-[0.68rem] font-semibold uppercase tracking-[0.14em] text-[var(--gvx-hero-muted)]">AI boundary</div>
@@ -332,12 +332,12 @@ function HomePage({ onNavigate }: { onNavigate: (page: string) => void }) {
           <p className="text-sm sm:text-base text-muted-foreground dark:text-slate-300 mb-6 sm:mb-8">
             Start with the self-hosted platform, then add integrations and licensing as your environment grows.
           </p>
-          <div className="flex flex-col justify-center gap-3 sm:flex-row">
-            <Button onClick={() => onNavigate("download")} className="h-11 rounded-md px-5 font-semibold">
+          <div className="flex flex-col items-center justify-center gap-3 sm:flex-row">
+            <Button onClick={() => onNavigate("download")} className="h-11 w-full max-w-[320px] rounded-md px-5 font-semibold sm:w-auto">
               <CloudArrowDown size={16} className="mr-2" weight="bold" />
               Start Deployment
             </Button>
-            <Button variant="outline" onClick={() => onNavigate("documentation")} className="h-11 rounded-md px-5 font-semibold">
+            <Button variant="outline" onClick={() => onNavigate("documentation")} className="h-11 w-full max-w-[320px] rounded-md px-5 font-semibold sm:w-auto">
               Read Architecture
               <ArrowRight size={16} className="ml-2" />
             </Button>

@@ -3,10 +3,10 @@ import { Badge } from "@/components/ui/badge"
 import { cn } from "@/lib/utils"
 
 export const ENTERPRISE_COMMAND_STRIP_CLASS =
-  "border-b border-[var(--gvx-hero-border)] bg-[var(--gvx-hero-surface)] text-[var(--gvx-hero-muted)] shadow-[0_1px_0_rgba(255,255,255,0.18)_inset] backdrop-blur-2xl"
+  "border-b border-[var(--gvx-hero-border)] bg-[var(--gvx-menu-bg)] text-[var(--gvx-hero-muted)] shadow-[0_1px_0_rgba(255,255,255,0.18)_inset]"
 
 export const ENTERPRISE_HEADER_SURFACE_CLASS =
-  "border-b border-[var(--gvx-hero-border)] bg-[var(--gvx-hero-surface)] text-[var(--gvx-hero-text)] shadow-[0_14px_34px_-32px_rgba(7,17,31,0.34),0_1px_0_rgba(255,255,255,0.16)_inset] backdrop-blur-2xl"
+  "border-b border-[var(--gvx-hero-border)] bg-[var(--gvx-menu-bg)] text-[var(--gvx-hero-text)] shadow-[0_14px_34px_-32px_rgba(7,17,31,0.34),0_1px_0_rgba(255,255,255,0.16)_inset]"
 
 export const ENTERPRISE_CONTROL_CLASS =
   "inline-flex h-6 items-center gap-1.5 px-2 sm:px-2.5 rounded-sm border border-[#D9E7F2]/72 bg-[rgba(255,255,255,0.68)] text-[#334155] font-medium transition-all duration-150 hover:text-[#0A6F95] hover:border-primary/14 hover:bg-[rgba(255,255,255,0.82)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/25 focus-visible:ring-offset-2 focus-visible:ring-offset-background dark:border-[rgba(0,194,255,0.08)] dark:bg-[rgba(11,18,32,0.58)] dark:text-[#94A3B8] dark:hover:text-[#E2E8F0] dark:hover:border-[rgba(0,194,255,0.14)] dark:hover:bg-[rgba(11,18,32,0.72)]"

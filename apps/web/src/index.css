@@ -39,7 +39,7 @@
 :root {
   --radius: 0.75rem;
 
-  --background: #f6faf7;
+  --background: #f8fbff;
   --foreground: #07111f;
   --card: #ffffff;
   --card-foreground: #07111f;
@@ -47,7 +47,7 @@
   --popover-foreground: #07111f;
   --primary: #008ff0;
   --primary-foreground: #ffffff;
-  --secondary: #edf6df;
+  --secondary: #edf6ff;
   --secondary-foreground: #07111f;
   --muted: #f1f5f9;
   --muted-foreground: #64748b;
@@ -55,8 +55,8 @@
   --accent-foreground: #07111f;
   --destructive: #dc2626;
   --destructive-foreground: #ffffff;
-  --border: #cbded1;
-  --input: #cbded1;
+  --border: #d6e3ec;
+  --input: #d6e3ec;
   --ring: #008ff0;
   --chart-1: #008ff0;
   --chart-2: #00d7e6;
@@ -78,24 +78,24 @@
   --sidebar-border: rgba(0, 119, 255, 0.26);
   --sidebar-ring: #00c7e8;
 
-  --gvx-hero-bg: #f7fbf5;
-  --gvx-hero-bg-soft: #eaf5ef;
-  --gvx-hero-surface: rgba(255, 255, 255, 0.70);
-  --gvx-hero-surface-strong: rgba(255, 255, 255, 0.88);
-  --gvx-hero-card: rgba(247, 251, 245, 0.76);
-  --gvx-hero-border: rgba(93, 128, 91, 0.20);
+  --gvx-hero-bg: #f8fbff;
+  --gvx-hero-bg-soft: #eef6fb;
+  --gvx-hero-surface: #ffffff;
+  --gvx-hero-surface-strong: #ffffff;
+  --gvx-hero-card: #ffffff;
+  --gvx-hero-border: rgba(32, 95, 126, 0.18);
   --gvx-hero-border-strong: rgba(0, 143, 240, 0.30);
   --gvx-hero-text: #07111f;
-  --gvx-hero-muted: #2f5368;
-  --gvx-hero-subtle: #557076;
+  --gvx-hero-muted: #355166;
+  --gvx-hero-subtle: #607282;
   --gvx-hero-accent: #008ff0;
   --gvx-hero-accent-2: #00d7e6;
   --gvx-hero-accent-soft: rgba(0, 143, 240, 0.08);
-  --gvx-hero-glow: rgba(0, 215, 230, 0.07);
+  --gvx-hero-glow: rgba(0, 143, 240, 0.08);
   --gvx-hero-shadow: 0 22px 68px -56px rgba(15, 23, 42, 0.30);
-  --gvx-menu-bg: #fbfdf8;
-  --gvx-menu-hover: #edf6ef;
-  --gvx-menu-border: rgba(93, 128, 91, 0.28);
+  --gvx-menu-bg: #ffffff;
+  --gvx-menu-hover: #eef7fb;
+  --gvx-menu-border: rgba(32, 95, 126, 0.22);
 }
 
 .dark {
@@ -201,9 +201,9 @@ body {
   text-rendering: optimizeLegibility;
   background-color: var(--background);
   background-image:
-    linear-gradient(to bottom, #f7fbf5, #edf6ef),
-    radial-gradient(circle at 12% -8%, rgba(0, 143, 240, 0.035), transparent 36%),
-    radial-gradient(circle at 88% -20%, rgba(130, 168, 61, 0.04), transparent 40%);
+    linear-gradient(to bottom, #f8fbff, #eef6fb),
+    radial-gradient(circle at 12% -8%, rgba(0, 143, 240, 0.045), transparent 36%),
+    radial-gradient(circle at 88% -20%, rgba(0, 215, 230, 0.035), transparent 40%);
   background-attachment: fixed;
   overflow-x: clip;
 }

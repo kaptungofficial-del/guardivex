@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
-import { List, X, ChatCircle, CloudArrowDown, LinkedinLogo, TwitterLogo, GithubLogo, YoutubeLogo, ArrowRight, CaretDown, VideoCamera, LockKey, BellRinging, WifiHigh, Gauge, CloudCheck, ChartLine, Pulse, Buildings, Users, Globe, ChartLineUp, Package, Certificate, Book, Code, FileText, GraduationCap, Question, Terminal, Headset, VideoConference, FileDoc, Ticket, ClockCounterClockwise, CreditCard, IdentificationBadge, Devices, Briefcase, Receipt } from "@phosphor-icons/react"
+import { List, X, ChatCircle, CloudArrowDown, ArrowRight, CaretDown, LockKey, BellRinging, Gauge, CloudCheck, ChartLine, Pulse, Buildings, Users, ChartLineUp, Package, Certificate, Book, Code, FileText, GraduationCap, Question, Terminal, Headset, FileDoc, Ticket, ClockCounterClockwise, CreditCard, IdentificationBadge, Devices, Briefcase, Receipt, Database, ShieldCheck } from "@phosphor-icons/react"
 import { useState, useRef, useEffect } from "react"
 import { ThemeSwitcher } from "@/components/ThemeSwitcher"
 import { BrandLogo } from "@/components/BrandLogo"
@@ -34,51 +34,51 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
   
   const productFeatures = [
     {
-      icon: VideoCamera,
-      title: "Video Surveillance",
-      description: "Cameras & NVRs",
+      icon: Database,
+      title: "Evidence Workspace",
+      description: "Telemetry, IOCs, notes",
       color: "text-primary"
     },
     {
       icon: LockKey,
-      title: "Access Control",
-      description: "Doors & Readers",
-      color: "text-primary"
-    },
-    {
-      icon: BellRinging,
-      title: "Intrusion Detection",
-      description: "Alarms & Sensors",
-      color: "text-warning"
-    },
-    {
-      icon: WifiHigh,
-      title: "Network Monitoring",
-      description: "Switches & Routers",
-      color: "text-accent"
-    },
-    {
-      icon: Gauge,
-      title: "System Health",
-      description: "Server & Performance",
-      color: "text-success"
-    },
-    {
-      icon: CloudCheck,
-      title: "Cloud Services",
-      description: "Remote Access & Sync",
+      title: "Governed AI",
+      description: "Recommendation only",
       color: "text-primary"
     },
     {
       icon: ChartLine,
-      title: "Analytics & Reports",
-      description: "Insights & Trends",
+      title: "Threat Correlation",
+      description: "Signals to findings",
+      color: "text-warning"
+    },
+    {
+      icon: ShieldCheck,
+      title: "Review Workflows",
+      description: "Policy approvals",
+      color: "text-accent"
+    },
+    {
+      icon: Gauge,
+      title: "Research Queue",
+      description: "Cases and triage",
+      color: "text-success"
+    },
+    {
+      icon: CloudCheck,
+      title: "Controlled Deployment",
+      description: "Self-hosted first",
+      color: "text-primary"
+    },
+    {
+      icon: BellRinging,
+      title: "Evidence Alerts",
+      description: "Review-ready context",
       color: "text-accent"
     },
     {
       icon: Pulse,
-      title: "Event Engine",
-      description: "Real-time Alerts",
+      title: "Audit Trail",
+      description: "Defensible history",
       color: "text-destructive"
     }
   ]
@@ -86,26 +86,26 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
   const enterpriseSolutions = [
     {
       icon: Buildings,
-      title: "Multi-Site Deployment",
-      description: "Centralized management",
+      title: "Tenant Isolation",
+      description: "Scoped evidence",
       color: "text-primary"
     },
     {
       icon: Users,
-      title: "Team Collaboration",
-      description: "Role-based access",
+      title: "Team Review",
+      description: "Roles and approvals",
       color: "text-primary"
     },
     {
-      icon: Globe,
-      title: "Global Infrastructure",
-      description: "Worldwide operations",
+      icon: ShieldCheck,
+      title: "Control Boundaries",
+      description: "No unsafe AI actions",
       color: "text-accent"
     },
     {
       icon: ChartLineUp,
-      title: "Enterprise Analytics",
-      description: "Advanced reporting",
+      title: "Research Analytics",
+      description: "Findings and trends",
       color: "text-success"
     },
     {
@@ -116,8 +116,8 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
     },
     {
       icon: Certificate,
-      title: "Compliance & Security",
-      description: "SOC 2, ISO certified",
+      title: "Audit Evidence",
+      description: "Review-ready trails",
       color: "text-primary"
     }
   ]
@@ -342,10 +342,8 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
   }, [])
 
   const socialLinks = [
-    { icon: LinkedinLogo, label: "LinkedIn", url: "#" },
-    { icon: TwitterLogo, label: "Twitter", url: "#" },
-    { icon: GithubLogo, label: "GitHub", url: "#" },
-    { icon: YoutubeLogo, label: "YouTube", url: "#" }
+    { icon: Database, label: "Research", url: "mailto:research@guardivex.com" },
+    { icon: ShieldCheck, label: "Security", url: "mailto:security@guardivex.com" }
   ]
 
   const handleLoginClick = (e: React.MouseEvent) => {
@@ -358,33 +356,29 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
     setMobileMenuOpen(false)
   }
 
-  const handleSalesEmailClick = () => {
-    window.location.href = "mailto:sales@guardivex.com"
-  }
-
   return (
     <>
       <div className={ENTERPRISE_COMMAND_STRIP_CLASS}>
         <div className="max-w-[1440px] mx-auto px-5 sm:px-8 xl:px-14 2xl:px-16">
           <div className="flex h-6 items-center justify-between sm:h-7">
             <div className="flex min-w-0 items-center gap-2.5 text-[10.5px] font-medium text-[var(--gvx-hero-muted)] sm:gap-3">
-              <HeaderStatusBadge label="Live SOC Grid" className="hidden min-[380px]:inline-flex border-emerald-500/20 bg-emerald-500/8 text-emerald-600 dark:text-emerald-300" />
+              <HeaderStatusBadge label="Research Lab" className="hidden min-[380px]:inline-flex border-emerald-500/20 bg-emerald-500/8 text-emerald-600 dark:text-emerald-300" />
               <div className="hidden items-center gap-1.5 border-l border-[var(--gvx-hero-border)] pl-3 md:flex">
                 <CloudCheck size={13} weight="duotone" className="text-[var(--gvx-hero-accent)]" />
-                <span>12,582 Endpoints Protected</span>
+                <span>Governed AI Recommendations</span>
               </div>
               <div className="hidden items-center gap-1.5 border-l border-[var(--gvx-hero-border)] pl-3 lg:flex">
                 <Pulse size={13} weight="duotone" className="text-emerald-500 dark:text-emerald-300" />
-                <span>99.99% Uptime</span>
+                <span>Human Approval Gates</span>
               </div>
               <div className="hidden items-center gap-1.5 border-l border-[var(--gvx-hero-border)] pl-3 xl:flex">
                 <Gauge size={13} weight="duotone" className="text-[var(--gvx-hero-accent)]" />
-                <span>&lt; 2.3s Response Time</span>
+                <span>Tenant-Scoped Evidence</span>
               </div>
             </div>
             <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
               <button
-                onClick={() => onOpenLiveChat("I need help with my deployment")}
+                onClick={() => onOpenLiveChat("I need help with a research deployment")}
                 className="hidden h-6 items-center gap-1.5 rounded-md border border-transparent px-2 text-[11px] font-medium text-[var(--gvx-hero-muted)] transition-all duration-200 hover:-translate-y-px hover:bg-[var(--gvx-hero-card)] hover:text-[var(--gvx-hero-accent)] lg:flex group"
               >
                 <ChatCircle size={12} weight="bold" className="group-hover:scale-110 transition-transform" />
@@ -470,7 +464,7 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
                 className="hidden h-8 items-center gap-1 rounded-md border-[var(--gvx-hero-border)] bg-[var(--gvx-hero-card)] px-2.5 text-[0.76rem] font-semibold text-[var(--gvx-hero-text)] shadow-[0_10px_24px_-24px_rgba(7,17,31,0.28)] transition-all duration-200 hover:-translate-y-px hover:border-[var(--gvx-hero-border-strong)] hover:bg-[var(--gvx-hero-surface-strong)] xl:flex group"
               >
                 <CloudArrowDown size={17} weight="bold" className="group-hover:scale-110 transition-transform sm:w-[18px] sm:h-[18px]" />
-                <span>Download Trial</span>
+                <span>Deploy</span>
               </Button>
               <Button 
                 onClick={handleLoginClick}
@@ -543,7 +537,7 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
       </nav>
 
       {mobileMenuOpen && (
-        <div className="lg:hidden fixed inset-0 top-[calc(1.5rem+3.25rem)] z-40 overflow-y-auto border-t border-[var(--gvx-menu-border)] bg-[var(--gvx-menu-bg)]">
+        <div className="fixed inset-x-0 bottom-0 top-[88px] z-40 overflow-y-auto border-t border-[var(--gvx-menu-border)] bg-[var(--gvx-menu-bg)] lg:hidden sm:top-[92px]">
           <div className="h-full">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3.5 sm:py-6 md:py-8">
               <div className="flex flex-col gap-1.5 sm:gap-2">
@@ -575,7 +569,7 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
                   className="w-full h-9 sm:h-10 justify-center gap-2 text-[1rem] sm:text-[1.025rem] font-semibold active:scale-98 transition-all rounded-md"
                 >
                   <CloudArrowDown size={18} weight="bold" className="sm:w-5 sm:h-5" />
-                  <span>Download Trial</span>
+                  <span>Deploy Research Server</span>
                 </Button>
                 
                 <div className="flex items-center justify-center gap-2.5 sm:gap-3">
@@ -583,8 +577,6 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
                     <a
                       key={social.label}
                       href={social.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
                       className="w-9 h-9 sm:w-11 sm:h-11 flex items-center justify-center rounded-lg text-muted-foreground hover:text-primary hover:bg-[rgba(0,199,232,0.08)] active:bg-[rgba(0,199,232,0.12)] border border-[rgba(0,199,232,0.16)] hover:border-primary/30 transition-all duration-200 active:scale-95"
                       aria-label={social.label}
                     >
@@ -596,8 +588,8 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
                 <div className="text-center space-y-2.5 sm:space-y-3 pt-3 sm:pt-4">
                   <div className="text-xs sm:text-sm font-semibold text-foreground">Need assistance?</div>
                   <div className="text-[11px] sm:text-xs text-muted-foreground space-y-1.5">
-                    <div className="font-semibold">Call 1-800-SENTINEL (24/7)</div>
-                    <div>sales@guardivex.com</div>
+                    <div className="font-semibold">research@guardivex.com</div>
+                    <div>security@guardivex.com</div>
                   </div>
                 </div>
               </div>
