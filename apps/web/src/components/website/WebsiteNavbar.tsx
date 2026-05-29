@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
-import { List, X, ChatCircle, CloudArrowDown, ArrowRight, CaretDown, LockKey, BellRinging, Gauge, CloudCheck, ChartLine, Pulse, Buildings, Users, ChartLineUp, Package, Certificate, Book, Code, FileText, GraduationCap, Question, Terminal, Headset, FileDoc, Ticket, ClockCounterClockwise, CreditCard, IdentificationBadge, Devices, Briefcase, Receipt, Database, ShieldCheck } from "@phosphor-icons/react"
+import { List, X, ChatCircle, CloudArrowDown, ArrowRight, CaretDown, LockKey, BellRinging, Gauge, CloudCheck, ChartLine, Pulse, Buildings, Users, ChartLineUp, Package, Certificate, Book, Code, FileText, GraduationCap, Question, Terminal, Headset, VideoConference, FileDoc, Ticket, ClockCounterClockwise, CreditCard, IdentificationBadge, Devices, Briefcase, Receipt, Database, ShieldCheck } from "@phosphor-icons/react"
 import { useState, useRef, useEffect } from "react"
 import { ThemeSwitcher } from "@/components/ThemeSwitcher"
 import { BrandLogo } from "@/components/BrandLogo"
