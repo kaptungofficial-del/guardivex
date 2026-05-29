@@ -260,9 +260,9 @@ function HomePage({ onNavigate }: { onNavigate: (page: string) => void }) {
     { label: "Realtime intelligence stream", detail: "Track live events, suspicious behavior, and investigation context across SOC, IT, and research teams.", icon: Broadcast },
   ]
 
-  const heroAssurances = ["Self-hosted research labs", "AI recommendation-only", "Evidence-grade audit trails"]
+  const heroAssurances = ["Self-hosted labs", "AI recommendations", "Evidence trails"]
 
-  const heroTrustSignals = ["Threat intelligence", "Incident research", "Malware triage", "Infrastructure telemetry"]
+  const heroTrustSignals = ["Threat intel", "Incident research", "Malware triage"]
 
   const heroMetrics = [
     { value: "50k+", label: "Signals", meta: "Telemetry ready", icon: Broadcast, tone: "text-[var(--gvx-hero-accent)]" },
@@ -288,11 +288,11 @@ function HomePage({ onNavigate }: { onNavigate: (page: string) => void }) {
               </div>
 
               <h1 className="mx-auto max-w-[860px] bg-[linear-gradient(135deg,var(--gvx-hero-text)_0%,var(--gvx-hero-accent)_52%,var(--gvx-hero-accent-2)_100%)] bg-clip-text font-heading text-[clamp(2.55rem,4.7vw,5rem)] font-extrabold leading-[0.96] tracking-normal text-transparent">
-                Investigate threats, validate evidence, and govern response
+                Cybersecurity research, governed
               </h1>
 
               <p className="mx-auto mt-5 max-w-[720px] text-[1rem] leading-[1.65] text-[var(--gvx-hero-muted)] sm:text-[1.1rem]">
-                Guardivex gives cybersecurity research teams a controlled environment to collect telemetry, correlate incidents, study attack patterns, and publish defensible findings without allowing AI to execute unsafe infrastructure actions.
+                Collect telemetry, correlate incidents, and publish defensible findings without unsafe AI-controlled actions.
               </p>
 
               <div className="mx-auto mt-6 flex max-w-[760px] flex-wrap items-center justify-center gap-2.5 text-[0.76rem] font-semibold text-[var(--gvx-hero-subtle)]">
