@@ -10,8 +10,8 @@ import {
   Gauge, ListChecks, Bell, Plug, Certificate, HardDrives,
   Camera, Lock, Siren, NetworkX, Thermometer, ChartLine,
   DesktopTower, Package, CloudCheck, Lightning, WindowsLogo, LinuxLogo,
-  Key, Buildings, Warning, Broadcast, Circle, Phone, Users, Headset,
-  LinkedinLogo, TwitterLogo, GithubLogo, YoutubeLogo, EnvelopeSimple
+  Key, Buildings, Warning, Broadcast, Circle, Users, Headset,
+  EnvelopeSimple
 } from "@phosphor-icons/react"
 
 interface WebsiteLayoutProps {
@@ -68,47 +68,27 @@ export function WebsiteLayout({ currentPage, onNavigate, onLogin }: WebsiteLayou
                 />
               </div>
               <p className="text-sm text-muted-foreground dark:text-slate-300 max-w-md leading-relaxed">
-                Enterprise-grade security infrastructure platform delivering comprehensive device monitoring, intelligent threat detection, and rapid incident response across unlimited sites.
+                Governed cyber research platform for telemetry correlation, evidence handling, and human-reviewed response planning.
               </p>
               <div className="flex flex-col gap-3.5">
                 <a 
-                  href="tel:1-800-SENTINEL"
+                  href="mailto:research@guardivex.com"
                   className="flex items-center gap-3 text-sm group hover:text-primary transition-colors"
-                >
-                  <div className="w-9 h-9 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center group-hover:bg-primary/15 group-hover:scale-105 transition-all shrink-0">
-                    <Phone size={17} weight="bold" className="text-primary" />
-                  </div>
-                  <span className="font-bold">1-800-SENTINEL</span>
-                  <Badge variant="outline" className="text-[10px] px-2 py-0.5 h-5 border-success/40 text-success font-bold bg-success/5">24/7</Badge>
-                </a>
-                <a
-                  href="mailto:sales@guardivex"
-                  className="flex items-center gap-3 text-sm group hover:text-primary transition-colors break-all sm:break-normal"
                 >
                   <div className="w-9 h-9 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center group-hover:bg-primary/15 group-hover:scale-105 transition-all shrink-0">
                     <EnvelopeSimple size={17} weight="bold" className="text-primary" />
                   </div>
-                  <span className="font-semibold">sales@guardivex</span>
+                  <span className="font-semibold">research@guardivex.com</span>
                 </a>
-              </div>
-              <div className="flex items-center gap-2.5 pt-2">
-                {[
-                  { icon: LinkedinLogo, label: "LinkedIn", url: "#" },
-                  { icon: TwitterLogo, label: "Twitter", url: "#" },
-                  { icon: GithubLogo, label: "GitHub", url: "#" },
-                  { icon: YoutubeLogo, label: "YouTube", url: "#" }
-                ].map((social) => (
-                  <a
-                    key={social.label}
-                    href={social.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-10 h-10 flex items-center justify-center rounded-lg text-muted-foreground dark:text-slate-300 hover:text-primary dark:hover:text-white hover:bg-primary/10 border border-border/40 hover:border-primary/40 transition-all duration-200 group hover:scale-110"
-                    aria-label={social.label}
-                  >
-                    <social.icon size={19} weight="fill" className="group-hover:scale-110 transition-transform" />
-                  </a>
-                ))}
+                <a
+                  href="mailto:security@guardivex.com"
+                  className="flex items-center gap-3 text-sm group hover:text-primary transition-colors break-all sm:break-normal"
+                >
+                  <div className="w-9 h-9 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center group-hover:bg-primary/15 group-hover:scale-105 transition-all shrink-0">
+                    <ShieldCheck size={17} weight="bold" className="text-primary" />
+                  </div>
+                  <span className="font-semibold">security@guardivex.com</span>
+                </a>
               </div>
             </div>
             
@@ -208,7 +188,7 @@ export function WebsiteLayout({ currentPage, onNavigate, onLogin }: WebsiteLayou
           <div className="pt-8 sm:pt-10 border-t border-border/30">
             <div className="flex flex-col md:flex-row items-center justify-between gap-4 sm:gap-6 mb-6 sm:mb-8">
               <div className="text-xs sm:text-sm text-muted-foreground dark:text-slate-300 text-center md:text-left order-2 md:order-1">
-                &copy; 2024 Guardivex Technologies, Inc. All rights reserved.
+                &copy; 2026 Guardivex Technologies, Inc. All rights reserved.
               </div>
               <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 md:gap-8 text-xs text-muted-foreground dark:text-slate-300 font-medium order-1 md:order-2">
                 <span className="hover:text-primary dark:hover:text-white transition-colors cursor-pointer hover:underline decoration-primary decoration-2 underline-offset-4">
@@ -226,18 +206,16 @@ export function WebsiteLayout({ currentPage, onNavigate, onLogin }: WebsiteLayou
               </div>
             </div>
             <div className="flex flex-wrap items-center justify-center gap-2.5 sm:gap-4">
-              <Badge variant="outline" className="text-[11px] sm:text-xs px-2.5 sm:px-3 py-1 sm:py-1.5 font-semibold border-border/60 hover:border-primary/40 hover:bg-primary/5 transition-all">
-                SOC 2 Type II
-              </Badge>
-              <Badge variant="outline" className="text-[11px] sm:text-xs px-2.5 sm:px-3 py-1 sm:py-1.5 font-semibold border-border/60 hover:border-primary/40 hover:bg-primary/5 transition-all">
-                ISO 27001
-              </Badge>
-              <Badge variant="outline" className="text-[11px] sm:text-xs px-2.5 sm:px-3 py-1 sm:py-1.5 font-semibold border-border/60 hover:border-primary/40 hover:bg-primary/5 transition-all">
-                HIPAA Compliant
-              </Badge>
-              <Badge variant="outline" className="text-[11px] sm:text-xs px-2.5 sm:px-3 py-1 sm:py-1.5 font-semibold border-border/60 hover:border-primary/40 hover:bg-primary/5 transition-all">
-                GDPR Ready
-              </Badge>
+              {[
+                "Human approval gates",
+                "Tenant-scoped evidence",
+                "Recommendation-only AI",
+                "Audit-ready workflows",
+              ].map((label) => (
+                <Badge key={label} variant="outline" className="text-[11px] sm:text-xs px-2.5 sm:px-3 py-1 sm:py-1.5 font-semibold border-border/60 hover:border-primary/40 hover:bg-primary/5 transition-all">
+                  {label}
+                </Badge>
+              ))}
             </div>
           </div>
         </div>
@@ -372,18 +350,18 @@ function HomePage({ onNavigate }: { onNavigate: (page: string) => void }) {
 
 function ProductPage() {
   const features = [
-    { icon: Monitor, title: "Device Monitoring", desc: "Cameras, NVRs, access control, alarms, network devices, and sensors" },
-    { icon: ShieldCheck, title: "Real-time Alerts", desc: "Instant notifications for security events and device failures" },
-    { icon: Database, title: "Incident Management", desc: "Track and investigate security incidents with full audit trails" },
-    { icon: CheckCircle, title: "Multi-Site Support", desc: "Manage security infrastructure across unlimited locations" },
+    { icon: Database, title: "Evidence Workspace", desc: "Unify telemetry, IOCs, identities, notes, and incident context in one case view" },
+    { icon: ShieldCheck, title: "Governed AI", desc: "Generate summaries and recommendations without granting AI direct control of systems" },
+    { icon: ChartLine, title: "Threat Correlation", desc: "Connect signals across endpoint, cloud, identity, network, and physical telemetry" },
+    { icon: CheckCircle, title: "Review Workflows", desc: "Route high-risk recommendations through policy, approvals, and audit trails" },
   ]
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
       <div className="max-w-3xl mx-auto text-center mb-16">
-        <h1 className="text-3xl sm:text-4xl font-heading font-semibold leading-tight mb-3">Security Monitoring Capabilities</h1>
+        <h1 className="text-3xl sm:text-4xl font-heading font-semibold leading-tight mb-3">Cyber Research Capabilities</h1>
         <p className="text-xl text-muted-foreground">
-          Comprehensive security monitoring and management platform for enterprise deployments
+          Investigation tooling for teams that need credible findings, controlled workflows, and evidence that stands up to review.
         </p>
       </div>
 
@@ -434,20 +412,20 @@ function EnterprisePage() {
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
       <div className="max-w-3xl mx-auto text-center mb-16">
-        <h1 className="text-3xl sm:text-4xl font-heading font-semibold leading-tight mb-3">Enterprise Deployment Architecture</h1>
+        <h1 className="text-3xl sm:text-4xl font-heading font-semibold leading-tight mb-3">Enterprise Research Architecture</h1>
         <p className="text-xl text-muted-foreground">
-          Scalable security infrastructure for organizations of any size
+          Tenant-aware cyber research workflows for SOC, IT, compliance, and investigation teams.
         </p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
         {[
-          { title: "Unlimited Sites", desc: "Monitor security infrastructure across all your locations" },
-          { title: "Unlimited Devices", desc: "No restrictions on the number of monitored devices" },
-          { title: "Priority Support", desc: "24/7 enterprise support with dedicated success manager" },
-          { title: "Custom Integrations", desc: "API access and custom integration development" },
-          { title: "High Availability", desc: "Redundancy and failover configurations supported" },
-          { title: "Compliance Ready", desc: "SOC 2, ISO 27001, HIPAA, and GDPR compliance features" },
+          { title: "Tenant Isolation", desc: "Separate organizations, permissions, and evidence trails by tenant" },
+          { title: "Evidence Governance", desc: "Preserve findings, approvals, and audit history for review" },
+          { title: "Human Review Gates", desc: "Keep unsafe actions behind policy and operator approval" },
+          { title: "Custom Integrations", desc: "Connect SIEM, EDR, identity, cloud, and physical security data sources" },
+          { title: "High Availability", desc: "Support resilient deployments for production research operations" },
+          { title: "Control Boundaries", desc: "Use AI for recommendations while enforcement remains server-side and policy-driven" },
         ].map((item, i) => (
           <Card key={i}>
             <CardHeader>
@@ -462,7 +440,7 @@ function EnterprisePage() {
         <CardHeader>
           <CardTitle>Contact Enterprise Sales</CardTitle>
           <CardDescription>
-            Discuss your organization's security monitoring needs with our enterprise team
+            Discuss your organization's research, governance, and deployment requirements.
           </CardDescription>
         </CardHeader>
         <CardContent>
@@ -480,9 +458,9 @@ function DownloadPage() {
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
       <div className="max-w-3xl mx-auto text-center mb-16">
-        <h1 className="text-3xl sm:text-4xl font-heading font-semibold leading-tight mb-3">Platform Distribution</h1>
+        <h1 className="text-3xl sm:text-4xl font-heading font-semibold leading-tight mb-3">Research Server Deployment</h1>
         <p className="text-xl text-muted-foreground">
-          Install on your own infrastructure for complete control
+          Install Guardivex in your environment and keep investigation data under your control.
         </p>
       </div>
 
@@ -496,7 +474,7 @@ function DownloadPage() {
             <div className="space-y-2 mb-4 text-sm text-muted-foreground">
               <div>Version: 3.2.1</div>
               <div>Size: 450 MB</div>
-              <div>Released: January 15, 2024</div>
+              <div>Channel: Stable</div>
             </div>
             <Button className="w-full">
               <CloudArrowDown className="mr-2" size={20} />
@@ -514,7 +492,7 @@ function DownloadPage() {
             <div className="space-y-2 mb-4 text-sm text-muted-foreground">
               <div>Version: 3.2.1</div>
               <div>Size: 380 MB</div>
-              <div>Released: January 15, 2024</div>
+              <div>Channel: Stable</div>
             </div>
             <Button className="w-full">
               <CloudArrowDown className="mr-2" size={20} />
@@ -543,7 +521,7 @@ function DownloadPage() {
           </div>
           <div>
             <div className="font-semibold text-foreground mb-2">4. Configure integrations</div>
-            <p>Connect your security devices and begin monitoring</p>
+            <p>Connect telemetry sources and begin building research cases</p>
           </div>
         </CardContent>
       </Card>
@@ -555,9 +533,9 @@ function LicensingPage() {
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
       <div className="max-w-3xl mx-auto text-center mb-16">
-        <h1 className="text-3xl sm:text-4xl font-heading font-semibold leading-tight mb-3">License and Entitlement Operations</h1>
+        <h1 className="text-3xl sm:text-4xl font-heading font-semibold leading-tight mb-3">Licensing and Entitlements</h1>
         <p className="text-xl text-muted-foreground">
-          Flexible licensing models for organizations of all sizes
+          Plans for self-hosted research teams, enterprises, and managed security providers.
         </p>
       </div>
 
