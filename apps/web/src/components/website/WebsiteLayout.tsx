@@ -255,20 +255,20 @@ export function WebsiteLayout({ currentPage, onNavigate, onLogin }: WebsiteLayou
 
 function HomePage({ onNavigate }: { onNavigate: (page: string) => void }) {
   const heroCapabilities = [
-    { label: "Tenant-scoped visibility", detail: "Unify sites, devices, incidents, alerts, and audit history in one controlled operations view.", icon: Buildings },
-    { label: "Human-approved action", detail: "High-risk commands route through policy checks, approvals, and immutable audit records.", icon: Lock },
-    { label: "Realtime coordination", detail: "Live event streams keep SOC, IT, and facility teams aligned during active response.", icon: Broadcast },
+    { label: "Threat research workspace", detail: "Correlate telemetry, incidents, indicators, devices, and evidence in one tenant-scoped research environment.", icon: Database },
+    { label: "Safe investigation workflows", detail: "Model response options, document findings, and route high-risk actions through policy and human approval.", icon: Lock },
+    { label: "Realtime intelligence stream", detail: "Track live events, suspicious behavior, and investigation context across SOC, IT, and research teams.", icon: Broadcast },
   ]
 
-  const heroAssurances = ["Self-hosted or hybrid", "AI recommendation-only", "Audit-ready controls"]
+  const heroAssurances = ["Self-hosted research labs", "AI recommendation-only", "Evidence-grade audit trails"]
 
-  const heroTrustSignals = ["SOC operations", "Access control", "Video infrastructure", "Network security"]
+  const heroTrustSignals = ["Threat intelligence", "Incident research", "Malware triage", "Infrastructure telemetry"]
 
   const heroMetrics = [
-    { value: "5,000+", label: "Organizations", meta: "Multi-site teams", icon: Buildings, tone: "text-[var(--gvx-hero-accent)]" },
-    { value: "50,000+", label: "Devices", meta: "Monitored endpoints", icon: Broadcast, tone: "text-emerald-500 dark:text-emerald-300" },
-    { value: "99.99%", label: "Uptime SLA", meta: "Operational target", icon: ShieldCheck, tone: "text-[var(--gvx-hero-accent)]" },
-    { value: "24/7", label: "Support", meta: "Enterprise coverage", icon: Headset, tone: "text-violet-500 dark:text-violet-300" },
+    { value: "50k+", label: "Signals", meta: "Telemetry ready", icon: Broadcast, tone: "text-[var(--gvx-hero-accent)]" },
+    { value: "24/7", label: "Research Queue", meta: "Continuous triage", icon: Warning, tone: "text-emerald-500 dark:text-emerald-300" },
+    { value: "100%", label: "Human Review", meta: "For unsafe actions", icon: ShieldCheck, tone: "text-[var(--gvx-hero-accent)]" },
+    { value: "SOC 2", label: "Evidence Ready", meta: "Audit workflows", icon: Certificate, tone: "text-violet-500 dark:text-violet-300" },
   ]
 
   return (
@@ -284,15 +284,15 @@ function HomePage({ onNavigate }: { onNavigate: (page: string) => void }) {
             <div className="mx-auto max-w-[840px]">
               <div className="mb-5 inline-flex items-center gap-2 rounded-md border border-[var(--gvx-hero-border)] bg-[var(--gvx-menu-bg)] px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.12em] text-[var(--gvx-hero-muted)] shadow-[0_12px_28px_-26px_rgba(7,17,31,0.28)]">
                 <ShieldCheck size={14} weight="fill" className="text-[var(--gvx-hero-accent)]" />
-                Enterprise security command center
+                Cybersecurity research platform
               </div>
 
               <h1 className="mx-auto max-w-[860px] bg-[linear-gradient(135deg,var(--gvx-hero-text)_0%,var(--gvx-hero-accent)_52%,var(--gvx-hero-accent-2)_100%)] bg-clip-text font-heading text-[clamp(2.55rem,4.7vw,5rem)] font-extrabold leading-[0.96] tracking-normal text-transparent">
-                Control security operations without unsafe automation
+                Investigate threats, validate evidence, and govern response
               </h1>
 
               <p className="mx-auto mt-5 max-w-[720px] text-[1rem] leading-[1.65] text-[var(--gvx-hero-muted)] sm:text-[1.1rem]">
-                Guardivex unifies cameras, access control, alarms, network devices, incidents, approvals, and audit trails for security teams that need fast visibility with human-governed response.
+                Guardivex gives cybersecurity research teams a controlled environment to collect telemetry, correlate incidents, study attack patterns, and publish defensible findings without allowing AI to execute unsafe infrastructure actions.
               </p>
 
               <div className="mx-auto mt-6 flex max-w-[760px] flex-wrap items-center justify-center gap-2.5 text-[0.76rem] font-semibold text-[var(--gvx-hero-subtle)]">
@@ -306,11 +306,11 @@ function HomePage({ onNavigate }: { onNavigate: (page: string) => void }) {
               <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
                 <Button size="lg" onClick={() => onNavigate("download")} className="h-12 rounded-md border border-[color:var(--gvx-hero-accent)] bg-[linear-gradient(135deg,var(--gvx-hero-accent),var(--gvx-hero-accent-2))] bg-none px-5 text-[0.9rem] font-semibold text-white shadow-[0_20px_42px_-28px_rgba(0,143,240,0.70)] transition-all duration-200 hover:-translate-y-0.5 hover:brightness-95 focus-visible:ring-[var(--gvx-hero-accent)]">
                   <CloudArrowDown size={17} className="mr-2" weight="bold" />
-                  Deploy Enterprise Server
+                  Deploy Research Server
                 </Button>
                 <Button size="lg" variant="outline" onClick={() => onNavigate("product")} className="h-12 rounded-md border-[var(--gvx-menu-border)] bg-[var(--gvx-menu-bg)] px-5 text-[0.9rem] font-semibold text-[var(--gvx-hero-text)] shadow-[0_16px_34px_-30px_rgba(7,17,31,0.30)] transition-all duration-200 hover:-translate-y-0.5 hover:border-[var(--gvx-hero-border-strong)] hover:bg-[var(--gvx-menu-hover)]">
                   <Monitor size={17} className="mr-2" weight="bold" />
-                  Explore Platform
+                  Explore Research Console
                 </Button>
               </div>
 
