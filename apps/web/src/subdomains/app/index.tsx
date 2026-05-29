@@ -264,11 +264,16 @@ export function AppSubdomain() {
   }
 
   const handleLogout = async () => {
-    await apiLogout()
-    setAuthUser(null)
-    setPlatformData(emptyData)
-    navigate("/login")
-    toast.info("Session ended", { description: "You have been logged out successfully." })
+    try {
+      await apiLogout()
+    } catch (error) {
+      toast.error("Logout request failed", { description: error instanceof Error ? error.message : "Unable to contact the API" })
+    } finally {
+      setAuthUser(null)
+      setPlatformData(emptyData)
+      navigate("/login")
+      toast.info("Session ended", { description: "You have been logged out successfully." })
+    }
   }
 
   const handleExtendSession = () => {

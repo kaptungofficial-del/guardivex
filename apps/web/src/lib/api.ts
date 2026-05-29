@@ -180,7 +180,13 @@ export async function validateSession(): Promise<AuthUser | null> {
 
 export async function logout() {
   try {
-    await apiRequest<{ ok: boolean }>("/auth/logout", { method: "POST" })
+    if (!isDemoToken()) {
+      await apiRequest<{ ok: boolean }>("/auth/logout", { method: "POST" })
+    }
+  } catch (error) {
+    if (!isNetworkError(error)) {
+      throw error
+    }
   } finally {
     clearTokens()
   }
