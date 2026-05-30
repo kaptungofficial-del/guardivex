@@ -250,23 +250,33 @@ h6 {
 }
 
 .guardivex-home-typography :where(h2) {
-  font-size: clamp(1.5rem, 1.1rem + 1.5vw, 2.35rem);
+  font-size: 2rem;
   font-weight: 700;
   line-height: 1.08;
-  letter-spacing: -0.03em;
+  letter-spacing: 0;
 }
 
 .guardivex-home-typography :where(h3) {
-  font-size: clamp(1.05rem, 0.95rem + 0.42vw, 1.35rem);
+  font-size: 1.2rem;
   font-weight: 650;
   line-height: 1.12;
-  letter-spacing: -0.022em;
+  letter-spacing: 0;
 }
 
 .guardivex-home-typography :where(p) {
-  font-size: clamp(0.98rem, 0.95rem + 0.3vw, 1.25rem);
+  font-size: 1rem;
   line-height: 1.75;
   overflow-wrap: anywhere;
+}
+
+@media (min-width: 640px) {
+  .guardivex-home-typography :where(h2) {
+    font-size: 2.25rem;
+  }
+
+  .guardivex-home-typography :where(p) {
+    font-size: 1.06rem;
+  }
 }
 
 .premium-shell {

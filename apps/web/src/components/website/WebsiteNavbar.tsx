@@ -164,8 +164,8 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
   const supportOptions = [
     {
       icon: Headset,
-      title: "24/7 Technical Support",
-      description: "Phone & email assistance",
+      title: "Technical Support",
+      description: "Email and chat assistance",
       color: "text-primary"
     },
     {
@@ -204,7 +204,7 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
     {
       icon: CreditCard,
       title: "Trial License",
-      description: "30-day full access trial",
+      description: "Evaluation access",
       color: "text-primary"
     },
     {
@@ -216,7 +216,7 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
     {
       icon: Buildings,
       title: "Enterprise",
-      description: "Multi-site unlimited",
+      description: "Multi-site programs",
       color: "text-accent"
     },
     {

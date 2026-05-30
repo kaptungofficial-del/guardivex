@@ -39,10 +39,6 @@ export function WebsiteLayout({ currentPage, onNavigate, onLogin }: WebsiteLayou
 
   return (
     <div className="min-h-screen bg-background premium-shell overflow-hidden">
-      <div className="pointer-events-none absolute inset-0 -z-10">
-        <div className="glow-orb absolute -top-24 left-[8%] h-56 w-56 rounded-full bg-primary/5" />
-        <div className="glow-orb absolute -top-14 right-[10%] h-60 w-60 rounded-full bg-accent/4 [animation-delay:1.6s]" />
-      </div>
       <WebsiteNavbar
         currentPage={currentPage}
         onNavigate={onNavigate}
@@ -149,44 +145,44 @@ export function WebsiteLayout({ currentPage, onNavigate, onLogin }: WebsiteLayou
                   <span className="w-1 h-1 rounded-full bg-border group-hover:bg-primary transition-colors shrink-0" />
                   Support Center
                 </button>
-                <span className="text-sm text-muted-foreground dark:text-slate-300 hover:text-primary dark:hover:text-white hover:translate-x-1 transition-all cursor-pointer font-medium group flex items-center gap-2">
+                <button onClick={() => onNavigate("documentation")} className="text-sm text-muted-foreground dark:text-slate-300 hover:text-primary dark:hover:text-white hover:translate-x-1 transition-all font-medium group flex items-center gap-2 text-left">
                   <span className="w-1 h-1 rounded-full bg-border group-hover:bg-primary transition-colors shrink-0" />
                   API Reference
-                </span>
-                <span className="text-sm text-muted-foreground dark:text-slate-300 hover:text-primary dark:hover:text-white hover:translate-x-1 transition-all cursor-pointer font-medium group flex items-center gap-2">
+                </button>
+                <button onClick={() => onNavigate("support")} className="text-sm text-muted-foreground dark:text-slate-300 hover:text-primary dark:hover:text-white hover:translate-x-1 transition-all font-medium group flex items-center gap-2 text-left">
                   <span className="w-1 h-1 rounded-full bg-border group-hover:bg-primary transition-colors shrink-0" />
-                  Community Forum
-                </span>
-                <span className="text-sm text-muted-foreground dark:text-slate-300 hover:text-primary dark:hover:text-white hover:translate-x-1 transition-all cursor-pointer font-medium group flex items-center gap-2">
+                  Contact Support
+                </button>
+                <button onClick={() => onNavigate("support")} className="text-sm text-muted-foreground dark:text-slate-300 hover:text-primary dark:hover:text-white hover:translate-x-1 transition-all font-medium group flex items-center gap-2 text-left">
                   <span className="w-1 h-1 rounded-full bg-border group-hover:bg-primary transition-colors shrink-0" />
                   System Status
-                </span>
+                </button>
               </div>
             </div>
             
             <div>
               <h4 className="font-heading font-bold text-[13px] uppercase tracking-[0.15em] mb-4 sm:mb-5 text-foreground">Company</h4>
               <div className="flex flex-col gap-3 sm:gap-3.5">
-                <span className="text-sm text-muted-foreground dark:text-slate-300 hover:text-primary dark:hover:text-white hover:translate-x-1 transition-all cursor-pointer font-medium group flex items-center gap-2">
+                <button onClick={() => onNavigate("support")} className="text-sm text-muted-foreground dark:text-slate-300 hover:text-primary dark:hover:text-white hover:translate-x-1 transition-all font-medium group flex items-center gap-2 text-left">
                   <span className="w-1 h-1 rounded-full bg-border group-hover:bg-primary transition-colors shrink-0" />
-                  About Us
-                </span>
-                <span className="text-sm text-muted-foreground dark:text-slate-300 hover:text-primary dark:hover:text-white hover:translate-x-1 transition-all cursor-pointer font-medium group flex items-center gap-2">
+                  About Guardivex
+                </button>
+                <a href="mailto:research@guardivex.com" className="text-sm text-muted-foreground dark:text-slate-300 hover:text-primary dark:hover:text-white hover:translate-x-1 transition-all font-medium group flex items-center gap-2">
                   <span className="w-1 h-1 rounded-full bg-border group-hover:bg-primary transition-colors shrink-0" />
                   Contact Sales
-                </span>
-                <span className="text-sm text-muted-foreground dark:text-slate-300 hover:text-primary dark:hover:text-white hover:translate-x-1 transition-all cursor-pointer font-medium group flex items-center gap-2">
+                </a>
+                <button onClick={() => onNavigate("documentation")} className="text-sm text-muted-foreground dark:text-slate-300 hover:text-primary dark:hover:text-white hover:translate-x-1 transition-all font-medium group flex items-center gap-2 text-left">
                   <span className="w-1 h-1 rounded-full bg-border group-hover:bg-primary transition-colors shrink-0" />
-                  Careers
-                </span>
-                <span className="text-sm text-muted-foreground dark:text-slate-300 hover:text-primary dark:hover:text-white hover:translate-x-1 transition-all cursor-pointer font-medium group flex items-center gap-2">
+                  Documentation
+                </button>
+                <a href="mailto:security@guardivex.com" className="text-sm text-muted-foreground dark:text-slate-300 hover:text-primary dark:hover:text-white hover:translate-x-1 transition-all font-medium group flex items-center gap-2">
                   <span className="w-1 h-1 rounded-full bg-border group-hover:bg-primary transition-colors shrink-0" />
-                  Partners
-                </span>
-                <span className="text-sm text-muted-foreground dark:text-slate-300 hover:text-primary dark:hover:text-white hover:translate-x-1 transition-all cursor-pointer font-medium group flex items-center gap-2">
+                  Security Contact
+                </a>
+                <button onClick={() => onNavigate("documentation")} className="text-sm text-muted-foreground dark:text-slate-300 hover:text-primary dark:hover:text-white hover:translate-x-1 transition-all font-medium group flex items-center gap-2 text-left">
                   <span className="w-1 h-1 rounded-full bg-border group-hover:bg-primary transition-colors shrink-0" />
                   Trust Center
-                </span>
+                </button>
               </div>
             </div>
           </div>
@@ -194,21 +190,21 @@ export function WebsiteLayout({ currentPage, onNavigate, onLogin }: WebsiteLayou
           <div className="pt-8 sm:pt-10 border-t border-border/30">
             <div className="flex flex-col md:flex-row items-center justify-between gap-4 sm:gap-6 mb-6 sm:mb-8">
               <div className="text-xs sm:text-sm text-muted-foreground dark:text-slate-300 text-center md:text-left order-2 md:order-1">
-                &copy; 2026 Guardivex Technologies, Inc. All rights reserved.
+                &copy; 2026 Guardivex. All rights reserved.
               </div>
               <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 md:gap-8 text-xs text-muted-foreground dark:text-slate-300 font-medium order-1 md:order-2">
-                <span className="hover:text-primary dark:hover:text-white transition-colors cursor-pointer hover:underline decoration-primary decoration-2 underline-offset-4">
+                <button onClick={() => onNavigate("documentation")} className="hover:text-primary dark:hover:text-white transition-colors hover:underline decoration-primary decoration-2 underline-offset-4">
                   Privacy Policy
-                </span>
-                <span className="hover:text-primary dark:hover:text-white transition-colors cursor-pointer hover:underline decoration-primary decoration-2 underline-offset-4">
+                </button>
+                <button onClick={() => onNavigate("documentation")} className="hover:text-primary dark:hover:text-white transition-colors hover:underline decoration-primary decoration-2 underline-offset-4">
                   Terms of Service
-                </span>
-                <span className="hover:text-primary dark:hover:text-white transition-colors cursor-pointer hover:underline decoration-primary decoration-2 underline-offset-4 hidden sm:inline">
+                </button>
+                <button onClick={() => onNavigate("documentation")} className="hover:text-primary dark:hover:text-white transition-colors hover:underline decoration-primary decoration-2 underline-offset-4 hidden sm:inline">
                   Security
-                </span>
-                <span className="hover:text-primary dark:hover:text-white transition-colors cursor-pointer hover:underline decoration-primary decoration-2 underline-offset-4 hidden sm:inline">
-                  Compliance
-                </span>
+                </button>
+                <button onClick={() => onNavigate("documentation")} className="hover:text-primary dark:hover:text-white transition-colors hover:underline decoration-primary decoration-2 underline-offset-4 hidden sm:inline">
+                  Governance
+                </button>
               </div>
             </div>
             <div className="flex flex-wrap items-center justify-center gap-2.5 sm:gap-4">
@@ -265,7 +261,7 @@ function HomePage({ onNavigate }: { onNavigate: (page: string) => void }) {
               Governed cyber research platform
             </div>
 
-            <h1 className="mx-auto mt-5 max-w-[760px] font-heading text-[clamp(2.15rem,6.3vw,4.05rem)] font-extrabold leading-[1.06] tracking-normal text-[var(--gvx-hero-text)] [text-wrap:balance] sm:leading-[1.03] lg:mx-0">
+            <h1 className="mx-auto mt-5 max-w-[760px] font-heading text-[2.35rem] font-extrabold leading-[1.06] tracking-normal text-[var(--gvx-hero-text)] [text-wrap:balance] sm:text-[3.25rem] sm:leading-[1.03] lg:mx-0 lg:text-[4.05rem]">
               Cyber research operations without unsafe automation.
             </h1>
 
@@ -762,7 +758,7 @@ function LicensingPage() {
           {
             tier: "Enterprise",
             price: "Contact Sales",
-            features: ["Unlimited sites", "Unlimited devices", "24/7 support", "Custom integrations", "Dedicated success manager"]
+            features: ["Multi-site programs", "Custom device scope", "Priority support", "Custom integrations", "Success planning"]
           },
         ].map((plan, i) => (
           <Card key={i} className={i === 1 ? "border-primary shadow-lg" : ""}>
@@ -829,7 +825,7 @@ function DocumentationPage() {
           { title: "API Reference", desc: "REST API documentation and examples" },
           { title: "Troubleshooting", desc: "Common issues and solutions" },
         ].map((doc, i) => (
-          <Card key={i} className="hover:border-primary/50 transition-colors cursor-pointer">
+          <Card key={i} className="transition-colors hover:border-primary/50">
             <CardHeader>
               <CardTitle className="text-lg">{doc.title}</CardTitle>
               <CardDescription>{doc.desc}</CardDescription>
@@ -855,7 +851,7 @@ function SupportPage() {
         {[
           { title: "Knowledge Base", desc: "Search our comprehensive knowledge base for articles and guides", availability: "Available 24/7" },
           { title: "Community Forum", desc: "Connect with other Guardivex users and share experiences", availability: "Community-moderated" },
-          { title: "Enterprise Support", desc: "24/7 priority support with guaranteed response times", availability: "Enterprise plans only" },
+          { title: "Enterprise Support", desc: "Priority support with defined escalation paths", availability: "Enterprise plans only" },
         ].map((channel, i) => (
           <Card key={i}>
             <CardHeader>
@@ -1178,7 +1174,7 @@ function PricingSection({ onNavigate }: { onNavigate: (page: string) => void }) 
       tier: "Trial",
       price: "Free",
       duration: "30 days",
-      features: ["Up to 3 sites", "Up to 50 devices", "Full features", "Email support", "Cloud services"],
+      features: ["Evaluation access", "Sample device scope", "Core workflows", "Email support", "Cloud services"],
       highlight: false
     },
     {
@@ -1192,7 +1188,7 @@ function PricingSection({ onNavigate }: { onNavigate: (page: string) => void }) 
       tier: "Enterprise",
       price: "Contact Sales",
       duration: "",
-      features: ["Unlimited sites", "Unlimited devices", "24/7 support", "Custom integrations", "Dedicated success manager"],
+      features: ["Multi-site programs", "Custom device scope", "Priority support", "Custom integrations", "Success planning"],
       highlight: false
     },
     {

@@ -137,7 +137,7 @@ export function LiveChatWidget({
             </div>
             <div>
               <p className="text-[12px] font-semibold text-[#07111F] dark:text-[#E2E8F0]">Guardivex Support</p>
-              <p className="text-[10px] text-[#64748B] dark:text-muted-foreground">Average response under 2 min</p>
+              <p className="text-[10px] text-[#64748B] dark:text-muted-foreground">Support team</p>
             </div>
           </div>
           <Button
