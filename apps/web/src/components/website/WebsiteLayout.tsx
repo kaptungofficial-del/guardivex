@@ -249,14 +249,12 @@ function HomePage({ onNavigate }: { onNavigate: (page: string) => void }) {
   return (
     <div className="relative guardivex-home-typography overflow-x-clip bg-[var(--gvx-hero-bg)] text-[var(--gvx-hero-text)]">
       <section className="relative isolate overflow-hidden border-b border-[var(--gvx-hero-border)] bg-[var(--gvx-hero-bg)] text-[var(--gvx-hero-text)]">
-        <div className="absolute inset-0 -z-10 bg-[linear-gradient(135deg,var(--gvx-hero-bg)_0%,var(--gvx-hero-bg-soft)_52%,var(--gvx-hero-bg)_100%)]" />
-        <div className="absolute inset-0 -z-10 opacity-[0.035] bg-[linear-gradient(var(--gvx-hero-accent)_1px,transparent_1px),linear-gradient(90deg,var(--gvx-hero-accent)_1px,transparent_1px)] bg-[size:64px_64px]" />
-        <div className="absolute left-[8%] top-12 -z-10 h-56 w-56 rounded-full bg-[radial-gradient(circle,var(--gvx-hero-glow),transparent_68%)]" />
-        <div className="absolute right-[8%] top-24 -z-10 h-64 w-64 rounded-full bg-[radial-gradient(circle,var(--gvx-logo-olive-soft),transparent_72%)]" />
+        <div className="absolute inset-0 -z-10 bg-[linear-gradient(115deg,rgba(127,135,52,0.16)_0%,var(--gvx-hero-bg)_20%,rgba(0,215,230,0.16)_48%,rgba(0,143,240,0.12)_70%,rgba(127,135,52,0.12)_100%)]" />
+        <div className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_44%_18%,var(--gvx-logo-cyan-glow),transparent_42%),linear-gradient(var(--gvx-hero-accent)_1px,transparent_1px),linear-gradient(90deg,var(--gvx-hero-accent)_1px,transparent_1px)] bg-[size:100%_100%,72px_72px,72px_72px] opacity-[0.22]" />
 
-        <div className="mx-auto grid w-full max-w-[1180px] gap-8 px-4 py-10 sm:px-8 sm:py-14 md:gap-10 lg:grid-cols-[minmax(0,0.95fr)_minmax(340px,0.68fr)] lg:items-center lg:px-10 lg:py-16 xl:px-12">
+        <div className="mx-auto grid w-full max-w-[1220px] gap-8 px-4 py-10 sm:px-8 sm:py-14 md:gap-10 lg:grid-cols-[minmax(0,0.96fr)_minmax(360px,0.78fr)] lg:items-center lg:px-10 lg:py-16 xl:px-12">
           <div className="min-w-0 text-center lg:text-left">
-            <div className="inline-flex max-w-full items-center gap-2 rounded-md border border-[var(--gvx-hero-border)] bg-[var(--gvx-menu-bg)] px-3 py-1.5 text-[9px] font-semibold uppercase tracking-[0.14em] text-[var(--gvx-hero-muted)] shadow-[0_14px_34px_-30px_rgba(0,143,240,0.30)] sm:text-[9.5px]">
+            <div className="inline-flex max-w-full items-center gap-2 rounded-md border border-[var(--gvx-hero-border)] bg-white/88 px-3 py-1.5 text-[9px] font-semibold uppercase tracking-[0.14em] text-[var(--gvx-hero-muted)] shadow-[0_14px_34px_-30px_rgba(0,143,240,0.30)] sm:text-[9.5px]">
               <ShieldCheck size={13} weight="fill" className="text-[var(--gvx-hero-accent)]" />
               Governed cyber research platform
             </div>
@@ -271,7 +269,7 @@ function HomePage({ onNavigate }: { onNavigate: (page: string) => void }) {
 
             <div className="mx-auto mt-5 flex max-w-[620px] flex-wrap items-center justify-center gap-2 text-[11px] font-semibold text-[var(--gvx-hero-muted)] lg:mx-0 lg:justify-start">
               {heroAssurances.map((label) => (
-                <span key={label} className="rounded-md border border-[var(--gvx-hero-border)] bg-[var(--gvx-menu-bg)] px-2.5 py-1 shadow-[0_10px_24px_-24px_rgba(0,143,240,0.26)]">
+                <span key={label} className="rounded-md border border-[var(--gvx-hero-border)] bg-white/86 px-2.5 py-1 shadow-[0_10px_24px_-24px_rgba(0,143,240,0.26)]">
                   {label}
                 </span>
               ))}
@@ -288,7 +286,7 @@ function HomePage({ onNavigate }: { onNavigate: (page: string) => void }) {
               </Button>
             </div>
 
-            <div className="mx-auto mt-7 grid max-w-[680px] grid-cols-1 overflow-hidden rounded-lg border border-[var(--gvx-hero-border)] bg-[var(--gvx-menu-bg)] text-left shadow-[0_20px_54px_-46px_rgba(7,17,31,0.34)] min-[520px]:grid-cols-3 lg:mx-0">
+            <div className="mx-auto mt-7 grid max-w-[680px] grid-cols-1 overflow-hidden rounded-lg border border-[var(--gvx-hero-border)] bg-white/88 text-left shadow-[0_20px_54px_-46px_rgba(7,17,31,0.34)] min-[520px]:grid-cols-3 lg:mx-0">
               {heroProofPoints.map(([label, value]) => (
                 <div key={label} className="border-b border-[var(--gvx-hero-border)] px-4 py-3 last:border-b-0 min-[520px]:border-b-0 min-[520px]:border-r min-[520px]:last:border-r-0">
                   <div className="text-[10px] font-semibold uppercase tracking-[0.13em] text-[var(--gvx-hero-subtle)]">{label}</div>
@@ -298,8 +296,9 @@ function HomePage({ onNavigate }: { onNavigate: (page: string) => void }) {
             </div>
           </div>
 
-          <div className="mx-auto w-full max-w-[430px] lg:mx-0 lg:justify-self-end xl:max-w-[460px]">
-            <div className="overflow-hidden rounded-xl border border-[var(--gvx-menu-border)] bg-[var(--gvx-menu-bg)] shadow-[0_30px_86px_-60px_rgba(0,143,240,0.50)]">
+          <div className="mx-auto w-full max-w-[460px] lg:mx-0 lg:justify-self-end xl:max-w-[500px]">
+            <div className="overflow-hidden rounded-xl border border-[var(--gvx-menu-border)] bg-white/90 shadow-[0_32px_92px_-62px_rgba(0,143,240,0.58)]">
+              <div className="h-1.5 bg-[linear-gradient(90deg,var(--gvx-logo-olive),var(--gvx-hero-accent-2),var(--gvx-hero-accent))]" />
               <div className="flex flex-wrap items-center justify-between gap-2 border-b border-[var(--gvx-hero-border)] px-3 py-2 text-[10px] font-semibold uppercase tracking-[0.13em] text-[var(--gvx-hero-subtle)]">
                 <span>AI operating boundary</span>
                 <span className="shrink-0 rounded-full border border-[var(--gvx-hero-border)] bg-[var(--gvx-hero-accent-soft)] px-2 py-0.5 text-[var(--gvx-hero-accent)]">0 direct actions</span>
