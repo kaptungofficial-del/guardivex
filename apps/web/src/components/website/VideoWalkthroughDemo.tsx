@@ -267,7 +267,7 @@ export function VideoWalkthroughDemo() {
                 <span className="text-xs text-slate-600 dark:text-slate-400 font-mono">Guardivex SOC Dashboard</span>
               </div>
               <Badge variant="outline" className="text-xs gap-1 border-slate-400 dark:border-slate-600 text-slate-600 dark:text-slate-300 rounded-sm">
-                <Circle size={8} weight="fill" className="text-emerald-400" />
+                <Circle size={8} weight="fill" className="text-cyan-400" />
                 Console View
               </Badge>
             </div>

@@ -119,10 +119,10 @@ export function PlatformLayout({ children, currentPage, onNavigate, onLogout, cr
       )}
 
       <aside className={cn(
-        "fixed lg:relative inset-y-0 left-0 z-50 w-64 sm:w-72 border-r border-border bg-white/90 backdrop-blur-md flex flex-col transition-transform duration-300 lg:translate-x-0 dark:border-[rgba(0,119,255,0.26)] dark:bg-[rgba(7,17,31,0.92)]",
+        "fixed lg:relative inset-y-0 left-0 z-50 w-64 sm:w-72 border-r border-border bg-white/90 backdrop-blur-md flex flex-col transition-transform duration-300 lg:translate-x-0 dark:border-[rgba(0,212,255,0.12)] dark:bg-[rgba(7,29,51,0.92)]",
         sidebarOpen ? "translate-x-0" : "-translate-x-full"
       )}>
-        <div className="p-4 sm:p-6 border-b border-border dark:border-[rgba(0,119,255,0.22)]">
+        <div className="p-4 sm:p-6 border-b border-border dark:border-[rgba(0,212,255,0.12)]">
           <div className="flex items-center justify-between">
             <BrandLogo
               subtitle="Security Platform"
@@ -179,8 +179,8 @@ export function PlatformLayout({ children, currentPage, onNavigate, onLogout, cr
           ))}
         </nav>
 
-        <div className="p-3 sm:p-4 border-t border-border dark:border-[rgba(0,119,255,0.22)]">
-          <div className="p-2.5 sm:p-3 bg-secondary rounded-xl border border-border dark:bg-slate-900/70 dark:border-[rgba(0,119,255,0.22)]">
+        <div className="p-3 sm:p-4 border-t border-border dark:border-[rgba(0,212,255,0.12)]">
+          <div className="p-2.5 sm:p-3 bg-secondary rounded-xl border border-border dark:bg-[var(--guardivex-surface)] dark:border-[rgba(0,212,255,0.12)]">
             <div className="brand-muted-text text-[10px] sm:text-xs mb-1">License</div>
             <div className="flex items-center justify-between gap-2">
               <span className="text-xs sm:text-sm font-semibold capitalize truncate">{license.tier}</span>

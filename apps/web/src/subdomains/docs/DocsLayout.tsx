@@ -342,7 +342,7 @@ function ContentApiEndpoints() {
             {endpoints.map((ep, i) => (
               <tr key={i} className="border-t border-border hover:bg-muted/20 transition-colors">
                 <td className="px-4 py-2.5">
-                  <span className={`text-xs font-bold px-2 py-0.5 rounded ${ep.method === "GET" ? "bg-blue-500/10 text-blue-400" : ep.method === "POST" ? "bg-green-500/10 text-green-400" : "bg-orange-500/10 text-orange-400"}`}>
+                  <span className={`text-xs font-bold px-2 py-0.5 rounded ${ep.method === "GET" ? "bg-cyan-500/10 text-cyan-400" : ep.method === "POST" ? "bg-blue-500/10 text-blue-400" : "bg-orange-500/10 text-orange-400"}`}>
                     {ep.method}
                   </span>
                 </td>
@@ -516,7 +516,7 @@ function Callout({
   const styles = {
     info: { border: "border-blue-500/30 bg-blue-500/5", text: "text-blue-400", Icon: Info },
     warning: { border: "border-orange-500/30 bg-orange-500/5", text: "text-orange-400", Icon: Warning },
-    success: { border: "border-green-500/30 bg-green-500/5", text: "text-green-400", Icon: CheckCircle },
+    success: { border: "border-cyan-500/20 bg-cyan-500/8", text: "text-cyan-400", Icon: CheckCircle },
   }
   const { border, text, Icon } = styles[type]
   return (

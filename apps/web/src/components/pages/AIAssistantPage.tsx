@@ -72,7 +72,7 @@ export function AIAssistantPage() {
             Draft summaries and recommendations from operator-provided signals. AI never executes hardware commands; every command still requires RBAC, policy review, approval, audit, and the command execution service.
           </p>
         </div>
-        <Badge variant="outline" className="w-fit border-emerald-500/30 bg-emerald-500/10 text-emerald-700 dark:text-emerald-300">
+        <Badge variant="outline" className="w-fit border-cyan-500/20 bg-cyan-500/8 text-cyan-700 dark:text-cyan-300">
           <ShieldCheck size={13} weight="fill" className="mr-1" />
           Safe by design
         </Badge>
@@ -153,7 +153,7 @@ export function AIAssistantPage() {
                   </div>
                 ) : null}
                 <div className="mt-3 flex items-start gap-2 text-xs text-muted-foreground">
-                  <CheckCircle size={14} weight="fill" className="mt-0.5 shrink-0 text-emerald-500" />
+                  <CheckCircle size={14} weight="fill" className="mt-0.5 shrink-0 text-cyan-500" />
                   <span className="line-clamp-2">Evidence: {formatEvidence(item.evidence)}</span>
                 </div>
               </div>

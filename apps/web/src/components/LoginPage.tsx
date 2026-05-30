@@ -121,7 +121,7 @@ export function LoginPage({ onLogin, onBackToWebsite, onShowRegister, onShowPass
       title="Command and secure every site from one control plane."
       subtitle="Unified visibility across cameras, access control, alarms, networks, and incident response with enterprise-grade access controls."
     >
-      <Card className="rounded-xl border-[#CFE0EF] bg-white/92 shadow-[0_18px_54px_-42px_rgba(7,17,31,0.36)] backdrop-blur-xl dark:border-cyan-300/14 dark:bg-[#051225]/84 dark:shadow-[0_24px_70px_-50px_rgba(0,194,255,0.42)]">
+      <Card className="rounded-xl border-[#CFE0EF] bg-white/92 shadow-[0_18px_54px_-42px_rgba(7,17,31,0.36)] backdrop-blur-xl dark:border-cyan-300/14 dark:bg-[#071D33]/84 dark:shadow-[0_24px_70px_-50px_rgba(0,212,255,0.42)]">
             <CardHeader className="space-y-1.5 pb-3 sm:pb-4">
               <CardTitle className="text-lg font-heading font-semibold tracking-[-0.01em] text-[#07111F] sm:text-xl dark:text-[#F8FAFC]">Sign In</CardTitle>
               <CardDescription className="text-xs text-[#64748B] sm:text-sm dark:text-slate-400">
@@ -230,7 +230,7 @@ export function LoginPage({ onLogin, onBackToWebsite, onShowRegister, onShowPass
 
                     <Button 
                       type="submit" 
-                      className="mt-4 h-10 w-full rounded-md border border-[#0077CC]/30 bg-gradient-to-r from-[#0077CC] to-[#00A7A8] text-sm font-semibold text-white shadow-[0_12px_26px_-22px_rgba(0,119,204,0.78)] transition-all duration-200 hover:from-[#006AB8] hover:to-[#009896] active:scale-[0.98] sm:h-10 touch-manipulation dark:from-[#0077ff] dark:to-[#00d6c4] dark:hover:from-[#006eea] dark:hover:to-[#00c5b5] dark:shadow-[0_14px_34px_-26px_rgba(0,194,255,0.72)]"
+                      className="mt-4 h-10 w-full rounded-md border border-cyan-500/30 bg-[linear-gradient(90deg,#00D4FF,#008CFF)] text-sm font-semibold text-white shadow-[0_12px_26px_-22px_rgba(0,140,255,0.78)] transition-all duration-200 hover:brightness-95 active:scale-[0.98] sm:h-10 touch-manipulation dark:shadow-[0_14px_34px_-26px_rgba(0,212,255,0.72)]"
                       disabled={isLoading}
                     >
                       {isLoading ? (
@@ -296,7 +296,7 @@ export function LoginPage({ onLogin, onBackToWebsite, onShowRegister, onShowPass
                       </div>
                       <div className="border-t border-[#CFE0EF] pt-2 dark:border-cyan-300/10">
                         <p className="text-xs leading-relaxed text-[#64748B] dark:text-slate-400">
-                          <span className="inline-flex items-center gap-1.5 text-emerald-600 dark:text-emerald-300">
+                          <span className="inline-flex items-center gap-1.5 text-cyan-600 dark:text-cyan-300">
                             <CheckCircle size={14} weight="fill" />
                             <span className="font-medium">Private & Secure</span>
                           </span>
@@ -310,14 +310,14 @@ export function LoginPage({ onLogin, onBackToWebsite, onShowRegister, onShowPass
                     <Button 
                       onClick={handleShowBiometric}
                       disabled={!email}
-                      className="h-10 w-full rounded-md border border-[#0077CC]/30 bg-gradient-to-r from-[#0077CC] to-[#00A7A8] text-sm font-semibold text-white shadow-[0_12px_26px_-22px_rgba(0,119,204,0.78)] transition-all duration-200 hover:from-[#006AB8] hover:to-[#009896] active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-50 touch-manipulation dark:from-[#0077ff] dark:to-[#00d6c4] dark:hover:from-[#006eea] dark:hover:to-[#00c5b5] dark:shadow-[0_14px_34px_-26px_rgba(0,194,255,0.72)]"
+                      className="h-10 w-full rounded-md border border-cyan-500/30 bg-[linear-gradient(90deg,#00D4FF,#008CFF)] text-sm font-semibold text-white shadow-[0_12px_26px_-22px_rgba(0,140,255,0.78)] transition-all duration-200 hover:brightness-95 active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-50 touch-manipulation dark:shadow-[0_14px_34px_-26px_rgba(0,212,255,0.72)]"
                     >
                       <Fingerprint size={17} weight="bold" className="mr-2" />
                       Continue with Biometric
                     </Button>
 
                     {biometricCredentials && biometricCredentials.some((credential) => credential.email === email) && email && (
-                      <div className="flex items-center justify-center gap-2 text-xs text-emerald-600 dark:text-emerald-300">
+                      <div className="flex items-center justify-center gap-2 text-xs text-cyan-600 dark:text-cyan-300">
                         <CheckCircle size={16} weight="fill" />
                         <span className="font-medium hidden sm:inline">Biometric credential registered for this account</span>
                         <span className="font-medium sm:hidden">Credential registered</span>
@@ -338,7 +338,7 @@ export function LoginPage({ onLogin, onBackToWebsite, onShowRegister, onShowPass
                       <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-success opacity-75"></span>
                       <span className="relative inline-flex rounded-full h-2 w-2 sm:h-2.5 sm:w-2.5 bg-success"></span>
                     </span>
-                    <span className="text-[10px] font-semibold text-emerald-600 dark:text-emerald-300 sm:text-xs">Demo Mode Active</span>
+                    <span className="text-[10px] font-semibold text-cyan-600 dark:text-cyan-300 sm:text-xs">Demo Mode Active</span>
                   </span>
                   <span className="text-[10px] text-[#64748B] sm:text-xs dark:text-slate-400">Use any credentials</span>
                 </div>

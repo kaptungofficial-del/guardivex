@@ -112,7 +112,7 @@ export function LiveChatWidget({
         <Button
           variant="outline"
           onClick={() => onOpenChange(true)}
-          className="h-11 rounded-full border border-border/70 bg-white px-3.5 text-[#07111F] shadow-[0_18px_42px_-28px_rgba(7,17,31,0.55)] hover:border-primary/25 hover:bg-secondary/80 dark:border-[rgba(0,194,255,0.16)] dark:bg-[rgba(3,10,24,0.92)] dark:text-[#E2E8F0] dark:hover:border-primary/24 dark:hover:bg-[rgba(11,18,32,0.96)]"
+          className="h-11 rounded-full border border-border/70 bg-white px-3.5 text-[#07111F] shadow-[0_18px_42px_-28px_rgba(7,17,31,0.55)] hover:border-primary/25 hover:bg-secondary/80 dark:border-[rgba(0,212,255,0.16)] dark:bg-[rgba(7,29,51,0.92)] dark:text-[#E2E8F0] dark:hover:border-primary/24 dark:hover:bg-[rgba(7,29,51,0.96)]"
           aria-label="Open live chat"
           title="Open live chat"
         >
@@ -128,8 +128,8 @@ export function LiveChatWidget({
 
   return (
     <div className="fixed bottom-4 right-4 z-50 w-[min(21rem,calc(100vw-2rem))] sm:bottom-6 sm:right-6 sm:w-[320px]">
-      <div className="overflow-hidden rounded-lg border border-border/75 bg-white/95 shadow-[0_24px_70px_-44px_rgba(7,17,31,0.55)] dark:border-[rgba(0,194,255,0.13)] dark:bg-[rgba(3,10,24,0.94)]">
-        <div className="px-2.5 py-1.5 border-b border-border/70 bg-white/90 backdrop-blur-sm flex items-center justify-between dark:border-[rgba(0,194,255,0.08)] dark:bg-[rgba(11,18,32,0.72)]">
+      <div className="overflow-hidden rounded-lg border border-border/75 bg-white/95 shadow-[0_24px_70px_-44px_rgba(7,17,31,0.55)] dark:border-[rgba(0,212,255,0.12)] dark:bg-[rgba(7,29,51,0.94)]">
+        <div className="px-2.5 py-1.5 border-b border-border/70 bg-white/90 backdrop-blur-sm flex items-center justify-between dark:border-[rgba(0,212,255,0.08)] dark:bg-[rgba(7,29,51,0.72)]">
           <div className="flex items-center gap-2">
             <div className="relative flex items-center">
               <Circle size={7} weight="fill" className="text-success/90" />
@@ -162,7 +162,7 @@ export function LiveChatWidget({
                 className={`max-w-[85%] rounded-md px-2 py-1.5 text-[12px] ${
                   message.sender === "user"
                     ? "bg-primary text-primary-foreground"
-                    : "bg-secondary border border-border text-[#07111F] dark:bg-[rgba(11,18,32,0.82)] dark:border-[rgba(0,194,255,0.08)] dark:text-[#E2E8F0]"
+                    : "bg-secondary border border-border text-[#07111F] dark:bg-[rgba(7,29,51,0.82)] dark:border-[rgba(0,212,255,0.08)] dark:text-[#E2E8F0]"
                 }`}
               >
                 <p>{message.text}</p>
@@ -178,20 +178,20 @@ export function LiveChatWidget({
           ))}
           {isTyping && (
             <div className="flex justify-start">
-              <div className="bg-secondary border border-border rounded-md px-2 py-1.5 text-[11px] text-[#64748B] dark:bg-[rgba(11,18,32,0.82)] dark:border-[rgba(0,194,255,0.08)] dark:text-muted-foreground">
+              <div className="bg-secondary border border-border rounded-md px-2 py-1.5 text-[11px] text-[#64748B] dark:bg-[rgba(7,29,51,0.82)] dark:border-[rgba(0,212,255,0.08)] dark:text-muted-foreground">
                 Agent is typing...
               </div>
             </div>
           )}
         </div>
 
-        <div className="px-2.5 py-1.5 border-t border-[#D8E3EE]/80 bg-white/88 dark:border-[rgba(0,194,255,0.08)] dark:bg-[rgba(11,18,32,0.72)]">
+        <div className="px-2.5 py-1.5 border-t border-[#D8E3EE]/80 bg-white/88 dark:border-[rgba(0,212,255,0.08)] dark:bg-[rgba(7,29,51,0.72)]">
           <div className="flex flex-wrap gap-1.5 mb-2">
             {QUICK_REPLIES.map((reply) => (
               <button
                 key={reply}
                 onClick={() => sendMessage(reply)}
-                className="text-[10px] px-1.5 py-0.5 rounded-sm border border-border/75 text-[#07111F] hover:text-[#07111F] hover:border-primary/16 hover:bg-secondary transition-colors dark:border-[rgba(0,194,255,0.08)] dark:text-[#E2E8F0] dark:hover:text-[#F8FAFC] dark:hover:border-primary/14 dark:hover:bg-[rgba(0,194,255,0.04)]"
+                className="text-[10px] px-1.5 py-0.5 rounded-sm border border-border/75 text-[#07111F] hover:text-[#07111F] hover:border-primary/16 hover:bg-secondary transition-colors dark:border-[rgba(0,212,255,0.08)] dark:text-[#E2E8F0] dark:hover:text-[#F8FAFC] dark:hover:border-primary/14 dark:hover:bg-[rgba(0,212,255,0.08)]"
               >
                 {reply}
               </button>
@@ -208,7 +208,7 @@ export function LiveChatWidget({
               value={draft}
               onChange={(e) => setDraft(e.target.value)}
               placeholder="Type your message"
-              className="h-8 flex-1 rounded-sm border border-border bg-white px-2 text-[12px] text-[#07111F] placeholder:text-[#64748B] outline-none focus:ring-2 focus:ring-primary/20 dark:border-[rgba(0,194,255,0.08)] dark:bg-[rgba(3,10,24,0.68)] dark:text-[#E2E8F0] dark:placeholder:text-muted-foreground"
+              className="h-8 flex-1 rounded-sm border border-border bg-white px-2 text-[12px] text-[#07111F] placeholder:text-[#64748B] outline-none focus:ring-2 focus:ring-primary/20 dark:border-[rgba(0,212,255,0.08)] dark:bg-[rgba(7,29,51,0.68)] dark:text-[#E2E8F0] dark:placeholder:text-muted-foreground"
             />
             <Button type="submit" size="icon" disabled={!canSend} aria-label="Send message" title="Send message">
               <PaperPlaneTilt size={16} weight="fill" />

@@ -362,13 +362,13 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
         <div className="max-w-[1440px] mx-auto px-5 sm:px-8 xl:px-14 2xl:px-16">
           <div className="flex h-6 items-center justify-between sm:h-7">
             <div className="flex min-w-0 items-center gap-2.5 text-[10.5px] font-medium text-[var(--gvx-hero-muted)] sm:gap-3">
-              <HeaderStatusBadge label="Research Lab" className="hidden min-[380px]:inline-flex border-emerald-500/20 bg-emerald-500/8 text-emerald-600 dark:text-emerald-300" />
+              <HeaderStatusBadge label="Research Lab" className="hidden min-[380px]:inline-flex border-cyan-500/20 bg-cyan-500/8 text-cyan-600 dark:text-cyan-300" />
               <div className="hidden items-center gap-1.5 border-l border-[var(--gvx-hero-border)] pl-3 md:flex">
                 <CloudCheck size={13} weight="duotone" className="text-[var(--gvx-hero-accent)]" />
                 <span>Governed AI Recommendations</span>
               </div>
               <div className="hidden items-center gap-1.5 border-l border-[var(--gvx-hero-border)] pl-3 lg:flex">
-                <Pulse size={13} weight="duotone" className="text-emerald-500 dark:text-emerald-300" />
+                <Pulse size={13} weight="duotone" className="text-[var(--gvx-hero-accent-2)]" />
                 <span>Human Approval Gates</span>
               </div>
               <div className="hidden items-center gap-1.5 border-l border-[var(--gvx-hero-border)] pl-3 xl:flex">
@@ -383,7 +383,7 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
               >
                 <ChatCircle size={12} weight="bold" className="group-hover:scale-110 transition-transform" />
                 <span className="tracking-wide">Live Chat</span>
-                <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
+                <span className="h-1.5 w-1.5 rounded-full bg-[var(--gvx-hero-accent-2)]" />
               </button>
               <div className="ml-2 hidden items-center gap-1.5 border-l border-[var(--gvx-hero-border)] pl-2 sm:flex">
                 {socialLinks.map((social) => (
@@ -579,7 +579,7 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
                     <a
                       key={social.label}
                       href={social.url}
-                      className="w-9 h-9 sm:w-11 sm:h-11 flex items-center justify-center rounded-lg text-muted-foreground hover:text-primary hover:bg-[rgba(0,199,232,0.08)] active:bg-[rgba(0,199,232,0.12)] border border-[rgba(0,199,232,0.16)] hover:border-primary/30 transition-all duration-200 active:scale-95"
+                      className="w-9 h-9 sm:w-11 sm:h-11 flex items-center justify-center rounded-lg text-muted-foreground hover:text-primary hover:bg-cyan-500/8 active:bg-cyan-500/12 border border-cyan-500/20 hover:border-primary/30 transition-all duration-200 active:scale-95"
                       aria-label={social.label}
                     >
                       <social.icon size={17} weight="bold" className="sm:w-5 sm:h-5" />

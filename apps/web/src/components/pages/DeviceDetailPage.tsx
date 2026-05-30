@@ -19,7 +19,7 @@ function labelFor(value: unknown) {
 
 function StatusBadge({ status }: { status: string }) {
   const Icon = status === "online" ? Circle : CircleDashed
-  const tone = status === "online" ? "text-emerald-500" : status === "offline" ? "text-destructive" : "text-warning"
+  const tone = status === "online" ? "text-cyan-500" : status === "offline" ? "text-destructive" : "text-warning"
 
   return (
     <Badge variant="secondary" className="w-fit gap-1.5 capitalize">
@@ -69,7 +69,7 @@ export function DeviceDetailPage({ deviceId, onBack }: DeviceDetailPageProps) {
           </div>
           <p className="text-sm text-muted-foreground">Tenant-scoped detail view with recent events and alerts.</p>
         </div>
-        <Badge variant="outline" className="w-fit border-emerald-500/30 bg-emerald-500/10 text-emerald-700 dark:text-emerald-300">
+        <Badge variant="outline" className="w-fit border-cyan-500/20 bg-cyan-500/8 text-cyan-700 dark:text-cyan-300">
           <ShieldCheck size={13} weight="fill" className="mr-1" />Read-only inventory
         </Badge>
       </div>
