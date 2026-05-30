@@ -110,6 +110,7 @@ export function LiveChatWidget({
     return (
       <div className="fixed bottom-4 right-4 z-50 sm:bottom-6 sm:right-6">
         <Button
+          variant="outline"
           onClick={() => onOpenChange(true)}
           className="h-11 rounded-full border border-border/70 bg-white px-3.5 text-[#07111F] shadow-[0_18px_42px_-28px_rgba(7,17,31,0.55)] hover:border-primary/25 hover:bg-secondary/80 dark:border-[rgba(0,194,255,0.16)] dark:bg-[rgba(3,10,24,0.92)] dark:text-[#E2E8F0] dark:hover:border-primary/24 dark:hover:bg-[rgba(11,18,32,0.96)]"
           aria-label="Open live chat"

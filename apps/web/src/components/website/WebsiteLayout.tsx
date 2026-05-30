@@ -246,7 +246,7 @@ function HomePage({ onNavigate }: { onNavigate: (page: string) => void }) {
   const heroAssurances = ["No direct hardware control", "Tenant-scoped research", "Human approval gates"]
   const heroProofPoints = [
     ["AI direct actions", "0"],
-    ["Response model", "Human approval"],
+    ["Human review", "Required"],
     ["Evidence scope", "Tenant isolated"],
   ]
 
@@ -256,20 +256,20 @@ function HomePage({ onNavigate }: { onNavigate: (page: string) => void }) {
         <div className="absolute inset-0 -z-10 bg-[linear-gradient(135deg,var(--gvx-hero-bg)_0%,var(--gvx-hero-bg-soft)_52%,var(--gvx-hero-bg)_100%)]" />
         <div className="absolute inset-0 -z-10 opacity-[0.035] bg-[linear-gradient(var(--gvx-hero-accent)_1px,transparent_1px),linear-gradient(90deg,var(--gvx-hero-accent)_1px,transparent_1px)] bg-[size:64px_64px]" />
         <div className="absolute left-[8%] top-12 -z-10 h-56 w-56 rounded-full bg-[radial-gradient(circle,var(--gvx-hero-glow),transparent_68%)]" />
-        <div className="absolute right-[8%] top-24 -z-10 h-64 w-64 rounded-full bg-[radial-gradient(circle,rgba(0,215,230,0.08),transparent_70%)]" />
+        <div className="absolute right-[8%] top-24 -z-10 h-64 w-64 rounded-full bg-[radial-gradient(circle,rgba(0,215,230,0.07),transparent_70%)]" />
 
-        <div className="mx-auto grid min-h-[calc(100svh-132px)] w-full max-w-[1180px] gap-7 px-4 py-9 sm:min-h-[560px] sm:px-8 sm:py-13 md:gap-9 lg:min-h-[590px] lg:grid-cols-[minmax(0,0.98fr)_minmax(340px,0.72fr)] lg:items-center lg:px-10 lg:py-15 xl:px-12">
+        <div className="mx-auto grid w-full max-w-[1180px] gap-8 px-4 py-10 sm:px-8 sm:py-14 md:gap-10 lg:grid-cols-[minmax(0,0.95fr)_minmax(340px,0.68fr)] lg:items-center lg:px-10 lg:py-16 xl:px-12">
           <div className="min-w-0 text-center lg:text-left">
             <div className="inline-flex max-w-full items-center gap-2 rounded-md border border-[var(--gvx-hero-border)] bg-[var(--gvx-menu-bg)] px-3 py-1.5 text-[9px] font-semibold uppercase tracking-[0.14em] text-[var(--gvx-hero-muted)] shadow-[0_14px_34px_-30px_rgba(0,143,240,0.30)] sm:text-[9.5px]">
               <ShieldCheck size={13} weight="fill" className="text-[var(--gvx-hero-accent)]" />
               Governed cyber research platform
             </div>
 
-            <h1 className="mx-auto mt-5 max-w-[820px] font-heading text-[clamp(2.28rem,8.2vw,4.45rem)] font-extrabold leading-[1.04] tracking-normal text-[var(--gvx-hero-text)] [text-wrap:balance] sm:leading-[1] lg:mx-0">
+            <h1 className="mx-auto mt-5 max-w-[760px] font-heading text-[clamp(2.15rem,6.3vw,4.05rem)] font-extrabold leading-[1.06] tracking-normal text-[var(--gvx-hero-text)] [text-wrap:balance] sm:leading-[1.03] lg:mx-0">
               Cyber research operations without unsafe automation.
             </h1>
 
-            <p className="mx-auto mt-5 max-w-[690px] text-[1rem] leading-[1.72] text-[var(--gvx-hero-muted)] sm:text-[1.08rem] lg:mx-0">
+            <p className="mx-auto mt-5 max-w-[650px] text-[0.98rem] leading-[1.72] text-[var(--gvx-hero-muted)] sm:text-[1.04rem] lg:mx-0">
               Guardivex gives security teams a controlled workspace for telemetry, IOCs, incident research, evidence handling, and AI-assisted recommendations that never execute physical actions.
             </p>
 
@@ -302,23 +302,21 @@ function HomePage({ onNavigate }: { onNavigate: (page: string) => void }) {
             </div>
           </div>
 
-          <div className="mx-auto grid w-full max-w-[440px] gap-3 lg:mx-0 lg:max-w-none">
-            <div className="rounded-2xl border border-[var(--gvx-menu-border)] bg-[var(--gvx-menu-bg)] p-2 shadow-[0_30px_90px_-58px_rgba(0,143,240,0.45)]">
-              <img
-                src="/ai-boundary.svg"
-                alt="AI boundary: recommendation-only decision path with human approval gates"
-                className="block h-auto w-full rounded-xl"
-                loading="eager"
-                decoding="async"
-              />
-            </div>
-            <div className="grid grid-cols-3 overflow-hidden rounded-lg border border-[var(--gvx-hero-border)] bg-[var(--gvx-menu-bg)] text-center shadow-[0_18px_42px_-38px_rgba(7,17,31,0.28)]">
-              {[["Signals", "50k+"], ["Mapped", "MITRE"], ["AI actions", "0"]].map(([label, value]) => (
-                <div key={label} className="border-r border-[var(--gvx-hero-border)] px-2 py-3 last:border-r-0">
-                  <div className="text-[9px] font-semibold uppercase tracking-[0.12em] text-[var(--gvx-hero-subtle)]">{label}</div>
-                  <div className="mt-1 font-heading text-sm font-bold text-[var(--gvx-hero-text)]">{value}</div>
-                </div>
-              ))}
+          <div className="mx-auto w-full max-w-[430px] lg:mx-0 lg:justify-self-end xl:max-w-[460px]">
+            <div className="overflow-hidden rounded-xl border border-[var(--gvx-menu-border)] bg-[var(--gvx-menu-bg)] shadow-[0_30px_86px_-60px_rgba(0,143,240,0.50)]">
+              <div className="flex items-center justify-between border-b border-[var(--gvx-hero-border)] px-3 py-2 text-[10px] font-semibold uppercase tracking-[0.13em] text-[var(--gvx-hero-subtle)]">
+                <span>AI operating boundary</span>
+                <span className="rounded-full border border-[var(--gvx-hero-border)] bg-[var(--gvx-hero-accent-soft)] px-2 py-0.5 text-[var(--gvx-hero-accent)]">0 direct actions</span>
+              </div>
+              <div className="p-2.5">
+                <img
+                  src="/ai-boundary.svg"
+                  alt="AI boundary: recommendation-only decision path with human approval gates"
+                  className="block h-auto w-full rounded-lg"
+                  loading="eager"
+                  decoding="async"
+                />
+              </div>
             </div>
           </div>
         </div>
