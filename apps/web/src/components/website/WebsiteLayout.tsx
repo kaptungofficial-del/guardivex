@@ -282,7 +282,7 @@ function HomePage({ onNavigate }: { onNavigate: (page: string) => void }) {
             </div>
 
             <div className="mt-6 flex flex-col items-center justify-center gap-3 min-[440px]:flex-row lg:justify-start">
-              <Button size="lg" onClick={() => onNavigate("download")} className="h-11 w-full max-w-[330px] rounded-md border border-[color:var(--gvx-hero-accent)] bg-[linear-gradient(135deg,var(--gvx-hero-accent),var(--gvx-hero-accent-2))] bg-none px-4 text-[0.84rem] font-semibold text-white shadow-[0_20px_48px_-30px_rgba(0,143,240,0.70)] transition-all duration-200 hover:-translate-y-0.5 hover:brightness-95 focus-visible:ring-[var(--gvx-hero-accent)] min-[440px]:w-auto">
+              <Button size="lg" onClick={() => onNavigate("download")} className="h-11 w-full max-w-[330px] rounded-md border border-[color:var(--gvx-hero-accent)] bg-[linear-gradient(135deg,var(--gvx-hero-accent),var(--gvx-hero-accent-2))] px-4 text-[0.84rem] font-semibold text-white shadow-[0_20px_48px_-30px_rgba(0,143,240,0.70)] transition-all duration-200 hover:-translate-y-0.5 hover:brightness-95 focus-visible:ring-[var(--gvx-hero-accent)] min-[440px]:w-auto">
                 <CloudArrowDown size={16} className="mr-2" weight="bold" />
                 Deploy Research Server
               </Button>
@@ -304,9 +304,9 @@ function HomePage({ onNavigate }: { onNavigate: (page: string) => void }) {
 
           <div className="mx-auto w-full max-w-[430px] lg:mx-0 lg:justify-self-end xl:max-w-[460px]">
             <div className="overflow-hidden rounded-xl border border-[var(--gvx-menu-border)] bg-[var(--gvx-menu-bg)] shadow-[0_30px_86px_-60px_rgba(0,143,240,0.50)]">
-              <div className="flex items-center justify-between border-b border-[var(--gvx-hero-border)] px-3 py-2 text-[10px] font-semibold uppercase tracking-[0.13em] text-[var(--gvx-hero-subtle)]">
+              <div className="flex flex-wrap items-center justify-between gap-2 border-b border-[var(--gvx-hero-border)] px-3 py-2 text-[10px] font-semibold uppercase tracking-[0.13em] text-[var(--gvx-hero-subtle)]">
                 <span>AI operating boundary</span>
-                <span className="rounded-full border border-[var(--gvx-hero-border)] bg-[var(--gvx-hero-accent-soft)] px-2 py-0.5 text-[var(--gvx-hero-accent)]">0 direct actions</span>
+                <span className="shrink-0 rounded-full border border-[var(--gvx-hero-border)] bg-[var(--gvx-hero-accent-soft)] px-2 py-0.5 text-[var(--gvx-hero-accent)]">0 direct actions</span>
               </div>
               <div className="p-2.5">
                 <img
