@@ -249,8 +249,8 @@ h6 {
 
 .guardivex-home-typography :where(h1) {
   font-weight: 800;
-  line-height: 0.98;
-  letter-spacing: -0.038em;
+  line-height: 1.03;
+  letter-spacing: 0;
 }
 
 .guardivex-home-typography :where(h2) {

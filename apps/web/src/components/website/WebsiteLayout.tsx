@@ -245,6 +245,12 @@ function HomePage({ onNavigate }: { onNavigate: (page: string) => void }) {
     ["Human review", "Required"],
     ["Evidence scope", "Tenant isolated"],
   ]
+  const heroQueueRows = [
+    { label: "Credential abuse campaign", source: "Identity + endpoint", status: "Triage" },
+    { label: "Suspicious script chain", source: "EDR telemetry", status: "Research" },
+    { label: "Emerging IOC cluster", source: "Threat intel", status: "Enriched" },
+  ]
+  const heroBoundarySteps = ["Recommend", "Review", "Approve", "Audit"]
 
   return (
     <div className="relative guardivex-home-typography overflow-x-clip bg-[var(--gvx-hero-bg)] text-[var(--gvx-hero-text)]">
@@ -252,15 +258,15 @@ function HomePage({ onNavigate }: { onNavigate: (page: string) => void }) {
         <div className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,#F8FAFC_0%,#EAF6FF_100%)] dark:bg-[linear-gradient(180deg,#021526_0%,#071D33_100%)]" />
         <div className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_44%_18%,rgba(0,212,255,0.13),transparent_42%),linear-gradient(rgba(0,140,255,0.10)_1px,transparent_1px),linear-gradient(90deg,rgba(0,140,255,0.10)_1px,transparent_1px)] bg-[size:100%_100%,72px_72px,72px_72px] opacity-[0.55] dark:bg-[radial-gradient(ellipse_at_44%_18%,rgba(0,212,255,0.16),transparent_42%),linear-gradient(rgba(0,212,255,0.20)_1px,transparent_1px),linear-gradient(90deg,rgba(0,212,255,0.20)_1px,transparent_1px)] dark:opacity-[0.22]" />
 
-        <div className="mx-auto grid w-full max-w-[1220px] gap-8 px-4 py-10 sm:px-8 sm:py-14 md:gap-10 lg:grid-cols-[minmax(0,0.96fr)_minmax(360px,0.78fr)] lg:items-center lg:px-10 lg:py-16 xl:px-12">
+        <div className="mx-auto grid w-full max-w-[1220px] gap-8 px-4 py-10 sm:px-8 sm:py-14 md:gap-10 lg:grid-cols-[minmax(0,0.88fr)_minmax(420px,1.12fr)] lg:items-center lg:px-10 lg:py-16 xl:px-12 xl:py-[4.5rem]">
           <div className="min-w-0 text-center lg:text-left">
             <div className="inline-flex max-w-full items-center gap-2 rounded-md border border-cyan-500/20 bg-cyan-500/8 px-3 py-1.5 text-[9px] font-semibold uppercase tracking-[0.14em] text-[var(--gvx-hero-muted)] shadow-[0_14px_34px_-30px_rgba(0,212,255,0.30)] sm:text-[9.5px]">
               <ShieldCheck size={13} weight="fill" className="text-[var(--gvx-hero-accent)]" />
               Governed cyber research platform
             </div>
 
-            <h1 className="mx-auto mt-5 max-w-[760px] font-heading text-[2.35rem] font-extrabold leading-[1.06] tracking-normal text-[var(--gvx-hero-text)] [text-wrap:balance] sm:text-[3.25rem] sm:leading-[1.03] lg:mx-0 lg:text-[4.05rem]">
-              Enterprise Security <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">Platform</span>
+            <h1 className="mx-auto mt-5 max-w-[760px] font-heading text-[2.45rem] font-extrabold leading-[1.03] tracking-normal text-[var(--gvx-hero-text)] [text-wrap:balance] sm:text-[3.35rem] lg:mx-0 lg:text-[4.15rem]">
+              Guardivex Security <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">Platform</span>
             </h1>
 
             <p className="mx-auto mt-5 max-w-[650px] text-[0.98rem] leading-[1.72] text-[var(--gvx-hero-muted)] sm:text-[1.04rem] lg:mx-0">
@@ -286,38 +292,80 @@ function HomePage({ onNavigate }: { onNavigate: (page: string) => void }) {
               </Button>
             </div>
 
-            <div className="mx-auto mt-7 grid max-w-[680px] grid-cols-1 overflow-hidden rounded-lg border border-cyan-500/20 bg-[var(--gvx-hero-card)] text-left shadow-[0_20px_54px_-46px_rgba(0,212,255,0.34)] min-[520px]:grid-cols-3 lg:mx-0">
-              {heroProofPoints.map(([label, value]) => (
-                <div key={label} className="border-b border-[var(--gvx-hero-border)] px-4 py-3 last:border-b-0 min-[520px]:border-b-0 min-[520px]:border-r min-[520px]:last:border-r-0">
-                  <div className="text-[10px] font-semibold uppercase tracking-[0.13em] text-[var(--gvx-hero-muted)]">{label}</div>
-                  <div className="mt-1 font-heading text-sm font-bold text-[var(--gvx-hero-text)]">{value}</div>
-                </div>
-              ))}
+            <div className="mx-auto mt-6 flex max-w-[620px] items-center justify-center gap-2 text-xs font-semibold text-[var(--gvx-hero-muted)] lg:mx-0 lg:justify-start">
+              <CheckCircle size={15} weight="fill" className="shrink-0 text-[var(--gvx-hero-accent)]" />
+              <span>Every high-risk response remains behind review, policy, and audit.</span>
             </div>
           </div>
 
-          <div className="mx-auto w-full max-w-[500px] lg:mx-0 lg:justify-self-end xl:max-w-[540px]">
-            <div className="overflow-hidden rounded-xl border border-cyan-500/20 bg-[var(--gvx-hero-card)] shadow-[0_32px_92px_-62px_rgba(0,212,255,0.40)] dark:shadow-[0_32px_92px_-62px_rgba(0,212,255,0.58)]">
+          <div className="relative mx-auto w-full max-w-[620px] lg:mx-0 lg:justify-self-end">
+            <div className="absolute -inset-3 -z-10 rounded-[1rem] bg-[radial-gradient(ellipse_at_50%_18%,rgba(0,212,255,0.18),transparent_62%)] blur-2xl dark:bg-[radial-gradient(ellipse_at_50%_18%,rgba(0,212,255,0.16),transparent_62%)]" />
+            <div className="overflow-hidden rounded-xl border border-cyan-500/20 bg-[var(--gvx-hero-card)] shadow-[0_32px_92px_-62px_rgba(0,212,255,0.36)] dark:shadow-[0_32px_92px_-62px_rgba(0,212,255,0.58)]">
               <div className="h-1.5 bg-[linear-gradient(90deg,#00D4FF,#008CFF)]" />
-              <div className="flex flex-wrap items-center justify-between gap-2 border-b border-cyan-500/20 px-3 py-2 text-[10px] font-semibold uppercase tracking-[0.13em] text-[var(--gvx-hero-muted)]">
-                <span>AI operating boundary</span>
-                <span className="shrink-0 rounded-full border border-[var(--gvx-hero-border)] bg-[var(--gvx-hero-accent-soft)] px-2 py-0.5 text-[var(--gvx-hero-accent)]">0 direct actions</span>
+              <div className="flex flex-wrap items-center justify-between gap-2 border-b border-cyan-500/20 px-4 py-3 text-[10px] font-semibold uppercase tracking-[0.13em] text-[var(--gvx-hero-muted)]">
+                <span className="flex items-center gap-2 text-[var(--gvx-hero-text)]">
+                  <Monitor size={15} weight="duotone" className="text-[var(--gvx-hero-accent)]" />
+                  Research command surface
+                </span>
+                <span className="shrink-0 rounded-full border border-[var(--gvx-hero-border)] bg-[var(--gvx-hero-accent-soft)] px-2 py-0.5 text-[var(--gvx-hero-accent)]">Recommendation-only AI</span>
               </div>
-              <div className="aspect-[17/13] p-1.5 sm:p-2">
-                <img
-                  src="/ai-boundary.svg"
-                  alt="AI boundary: recommendation-only decision path with human approval gates"
-                  className="block h-full w-full rounded-lg object-contain"
-                  loading="eager"
-                  decoding="async"
-                />
+
+              <div className="grid lg:grid-cols-[minmax(0,1fr)_210px]">
+                <div className="min-w-0">
+                  <div className="grid grid-cols-3 border-b border-[var(--gvx-hero-border)]">
+                    {heroProofPoints.map(([label, value]) => (
+                      <div key={label} className="border-r border-[var(--gvx-hero-border)] px-3 py-3 last:border-r-0">
+                        <div className="text-[9px] font-semibold uppercase tracking-[0.12em] text-[var(--gvx-hero-muted)]">{label}</div>
+                        <div className="mt-1 font-heading text-sm font-bold text-[var(--gvx-hero-text)]">{value}</div>
+                      </div>
+                    ))}
+                  </div>
+
+                  <div className="divide-y divide-[var(--gvx-hero-border)]">
+                    {heroQueueRows.map((row) => (
+                      <div key={row.label} className="grid gap-2 px-4 py-3 min-[520px]:grid-cols-[minmax(0,1fr)_132px_86px] min-[520px]:items-center">
+                        <div className="min-w-0">
+                          <div className="truncate text-sm font-semibold text-[var(--gvx-hero-text)]">{row.label}</div>
+                          <div className="text-xs text-[var(--gvx-hero-muted)]">{row.source}</div>
+                        </div>
+                        <div className="text-xs font-medium text-[var(--gvx-hero-muted)]">Human review</div>
+                        <div className="text-xs font-semibold text-[var(--gvx-hero-accent)]">{row.status}</div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="border-t border-[var(--gvx-hero-border)] bg-[var(--gvx-hero-bg-soft)] p-4 lg:border-l lg:border-t-0">
+                  <div className="mb-3 flex items-center justify-between gap-2">
+                    <div>
+                      <div className="text-[9px] font-semibold uppercase tracking-[0.13em] text-[var(--gvx-hero-muted)]">AI boundary</div>
+                      <div className="mt-1 text-sm font-bold text-[var(--gvx-hero-text)]">Safe response path</div>
+                    </div>
+                    <Lock size={18} weight="duotone" className="text-[var(--gvx-hero-accent)]" />
+                  </div>
+                  <div className="mb-3 overflow-hidden rounded-lg border border-[var(--gvx-hero-border)] bg-[var(--gvx-hero-card)] p-1.5">
+                    <img
+                      src="/ai-boundary.svg"
+                      alt="AI boundary: recommendation-only decision path with human approval gates"
+                      className="block aspect-[17/13] w-full rounded-md object-contain"
+                      loading="eager"
+                      decoding="async"
+                    />
+                  </div>
+                  <div className="grid gap-2">
+                    {heroBoundarySteps.map((step, index) => (
+                      <div key={step} className="flex items-center gap-2 text-xs font-semibold text-[var(--gvx-hero-text)]">
+                        <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-md border border-cyan-500/20 bg-cyan-500/10 font-mono text-[9px] text-[var(--gvx-hero-accent)]">{index + 1}</span>
+                        {step}
+                      </div>
+                    ))}
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </section>
-
-      <DashboardPreviewSection />
 
       <ThreatResearchLabSection />
       <CyberResearchSystemSection capabilities={heroCapabilities} />
@@ -889,69 +937,6 @@ function SupportPage() {
         </CardContent>
       </Card>
     </div>
-  )
-}
-
-function DashboardPreviewSection() {
-  const researchRows = [
-    { label: "Credential abuse campaign", source: "Identity + endpoint", status: "Triage" },
-    { label: "Suspicious script chain", source: "EDR telemetry", status: "Research" },
-    { label: "Emerging IOC cluster", source: "Threat intel", status: "Enriched" },
-  ]
-
-  const consoleStats = [
-    ["Signals", "50k+"],
-    ["Mapped", "MITRE"],
-    ["AI actions", "0"],
-  ]
-
-  return (
-    <section className="border-t border-[var(--gvx-hero-border)] bg-[var(--gvx-hero-bg-soft)] px-4 py-8 sm:px-6 sm:py-10 lg:px-8">
-      <div className="mx-auto grid max-w-6xl gap-5 lg:grid-cols-[0.86fr_1.14fr] lg:items-center lg:gap-7">
-        <div>
-          <Badge className="mb-4 rounded-sm border-[var(--gvx-menu-border)] bg-[var(--gvx-menu-bg)] text-[var(--gvx-hero-muted)]">
-            Research Console
-          </Badge>
-          <h2 className="max-w-xl text-2xl font-heading font-bold leading-tight text-foreground sm:text-3xl">
-            One quiet workspace for investigation, evidence, and review.
-          </h2>
-          <p className="mt-3 max-w-xl text-sm leading-6 text-muted-foreground">
-            Move from raw signals to defensible findings with analyst notes, correlated telemetry, and review-ready evidence trails.
-          </p>
-        </div>
-
-        <div className="overflow-hidden rounded-lg border border-[var(--gvx-menu-border)] bg-[var(--gvx-menu-bg)] shadow-[0_22px_54px_-44px_rgba(7,17,31,0.42)]">
-          <div className="flex flex-col gap-2 border-b border-[var(--gvx-menu-border)] px-3 py-3 min-[420px]:flex-row min-[420px]:items-center min-[420px]:justify-between sm:px-4">
-            <div className="flex items-center gap-2 text-sm font-semibold text-foreground">
-              <Database size={17} weight="duotone" className="text-primary" />
-              Research queue
-            </div>
-            <Badge variant="outline" className="rounded-sm border-cyan-500/20 bg-cyan-500/8 text-cyan-600 dark:text-cyan-300">
-              Human review
-            </Badge>
-          </div>
-
-          <div className="grid grid-cols-1 border-b border-[var(--gvx-menu-border)] min-[420px]:grid-cols-3">
-            {consoleStats.map(([label, value]) => (
-              <div key={label} className="border-b border-[var(--gvx-menu-border)] px-3 py-3 last:border-b-0 min-[420px]:border-b-0 min-[420px]:border-r min-[420px]:last:border-r-0 sm:px-4">
-                <div className="text-[10px] uppercase tracking-[0.12em] text-muted-foreground">{label}</div>
-                <div className="mt-1 font-heading text-lg font-semibold text-foreground">{value}</div>
-              </div>
-            ))}
-          </div>
-
-          <div className="divide-y divide-[var(--gvx-menu-border)]">
-            {researchRows.map((row) => (
-              <div key={row.label} className="grid gap-2 px-3 py-3 sm:grid-cols-[minmax(0,1fr)_140px_96px] sm:items-center sm:px-4">
-                <div className="text-sm font-semibold text-foreground">{row.label}</div>
-                <div className="text-xs text-muted-foreground">{row.source}</div>
-                <div className="text-xs font-semibold text-primary">{row.status}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-    </section>
   )
 }
 
