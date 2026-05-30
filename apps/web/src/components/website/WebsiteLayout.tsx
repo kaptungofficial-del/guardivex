@@ -54,9 +54,9 @@ export function WebsiteLayout({ currentPage, onNavigate, onLogin }: WebsiteLayou
         {currentPage === "documentation" && <DocumentationPage />}
         {currentPage === "support" && <SupportPage />}
       </main>
-      <footer className="relative border-t border-border/40 bg-gradient-to-b from-card/20 via-card/40 to-card/60 mt-16 md:mt-24 overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(120,200,240,0.03),transparent_50%)]" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(120,200,240,0.02),transparent_50%)]" />
+      <footer className="relative mt-16 overflow-hidden border-t border-[var(--gvx-hero-border)] bg-[linear-gradient(180deg,var(--gvx-hero-bg),var(--gvx-hero-bg-soft))] md:mt-24">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(0,212,255,0.06),transparent_48%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_72%_82%,rgba(0,140,255,0.05),transparent_50%)]" />
         
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-12 md:py-16">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-10 sm:gap-12 md:gap-14 mb-10 sm:mb-12">
@@ -69,7 +69,7 @@ export function WebsiteLayout({ currentPage, onNavigate, onLogin }: WebsiteLayou
                   subtitleClassName="text-[10px] tracking-[0.14em] mt-1.5"
                 />
               </div>
-              <p className="text-sm text-muted-foreground dark:text-slate-300 max-w-md leading-relaxed">
+              <p className="max-w-md text-sm leading-relaxed text-muted-foreground">
                 Governed cyber research platform for telemetry correlation, evidence handling, and human-reviewed response planning.
               </p>
               <div className="flex flex-col gap-3.5">
@@ -99,28 +99,28 @@ export function WebsiteLayout({ currentPage, onNavigate, onLogin }: WebsiteLayou
               <div className="flex flex-col gap-3 sm:gap-3.5">
                 <button 
                   onClick={() => onNavigate("product")}
-                  className="text-sm text-muted-foreground dark:text-slate-300 hover:text-primary dark:hover:text-white hover:translate-x-1 transition-all text-left font-medium group flex items-center gap-2"
+                  className="text-sm text-muted-foreground hover:text-primary dark:hover:text-cyan-300 hover:translate-x-1 transition-all text-left font-medium group flex items-center gap-2"
                 >
                   <span className="w-1 h-1 rounded-full bg-border group-hover:bg-primary transition-colors shrink-0" />
                   Features
                 </button>
                 <button 
                   onClick={() => onNavigate("enterprise")}
-                  className="text-sm text-muted-foreground dark:text-slate-300 hover:text-primary dark:hover:text-white hover:translate-x-1 transition-all text-left font-medium group flex items-center gap-2"
+                  className="text-sm text-muted-foreground hover:text-primary dark:hover:text-cyan-300 hover:translate-x-1 transition-all text-left font-medium group flex items-center gap-2"
                 >
                   <span className="w-1 h-1 rounded-full bg-border group-hover:bg-primary transition-colors shrink-0" />
                   Enterprise Solutions
                 </button>
                 <button 
                   onClick={() => onNavigate("download")}
-                  className="text-sm text-muted-foreground dark:text-slate-300 hover:text-primary dark:hover:text-white hover:translate-x-1 transition-all text-left font-medium group flex items-center gap-2"
+                  className="text-sm text-muted-foreground hover:text-primary dark:hover:text-cyan-300 hover:translate-x-1 transition-all text-left font-medium group flex items-center gap-2"
                 >
                   <span className="w-1 h-1 rounded-full bg-border group-hover:bg-primary transition-colors shrink-0" />
                   Download
                 </button>
                 <button 
                   onClick={() => onNavigate("licensing")}
-                  className="text-sm text-muted-foreground dark:text-slate-300 hover:text-primary dark:hover:text-white hover:translate-x-1 transition-all text-left font-medium group flex items-center gap-2"
+                  className="text-sm text-muted-foreground hover:text-primary dark:hover:text-cyan-300 hover:translate-x-1 transition-all text-left font-medium group flex items-center gap-2"
                 >
                   <span className="w-1 h-1 rounded-full bg-border group-hover:bg-primary transition-colors shrink-0" />
                   Pricing & Licensing
@@ -133,27 +133,27 @@ export function WebsiteLayout({ currentPage, onNavigate, onLogin }: WebsiteLayou
               <div className="flex flex-col gap-3 sm:gap-3.5">
                 <button 
                   onClick={() => onNavigate("documentation")}
-                  className="text-sm text-muted-foreground dark:text-slate-300 hover:text-primary dark:hover:text-white hover:translate-x-1 transition-all text-left font-medium group flex items-center gap-2"
+                  className="text-sm text-muted-foreground hover:text-primary dark:hover:text-cyan-300 hover:translate-x-1 transition-all text-left font-medium group flex items-center gap-2"
                 >
                   <span className="w-1 h-1 rounded-full bg-border group-hover:bg-primary transition-colors shrink-0" />
                   Documentation
                 </button>
                 <button 
                   onClick={() => onNavigate("support")}
-                  className="text-sm text-muted-foreground dark:text-slate-300 hover:text-primary dark:hover:text-white hover:translate-x-1 transition-all text-left font-medium group flex items-center gap-2"
+                  className="text-sm text-muted-foreground hover:text-primary dark:hover:text-cyan-300 hover:translate-x-1 transition-all text-left font-medium group flex items-center gap-2"
                 >
                   <span className="w-1 h-1 rounded-full bg-border group-hover:bg-primary transition-colors shrink-0" />
                   Support Center
                 </button>
-                <button onClick={() => onNavigate("documentation")} className="text-sm text-muted-foreground dark:text-slate-300 hover:text-primary dark:hover:text-white hover:translate-x-1 transition-all font-medium group flex items-center gap-2 text-left">
+                <button onClick={() => onNavigate("documentation")} className="text-sm text-muted-foreground hover:text-primary dark:hover:text-cyan-300 hover:translate-x-1 transition-all font-medium group flex items-center gap-2 text-left">
                   <span className="w-1 h-1 rounded-full bg-border group-hover:bg-primary transition-colors shrink-0" />
                   API Reference
                 </button>
-                <button onClick={() => onNavigate("support")} className="text-sm text-muted-foreground dark:text-slate-300 hover:text-primary dark:hover:text-white hover:translate-x-1 transition-all font-medium group flex items-center gap-2 text-left">
+                <button onClick={() => onNavigate("support")} className="text-sm text-muted-foreground hover:text-primary dark:hover:text-cyan-300 hover:translate-x-1 transition-all font-medium group flex items-center gap-2 text-left">
                   <span className="w-1 h-1 rounded-full bg-border group-hover:bg-primary transition-colors shrink-0" />
                   Contact Support
                 </button>
-                <button onClick={() => onNavigate("support")} className="text-sm text-muted-foreground dark:text-slate-300 hover:text-primary dark:hover:text-white hover:translate-x-1 transition-all font-medium group flex items-center gap-2 text-left">
+                <button onClick={() => onNavigate("support")} className="text-sm text-muted-foreground hover:text-primary dark:hover:text-cyan-300 hover:translate-x-1 transition-all font-medium group flex items-center gap-2 text-left">
                   <span className="w-1 h-1 rounded-full bg-border group-hover:bg-primary transition-colors shrink-0" />
                   System Status
                 </button>
@@ -163,23 +163,23 @@ export function WebsiteLayout({ currentPage, onNavigate, onLogin }: WebsiteLayou
             <div>
               <h4 className="font-heading font-bold text-[13px] uppercase tracking-[0.15em] mb-4 sm:mb-5 text-foreground">Company</h4>
               <div className="flex flex-col gap-3 sm:gap-3.5">
-                <button onClick={() => onNavigate("support")} className="text-sm text-muted-foreground dark:text-slate-300 hover:text-primary dark:hover:text-white hover:translate-x-1 transition-all font-medium group flex items-center gap-2 text-left">
+                <button onClick={() => onNavigate("support")} className="text-sm text-muted-foreground hover:text-primary dark:hover:text-cyan-300 hover:translate-x-1 transition-all font-medium group flex items-center gap-2 text-left">
                   <span className="w-1 h-1 rounded-full bg-border group-hover:bg-primary transition-colors shrink-0" />
                   About Guardivex
                 </button>
-                <a href="mailto:research@guardivex.com" className="text-sm text-muted-foreground dark:text-slate-300 hover:text-primary dark:hover:text-white hover:translate-x-1 transition-all font-medium group flex items-center gap-2">
+                <a href="mailto:research@guardivex.com" className="text-sm text-muted-foreground hover:text-primary dark:hover:text-cyan-300 hover:translate-x-1 transition-all font-medium group flex items-center gap-2">
                   <span className="w-1 h-1 rounded-full bg-border group-hover:bg-primary transition-colors shrink-0" />
                   Contact Sales
                 </a>
-                <button onClick={() => onNavigate("documentation")} className="text-sm text-muted-foreground dark:text-slate-300 hover:text-primary dark:hover:text-white hover:translate-x-1 transition-all font-medium group flex items-center gap-2 text-left">
+                <button onClick={() => onNavigate("documentation")} className="text-sm text-muted-foreground hover:text-primary dark:hover:text-cyan-300 hover:translate-x-1 transition-all font-medium group flex items-center gap-2 text-left">
                   <span className="w-1 h-1 rounded-full bg-border group-hover:bg-primary transition-colors shrink-0" />
                   Documentation
                 </button>
-                <a href="mailto:security@guardivex.com" className="text-sm text-muted-foreground dark:text-slate-300 hover:text-primary dark:hover:text-white hover:translate-x-1 transition-all font-medium group flex items-center gap-2">
+                <a href="mailto:security@guardivex.com" className="text-sm text-muted-foreground hover:text-primary dark:hover:text-cyan-300 hover:translate-x-1 transition-all font-medium group flex items-center gap-2">
                   <span className="w-1 h-1 rounded-full bg-border group-hover:bg-primary transition-colors shrink-0" />
                   Security Contact
                 </a>
-                <button onClick={() => onNavigate("documentation")} className="text-sm text-muted-foreground dark:text-slate-300 hover:text-primary dark:hover:text-white hover:translate-x-1 transition-all font-medium group flex items-center gap-2 text-left">
+                <button onClick={() => onNavigate("documentation")} className="text-sm text-muted-foreground hover:text-primary dark:hover:text-cyan-300 hover:translate-x-1 transition-all font-medium group flex items-center gap-2 text-left">
                   <span className="w-1 h-1 rounded-full bg-border group-hover:bg-primary transition-colors shrink-0" />
                   Trust Center
                 </button>
@@ -189,20 +189,20 @@ export function WebsiteLayout({ currentPage, onNavigate, onLogin }: WebsiteLayou
           
           <div className="pt-8 sm:pt-10 border-t border-border/30">
             <div className="flex flex-col md:flex-row items-center justify-between gap-4 sm:gap-6 mb-6 sm:mb-8">
-              <div className="text-xs sm:text-sm text-muted-foreground dark:text-slate-300 text-center md:text-left order-2 md:order-1">
+              <div className="text-xs sm:text-sm text-muted-foreground text-center md:text-left order-2 md:order-1">
                 &copy; 2026 Guardivex. All rights reserved.
               </div>
-              <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 md:gap-8 text-xs text-muted-foreground dark:text-slate-300 font-medium order-1 md:order-2">
-                <button onClick={() => onNavigate("documentation")} className="hover:text-primary dark:hover:text-white transition-colors hover:underline decoration-primary decoration-2 underline-offset-4">
+              <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 md:gap-8 text-xs text-muted-foreground font-medium order-1 md:order-2">
+                <button onClick={() => onNavigate("documentation")} className="hover:text-primary dark:hover:text-cyan-300 transition-colors hover:underline decoration-primary decoration-2 underline-offset-4">
                   Privacy Policy
                 </button>
-                <button onClick={() => onNavigate("documentation")} className="hover:text-primary dark:hover:text-white transition-colors hover:underline decoration-primary decoration-2 underline-offset-4">
+                <button onClick={() => onNavigate("documentation")} className="hover:text-primary dark:hover:text-cyan-300 transition-colors hover:underline decoration-primary decoration-2 underline-offset-4">
                   Terms of Service
                 </button>
-                <button onClick={() => onNavigate("documentation")} className="hover:text-primary dark:hover:text-white transition-colors hover:underline decoration-primary decoration-2 underline-offset-4 hidden sm:inline">
+                <button onClick={() => onNavigate("documentation")} className="hover:text-primary dark:hover:text-cyan-300 transition-colors hover:underline decoration-primary decoration-2 underline-offset-4 hidden sm:inline">
                   Security
                 </button>
-                <button onClick={() => onNavigate("documentation")} className="hover:text-primary dark:hover:text-white transition-colors hover:underline decoration-primary decoration-2 underline-offset-4 hidden sm:inline">
+                <button onClick={() => onNavigate("documentation")} className="hover:text-primary dark:hover:text-cyan-300 transition-colors hover:underline decoration-primary decoration-2 underline-offset-4 hidden sm:inline">
                   Governance
                 </button>
               </div>
@@ -324,12 +324,12 @@ function HomePage({ onNavigate }: { onNavigate: (page: string) => void }) {
       <InvestigationWorkflowSection />
 
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-10">
-        <div className="rounded-lg border border-[var(--gvx-menu-border)] bg-[linear-gradient(135deg,var(--gvx-menu-bg),var(--gvx-hero-bg-soft))] p-6 text-center shadow-[0_24px_64px_-52px_rgba(7,17,31,0.42)] sm:p-8 md:p-10 dark:bg-slate-950/65">
+        <div className="rounded-lg border border-[var(--gvx-menu-border)] bg-[linear-gradient(135deg,var(--gvx-menu-bg),var(--gvx-hero-bg-soft))] p-6 text-center shadow-[0_24px_64px_-52px_rgba(0,212,255,0.22)] sm:p-8 md:p-10">
           <div className="mx-auto mb-3 inline-flex rounded-md border border-primary/20 bg-primary/10 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.14em] text-primary">
             Research-ready deployment
           </div>
-          <h2 className="mx-auto max-w-3xl text-xl sm:text-2xl md:text-3xl font-heading font-bold text-foreground dark:text-slate-100 mb-2 sm:mb-3 leading-tight">Launch a governed cyber research workspace</h2>
-          <p className="mx-auto max-w-2xl text-sm sm:text-base text-muted-foreground dark:text-slate-300 mb-6 sm:mb-8">
+          <h2 className="mx-auto max-w-3xl text-xl sm:text-2xl md:text-3xl font-heading font-bold text-foreground mb-2 sm:mb-3 leading-tight">Launch a governed cyber research workspace</h2>
+          <p className="mx-auto max-w-2xl text-sm sm:text-base text-muted-foreground mb-6 sm:mb-8">
             Start with the self-hosted console, connect telemetry sources, and keep every recommendation behind policy, approvals, and audit evidence.
           </p>
           <div className="flex flex-col items-center justify-center gap-3 sm:flex-row">
@@ -363,7 +363,7 @@ function ThreatResearchLabSection() {
   ]
 
   return (
-    <section className="border-t border-border/60 bg-[linear-gradient(180deg,var(--gvx-hero-bg-soft),var(--gvx-hero-bg))] px-4 py-10 sm:px-6 sm:py-12 lg:px-8 dark:bg-[#020817]">
+    <section className="border-t border-[var(--gvx-hero-border)] bg-[linear-gradient(180deg,var(--gvx-hero-bg-soft),var(--gvx-hero-bg))] px-4 py-10 sm:px-6 sm:py-12 lg:px-8">
       <div className="mx-auto max-w-6xl">
         <div className="mb-6 grid gap-4 lg:grid-cols-[minmax(0,0.9fr)_minmax(320px,1.1fr)] lg:items-end">
           <div>
@@ -372,7 +372,7 @@ function ThreatResearchLabSection() {
               Turn scattered signals into an explainable investigation graph.
             </h2>
           </div>
-          <p className="max-w-2xl text-sm leading-6 text-muted-foreground dark:text-slate-300 lg:justify-self-end">
+          <p className="max-w-2xl text-sm leading-6 text-muted-foreground lg:justify-self-end">
             Analysts can move from suspicious activity to mapped tactics, evidence quality, and safe response recommendations without leaving the research surface.
           </p>
         </div>
@@ -404,7 +404,7 @@ function ThreatResearchLabSection() {
                 ))}
               </div>
 
-              <div className="border-t border-[var(--gvx-menu-border)] bg-[var(--gvx-hero-bg-soft)] p-4 dark:bg-[var(--gvx-hero-bg)] lg:border-l lg:border-t-0">
+              <div className="border-t border-[var(--gvx-menu-border)] bg-[var(--gvx-hero-bg-soft)] p-4 lg:border-l lg:border-t-0">
                 <div className="mb-3 text-[10px] font-semibold uppercase tracking-[0.14em] text-muted-foreground">Evidence graph</div>
                 <div className="grid gap-2">
                   {researchNodes.map((node, index) => (
@@ -453,7 +453,7 @@ function CyberResearchSystemSection({ capabilities }: { capabilities: ResearchCa
               A research console built for threat teams, not a generic dashboard.
             </h2>
           </div>
-          <p className="max-w-2xl text-sm leading-6 text-muted-foreground dark:text-slate-300 lg:justify-self-end">
+          <p className="max-w-2xl text-sm leading-6 text-muted-foreground lg:justify-self-end">
             Guardivex organizes raw signals into cases, connects technical context, and keeps every high-risk response behind deterministic review.
           </p>
         </div>
@@ -483,7 +483,7 @@ function CyberResearchSystemSection({ capabilities }: { capabilities: ResearchCa
             </div>
             <div className="grid gap-2">
               {researchLayers.map((item) => (
-                <div key={item.label} className="flex items-center gap-3 rounded-md border border-[var(--gvx-menu-border)] bg-[var(--gvx-hero-bg-soft)] px-3 py-2.5 dark:bg-[var(--gvx-hero-bg)]">
+                <div key={item.label} className="flex items-center gap-3 rounded-md border border-[var(--gvx-menu-border)] bg-[var(--gvx-hero-bg-soft)] px-3 py-2.5">
                   <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md border border-primary/20 bg-primary/10">
                     <item.icon size={16} weight="duotone" className="text-primary" />
                   </div>
@@ -512,7 +512,7 @@ function InvestigationWorkflowSection() {
   const safeguards = ["No autonomous unlocks", "No alarm disabling", "No switch-port changes", "Every command reviewed"]
 
   return (
-    <section className="border-t border-border/60 bg-[var(--gvx-hero-bg-soft)] px-4 py-10 sm:px-6 sm:py-12 lg:px-8 dark:bg-[#020817]">
+    <section className="border-t border-[var(--gvx-hero-border)] bg-[var(--gvx-hero-bg-soft)] px-4 py-10 sm:px-6 sm:py-12 lg:px-8">
       <div className="mx-auto grid max-w-6xl gap-6 lg:grid-cols-[360px_minmax(0,1fr)] lg:items-start">
         <div>
           <Badge className="mb-4 rounded-sm border-[var(--gvx-menu-border)] bg-[var(--gvx-menu-bg)] text-[var(--gvx-hero-muted)]">
@@ -521,13 +521,13 @@ function InvestigationWorkflowSection() {
           <h2 className="text-2xl font-heading font-bold leading-tight text-foreground sm:text-3xl">
             From signal to defensible decision.
           </h2>
-          <p className="mt-3 text-sm leading-6 text-muted-foreground dark:text-slate-300">
+          <p className="mt-3 text-sm leading-6 text-muted-foreground">
             The main workflow is designed for analysts who need speed, evidence quality, and controlled response boundaries.
           </p>
           <div className="mt-5 grid gap-2">
             {safeguards.map((label) => (
               <div key={label} className="flex items-center gap-2 text-sm font-medium text-foreground">
-                <CheckCircle size={15} weight="fill" className="text-success" />
+                <CheckCircle size={15} weight="fill" className="text-cyan-500" />
                 {label}
               </div>
             ))}
@@ -769,7 +769,7 @@ function LicensingPage() {
               <ul className="space-y-2 text-sm">
                 {plan.features.map((feature, j) => (
                   <li key={j} className="flex items-center gap-2">
-                    <CheckCircle size={16} className="text-success shrink-0" />
+                    <CheckCircle size={16} className="text-cyan-500 shrink-0" />
                     <span>{feature}</span>
                   </li>
                 ))}
@@ -906,7 +906,7 @@ function DashboardPreviewSection() {
   ]
 
   return (
-    <section className="border-t border-border/60 bg-[var(--gvx-hero-bg-soft)] px-4 py-8 sm:px-6 sm:py-10 lg:px-8 dark:bg-[#020817]">
+    <section className="border-t border-[var(--gvx-hero-border)] bg-[var(--gvx-hero-bg-soft)] px-4 py-8 sm:px-6 sm:py-10 lg:px-8">
       <div className="mx-auto grid max-w-6xl gap-5 lg:grid-cols-[0.86fr_1.14fr] lg:items-center lg:gap-7">
         <div>
           <Badge className="mb-4 rounded-sm border-[var(--gvx-menu-border)] bg-[var(--gvx-menu-bg)] text-[var(--gvx-hero-muted)]">
@@ -915,7 +915,7 @@ function DashboardPreviewSection() {
           <h2 className="max-w-xl text-2xl font-heading font-bold leading-tight text-foreground sm:text-3xl">
             One quiet workspace for investigation, evidence, and review.
           </h2>
-          <p className="mt-3 max-w-xl text-sm leading-6 text-muted-foreground dark:text-slate-300">
+          <p className="mt-3 max-w-xl text-sm leading-6 text-muted-foreground">
             Move from raw signals to defensible findings with analyst notes, correlated telemetry, and review-ready evidence trails.
           </p>
         </div>
@@ -969,7 +969,7 @@ function PlatformOverviewSection() {
     <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 border-t border-border">
       <div className="max-w-3xl mx-auto text-center mb-10">
         <h2 className="text-3xl font-heading font-semibold leading-tight mb-3">Operations Architecture Overview</h2>
-        <p className="text-base text-muted-foreground dark:text-slate-300">
+        <p className="text-base text-muted-foreground">
           Comprehensive security infrastructure monitoring with enterprise-grade features
         </p>
       </div>
@@ -994,7 +994,7 @@ function ArchitectureDiagramSection() {
     <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 border-t border-border">
       <div className="max-w-3xl mx-auto text-center mb-10">
         <h2 className="text-3xl font-heading font-bold mb-3">Enterprise Architecture</h2>
-        <p className="text-base text-muted-foreground dark:text-slate-300">
+        <p className="text-base text-muted-foreground">
           Flexible deployment model with optional cloud connectivity
         </p>
       </div>
@@ -1009,11 +1009,11 @@ function ArchitectureDiagramSection() {
                   <Buildings size={40} className="text-primary hidden sm:block" weight="duotone" />
                 </div>
                 <h3 className="font-heading font-semibold text-base sm:text-lg mb-2">Client Infrastructure</h3>
-                <p className="text-sm text-muted-foreground dark:text-slate-300">Cameras, NVRs, Access Control, Alarms, Network Devices</p>
+                <p className="text-sm text-muted-foreground">Cameras, NVRs, Access Control, Alarms, Network Devices</p>
               </div>
 
               <div className="hidden md:flex items-center gap-2" aria-hidden="true">
-                <ArrowRight size={32} className="text-muted-foreground dark:text-slate-300" />
+                <ArrowRight size={32} className="text-muted-foreground" />
               </div>
 
               <div className="flex-1 text-center">
@@ -1022,20 +1022,20 @@ function ArchitectureDiagramSection() {
                   <HardDrives size={40} className="text-accent hidden sm:block" weight="duotone" />
                 </div>
                 <h3 className="font-heading font-semibold text-base sm:text-lg mb-2">Guardivex Platform</h3>
-                <p className="text-sm text-muted-foreground dark:text-slate-300">Self-hosted security platform on your infrastructure</p>
+                <p className="text-sm text-muted-foreground">Self-hosted security platform on your infrastructure</p>
               </div>
 
               <div className="hidden md:flex items-center gap-2" aria-hidden="true">
-                <ArrowRight size={32} className="text-muted-foreground dark:text-slate-300" />
+                <ArrowRight size={32} className="text-muted-foreground" />
               </div>
 
               <div className="flex-1 text-center">
-                <div className="w-16 h-16 sm:w-20 sm:h-20 mx-auto bg-success/10 rounded-xl flex items-center justify-center mb-3 sm:mb-4 border border-success/20">
-                  <CloudCheck size={32} className="text-success sm:hidden" weight="duotone" />
-                  <CloudCheck size={40} className="text-success hidden sm:block" weight="duotone" />
+                <div className="w-16 h-16 sm:w-20 sm:h-20 mx-auto bg-cyan-500/8 rounded-xl flex items-center justify-center mb-3 sm:mb-4 border border-cyan-500/20">
+                  <CloudCheck size={32} className="text-cyan-500 sm:hidden" weight="duotone" />
+                  <CloudCheck size={40} className="text-cyan-500 hidden sm:block" weight="duotone" />
                 </div>
                 <h3 className="font-heading font-semibold text-base sm:text-lg mb-2">Guardivex Cloud</h3>
-                <p className="text-sm text-muted-foreground dark:text-slate-300">Optional licensing, updates, support & remote access</p>
+                <p className="text-sm text-muted-foreground">Optional licensing, updates, support & remote access</p>
               </div>
             </div>
           </CardContent>
@@ -1134,13 +1134,13 @@ function DownloadFlowSection({ onNavigate }: { onNavigate: (page: string) => voi
 function FeatureGridSection() {
   const features = [
     { icon: Camera, title: "Cameras / NVRs", desc: "IP cameras and network video recorders", color: "text-primary" },
-    { icon: Lock, title: "Access Control", desc: "Door controllers and badge readers", color: "text-success" },
+    { icon: Lock, title: "Access Control", desc: "Door controllers and badge readers", color: "text-cyan-500" },
     { icon: Siren, title: "Alarms", desc: "Intrusion detection and alarm panels", color: "text-destructive" },
     { icon: NetworkX, title: "Network Devices", desc: "Switches, routers, and firewalls", color: "text-info" },
     { icon: Thermometer, title: "Sensors", desc: "Environmental and IoT sensors", color: "text-warning" },
     { icon: Monitor, title: "System Health", desc: "Server and database monitoring", color: "text-accent" },
     { icon: Database, title: "Website Activity", desc: "Public portal traffic and usage", color: "text-primary" },
-    { icon: ChartLine, title: "API Activity", desc: "Integration and API request logs", color: "text-success" },
+    { icon: ChartLine, title: "API Activity", desc: "Integration and API request logs", color: "text-cyan-500" },
   ]
 
   return (
@@ -1222,7 +1222,7 @@ function PricingSection({ onNavigate }: { onNavigate: (page: string) => void }) 
               <ul className="space-y-3 mb-6">
                 {plan.features.map((feature, j) => (
                   <li key={j} className="flex items-start gap-2 text-sm">
-                    <CheckCircle size={16} className="text-success shrink-0 mt-0.5" weight="fill" />
+                    <CheckCircle size={16} className="text-cyan-500 shrink-0 mt-0.5" weight="fill" />
                     <span>{feature}</span>
                   </li>
                 ))}
