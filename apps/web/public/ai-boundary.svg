@@ -1,79 +1,79 @@
-<svg width="760" height="560" viewBox="0 0 760 560" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+<svg width="680" height="520" viewBox="40 20 680 520" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" role="img" aria-labelledby="title desc">
   <title id="title">AI boundary recommendation-only decision path</title>
   <desc id="desc">A Guardivex AI boundary card showing recommendation-only AI, a three-step decision path, and safety assurances.</desc>
   <defs>
     <linearGradient id="panel" x1="52" y1="30" x2="708" y2="530" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#07111F"/>
-      <stop offset="0.58" stop-color="#0B2A3B"/>
-      <stop offset="1" stop-color="#062130"/>
+      <stop stop-color="#021526"/>
+      <stop offset="0.58" stop-color="#071D33"/>
+      <stop offset="1" stop-color="#021526"/>
     </linearGradient>
     <linearGradient id="accent" x1="122" y1="74" x2="632" y2="504" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#00D7E6"/>
-      <stop offset="1" stop-color="#008FF0"/>
+      <stop stop-color="#00D4FF"/>
+      <stop offset="1" stop-color="#008CFF"/>
     </linearGradient>
     <radialGradient id="glow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(602 118) rotate(136) scale(360 260)">
-      <stop stop-color="#00D7E6" stop-opacity="0.42"/>
-      <stop offset="1" stop-color="#00D7E6" stop-opacity="0"/>
+      <stop stop-color="#00D4FF" stop-opacity="0.42"/>
+      <stop offset="1" stop-color="#00D4FF" stop-opacity="0"/>
     </radialGradient>
     <filter id="shadow" x="0" y="0" width="760" height="560" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-      <feDropShadow dx="0" dy="28" stdDeviation="28" flood-color="#07111F" flood-opacity="0.28"/>
+      <feDropShadow dx="0" dy="28" stdDeviation="28" flood-color="#021526" flood-opacity="0.28"/>
     </filter>
   </defs>
 
   <rect width="760" height="560" rx="34" fill="transparent"/>
   <g filter="url(#shadow)">
     <rect x="52" y="32" width="656" height="496" rx="28" fill="url(#panel)"/>
-    <rect x="52.75" y="32.75" width="654.5" height="494.5" rx="27.25" stroke="#1C6C88" stroke-opacity="0.55" stroke-width="1.5"/>
+    <rect x="52.75" y="32.75" width="654.5" height="494.5" rx="27.25" stroke="#00D4FF" stroke-opacity="0.20" stroke-width="1.5"/>
     <rect x="52" y="32" width="656" height="496" rx="28" fill="url(#glow)"/>
   </g>
 
-  <path d="M92 104H668" stroke="#1C6C88" stroke-opacity="0.58"/>
-  <path d="M92 404H668" stroke="#1C6C88" stroke-opacity="0.58"/>
+  <path d="M92 104H668" stroke="#00D4FF" stroke-opacity="0.18"/>
+  <path d="M92 404H668" stroke="#00D4FF" stroke-opacity="0.18"/>
 
   <g transform="translate(602 67)">
-    <rect width="56" height="56" rx="14" fill="#082C40" stroke="#1C9BD4" stroke-opacity="0.45"/>
-    <path d="M18 27H38V42H18V27Z" stroke="#00D7E6" stroke-width="2.2" stroke-linejoin="round"/>
-    <path d="M22 27V21C22 17.7 24.7 15 28 15C31.3 15 34 17.7 34 21V27" stroke="#00D7E6" stroke-width="2.2" stroke-linecap="round"/>
+    <rect width="56" height="56" rx="14" fill="#071D33" stroke="#00D4FF" stroke-opacity="0.45"/>
+    <path d="M18 27H38V42H18V27Z" stroke="#00D4FF" stroke-width="2.2" stroke-linejoin="round"/>
+    <path d="M22 27V21C22 17.7 24.7 15 28 15C31.3 15 34 17.7 34 21V27" stroke="#00D4FF" stroke-width="2.2" stroke-linecap="round"/>
   </g>
 
-  <text x="92" y="74" fill="#8CCFE8" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="15" font-weight="800" letter-spacing="3">AI BOUNDARY</text>
+  <text x="92" y="74" fill="#00D4FF" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="15" font-weight="800" letter-spacing="3">AI BOUNDARY</text>
   <text x="92" y="145" fill="#F8FBFF" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="44" font-weight="800">Recommendation only</text>
-  <text x="92" y="178" fill="#9DB7C8" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="17" font-weight="500">AI can analyze, summarize, and recommend. Operators keep control.</text>
+  <text x="92" y="178" fill="#94A3B8" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="17" font-weight="500">AI can analyze, summarize, and recommend. Operators keep control.</text>
 
-  <rect x="92" y="218" width="576" height="164" rx="18" fill="#082638" stroke="#1C6C88" stroke-opacity="0.58"/>
-  <text x="118" y="254" fill="#8CCFE8" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="13" font-weight="800" letter-spacing="2.5">DECISION PATH</text>
+  <rect x="92" y="218" width="576" height="164" rx="18" fill="#071D33" stroke="#00D4FF" stroke-opacity="0.18"/>
+  <text x="118" y="254" fill="#00D4FF" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="13" font-weight="800" letter-spacing="2.5">DECISION PATH</text>
 
-  <circle cx="126" cy="292" r="18" fill="#082C40" stroke="#00D7E6" stroke-opacity="0.7"/>
-  <text x="116" y="298" fill="#00D7E6" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="13" font-weight="800">01</text>
-  <text x="158" y="298" fill="#D8ECF8" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="18" font-weight="650">Signals become research findings.</text>
+  <circle cx="126" cy="292" r="18" fill="#021526" stroke="#00D4FF" stroke-opacity="0.7"/>
+  <text x="116" y="298" fill="#00D4FF" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="13" font-weight="800">01</text>
+  <text x="158" y="298" fill="#F8FAFC" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="18" font-weight="650">Signals become research findings.</text>
 
-  <circle cx="126" cy="336" r="18" fill="#082C40" stroke="#00D7E6" stroke-opacity="0.7"/>
-  <text x="115" y="342" fill="#00D7E6" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="13" font-weight="800">02</text>
-  <text x="158" y="342" fill="#D8ECF8" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="18" font-weight="650">AI drafts recommendations only.</text>
+  <circle cx="126" cy="336" r="18" fill="#021526" stroke="#00D4FF" stroke-opacity="0.7"/>
+  <text x="115" y="342" fill="#00D4FF" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="13" font-weight="800">02</text>
+  <text x="158" y="342" fill="#F8FAFC" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="18" font-weight="650">AI drafts recommendations only.</text>
 
-  <circle cx="126" cy="368" r="18" fill="#082C40" stroke="#00D7E6" stroke-opacity="0.7"/>
-  <text x="115" y="374" fill="#00D7E6" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="13" font-weight="800">03</text>
-  <text x="158" y="374" fill="#D8ECF8" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="18" font-weight="650">Operators approve any action.</text>
+  <circle cx="126" cy="368" r="18" fill="#021526" stroke="#00D4FF" stroke-opacity="0.7"/>
+  <text x="115" y="374" fill="#00D4FF" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="13" font-weight="800">03</text>
+  <text x="158" y="374" fill="#F8FAFC" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="18" font-weight="650">Operators approve any action.</text>
 
   <g transform="translate(92 430)">
-    <rect width="248" height="38" rx="10" fill="#0B2A3B" stroke="#1C6C88" stroke-opacity="0.58"/>
-    <circle cx="22" cy="19" r="6" fill="#00D7E6"/>
-    <text x="40" y="25" fill="#D8ECF8" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="14" font-weight="700">No direct hardware control</text>
+    <rect width="248" height="38" rx="10" fill="#071D33" stroke="#00D4FF" stroke-opacity="0.18"/>
+    <circle cx="22" cy="19" r="6" fill="#00D4FF"/>
+    <text x="40" y="25" fill="#F8FAFC" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="14" font-weight="700">No direct hardware control</text>
   </g>
 
   <g transform="translate(356 430)">
-    <rect width="238" height="38" rx="10" fill="#0B2A3B" stroke="#1C6C88" stroke-opacity="0.58"/>
-    <circle cx="22" cy="19" r="6" fill="#00D7E6"/>
-    <text x="40" y="25" fill="#D8ECF8" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="14" font-weight="700">Tenant-scoped research</text>
+    <rect width="238" height="38" rx="10" fill="#071D33" stroke="#00D4FF" stroke-opacity="0.18"/>
+    <circle cx="22" cy="19" r="6" fill="#00D4FF"/>
+    <text x="40" y="25" fill="#F8FAFC" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="14" font-weight="700">Tenant-scoped research</text>
   </g>
 
   <g transform="translate(446 482)">
-    <rect width="222" height="38" rx="10" fill="#0B2A3B" stroke="#1C6C88" stroke-opacity="0.58"/>
-    <circle cx="22" cy="19" r="6" fill="#00D7E6"/>
-    <text x="40" y="25" fill="#D8ECF8" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="14" font-weight="700">Human approval gates</text>
+    <rect width="222" height="38" rx="10" fill="#071D33" stroke="#00D4FF" stroke-opacity="0.18"/>
+    <circle cx="22" cy="19" r="6" fill="#00D4FF"/>
+    <text x="40" y="25" fill="#F8FAFC" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="14" font-weight="700">Human approval gates</text>
   </g>
 
-  <path d="M144 310V322" stroke="#1C9BD4" stroke-opacity="0.42" stroke-width="2" stroke-linecap="round" stroke-dasharray="4 8"/>
-  <path d="M144 354V356" stroke="#1C9BD4" stroke-opacity="0.42" stroke-width="2" stroke-linecap="round" stroke-dasharray="4 8"/>
-  <path d="M620 118C652 154 668 195 668 242" stroke="#00D7E6" stroke-opacity="0.28" stroke-width="2" stroke-linecap="round"/>
+  <path d="M144 310V322" stroke="#008CFF" stroke-opacity="0.42" stroke-width="2" stroke-linecap="round" stroke-dasharray="4 8"/>
+  <path d="M144 354V356" stroke="#008CFF" stroke-opacity="0.42" stroke-width="2" stroke-linecap="round" stroke-dasharray="4 8"/>
+  <path d="M620 118C652 154 668 195 668 242" stroke="#00D4FF" stroke-opacity="0.28" stroke-width="2" stroke-linecap="round"/>
 </svg>

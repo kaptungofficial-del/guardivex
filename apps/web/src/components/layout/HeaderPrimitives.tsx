@@ -48,12 +48,12 @@ export function HeaderStatusBadge({ label, className }: HeaderStatusBadgeProps) 
     <Badge
       variant="outline"
       className={cn(
-        "inline-flex items-center gap-1.5 rounded-full border-success/30 text-success bg-success/10 text-[10px] uppercase tracking-[0.09em]",
+        "inline-flex items-center gap-1.5 rounded-full border-cyan-500/20 bg-cyan-500/8 text-cyan-700 dark:text-cyan-300 text-[10px] uppercase tracking-[0.09em]",
         "font-medium",
         className,
       )}
     >
-      <Circle size={8} weight="fill" className="text-success status-pulse" />
+      <Circle size={8} weight="fill" className="text-cyan-500 status-pulse" />
       {label}
     </Badge>
   )

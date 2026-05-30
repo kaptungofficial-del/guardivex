@@ -119,7 +119,7 @@ export function PlatformLayout({ children, currentPage, onNavigate, onLogout, cr
       )}
 
       <aside className={cn(
-        "fixed lg:relative inset-y-0 left-0 z-50 w-64 sm:w-72 border-r border-border bg-white/90 backdrop-blur-md flex flex-col transition-transform duration-300 lg:translate-x-0 dark:border-[rgba(0,212,255,0.12)] dark:bg-[rgba(7,29,51,0.92)]",
+        "fixed lg:relative inset-y-0 left-0 z-50 w-64 sm:w-72 border-r border-border bg-card/90 backdrop-blur-md flex flex-col transition-transform duration-300 lg:translate-x-0 dark:border-[rgba(0,212,255,0.12)] dark:bg-[rgba(7,29,51,0.92)]",
         sidebarOpen ? "translate-x-0" : "-translate-x-full"
       )}>
         <div className="p-4 sm:p-6 border-b border-border dark:border-[rgba(0,212,255,0.12)]">
@@ -160,8 +160,8 @@ export function PlatformLayout({ children, currentPage, onNavigate, onLogout, cr
                       className={cn(
                         "w-full flex items-center gap-2.5 sm:gap-3 px-2.5 sm:px-3 py-1.5 sm:py-2 rounded-md text-xs sm:text-sm transition-all active:scale-98 border",
                         isActive 
-                            ? "bg-secondary text-foreground border-primary/20 font-semibold dark:bg-[rgba(0,215,230,0.10)]" 
-                            : "border-transparent brand-muted-text hover:bg-secondary hover:text-foreground dark:hover:bg-[rgba(0,215,230,0.08)]"
+                          ? "border-cyan-500/20 bg-cyan-500/8 text-foreground font-semibold dark:text-cyan-300" 
+                          : "border-transparent brand-muted-text hover:border-cyan-500/20 hover:bg-cyan-500/8 hover:text-foreground dark:hover:text-cyan-300"
                       )}
                     >
                       <Icon size={16} weight={isActive ? "fill" : "regular"} className="shrink-0 sm:w-[18px] sm:h-[18px]" />

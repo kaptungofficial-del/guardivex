@@ -296,18 +296,18 @@ function HomePage({ onNavigate }: { onNavigate: (page: string) => void }) {
             </div>
           </div>
 
-          <div className="mx-auto w-full max-w-[460px] lg:mx-0 lg:justify-self-end xl:max-w-[500px]">
+          <div className="mx-auto w-full max-w-[500px] lg:mx-0 lg:justify-self-end xl:max-w-[540px]">
             <div className="overflow-hidden rounded-xl border border-cyan-500/20 bg-[rgba(7,29,51,0.92)] shadow-[0_32px_92px_-62px_rgba(0,212,255,0.58)]">
               <div className="h-1.5 bg-[linear-gradient(90deg,#00D4FF,#008CFF)]" />
               <div className="flex flex-wrap items-center justify-between gap-2 border-b border-cyan-500/20 px-3 py-2 text-[10px] font-semibold uppercase tracking-[0.13em] text-[var(--guardivex-muted)]">
                 <span>AI operating boundary</span>
                 <span className="shrink-0 rounded-full border border-[var(--gvx-hero-border)] bg-[var(--gvx-hero-accent-soft)] px-2 py-0.5 text-[var(--gvx-hero-accent)]">0 direct actions</span>
               </div>
-              <div className="p-2.5">
+              <div className="aspect-[17/13] p-1.5 sm:p-2">
                 <img
                   src="/ai-boundary.svg"
                   alt="AI boundary: recommendation-only decision path with human approval gates"
-                  className="block h-auto w-full rounded-lg"
+                  className="block h-full w-full rounded-lg object-contain"
                   loading="eager"
                   decoding="async"
                 />
