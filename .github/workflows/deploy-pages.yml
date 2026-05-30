@@ -15,14 +15,14 @@ jobs:
     env:
       VITE_API_URL: ${{ secrets.VITE_API_URL }}
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v4.2.2
+      - uses: actions/setup-node@v4.4.0
         with:
           node-version: 22
           cache: npm
       - run: npm ci
       - run: npm run build -w @guardivex/web
-      - uses: cloudflare/wrangler-action@v3
+      - uses: cloudflare/wrangler-action@v3.14.1
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
