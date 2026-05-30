@@ -302,6 +302,7 @@ function HomePage({ onNavigate }: { onNavigate: (page: string) => void }) {
 
       <DashboardPreviewSection />
 
+      <ThreatResearchLabSection />
       <CyberResearchSystemSection capabilities={heroCapabilities} />
       <InvestigationWorkflowSection />
 
@@ -327,6 +328,93 @@ function HomePage({ onNavigate }: { onNavigate: (page: string) => void }) {
         </div>
       </section>
     </div>
+  )
+}
+
+function ThreatResearchLabSection() {
+  const signalRows = [
+    { label: "Identity anomaly", source: "Okta + endpoint", severity: "High", time: "02:14" },
+    { label: "PowerShell chain", source: "EDR telemetry", severity: "Critical", time: "02:18" },
+    { label: "Suspicious ASN", source: "Threat intel", severity: "Medium", time: "02:21" },
+  ]
+
+  const researchNodes = ["Initial access", "Credential use", "Script execution", "Lateral signal", "Evidence package"]
+  const intelligenceCards = [
+    { label: "MITRE mapping", value: "T1059 / T1078", detail: "Tactics linked to investigation timeline" },
+    { label: "Evidence quality", value: "Review-ready", detail: "Analyst notes, source links, and custody trail" },
+    { label: "AI boundary", value: "0 actions", detail: "Recommendations only; no hardware control" },
+  ]
+
+  return (
+    <section className="border-t border-border/60 bg-[linear-gradient(180deg,var(--gvx-hero-bg-soft),var(--gvx-hero-bg))] px-4 py-10 sm:px-6 sm:py-12 lg:px-8 dark:bg-[#020817]">
+      <div className="mx-auto max-w-6xl">
+        <div className="mb-6 grid gap-4 lg:grid-cols-[minmax(0,0.9fr)_minmax(320px,1.1fr)] lg:items-end">
+          <div>
+            <div className="text-xs font-semibold uppercase tracking-[0.14em] text-primary">Threat research lab</div>
+            <h2 className="mt-2 max-w-2xl text-2xl font-heading font-bold leading-tight text-foreground sm:text-3xl">
+              Turn scattered signals into an explainable investigation graph.
+            </h2>
+          </div>
+          <p className="max-w-2xl text-sm leading-6 text-muted-foreground dark:text-slate-300 lg:justify-self-end">
+            Analysts can move from suspicious activity to mapped tactics, evidence quality, and safe response recommendations without leaving the research surface.
+          </p>
+        </div>
+
+        <div className="grid gap-4 lg:grid-cols-[minmax(0,1.12fr)_minmax(300px,0.88fr)]">
+          <div className="overflow-hidden rounded-lg border border-[var(--gvx-menu-border)] bg-[var(--gvx-menu-bg)] shadow-[0_26px_70px_-52px_rgba(7,17,31,0.48)]">
+            <div className="flex flex-col gap-2 border-b border-[var(--gvx-menu-border)] px-4 py-3 min-[520px]:flex-row min-[520px]:items-center min-[520px]:justify-between">
+              <div className="flex items-center gap-2 text-sm font-semibold text-foreground">
+                <Broadcast size={17} weight="duotone" className="text-primary" />
+                Live research stream
+              </div>
+              <Badge variant="outline" className="w-fit rounded-sm border-primary/30 text-primary">Case GVX-24-118</Badge>
+            </div>
+
+            <div className="grid gap-0 lg:grid-cols-[minmax(0,1fr)_220px]">
+              <div className="divide-y divide-[var(--gvx-menu-border)]">
+                {signalRows.map((row) => (
+                  <div key={row.label} className="grid gap-2 px-4 py-3 min-[560px]:grid-cols-[88px_minmax(0,1fr)_120px_88px] min-[560px]:items-center">
+                    <div className="font-mono text-xs font-semibold text-muted-foreground">{row.time}</div>
+                    <div className="min-w-0">
+                      <div className="truncate text-sm font-semibold text-foreground">{row.label}</div>
+                      <div className="text-xs text-muted-foreground">{row.source}</div>
+                    </div>
+                    <Badge variant={row.severity === "Critical" ? "destructive" : "outline"} className="w-fit rounded-sm text-[10px] uppercase">
+                      {row.severity}
+                    </Badge>
+                    <div className="text-xs font-semibold text-primary">Correlated</div>
+                  </div>
+                ))}
+              </div>
+
+              <div className="border-t border-[var(--gvx-menu-border)] bg-[var(--gvx-hero-bg-soft)] p-4 dark:bg-[var(--gvx-hero-bg)] lg:border-l lg:border-t-0">
+                <div className="mb-3 text-[10px] font-semibold uppercase tracking-[0.14em] text-muted-foreground">Evidence graph</div>
+                <div className="grid gap-2">
+                  {researchNodes.map((node, index) => (
+                    <div key={node} className="flex items-center gap-2">
+                      <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-md border border-primary/20 bg-primary/10 font-mono text-[10px] font-bold text-primary">
+                        {index + 1}
+                      </div>
+                      <div className="min-w-0 truncate text-xs font-semibold text-foreground">{node}</div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="grid gap-3">
+            {intelligenceCards.map((item) => (
+              <div key={item.label} className="rounded-lg border border-[var(--gvx-menu-border)] bg-[var(--gvx-menu-bg)] p-4 shadow-[0_18px_42px_-40px_rgba(7,17,31,0.38)]">
+                <div className="text-[10px] font-semibold uppercase tracking-[0.14em] text-muted-foreground">{item.label}</div>
+                <div className="mt-1 font-heading text-xl font-bold text-foreground">{item.value}</div>
+                <p className="mt-2 text-sm leading-6 text-muted-foreground">{item.detail}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
   )
 }
 
