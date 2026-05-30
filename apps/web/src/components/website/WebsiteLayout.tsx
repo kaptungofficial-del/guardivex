@@ -256,7 +256,7 @@ function HomePage({ onNavigate }: { onNavigate: (page: string) => void }) {
         <div className="absolute inset-0 -z-10 bg-[linear-gradient(135deg,var(--gvx-hero-bg)_0%,var(--gvx-hero-bg-soft)_52%,var(--gvx-hero-bg)_100%)]" />
         <div className="absolute inset-0 -z-10 opacity-[0.035] bg-[linear-gradient(var(--gvx-hero-accent)_1px,transparent_1px),linear-gradient(90deg,var(--gvx-hero-accent)_1px,transparent_1px)] bg-[size:64px_64px]" />
         <div className="absolute left-[8%] top-12 -z-10 h-56 w-56 rounded-full bg-[radial-gradient(circle,var(--gvx-hero-glow),transparent_68%)]" />
-        <div className="absolute right-[8%] top-24 -z-10 h-64 w-64 rounded-full bg-[radial-gradient(circle,rgba(0,215,230,0.07),transparent_70%)]" />
+        <div className="absolute right-[8%] top-24 -z-10 h-64 w-64 rounded-full bg-[radial-gradient(circle,var(--gvx-logo-olive-soft),transparent_70%)]" />
 
         <div className="mx-auto grid w-full max-w-[1180px] gap-8 px-4 py-10 sm:px-8 sm:py-14 md:gap-10 lg:grid-cols-[minmax(0,0.95fr)_minmax(340px,0.68fr)] lg:items-center lg:px-10 lg:py-16 xl:px-12">
           <div className="min-w-0 text-center lg:text-left">
@@ -282,7 +282,7 @@ function HomePage({ onNavigate }: { onNavigate: (page: string) => void }) {
             </div>
 
             <div className="mt-6 flex flex-col items-center justify-center gap-3 min-[440px]:flex-row lg:justify-start">
-              <Button size="lg" onClick={() => onNavigate("download")} className="h-11 w-full max-w-[330px] rounded-md border border-[color:var(--gvx-hero-accent)] bg-[linear-gradient(135deg,var(--gvx-hero-accent),var(--gvx-hero-accent-2))] px-4 text-[0.84rem] font-semibold text-white shadow-[0_20px_48px_-30px_rgba(0,143,240,0.70)] transition-all duration-200 hover:-translate-y-0.5 hover:brightness-95 focus-visible:ring-[var(--gvx-hero-accent)] min-[440px]:w-auto">
+              <Button size="lg" onClick={() => onNavigate("download")} className="h-11 w-full max-w-[330px] rounded-md border border-[color:var(--gvx-hero-accent)] bg-[linear-gradient(135deg,var(--gvx-hero-accent-2),var(--gvx-hero-accent))] px-4 text-[0.84rem] font-semibold text-white shadow-[0_20px_48px_-30px_rgba(0,143,240,0.70)] transition-all duration-200 hover:-translate-y-0.5 hover:brightness-95 focus-visible:ring-[var(--gvx-hero-accent)] min-[440px]:w-auto">
                 <CloudArrowDown size={16} className="mr-2" weight="bold" />
                 Deploy Research Server
               </Button>

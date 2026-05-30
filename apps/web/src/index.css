@@ -17,7 +17,7 @@
 
   .brand-gradient-text {
     color: transparent;
-    background-image: linear-gradient(135deg, var(--gvx-hero-accent) 0%, var(--gvx-hero-accent-2) 58%, #82a83d 100%);
+    background-image: linear-gradient(135deg, var(--gvx-hero-accent-2) 0%, var(--gvx-hero-accent) 54%, var(--gvx-logo-olive) 100%);
     -webkit-background-clip: text;
     background-clip: text;
   }
@@ -39,7 +39,7 @@
 :root {
   --radius: 0.75rem;
 
-  --background: #f8fbff;
+  --background: #f7fbf4;
   --foreground: #07111f;
   --card: #ffffff;
   --card-foreground: #07111f;
@@ -47,22 +47,22 @@
   --popover-foreground: #07111f;
   --primary: #008ff0;
   --primary-foreground: #ffffff;
-  --secondary: #edf6ff;
+  --secondary: #eef8f2;
   --secondary-foreground: #07111f;
-  --muted: #f1f5f9;
+  --muted: #eef5f2;
   --muted-foreground: #64748b;
   --accent: #00d7e6;
   --accent-foreground: #07111f;
   --destructive: #dc2626;
   --destructive-foreground: #ffffff;
-  --border: #d6e3ec;
-  --input: #d6e3ec;
+  --border: #d7e3d4;
+  --input: #d7e3d4;
   --ring: #008ff0;
   --chart-1: #008ff0;
   --chart-2: #00d7e6;
-  --chart-3: #5f8f36;
+  --chart-3: #7c8430;
   --chart-4: #1d6fe8;
-  --chart-5: #82a83d;
+  --chart-5: #a5a846;
   --success: #00cfc4;
   --success-foreground: #07111f;
   --warning: #f59e0b;
@@ -78,24 +78,27 @@
   --sidebar-border: rgba(0, 119, 255, 0.26);
   --sidebar-ring: #00c7e8;
 
-  --gvx-hero-bg: #f8fbff;
-  --gvx-hero-bg-soft: #eef6fb;
+  --gvx-logo-olive: #7c8430;
+  --gvx-logo-olive-soft: rgba(124, 132, 48, 0.12);
+  --gvx-logo-cyan-glow: rgba(0, 215, 230, 0.12);
+  --gvx-hero-bg: #f7fbf4;
+  --gvx-hero-bg-soft: #edf8f5;
   --gvx-hero-surface: #ffffff;
   --gvx-hero-surface-strong: #ffffff;
   --gvx-hero-card: #ffffff;
-  --gvx-hero-border: rgba(32, 95, 126, 0.18);
-  --gvx-hero-border-strong: rgba(0, 143, 240, 0.30);
+  --gvx-hero-border: rgba(88, 103, 50, 0.20);
+  --gvx-hero-border-strong: rgba(0, 143, 240, 0.34);
   --gvx-hero-text: #07111f;
   --gvx-hero-muted: #355166;
   --gvx-hero-subtle: #607282;
   --gvx-hero-accent: #008ff0;
   --gvx-hero-accent-2: #00d7e6;
-  --gvx-hero-accent-soft: rgba(0, 143, 240, 0.08);
-  --gvx-hero-glow: rgba(0, 143, 240, 0.08);
+  --gvx-hero-accent-soft: rgba(0, 215, 230, 0.12);
+  --gvx-hero-glow: rgba(0, 215, 230, 0.12);
   --gvx-hero-shadow: 0 22px 68px -56px rgba(15, 23, 42, 0.30);
   --gvx-menu-bg: #ffffff;
-  --gvx-menu-hover: #eef7fb;
-  --gvx-menu-border: rgba(32, 95, 126, 0.22);
+  --gvx-menu-hover: #eef8f2;
+  --gvx-menu-border: rgba(88, 103, 50, 0.24);
 }
 
 .dark {
