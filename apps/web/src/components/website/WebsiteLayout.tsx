@@ -252,57 +252,58 @@ function HomePage({ onNavigate }: { onNavigate: (page: string) => void }) {
 
   return (
     <div className="relative guardivex-home-typography overflow-x-clip bg-[var(--gvx-hero-bg)] text-[var(--gvx-hero-text)]">
-      <section className="relative isolate overflow-hidden border-b border-cyan-400/15 bg-[#06111f] text-white">
-        <div className="absolute inset-0 -z-10 bg-[linear-gradient(135deg,#06111f_0%,#082233_48%,#07111f_100%)]" />
-        <div className="absolute inset-0 -z-10 opacity-[0.055] bg-[linear-gradient(rgba(0,215,230,0.9)_1px,transparent_1px),linear-gradient(90deg,rgba(0,215,230,0.9)_1px,transparent_1px)] bg-[size:64px_64px]" />
-        <div className="absolute inset-x-0 bottom-0 -z-10 h-32 bg-[linear-gradient(180deg,transparent,rgba(0,215,230,0.08))]" />
+      <section className="relative isolate overflow-hidden border-b border-[var(--gvx-hero-border)] bg-[var(--gvx-hero-bg)] text-[var(--gvx-hero-text)]">
+        <div className="absolute inset-0 -z-10 bg-[linear-gradient(135deg,var(--gvx-hero-bg)_0%,var(--gvx-hero-bg-soft)_52%,var(--gvx-hero-bg)_100%)]" />
+        <div className="absolute inset-0 -z-10 opacity-[0.035] bg-[linear-gradient(var(--gvx-hero-accent)_1px,transparent_1px),linear-gradient(90deg,var(--gvx-hero-accent)_1px,transparent_1px)] bg-[size:64px_64px]" />
+        <div className="absolute left-[8%] top-12 -z-10 h-56 w-56 rounded-full bg-[radial-gradient(circle,var(--gvx-hero-glow),transparent_68%)]" />
+        <div className="absolute right-[8%] top-24 -z-10 h-64 w-64 rounded-full bg-[radial-gradient(circle,rgba(0,215,230,0.08),transparent_70%)]" />
 
-        <div className="mx-auto grid min-h-[calc(100svh-132px)] w-full max-w-[1200px] gap-8 px-4 py-10 sm:min-h-[560px] sm:px-8 sm:py-14 md:gap-10 lg:min-h-[590px] lg:grid-cols-[minmax(0,1fr)_420px] lg:items-center lg:px-10 lg:py-16 xl:px-12">
+        <div className="mx-auto grid min-h-[calc(100svh-132px)] w-full max-w-[1180px] gap-7 px-4 py-9 sm:min-h-[560px] sm:px-8 sm:py-13 md:gap-9 lg:min-h-[590px] lg:grid-cols-[minmax(0,0.98fr)_minmax(340px,0.72fr)] lg:items-center lg:px-10 lg:py-15 xl:px-12">
           <div className="min-w-0 text-center lg:text-left">
-            <div className="inline-flex max-w-full items-center gap-2 rounded-md border border-cyan-300/20 bg-white/[0.06] px-3 py-1.5 text-[9px] font-semibold uppercase tracking-[0.14em] text-cyan-100 shadow-[0_14px_34px_-28px_rgba(0,215,230,0.70)] sm:text-[9.5px]">
-              <ShieldCheck size={13} weight="fill" className="text-cyan-300" />
+            <div className="inline-flex max-w-full items-center gap-2 rounded-md border border-[var(--gvx-hero-border)] bg-[var(--gvx-menu-bg)] px-3 py-1.5 text-[9px] font-semibold uppercase tracking-[0.14em] text-[var(--gvx-hero-muted)] shadow-[0_14px_34px_-30px_rgba(0,143,240,0.30)] sm:text-[9.5px]">
+              <ShieldCheck size={13} weight="fill" className="text-[var(--gvx-hero-accent)]" />
               Governed cyber research platform
             </div>
 
-            <h1 className="mx-auto mt-5 max-w-[820px] font-heading text-[clamp(2.35rem,8.4vw,4.55rem)] font-extrabold leading-[1.04] tracking-normal text-white [text-wrap:balance] sm:leading-[1] lg:mx-0">
+            <h1 className="mx-auto mt-5 max-w-[820px] font-heading text-[clamp(2.28rem,8.2vw,4.45rem)] font-extrabold leading-[1.04] tracking-normal text-[var(--gvx-hero-text)] [text-wrap:balance] sm:leading-[1] lg:mx-0">
               Cyber research operations without unsafe automation.
             </h1>
 
-            <p className="mx-auto mt-5 max-w-[690px] text-[1rem] leading-[1.72] text-slate-300 sm:text-[1.08rem] lg:mx-0">
+            <p className="mx-auto mt-5 max-w-[690px] text-[1rem] leading-[1.72] text-[var(--gvx-hero-muted)] sm:text-[1.08rem] lg:mx-0">
               Guardivex gives security teams a controlled workspace for telemetry, IOCs, incident research, evidence handling, and AI-assisted recommendations that never execute physical actions.
             </p>
 
-            <div className="mx-auto mt-5 flex max-w-[620px] flex-wrap items-center justify-center gap-2 text-[11px] font-semibold text-slate-200 lg:mx-0 lg:justify-start">
+            <div className="mx-auto mt-5 flex max-w-[620px] flex-wrap items-center justify-center gap-2 text-[11px] font-semibold text-[var(--gvx-hero-muted)] lg:mx-0 lg:justify-start">
               {heroAssurances.map((label) => (
-                <span key={label} className="rounded-md border border-cyan-300/16 bg-white/[0.055] px-2.5 py-1 shadow-[0_10px_24px_-24px_rgba(0,215,230,0.32)]">
+                <span key={label} className="rounded-md border border-[var(--gvx-hero-border)] bg-[var(--gvx-menu-bg)] px-2.5 py-1 shadow-[0_10px_24px_-24px_rgba(0,143,240,0.26)]">
                   {label}
                 </span>
               ))}
             </div>
 
             <div className="mt-6 flex flex-col items-center justify-center gap-3 min-[440px]:flex-row lg:justify-start">
-              <Button size="lg" onClick={() => onNavigate("download")} className="h-11 w-full max-w-[330px] rounded-md border border-cyan-300/70 bg-cyan-400 bg-none px-4 text-[0.84rem] font-semibold text-[#06111f] shadow-[0_20px_48px_-30px_rgba(0,215,230,0.85)] transition-all duration-200 hover:-translate-y-0.5 hover:bg-cyan-300 focus-visible:ring-cyan-300 min-[440px]:w-auto">
+              <Button size="lg" onClick={() => onNavigate("download")} className="h-11 w-full max-w-[330px] rounded-md border border-[color:var(--gvx-hero-accent)] bg-[linear-gradient(135deg,var(--gvx-hero-accent),var(--gvx-hero-accent-2))] bg-none px-4 text-[0.84rem] font-semibold text-white shadow-[0_20px_48px_-30px_rgba(0,143,240,0.70)] transition-all duration-200 hover:-translate-y-0.5 hover:brightness-95 focus-visible:ring-[var(--gvx-hero-accent)] min-[440px]:w-auto">
                 <CloudArrowDown size={16} className="mr-2" weight="bold" />
                 Deploy Research Server
               </Button>
-              <Button size="lg" variant="outline" onClick={() => onNavigate("product")} className="h-11 w-full max-w-[330px] rounded-md border-white/18 bg-white/[0.06] px-4 text-[0.84rem] font-semibold text-white shadow-none transition-all duration-200 hover:-translate-y-0.5 hover:border-cyan-300/40 hover:bg-white/[0.10] min-[440px]:w-auto">
+              <Button size="lg" variant="outline" onClick={() => onNavigate("product")} className="h-11 w-full max-w-[330px] rounded-md border-[var(--gvx-menu-border)] bg-[var(--gvx-menu-bg)] px-4 text-[0.84rem] font-semibold text-[var(--gvx-hero-text)] shadow-none transition-all duration-200 hover:-translate-y-0.5 hover:border-[var(--gvx-hero-border-strong)] hover:bg-[var(--gvx-menu-hover)] min-[440px]:w-auto">
                 <Monitor size={16} className="mr-2" weight="bold" />
                 View Console
               </Button>
             </div>
 
-            <div className="mx-auto mt-7 grid max-w-[680px] grid-cols-1 overflow-hidden rounded-lg border border-cyan-300/14 bg-white/[0.045] text-left min-[520px]:grid-cols-3 lg:mx-0">
+            <div className="mx-auto mt-7 grid max-w-[680px] grid-cols-1 overflow-hidden rounded-lg border border-[var(--gvx-hero-border)] bg-[var(--gvx-menu-bg)] text-left shadow-[0_20px_54px_-46px_rgba(7,17,31,0.34)] min-[520px]:grid-cols-3 lg:mx-0">
               {heroProofPoints.map(([label, value]) => (
-                <div key={label} className="border-b border-cyan-300/14 px-4 py-3 last:border-b-0 min-[520px]:border-b-0 min-[520px]:border-r min-[520px]:last:border-r-0">
-                  <div className="text-[10px] font-semibold uppercase tracking-[0.13em] text-slate-400">{label}</div>
-                  <div className="mt-1 font-heading text-sm font-bold text-white">{value}</div>
+                <div key={label} className="border-b border-[var(--gvx-hero-border)] px-4 py-3 last:border-b-0 min-[520px]:border-b-0 min-[520px]:border-r min-[520px]:last:border-r-0">
+                  <div className="text-[10px] font-semibold uppercase tracking-[0.13em] text-[var(--gvx-hero-subtle)]">{label}</div>
+                  <div className="mt-1 font-heading text-sm font-bold text-[var(--gvx-hero-text)]">{value}</div>
                 </div>
               ))}
             </div>
           </div>
 
-          <div className="mx-auto w-full max-w-[440px] lg:mx-0 lg:max-w-none">
-            <div className="rounded-2xl border border-cyan-300/16 bg-white/[0.055] p-2 shadow-[0_30px_90px_-54px_rgba(0,215,230,0.55)] backdrop-blur-sm">
+          <div className="mx-auto grid w-full max-w-[440px] gap-3 lg:mx-0 lg:max-w-none">
+            <div className="rounded-2xl border border-[var(--gvx-menu-border)] bg-[var(--gvx-menu-bg)] p-2 shadow-[0_30px_90px_-58px_rgba(0,143,240,0.45)]">
               <img
                 src="/ai-boundary.svg"
                 alt="AI boundary: recommendation-only decision path with human approval gates"
@@ -310,6 +311,14 @@ function HomePage({ onNavigate }: { onNavigate: (page: string) => void }) {
                 loading="eager"
                 decoding="async"
               />
+            </div>
+            <div className="grid grid-cols-3 overflow-hidden rounded-lg border border-[var(--gvx-hero-border)] bg-[var(--gvx-menu-bg)] text-center shadow-[0_18px_42px_-38px_rgba(7,17,31,0.28)]">
+              {[["Signals", "50k+"], ["Mapped", "MITRE"], ["AI actions", "0"]].map(([label, value]) => (
+                <div key={label} className="border-r border-[var(--gvx-hero-border)] px-2 py-3 last:border-r-0">
+                  <div className="text-[9px] font-semibold uppercase tracking-[0.12em] text-[var(--gvx-hero-subtle)]">{label}</div>
+                  <div className="mt-1 font-heading text-sm font-bold text-[var(--gvx-hero-text)]">{value}</div>
+                </div>
+              ))}
             </div>
           </div>
         </div>
