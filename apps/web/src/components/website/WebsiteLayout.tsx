@@ -7,9 +7,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge"
 import { 
   ShieldCheck, Monitor, Database, CloudArrowDown, CheckCircle, ArrowRight, 
-  Gauge, Certificate, HardDrives,
-  Lock, NetworkX, ChartLine,
-  Broadcast,
+  Certificate, Lock, ChartLine,
   EnvelopeSimple
 } from "@phosphor-icons/react"
 
@@ -17,12 +15,6 @@ interface WebsiteLayoutProps {
   currentPage: string
   onNavigate: (page: string) => void
   onLogin: () => void
-}
-
-type ResearchCapability = {
-  label: string
-  detail: string
-  icon: typeof Database
 }
 
 export function WebsiteLayout({ currentPage, onNavigate, onLogin }: WebsiteLayoutProps) {
@@ -232,159 +224,164 @@ export function WebsiteLayout({ currentPage, onNavigate, onLogin }: WebsiteLayou
 }
 
 function HomePage({ onNavigate }: { onNavigate: (page: string) => void }) {
-  const heroCapabilities: ResearchCapability[] = [
-    { label: "Threat intelligence desk", detail: "Map IOCs, tactics, identities, devices, and evidence into one research case.", icon: Database },
-    { label: "Research-safe AI", detail: "Generate recommendations and response plans without direct control of physical systems.", icon: Lock },
-    { label: "Case-grade evidence", detail: "Preserve analyst notes, approvals, timelines, and audit trails for every finding.", icon: Certificate },
+  const operatingMetrics = [
+    ["AI direct actions", "0"],
+    ["Review gate", "Required"],
+    ["Tenant scope", "Isolated"],
   ]
 
-  const heroAssurances = ["No direct hardware control", "Tenant-scoped research", "Human approval gates"]
-  const heroProofPoints = [
-    ["AI direct actions", "0"],
-    ["Human review", "Required"],
-    ["Evidence scope", "Tenant isolated"],
+  const caseRows = [
+    { label: "Credential abuse campaign", source: "Identity + endpoint", status: "Review" },
+    { label: "PowerShell execution chain", source: "EDR telemetry", status: "Evidence" },
+    { label: "Suspicious infrastructure", source: "Threat intel", status: "Mapped" },
   ]
-  const heroQueueRows = [
-    { label: "Credential abuse campaign", source: "Identity + endpoint", status: "Triage" },
-    { label: "Suspicious script chain", source: "EDR telemetry", status: "Research" },
-    { label: "Emerging IOC cluster", source: "Threat intel", status: "Enriched" },
+
+  const capabilityPillars = [
+    { icon: Database, title: "Evidence Workspace", detail: "Bring telemetry, IOCs, identities, notes, and approvals into one defensible case record." },
+    { icon: Lock, title: "Governed AI", detail: "Use AI for summaries and recommendations while execution remains policy-controlled and human-reviewed." },
+    { icon: Certificate, title: "Audit-Ready Decisions", detail: "Preserve approvals, timelines, evidence custody, and tenant-scoped activity history." },
   ]
-  const heroBoundarySteps = ["Recommend", "Review", "Approve", "Audit"]
+
+  const operatingModel = [
+    { step: "01", title: "Collect", detail: "Normalize alerts, telemetry, identities, devices, and threat intelligence." },
+    { step: "02", title: "Correlate", detail: "Map signals to cases, tactics, affected assets, and evidence quality." },
+    { step: "03", title: "Recommend", detail: "Generate response plans without granting AI direct hardware authority." },
+    { step: "04", title: "Approve", detail: "Route high-risk actions through RBAC, policy, audit, and operator review." },
+  ]
 
   return (
     <div className="relative guardivex-home-typography overflow-x-clip bg-[var(--gvx-hero-bg)] text-[var(--gvx-hero-text)]">
-      <section className="relative isolate overflow-hidden border-b border-[var(--gvx-hero-border)] bg-[var(--gvx-hero-bg)] text-[var(--gvx-hero-text)]">
-        <div className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,#F8FAFC_0%,#EAF6FF_100%)] dark:bg-[linear-gradient(180deg,#021526_0%,#071D33_100%)]" />
-        <div className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_44%_18%,rgba(0,212,255,0.13),transparent_42%),linear-gradient(rgba(0,140,255,0.10)_1px,transparent_1px),linear-gradient(90deg,rgba(0,140,255,0.10)_1px,transparent_1px)] bg-[size:100%_100%,72px_72px,72px_72px] opacity-[0.55] dark:bg-[radial-gradient(ellipse_at_44%_18%,rgba(0,212,255,0.16),transparent_42%),linear-gradient(rgba(0,212,255,0.20)_1px,transparent_1px),linear-gradient(90deg,rgba(0,212,255,0.20)_1px,transparent_1px)] dark:opacity-[0.22]" />
+      <section className="relative isolate border-b border-[var(--gvx-hero-border)] bg-[linear-gradient(180deg,#F8FAFC_0%,#EEF8FF_100%)] px-4 py-12 dark:bg-[linear-gradient(180deg,#021526_0%,#071D33_100%)] sm:px-6 sm:py-16 lg:px-8">
+        <div className="absolute inset-0 -z-10 bg-[linear-gradient(rgba(0,140,255,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(0,140,255,0.08)_1px,transparent_1px)] bg-[size:80px_80px] opacity-45 dark:bg-[linear-gradient(rgba(0,212,255,0.13)_1px,transparent_1px),linear-gradient(90deg,rgba(0,212,255,0.13)_1px,transparent_1px)] dark:opacity-20" />
 
-        <div className="mx-auto grid w-full max-w-[1220px] gap-8 px-4 py-10 sm:px-8 sm:py-14 md:gap-10 lg:grid-cols-[minmax(0,0.88fr)_minmax(420px,1.12fr)] lg:items-center lg:px-10 lg:py-16 xl:px-12 xl:py-[4.5rem]">
-          <div className="min-w-0 text-center lg:text-left">
-            <div className="inline-flex max-w-full items-center gap-2 rounded-md border border-cyan-500/20 bg-cyan-500/8 px-3 py-1.5 text-[9px] font-semibold uppercase tracking-[0.14em] text-[var(--gvx-hero-muted)] shadow-[0_14px_34px_-30px_rgba(0,212,255,0.30)] sm:text-[9.5px]">
-              <ShieldCheck size={13} weight="fill" className="text-[var(--gvx-hero-accent)]" />
-              Governed cyber research platform
-            </div>
-
-            <h1 className="mx-auto mt-5 max-w-[760px] font-heading text-[2.45rem] font-extrabold leading-[1.03] tracking-normal text-[var(--gvx-hero-text)] [text-wrap:balance] sm:text-[3.35rem] lg:mx-0 lg:text-[4.15rem]">
-              Guardivex Security <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">Platform</span>
+        <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[minmax(0,0.86fr)_minmax(440px,1fr)] lg:items-center">
+          <div className="max-w-3xl">
+            <Badge variant="outline" className="mb-5 rounded-sm border-cyan-500/25 bg-cyan-500/8 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.14em] text-[var(--gvx-hero-accent)]">
+              Governed security operations
+            </Badge>
+            <h1 className="font-heading text-[2.45rem] font-extrabold leading-[1.04] text-[var(--gvx-hero-text)] [text-wrap:balance] sm:text-[3.4rem] lg:text-[4.15rem]">
+              Enterprise security work, without autonomous physical action.
             </h1>
-
-            <p className="mx-auto mt-5 max-w-[650px] text-[0.98rem] leading-[1.72] text-[var(--gvx-hero-muted)] sm:text-[1.04rem] lg:mx-0">
-              Guardivex gives security teams a controlled workspace for telemetry, IOCs, incident research, evidence handling, and AI-assisted recommendations that never execute physical actions.
+            <p className="mt-5 max-w-2xl text-base leading-7 text-[var(--gvx-hero-muted)] sm:text-lg">
+              Guardivex gives security teams a controlled operations workspace for telemetry, evidence, incident research, and AI-assisted recommendations that stay behind human approval.
             </p>
 
-            <div className="mx-auto mt-5 flex max-w-[620px] flex-wrap items-center justify-center gap-2 text-[11px] font-semibold text-[var(--gvx-hero-muted)] lg:mx-0 lg:justify-start">
-              {heroAssurances.map((label) => (
-                <span key={label} className="rounded-md border border-cyan-500/20 bg-cyan-500/8 px-2.5 py-1 shadow-[0_10px_24px_-24px_rgba(0,212,255,0.26)]">
-                  {label}
-                </span>
-              ))}
-            </div>
-
-            <div className="mt-6 flex flex-col items-center justify-center gap-3 min-[440px]:flex-row lg:justify-start">
-              <Button size="lg" onClick={() => onNavigate("download")} className="h-11 w-full max-w-[330px] rounded-md border border-cyan-500/35 bg-[linear-gradient(90deg,#00D4FF,#008CFF)] px-4 text-[0.84rem] font-semibold text-white shadow-[0_20px_48px_-30px_rgba(0,212,255,0.70)] transition-all duration-200 hover:-translate-y-0.5 hover:brightness-95 focus-visible:ring-[var(--guardivex-cyan)] min-[440px]:w-auto">
+            <div className="mt-7 flex flex-col gap-3 sm:flex-row">
+              <Button size="lg" onClick={() => onNavigate("download")} className="h-11 rounded-md border border-cyan-500/35 bg-[linear-gradient(90deg,#00D4FF,#008CFF)] px-5 text-sm font-semibold text-white shadow-[0_18px_42px_-30px_rgba(0,212,255,0.72)] hover:brightness-95">
                 <CloudArrowDown size={16} className="mr-2" weight="bold" />
                 Deploy Research Server
               </Button>
-              <Button size="lg" variant="outline" onClick={() => onNavigate("product")} className="h-11 w-full max-w-[330px] rounded-md border-cyan-500/20 bg-[var(--gvx-hero-card)] px-4 text-[0.84rem] font-semibold text-[var(--gvx-hero-text)] shadow-none transition-all duration-200 hover:-translate-y-0.5 hover:border-cyan-500/35 hover:bg-cyan-500/8 min-[440px]:w-auto">
+              <Button size="lg" variant="outline" onClick={() => onNavigate("product")} className="h-11 rounded-md border-[var(--gvx-hero-border)] bg-[var(--gvx-hero-card)] px-5 text-sm font-semibold text-[var(--gvx-hero-text)] hover:border-cyan-500/35 hover:bg-cyan-500/8">
                 <Monitor size={16} className="mr-2" weight="bold" />
-                View Console
+                View Product
               </Button>
             </div>
 
-            <div className="mx-auto mt-6 flex max-w-[620px] items-center justify-center gap-2 text-xs font-semibold text-[var(--gvx-hero-muted)] lg:mx-0 lg:justify-start">
-              <CheckCircle size={15} weight="fill" className="shrink-0 text-[var(--gvx-hero-accent)]" />
-              <span>Every high-risk response remains behind review, policy, and audit.</span>
+            <div className="mt-8 grid max-w-2xl gap-3 sm:grid-cols-3">
+              {operatingMetrics.map(([label, value]) => (
+                <div key={label} className="rounded-md border border-[var(--gvx-hero-border)] bg-[var(--gvx-hero-card)] px-4 py-3">
+                  <div className="text-[10px] font-semibold uppercase tracking-[0.12em] text-[var(--gvx-hero-muted)]">{label}</div>
+                  <div className="mt-1 font-heading text-base font-bold text-[var(--gvx-hero-text)]">{value}</div>
+                </div>
+              ))}
             </div>
           </div>
 
-          <div className="relative mx-auto w-full max-w-[620px] lg:mx-0 lg:justify-self-end">
-            <div className="absolute -inset-3 -z-10 rounded-[1rem] bg-[radial-gradient(ellipse_at_50%_18%,rgba(0,212,255,0.18),transparent_62%)] blur-2xl dark:bg-[radial-gradient(ellipse_at_50%_18%,rgba(0,212,255,0.16),transparent_62%)]" />
-            <div className="overflow-hidden rounded-xl border border-cyan-500/20 bg-[var(--gvx-hero-card)] shadow-[0_32px_92px_-62px_rgba(0,212,255,0.36)] dark:shadow-[0_32px_92px_-62px_rgba(0,212,255,0.58)]">
-              <div className="h-1.5 bg-[linear-gradient(90deg,#00D4FF,#008CFF)]" />
-              <div className="flex flex-wrap items-center justify-between gap-2 border-b border-cyan-500/20 px-4 py-3 text-[10px] font-semibold uppercase tracking-[0.13em] text-[var(--gvx-hero-muted)]">
-                <span className="flex items-center gap-2 text-[var(--gvx-hero-text)]">
-                  <Monitor size={15} weight="duotone" className="text-[var(--gvx-hero-accent)]" />
-                  Research command surface
-                </span>
-                <span className="shrink-0 rounded-full border border-[var(--gvx-hero-border)] bg-[var(--gvx-hero-accent-soft)] px-2 py-0.5 text-[var(--gvx-hero-accent)]">Recommendation-only AI</span>
+          <div className="overflow-hidden rounded-lg border border-[var(--gvx-hero-border)] bg-[var(--gvx-hero-card)] shadow-[0_30px_90px_-68px_rgba(0,140,255,0.48)] dark:shadow-[0_30px_90px_-66px_rgba(0,0,0,0.72)]">
+            <div className="flex items-center justify-between border-b border-[var(--gvx-hero-border)] px-4 py-3">
+              <div className="flex items-center gap-2 text-sm font-semibold text-[var(--gvx-hero-text)]">
+                <ShieldCheck size={17} weight="duotone" className="text-[var(--gvx-hero-accent)]" />
+                Operations review queue
               </div>
+              <span className="rounded-sm border border-cyan-500/20 bg-cyan-500/8 px-2 py-1 text-[10px] font-semibold uppercase tracking-[0.12em] text-[var(--gvx-hero-accent)]">Live case view</span>
+            </div>
 
-              <div className="grid lg:grid-cols-[minmax(0,1fr)_210px]">
-                <div className="min-w-0">
-                  <div className="grid grid-cols-3 border-b border-[var(--gvx-hero-border)]">
-                    {heroProofPoints.map(([label, value]) => (
-                      <div key={label} className="border-r border-[var(--gvx-hero-border)] px-3 py-3 last:border-r-0">
-                        <div className="text-[9px] font-semibold uppercase tracking-[0.12em] text-[var(--gvx-hero-muted)]">{label}</div>
-                        <div className="mt-1 font-heading text-sm font-bold text-[var(--gvx-hero-text)]">{value}</div>
-                      </div>
-                    ))}
-                  </div>
-
-                  <div className="divide-y divide-[var(--gvx-hero-border)]">
-                    {heroQueueRows.map((row) => (
-                      <div key={row.label} className="grid gap-2 px-4 py-3 min-[520px]:grid-cols-[minmax(0,1fr)_132px_86px] min-[520px]:items-center">
-                        <div className="min-w-0">
-                          <div className="truncate text-sm font-semibold text-[var(--gvx-hero-text)]">{row.label}</div>
-                          <div className="text-xs text-[var(--gvx-hero-muted)]">{row.source}</div>
-                        </div>
-                        <div className="text-xs font-medium text-[var(--gvx-hero-muted)]">Human review</div>
-                        <div className="text-xs font-semibold text-[var(--gvx-hero-accent)]">{row.status}</div>
-                      </div>
-                    ))}
-                  </div>
+            <div className="grid border-b border-[var(--gvx-hero-border)] sm:grid-cols-3">
+              {operatingMetrics.map(([label, value]) => (
+                <div key={label} className="border-b border-[var(--gvx-hero-border)] px-4 py-3 last:border-b-0 sm:border-b-0 sm:border-r sm:last:border-r-0">
+                  <div className="text-[10px] font-semibold uppercase tracking-[0.12em] text-[var(--gvx-hero-muted)]">{label}</div>
+                  <div className="mt-1 font-heading text-lg font-bold text-[var(--gvx-hero-text)]">{value}</div>
                 </div>
+              ))}
+            </div>
 
-                <div className="border-t border-[var(--gvx-hero-border)] bg-[var(--gvx-hero-bg-soft)] p-4 lg:border-l lg:border-t-0">
-                  <div className="mb-3 flex items-center justify-between gap-2">
-                    <div>
-                      <div className="text-[9px] font-semibold uppercase tracking-[0.13em] text-[var(--gvx-hero-muted)]">AI boundary</div>
-                      <div className="mt-1 text-sm font-bold text-[var(--gvx-hero-text)]">Safe response path</div>
-                    </div>
-                    <Lock size={18} weight="duotone" className="text-[var(--gvx-hero-accent)]" />
+            <div className="divide-y divide-[var(--gvx-hero-border)]">
+              {caseRows.map((row) => (
+                <div key={row.label} className="grid gap-2 px-4 py-3 sm:grid-cols-[minmax(0,1fr)_132px_84px] sm:items-center">
+                  <div className="min-w-0">
+                    <div className="truncate text-sm font-semibold text-[var(--gvx-hero-text)]">{row.label}</div>
+                    <div className="text-xs text-[var(--gvx-hero-muted)]">{row.source}</div>
                   </div>
-                  <div className="mb-3 overflow-hidden rounded-lg border border-[var(--gvx-hero-border)] bg-[var(--gvx-hero-card)] p-1.5">
-                    <img
-                      src="/ai-boundary.svg"
-                      alt="AI boundary: recommendation-only decision path with human approval gates"
-                      className="block aspect-[17/13] w-full rounded-md object-contain"
-                      loading="eager"
-                      decoding="async"
-                    />
-                  </div>
-                  <div className="grid gap-2">
-                    {heroBoundarySteps.map((step, index) => (
-                      <div key={step} className="flex items-center gap-2 text-xs font-semibold text-[var(--gvx-hero-text)]">
-                        <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-md border border-cyan-500/20 bg-cyan-500/10 font-mono text-[9px] text-[var(--gvx-hero-accent)]">{index + 1}</span>
-                        {step}
-                      </div>
-                    ))}
-                  </div>
+                  <div className="text-xs font-medium text-[var(--gvx-hero-muted)]">Human approval</div>
+                  <div className="text-xs font-semibold text-[var(--gvx-hero-accent)]">{row.status}</div>
                 </div>
+              ))}
+            </div>
+
+            <div className="grid gap-4 border-t border-[var(--gvx-hero-border)] bg-[var(--gvx-hero-bg-soft)] p-4 sm:grid-cols-[minmax(0,1fr)_180px] sm:items-center">
+              <div>
+                <div className="text-[10px] font-semibold uppercase tracking-[0.13em] text-[var(--gvx-hero-muted)]">AI operating boundary</div>
+                <p className="mt-1 text-sm leading-6 text-[var(--gvx-hero-muted)]">AI prepares recommendations. Operators approve action. Policy writes the audit trail.</p>
               </div>
+              <img src="/ai-boundary.svg" alt="AI recommendation boundary with human approval" className="h-28 w-full rounded-md border border-[var(--gvx-hero-border)] bg-[var(--gvx-hero-card)] object-contain p-2" loading="eager" decoding="async" />
             </div>
           </div>
         </div>
       </section>
 
-      <ThreatResearchLabSection />
-      <CyberResearchSystemSection capabilities={heroCapabilities} />
-      <InvestigationWorkflowSection />
-
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-10">
-        <div className="rounded-lg border border-[var(--gvx-menu-border)] bg-[linear-gradient(135deg,var(--gvx-menu-bg),var(--gvx-hero-bg-soft))] p-6 text-center shadow-[0_24px_64px_-52px_rgba(0,212,255,0.22)] sm:p-8 md:p-10">
-          <div className="mx-auto mb-3 inline-flex rounded-md border border-primary/20 bg-primary/10 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.14em] text-primary">
-            Research-ready deployment
+      <section className="border-b border-[var(--gvx-hero-border)] bg-[var(--gvx-hero-bg)] px-4 py-12 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl">
+          <div className="max-w-2xl">
+            <div className="text-xs font-semibold uppercase tracking-[0.14em] text-primary">Core platform</div>
+            <h2 className="mt-2 text-2xl font-heading font-bold leading-tight text-foreground sm:text-3xl">A clean operating layer for security teams.</h2>
           </div>
-          <h2 className="mx-auto max-w-3xl text-xl sm:text-2xl md:text-3xl font-heading font-bold text-foreground mb-2 sm:mb-3 leading-tight">Launch a governed cyber research workspace</h2>
-          <p className="mx-auto max-w-2xl text-sm sm:text-base text-muted-foreground mb-6 sm:mb-8">
-            Start with the self-hosted console, connect telemetry sources, and keep every recommendation behind policy, approvals, and audit evidence.
-          </p>
-          <div className="flex flex-col items-center justify-center gap-3 sm:flex-row">
-            <Button onClick={() => onNavigate("download")} className="h-11 w-full max-w-[320px] rounded-md px-5 font-semibold sm:w-auto">
+          <div className="mt-7 grid gap-4 md:grid-cols-3">
+            {capabilityPillars.map((item) => (
+              <Card key={item.title} className="border-[var(--gvx-hero-border)] bg-[var(--gvx-hero-card)] shadow-none">
+                <CardHeader className="p-5">
+                  <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-md border border-cyan-500/20 bg-cyan-500/10">
+                    <item.icon size={19} weight="duotone" className="text-primary" />
+                  </div>
+                  <CardTitle className="text-base text-foreground">{item.title}</CardTitle>
+                  <CardDescription className="text-sm leading-6 text-muted-foreground">{item.detail}</CardDescription>
+                </CardHeader>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-[var(--gvx-hero-bg-soft)] px-4 py-12 sm:px-6 lg:px-8">
+        <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[360px_minmax(0,1fr)]">
+          <div>
+            <div className="text-xs font-semibold uppercase tracking-[0.14em] text-primary">Operating model</div>
+            <h2 className="mt-2 text-2xl font-heading font-bold leading-tight text-foreground sm:text-3xl">From signal to approved decision.</h2>
+            <p className="mt-3 text-sm leading-6 text-muted-foreground">The homepage now mirrors the product promise: fewer theatrics, clearer governance, and a decision path security leaders can understand quickly.</p>
+          </div>
+          <div className="grid gap-3 md:grid-cols-2">
+            {operatingModel.map((item) => (
+              <div key={item.step} className="rounded-lg border border-[var(--gvx-hero-border)] bg-[var(--gvx-hero-card)] p-5">
+                <div className="mb-4 font-mono text-xs font-bold text-primary">{item.step}</div>
+                <h3 className="font-heading text-lg font-bold text-foreground">{item.title}</h3>
+                <p className="mt-2 text-sm leading-6 text-muted-foreground">{item.detail}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="px-4 py-10 sm:px-6 lg:px-8">
+        <div className="mx-auto flex max-w-7xl flex-col gap-5 rounded-lg border border-[var(--gvx-hero-border)] bg-[var(--gvx-hero-card)] p-6 sm:p-8 lg:flex-row lg:items-center lg:justify-between">
+          <div className="max-w-2xl">
+            <h2 className="text-2xl font-heading font-bold text-foreground">Deploy a governed research workspace.</h2>
+            <p className="mt-2 text-sm leading-6 text-muted-foreground">Start with the self-hosted console, connect telemetry sources, and keep every recommendation behind policy, approval, and audit evidence.</p>
+          </div>
+          <div className="flex flex-col gap-3 sm:flex-row lg:shrink-0">
+            <Button onClick={() => onNavigate("download")} className="h-11 rounded-md px-5 font-semibold">
               <CloudArrowDown size={16} className="mr-2" weight="bold" />
               Start Deployment
             </Button>
-            <Button variant="outline" onClick={() => onNavigate("documentation")} className="h-11 w-full max-w-[320px] rounded-md px-5 font-semibold sm:w-auto">
+            <Button variant="outline" onClick={() => onNavigate("documentation")} className="h-11 rounded-md px-5 font-semibold">
               Read Architecture
               <ArrowRight size={16} className="ml-2" />
             </Button>
@@ -392,209 +389,6 @@ function HomePage({ onNavigate }: { onNavigate: (page: string) => void }) {
         </div>
       </section>
     </div>
-  )
-}
-
-function ThreatResearchLabSection() {
-  const signalRows = [
-    { label: "Identity anomaly", source: "Okta + endpoint", severity: "High", time: "02:14" },
-    { label: "PowerShell chain", source: "EDR telemetry", severity: "Critical", time: "02:18" },
-    { label: "Suspicious ASN", source: "Threat intel", severity: "Medium", time: "02:21" },
-  ]
-
-  const researchNodes = ["Initial access", "Credential use", "Script execution", "Lateral signal", "Evidence package"]
-  const intelligenceCards = [
-    { label: "MITRE mapping", value: "T1059 / T1078", detail: "Tactics linked to investigation timeline" },
-    { label: "Evidence quality", value: "Review-ready", detail: "Analyst notes, source links, and custody trail" },
-    { label: "AI boundary", value: "0 actions", detail: "Recommendations only; no hardware control" },
-  ]
-
-  return (
-    <section className="border-t border-[var(--gvx-hero-border)] bg-[linear-gradient(180deg,var(--gvx-hero-bg-soft),var(--gvx-hero-bg))] px-4 py-10 sm:px-6 sm:py-12 lg:px-8">
-      <div className="mx-auto max-w-6xl">
-        <div className="mb-6 grid gap-4 lg:grid-cols-[minmax(0,0.9fr)_minmax(320px,1.1fr)] lg:items-end">
-          <div>
-            <div className="text-xs font-semibold uppercase tracking-[0.14em] text-primary">Threat research lab</div>
-            <h2 className="mt-2 max-w-2xl text-2xl font-heading font-bold leading-tight text-foreground sm:text-3xl">
-              Turn scattered signals into an explainable investigation graph.
-            </h2>
-          </div>
-          <p className="max-w-2xl text-sm leading-6 text-muted-foreground lg:justify-self-end">
-            Analysts can move from suspicious activity to mapped tactics, evidence quality, and safe response recommendations without leaving the research surface.
-          </p>
-        </div>
-
-        <div className="grid gap-4 lg:grid-cols-[minmax(0,1.12fr)_minmax(300px,0.88fr)]">
-          <div className="overflow-hidden rounded-lg border border-[var(--gvx-menu-border)] bg-[var(--gvx-menu-bg)] shadow-[0_26px_70px_-52px_rgba(7,17,31,0.48)]">
-            <div className="flex flex-col gap-2 border-b border-[var(--gvx-menu-border)] px-4 py-3 min-[520px]:flex-row min-[520px]:items-center min-[520px]:justify-between">
-              <div className="flex items-center gap-2 text-sm font-semibold text-foreground">
-                <Broadcast size={17} weight="duotone" className="text-primary" />
-                Live research stream
-              </div>
-              <Badge variant="outline" className="w-fit rounded-sm border-primary/30 text-primary">Case GVX-24-118</Badge>
-            </div>
-
-            <div className="grid gap-0 lg:grid-cols-[minmax(0,1fr)_220px]">
-              <div className="divide-y divide-[var(--gvx-menu-border)]">
-                {signalRows.map((row) => (
-                  <div key={row.label} className="grid gap-2 px-4 py-3 min-[560px]:grid-cols-[88px_minmax(0,1fr)_120px_88px] min-[560px]:items-center">
-                    <div className="font-mono text-xs font-semibold text-muted-foreground">{row.time}</div>
-                    <div className="min-w-0">
-                      <div className="truncate text-sm font-semibold text-foreground">{row.label}</div>
-                      <div className="text-xs text-muted-foreground">{row.source}</div>
-                    </div>
-                    <Badge variant={row.severity === "Critical" ? "destructive" : "outline"} className="w-fit rounded-sm text-[10px] uppercase">
-                      {row.severity}
-                    </Badge>
-                    <div className="text-xs font-semibold text-primary">Correlated</div>
-                  </div>
-                ))}
-              </div>
-
-              <div className="border-t border-[var(--gvx-menu-border)] bg-[var(--gvx-hero-bg-soft)] p-4 lg:border-l lg:border-t-0">
-                <div className="mb-3 text-[10px] font-semibold uppercase tracking-[0.14em] text-muted-foreground">Evidence graph</div>
-                <div className="grid gap-2">
-                  {researchNodes.map((node, index) => (
-                    <div key={node} className="flex items-center gap-2">
-                      <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-md border border-primary/20 bg-primary/10 font-mono text-[10px] font-bold text-primary">
-                        {index + 1}
-                      </div>
-                      <div className="min-w-0 truncate text-xs font-semibold text-foreground">{node}</div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="grid gap-3">
-            {intelligenceCards.map((item) => (
-              <div key={item.label} className="rounded-lg border border-[var(--gvx-menu-border)] bg-[var(--gvx-menu-bg)] p-4 shadow-[0_18px_42px_-40px_rgba(7,17,31,0.38)]">
-                <div className="text-[10px] font-semibold uppercase tracking-[0.14em] text-muted-foreground">{item.label}</div>
-                <div className="mt-1 font-heading text-xl font-bold text-foreground">{item.value}</div>
-                <p className="mt-2 text-sm leading-6 text-muted-foreground">{item.detail}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-    </section>
-  )
-}
-
-function CyberResearchSystemSection({ capabilities }: { capabilities: ResearchCapability[] }) {
-  const researchLayers = [
-    { label: "Telemetry intake", value: "Endpoint, identity, cloud", icon: HardDrives },
-    { label: "Signal enrichment", value: "IOCs, MITRE, timelines", icon: NetworkX },
-    { label: "Evidence custody", value: "Notes, approvals, audit", icon: Certificate },
-    { label: "Safe AI analysis", value: "Recommend, never execute", icon: Lock },
-  ]
-
-  return (
-    <section className="border-t border-border/60 bg-background px-4 py-10 sm:px-6 sm:py-12 lg:px-8">
-      <div className="mx-auto max-w-6xl">
-        <div className="mb-6 grid gap-4 lg:grid-cols-[minmax(0,0.92fr)_minmax(320px,1.08fr)] lg:items-end">
-          <div>
-            <div className="text-xs font-semibold uppercase tracking-[0.14em] text-primary">Cyber research system</div>
-            <h2 className="mt-2 max-w-2xl text-2xl font-heading font-bold leading-tight text-foreground sm:text-3xl">
-              A research console built for threat teams, not a generic dashboard.
-            </h2>
-          </div>
-          <p className="max-w-2xl text-sm leading-6 text-muted-foreground lg:justify-self-end">
-            Guardivex organizes raw signals into cases, connects technical context, and keeps every high-risk response behind deterministic review.
-          </p>
-        </div>
-
-        <div className="grid gap-3 lg:grid-cols-[minmax(0,1fr)_340px]">
-          <div className="grid grid-cols-1 gap-3 md:grid-cols-3">
-            {capabilities.map((item) => (
-              <Card key={item.label} className="border-border bg-card transition-colors hover:border-primary/35">
-                <CardHeader className="p-4 sm:p-5">
-                  <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-md border border-primary/20 bg-primary/10">
-                    <item.icon size={19} className="text-primary" weight="duotone" />
-                  </div>
-                  <CardTitle className="text-base text-foreground">{item.label}</CardTitle>
-                  <CardDescription className="text-sm leading-6 text-muted-foreground">{item.detail}</CardDescription>
-                </CardHeader>
-              </Card>
-            ))}
-          </div>
-
-          <div className="rounded-lg border border-[var(--gvx-menu-border)] bg-[var(--gvx-menu-bg)] p-4 shadow-[0_22px_54px_-46px_rgba(7,17,31,0.42)]">
-            <div className="mb-3 flex items-center justify-between gap-3">
-              <div>
-                <div className="text-[10px] font-semibold uppercase tracking-[0.14em] text-muted-foreground">Research stack</div>
-                <div className="mt-1 font-heading text-lg font-bold text-foreground">Operational layers</div>
-              </div>
-              <Gauge size={22} weight="duotone" className="text-primary" />
-            </div>
-            <div className="grid gap-2">
-              {researchLayers.map((item) => (
-                <div key={item.label} className="flex items-center gap-3 rounded-md border border-[var(--gvx-menu-border)] bg-[var(--gvx-hero-bg-soft)] px-3 py-2.5">
-                  <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md border border-primary/20 bg-primary/10">
-                    <item.icon size={16} weight="duotone" className="text-primary" />
-                  </div>
-                  <div className="min-w-0">
-                    <div className="text-sm font-semibold text-foreground">{item.label}</div>
-                    <div className="truncate text-xs text-muted-foreground">{item.value}</div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  )
-}
-
-function InvestigationWorkflowSection() {
-  const workflowSteps = [
-    { step: "01", title: "Collect", detail: "Normalize telemetry, alerts, IOCs, identities, and device context." },
-    { step: "02", title: "Correlate", detail: "Map evidence to campaigns, tactics, affected assets, and timelines." },
-    { step: "03", title: "Recommend", detail: "Generate AI-assisted findings without direct hardware execution." },
-    { step: "04", title: "Approve", detail: "Route response plans through policy, RBAC, and audit logging." },
-  ]
-
-  const safeguards = ["No autonomous unlocks", "No alarm disabling", "No switch-port changes", "Every command reviewed"]
-
-  return (
-    <section className="border-t border-[var(--gvx-hero-border)] bg-[var(--gvx-hero-bg-soft)] px-4 py-10 sm:px-6 sm:py-12 lg:px-8">
-      <div className="mx-auto grid max-w-6xl gap-6 lg:grid-cols-[360px_minmax(0,1fr)] lg:items-start">
-        <div>
-          <Badge className="mb-4 rounded-sm border-[var(--gvx-menu-border)] bg-[var(--gvx-menu-bg)] text-[var(--gvx-hero-muted)]">
-            Research workflow
-          </Badge>
-          <h2 className="text-2xl font-heading font-bold leading-tight text-foreground sm:text-3xl">
-            From signal to defensible decision.
-          </h2>
-          <p className="mt-3 text-sm leading-6 text-muted-foreground">
-            The main workflow is designed for analysts who need speed, evidence quality, and controlled response boundaries.
-          </p>
-          <div className="mt-5 grid gap-2">
-            {safeguards.map((label) => (
-              <div key={label} className="flex items-center gap-2 text-sm font-medium text-foreground">
-                <CheckCircle size={15} weight="fill" className="text-cyan-500" />
-                {label}
-              </div>
-            ))}
-          </div>
-        </div>
-
-        <div className="grid gap-3 md:grid-cols-2">
-          {workflowSteps.map((item) => (
-            <div key={item.step} className="rounded-lg border border-[var(--gvx-menu-border)] bg-[var(--gvx-menu-bg)] p-4 shadow-[0_18px_42px_-38px_rgba(7,17,31,0.34)]">
-              <div className="mb-3 flex items-center justify-between gap-3">
-                <span className="font-mono text-xs font-bold text-primary">{item.step}</span>
-                <ArrowRight size={15} className="text-muted-foreground" />
-              </div>
-              <h3 className="font-heading text-lg font-bold text-foreground">{item.title}</h3>
-              <p className="mt-2 text-sm leading-6 text-muted-foreground">{item.detail}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
   )
 }
 
