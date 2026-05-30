@@ -39,7 +39,7 @@
 :root {
   --radius: 0.75rem;
 
-  --background: #f7fbf4;
+  --background: #f8fbff;
   --foreground: #07111f;
   --card: #ffffff;
   --card-foreground: #07111f;
@@ -47,16 +47,16 @@
   --popover-foreground: #07111f;
   --primary: #008ff0;
   --primary-foreground: #ffffff;
-  --secondary: #eef8f2;
+  --secondary: #edf6ff;
   --secondary-foreground: #07111f;
-  --muted: #eef5f2;
+  --muted: #f1f5f9;
   --muted-foreground: #64748b;
   --accent: #00d7e6;
   --accent-foreground: #07111f;
   --destructive: #dc2626;
   --destructive-foreground: #ffffff;
-  --border: #d7e3d4;
-  --input: #d7e3d4;
+  --border: #d6e3ec;
+  --input: #d6e3ec;
   --ring: #008ff0;
   --chart-1: #008ff0;
   --chart-2: #00d7e6;
@@ -79,14 +79,14 @@
   --sidebar-ring: #00c7e8;
 
   --gvx-logo-olive: #7c8430;
-  --gvx-logo-olive-soft: rgba(124, 132, 48, 0.12);
+  --gvx-logo-olive-soft: rgba(124, 132, 48, 0.055);
   --gvx-logo-cyan-glow: rgba(0, 215, 230, 0.12);
-  --gvx-hero-bg: #f7fbf4;
-  --gvx-hero-bg-soft: #edf8f5;
+  --gvx-hero-bg: #f8fbff;
+  --gvx-hero-bg-soft: #eef7fb;
   --gvx-hero-surface: #ffffff;
   --gvx-hero-surface-strong: #ffffff;
   --gvx-hero-card: #ffffff;
-  --gvx-hero-border: rgba(88, 103, 50, 0.20);
+  --gvx-hero-border: rgba(32, 95, 126, 0.18);
   --gvx-hero-border-strong: rgba(0, 143, 240, 0.34);
   --gvx-hero-text: #07111f;
   --gvx-hero-muted: #355166;
@@ -97,8 +97,8 @@
   --gvx-hero-glow: rgba(0, 215, 230, 0.12);
   --gvx-hero-shadow: 0 22px 68px -56px rgba(15, 23, 42, 0.30);
   --gvx-menu-bg: #ffffff;
-  --gvx-menu-hover: #eef8f2;
-  --gvx-menu-border: rgba(88, 103, 50, 0.24);
+  --gvx-menu-hover: #eef7fb;
+  --gvx-menu-border: rgba(32, 95, 126, 0.22);
 }
 
 .dark {
