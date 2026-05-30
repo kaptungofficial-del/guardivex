@@ -359,10 +359,10 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
   return (
     <>
       <div className={ENTERPRISE_COMMAND_STRIP_CLASS}>
-        <div className="max-w-[1440px] mx-auto px-5 sm:px-8 xl:px-14 2xl:px-16">
+        <div className="max-w-[1440px] mx-auto px-3 min-[390px]:px-4 sm:px-8 xl:px-14 2xl:px-16">
           <div className="flex h-6 items-center justify-between sm:h-7">
             <div className="flex min-w-0 items-center gap-2.5 text-[10.5px] font-medium text-[var(--gvx-hero-muted)] sm:gap-3">
-              <HeaderStatusBadge label="Research Lab" className="hidden min-[380px]:inline-flex border-cyan-500/20 bg-cyan-500/8 text-cyan-600 dark:text-cyan-300" />
+              <HeaderStatusBadge label="Research Lab" className="inline-flex border-cyan-500/20 bg-cyan-500/8 text-cyan-600 dark:text-cyan-300" />
               <div className="hidden items-center gap-1.5 border-l border-[var(--gvx-hero-border)] pl-3 md:flex">
                 <CloudCheck size={13} weight="duotone" className="text-[var(--gvx-hero-accent)]" />
                 <span>Governed AI Recommendations</span>
@@ -406,7 +406,7 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
 
       <nav className="sticky top-0 z-50 px-0">
         <div className={`mx-auto px-3 min-[390px]:px-4 sm:px-8 xl:px-14 2xl:px-16 ${ENTERPRISE_HEADER_SURFACE_CLASS}`}>
-          <div ref={desktopNavRef} onMouseLeave={closeAllDesktopDropdowns} className="relative flex h-[64px] min-w-0 items-center justify-between gap-2 overflow-visible sm:gap-4">
+          <div ref={desktopNavRef} onMouseLeave={closeAllDesktopDropdowns} className="relative flex h-[56px] min-w-0 items-center justify-between gap-2 overflow-visible sm:h-[64px] sm:gap-4">
             <div className="flex min-w-0 flex-1 items-center gap-3 lg:gap-5">
               <button 
                 onClick={() => handleNavigate("home")} 
@@ -417,10 +417,10 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
                 <BrandLogo
                   subtitle="SECURITY PLATFORM"
                   className="min-w-0 gap-1.5 sm:gap-2"
-                  markClassName="h-10 w-10 min-[390px]:h-11 min-[390px]:w-11 sm:h-14 sm:w-14 lg:h-16 lg:w-16"
+                  markClassName="h-9 w-9 min-[390px]:h-10 min-[390px]:w-10 sm:h-14 sm:w-14 lg:h-16 lg:w-16"
                   imgClassName="pr-0.5"
-                  textContainerClassName="min-w-0 max-w-[92px] gap-0 min-[390px]:max-w-[116px] sm:max-w-none"
-                  titleClassName="truncate text-[16px] min-[390px]:text-[18px] sm:text-[22px] lg:text-[24px] font-bold tracking-normal transition-opacity group-hover:opacity-85"
+                  textContainerClassName="min-w-0 max-w-[86px] gap-0 min-[390px]:max-w-[108px] sm:max-w-none"
+                  titleClassName="truncate text-[15px] min-[390px]:text-[17px] sm:text-[22px] lg:text-[24px] font-bold tracking-normal transition-opacity group-hover:opacity-85"
                   subtitleClassName="hidden sm:block text-[9px] lg:text-[9.5px] tracking-[0.1em] leading-none mt-0.5"
                 />
               </button>
@@ -471,7 +471,7 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
                 size="default"
                 aria-label="Sign in"
                 title="Sign in"
-                className="h-8 w-8 rounded-md border border-[var(--gvx-hero-border-strong)] bg-[var(--gvx-hero-surface-strong)] bg-none px-0 text-[0.8rem] font-semibold text-[var(--gvx-hero-text)] shadow-[0_12px_26px_-24px_rgba(7,17,31,0.30)] transition-all duration-200 hover:-translate-y-px hover:border-[color:var(--gvx-hero-accent)] hover:text-[var(--gvx-hero-accent)] min-[430px]:w-auto min-[430px]:px-3.5 group"
+                className="h-7 w-7 rounded-md border border-[var(--gvx-hero-border-strong)] bg-[var(--gvx-hero-surface-strong)] bg-none px-0 text-[0.75rem] font-semibold text-[var(--gvx-hero-text)] shadow-[0_12px_26px_-24px_rgba(7,17,31,0.30)] transition-all duration-200 hover:-translate-y-px hover:border-[color:var(--gvx-hero-accent)] hover:text-[var(--gvx-hero-accent)] min-[430px]:h-8 min-[430px]:w-auto min-[430px]:px-3.5 group"
               >
                 <span className="hidden min-[430px]:inline">Sign In</span>
                 <ArrowRight size={15} weight="bold" className="transition-transform group-hover:translate-x-0.5 min-[430px]:ml-1 sm:ml-1.5 sm:w-[17px] sm:h-[17px]" />
@@ -479,7 +479,7 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
               
               <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className={`lg:hidden ${ENTERPRISE_ICON_CONTROL_CLASS} h-8 w-8`}
+                className={`lg:hidden ${ENTERPRISE_ICON_CONTROL_CLASS} h-7 w-7 min-[430px]:h-8 min-[430px]:w-8`}
                 aria-label="Toggle menu"
               >
                 {mobileMenuOpen ? <X size={20} weight="bold" className="sm:w-[22px] sm:h-[22px]" /> : <List size={20} weight="bold" className="sm:w-[22px] sm:h-[22px]" />}
@@ -539,7 +539,7 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
       </nav>
 
       {mobileMenuOpen && (
-        <div className="fixed inset-x-0 bottom-0 top-[88px] z-40 overflow-y-auto border-t border-[var(--gvx-menu-border)] bg-[var(--gvx-menu-bg)] lg:hidden sm:top-[92px]">
+        <div className="fixed inset-x-0 bottom-0 top-[82px] z-40 overflow-y-auto overflow-x-hidden border-t border-[var(--gvx-menu-border)] bg-[var(--gvx-menu-bg)] lg:hidden sm:top-[92px]">
           <div className="h-full">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3.5 sm:py-6 md:py-8">
               <div className="flex flex-col gap-1.5 sm:gap-2">

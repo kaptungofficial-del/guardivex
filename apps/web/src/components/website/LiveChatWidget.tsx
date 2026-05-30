@@ -112,11 +112,11 @@ export function LiveChatWidget({
         <Button
           variant="outline"
           onClick={() => onOpenChange(true)}
-          className="h-11 rounded-full border border-border/70 bg-white px-3.5 text-[#07111F] shadow-[0_18px_42px_-28px_rgba(7,17,31,0.55)] hover:border-primary/25 hover:bg-secondary/80 dark:border-[rgba(0,212,255,0.16)] dark:bg-[rgba(7,29,51,0.92)] dark:text-[#E2E8F0] dark:hover:border-primary/24 dark:hover:bg-[rgba(7,29,51,0.96)]"
+          className="h-10 rounded-full border border-border/70 bg-white px-3 text-[#07111F] shadow-[0_18px_42px_-28px_rgba(7,17,31,0.55)] hover:border-primary/25 hover:bg-secondary/80 dark:border-[rgba(0,212,255,0.16)] dark:bg-[rgba(7,29,51,0.92)] dark:text-[#E2E8F0] dark:hover:border-primary/24 dark:hover:bg-[rgba(7,29,51,0.96)] sm:h-11 sm:px-3.5"
           aria-label="Open live chat"
           title="Open live chat"
         >
-          <ChatCircle size={18} weight="fill" className="opacity-80" />
+          <ChatCircle size={17} weight="fill" className="opacity-80 sm:h-[18px] sm:w-[18px]" />
           <span className="hidden font-semibold text-[12px] min-[390px]:inline">Live Chat</span>
           <Badge variant="secondary" className="ml-0.5 hidden px-1.5 py-0 h-4 text-[9px] border border-success/20 bg-success/10 text-success/90 sm:inline-flex">
             Online
@@ -127,7 +127,7 @@ export function LiveChatWidget({
   }
 
   return (
-    <div className="fixed bottom-4 right-4 z-50 w-[min(21rem,calc(100vw-2rem))] sm:bottom-6 sm:right-6 sm:w-[320px]">
+    <div className="fixed bottom-4 right-4 z-50 w-[min(20rem,calc(100vw-2rem))] sm:bottom-6 sm:right-6 sm:w-[320px]">
       <div className="overflow-hidden rounded-lg border border-border/75 bg-white/95 shadow-[0_24px_70px_-44px_rgba(7,17,31,0.55)] dark:border-[rgba(0,212,255,0.12)] dark:bg-[rgba(7,29,51,0.94)]">
         <div className="px-2.5 py-1.5 border-b border-border/70 bg-white/90 backdrop-blur-sm flex items-center justify-between dark:border-[rgba(0,212,255,0.08)] dark:bg-[rgba(7,29,51,0.72)]">
           <div className="flex items-center gap-2">
@@ -152,7 +152,7 @@ export function LiveChatWidget({
           </Button>
         </div>
 
-        <div ref={scrollContainerRef} className="h-[170px] overflow-y-auto px-2.5 py-2 space-y-2 bg-white dark:bg-[rgba(3,10,24,0.66)]">
+        <div ref={scrollContainerRef} className="h-[150px] overflow-y-auto px-2.5 py-2 space-y-2 bg-white dark:bg-[rgba(3,10,24,0.66)] sm:h-[170px]">
           {messages.map((message) => (
             <div
               key={message.id}

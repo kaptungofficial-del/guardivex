@@ -213,11 +213,11 @@ body {
     radial-gradient(circle at 12% -8%, rgba(0, 140, 255, 0.045), transparent 36%),
     radial-gradient(circle at 88% -20%, rgba(0, 212, 255, 0.035), transparent 40%);
   background-attachment: fixed;
-  overflow-x: clip;
+  overflow-x: hidden;
 }
 
 html {
-  overflow-x: clip;
+  overflow-x: hidden;
 }
 
 .dark body {
