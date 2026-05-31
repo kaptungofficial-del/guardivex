@@ -245,7 +245,7 @@ function HomePage({ onNavigate }: { onNavigate: (page: string) => void }) {
 
   return (
     <div className="relative guardivex-home-typography overflow-x-hidden bg-[var(--gvx-hero-bg)] pb-24 text-[var(--gvx-hero-text)] sm:pb-0">
-      <section className="relative isolate overflow-hidden border-b border-[var(--gvx-hero-border)] bg-[linear-gradient(180deg,#F8FAFC_0%,rgba(0,212,255,0.08)_100%)] px-4 py-7 dark:bg-[linear-gradient(180deg,#021526_0%,#071D33_100%)] sm:px-6 sm:py-16 lg:px-8 lg:pb-24">
+      <section className="relative isolate overflow-hidden border-b border-[var(--gvx-hero-border)] bg-[linear-gradient(180deg,#F8FAFC_0%,rgba(0,212,255,0.08)_100%)] px-4 py-7 dark:bg-[linear-gradient(180deg,#021526_0%,#071D33_100%)] sm:px-6 sm:py-16 lg:px-8 lg:pb-40 xl:pb-44 2xl:pb-48">
         <div className="gvx-grid-drift absolute inset-0 -z-10 bg-[linear-gradient(rgba(0,140,255,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(0,140,255,0.08)_1px,transparent_1px)] bg-[size:64px_64px] opacity-20 dark:bg-[linear-gradient(rgba(0,212,255,0.13)_1px,transparent_1px),linear-gradient(90deg,rgba(0,212,255,0.13)_1px,transparent_1px)] dark:opacity-15 sm:bg-[size:80px_80px] sm:opacity-45 dark:sm:opacity-20" />
 
         <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-7 lg:grid-cols-[minmax(0,0.86fr)_minmax(340px,0.74fr)] lg:gap-12">
@@ -281,9 +281,9 @@ function HomePage({ onNavigate }: { onNavigate: (page: string) => void }) {
             </div>
           </div>
 
-          <div className="gvx-animate-in gvx-delay-4 flex h-full min-w-0 translate-y-0 items-center justify-center lg:translate-y-16">
-            <div className="gvx-phone-frame relative w-full max-w-[340px] lg:max-w-[360px]">
-              <div className="relative overflow-hidden rounded-[2.15rem] border border-[rgba(0,212,255,0.18)] bg-[#021526] p-2 shadow-[0_28px_80px_-56px_rgba(0,140,255,0.78)]">
+          <div className="gvx-animate-in gvx-delay-4 flex min-h-[620px] min-w-0 items-center justify-center">
+            <div className="gvx-phone-frame relative flex min-h-[620px] w-full max-w-[340px] items-center justify-center lg:max-w-[360px] lg:translate-y-24 xl:translate-y-28 2xl:translate-y-32">
+              <div className="relative w-full overflow-hidden rounded-[2.15rem] border border-[rgba(0,212,255,0.18)] bg-[#021526] p-2 shadow-[0_28px_80px_-56px_rgba(0,140,255,0.78)]">
                 <div className="absolute left-1/2 top-2 z-20 h-5 w-28 -translate-x-1/2 rounded-b-2xl bg-[#021526]" />
                 <div className="gvx-phone-reflection pointer-events-none absolute inset-2 z-30 rounded-[1.7rem]" />
                 <div className="relative overflow-hidden rounded-[1.7rem] border border-[rgba(0,212,255,0.14)] bg-[linear-gradient(180deg,#071D33_0%,#021526_100%)] p-4 text-[#F8FAFC]">

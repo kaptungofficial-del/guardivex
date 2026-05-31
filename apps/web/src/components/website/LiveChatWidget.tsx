@@ -108,7 +108,7 @@ export function LiveChatWidget({
 
   if (!isOpen) {
     return (
-      <div className="gvx-chat-float fixed bottom-4 right-4 z-50 sm:bottom-6 sm:right-6">
+      <div className="gvx-chat-float fixed bottom-6 right-6 z-40">
         <Button
           variant="outline"
           onClick={() => onOpenChange(true)}
@@ -127,7 +127,7 @@ export function LiveChatWidget({
   }
 
   return (
-    <div className="gvx-chat-panel fixed bottom-4 right-4 z-50 w-[min(20rem,calc(100vw-2rem))] sm:bottom-6 sm:right-6 sm:w-[320px]">
+    <div className="gvx-chat-panel fixed bottom-6 right-6 z-40 w-[min(20rem,calc(100vw-2rem))] sm:w-[320px]">
       <div className="overflow-hidden rounded-lg border border-[var(--gvx-hero-border)] bg-[var(--gvx-hero-card)] shadow-[0_24px_70px_-44px_rgba(7,29,51,0.55)]">
         <div className="flex items-center justify-between border-b border-[var(--gvx-hero-border)] bg-[var(--gvx-hero-surface)] px-2.5 py-1.5 backdrop-blur-sm">
           <div className="flex items-center gap-2">
