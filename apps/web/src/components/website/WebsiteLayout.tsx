@@ -248,12 +248,12 @@ function HomePage({ onNavigate }: { onNavigate: (page: string) => void }) {
       <section className="relative isolate overflow-hidden border-b border-[var(--gvx-hero-border)] bg-[linear-gradient(180deg,#F8FAFC_0%,rgba(0,212,255,0.08)_100%)] px-4 py-7 dark:bg-[linear-gradient(180deg,#021526_0%,#071D33_100%)] sm:px-6 sm:py-16 lg:px-8 lg:pb-40 xl:pb-44 2xl:pb-48">
         <div className="gvx-grid-drift absolute inset-0 -z-10 bg-[linear-gradient(rgba(0,140,255,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(0,140,255,0.08)_1px,transparent_1px)] bg-[size:64px_64px] opacity-20 dark:bg-[linear-gradient(rgba(0,212,255,0.13)_1px,transparent_1px),linear-gradient(90deg,rgba(0,212,255,0.13)_1px,transparent_1px)] dark:opacity-15 sm:bg-[size:80px_80px] sm:opacity-45 dark:sm:opacity-20" />
 
-        <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-7 lg:grid-cols-[minmax(0,0.86fr)_minmax(340px,0.74fr)] lg:gap-12">
+        <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-7 lg:grid-cols-[minmax(0,1fr)_minmax(300px,42vw)] lg:gap-12">
           <div className="flex min-w-0 max-w-3xl flex-col justify-center">
             <Badge variant="outline" className="gvx-animate-in mb-5 rounded-sm border-[var(--gvx-hero-border-strong)] bg-[var(--gvx-hero-accent-soft)] px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.14em] text-[var(--gvx-hero-accent)]">
               Governed security operations
             </Badge>
-            <h1 className="gvx-animate-in gvx-delay-1 max-w-full font-heading text-[clamp(2.12rem,10.5vw,3rem)] font-extrabold leading-[0.98] text-[var(--gvx-hero-text)] [text-wrap:balance] sm:text-[3.35rem] sm:leading-[1.03] lg:text-[4.05rem]">
+            <h1 className="gvx-animate-in gvx-delay-1 max-w-full font-heading text-[3rem] font-extrabold leading-[0.95] text-[var(--gvx-hero-text)] [text-wrap:balance] lg:max-w-[760px] lg:text-[clamp(2.8rem,4.6vw,5.2rem)]">
               Enterprise security work, without autonomous physical action.
             </h1>
             <p className="gvx-animate-in gvx-delay-2 mt-4 max-w-full text-base leading-[1.7] text-[var(--gvx-hero-muted)] sm:mt-5 sm:max-w-2xl sm:text-lg">
@@ -281,13 +281,13 @@ function HomePage({ onNavigate }: { onNavigate: (page: string) => void }) {
             </div>
           </div>
 
-          <div className="gvx-animate-in gvx-delay-4 flex min-h-[620px] min-w-0 items-center justify-center">
-            <div className="gvx-phone-frame relative flex min-h-[620px] w-full max-w-[340px] items-center justify-center lg:max-w-[360px] lg:translate-y-24 xl:translate-y-28 2xl:translate-y-32">
+          <div className="gvx-animate-in gvx-delay-4 flex min-w-0 items-center justify-center lg:max-w-[42vw] lg:justify-self-end">
+            <div className="gvx-phone-frame w-full max-w-[300px] lg:max-w-[360px] xl:max-w-[390px] 2xl:max-w-[420px]">
               <div className="relative w-full overflow-hidden rounded-[2.15rem] border border-[rgba(0,212,255,0.18)] bg-[#021526] p-2 shadow-[0_28px_80px_-56px_rgba(0,140,255,0.78)]">
                 <div className="absolute left-1/2 top-2 z-20 h-5 w-28 -translate-x-1/2 rounded-b-2xl bg-[#021526]" />
                 <div className="gvx-phone-reflection pointer-events-none absolute inset-2 z-30 rounded-[1.7rem]" />
-                <div className="relative overflow-hidden rounded-[1.7rem] border border-[rgba(0,212,255,0.14)] bg-[linear-gradient(180deg,#071D33_0%,#021526_100%)] p-4 text-[#F8FAFC]">
-                  <div className="flex items-center justify-between pt-3 text-[10px] font-semibold text-[#94A3B8]">
+                <div className="relative overflow-hidden rounded-[1.7rem] border border-[rgba(0,212,255,0.14)] bg-[linear-gradient(180deg,#071D33_0%,#021526_100%)] p-3 text-[#F8FAFC]">
+                  <div className="flex items-center justify-between pt-2 text-[9px] font-semibold text-[#94A3B8]">
                     <span>09:41</span>
                     <div className="flex items-center gap-1.5">
                       <span className="h-1.5 w-5 rounded-full border border-[rgba(0,212,255,0.35)]" />
@@ -295,61 +295,60 @@ function HomePage({ onNavigate }: { onNavigate: (page: string) => void }) {
                     </div>
                   </div>
 
-                  <div className="mt-5 flex items-center justify-between">
-                    <div className="flex min-w-0 items-center gap-2.5">
-                      <div className="flex h-9 w-9 items-center justify-center rounded-xl border border-[rgba(0,212,255,0.18)] bg-[rgba(0,212,255,0.08)]">
-                        <ShieldCheck size={18} weight="duotone" className="text-[#00D4FF]" />
+                  <div className="mt-3 flex items-center justify-between">
+                    <div className="flex min-w-0 items-center gap-2">
+                      <div className="flex h-8 w-8 items-center justify-center rounded-lg border border-[rgba(0,212,255,0.18)] bg-[rgba(0,212,255,0.08)]">
+                        <ShieldCheck size={16} weight="duotone" className="text-[#00D4FF]" />
                       </div>
                       <div className="min-w-0">
-                        <div className="truncate text-sm font-bold">Guardivex SOC</div>
-                        <div className="text-[10px] font-semibold uppercase tracking-[0.12em] text-[#94A3B8]">Tenant: Northwind HQ</div>
+                        <div className="truncate text-[13px] font-bold">Guardivex SOC</div>
+                        <div className="text-[9px] font-semibold uppercase tracking-[0.1em] text-[#94A3B8]">Tenant: Northwind HQ</div>
                       </div>
                     </div>
                     <span className="gvx-status-chip rounded-full border border-[rgba(0,212,255,0.22)] bg-[rgba(0,212,255,0.10)] px-2 py-1 text-[10px] font-bold text-[#00D4FF]">Live</span>
                   </div>
 
-                  <div className="mt-4 grid grid-cols-2 gap-2">
-                    <div className="rounded-xl border border-[rgba(0,212,255,0.14)] bg-[rgba(7,29,51,0.74)] p-3">
-                      <div className="text-[10px] font-semibold uppercase tracking-[0.11em] text-[#94A3B8]">Live alerts</div>
-                      <div className="mt-1 text-2xl font-bold text-[#F8FAFC]">18</div>
+                  <div className="mt-3 grid grid-cols-2 gap-2">
+                    <div className="rounded-lg border border-[rgba(0,212,255,0.14)] bg-[rgba(7,29,51,0.74)] p-2.5">
+                      <div className="text-[9px] font-semibold uppercase tracking-[0.1em] text-[#94A3B8]">Live alerts</div>
+                      <div className="mt-0.5 text-xl font-bold text-[#F8FAFC]">18</div>
                     </div>
-                    <div className="rounded-xl border border-[rgba(0,212,255,0.14)] bg-[rgba(7,29,51,0.74)] p-3">
-                      <div className="text-[10px] font-semibold uppercase tracking-[0.11em] text-[#94A3B8]">Devices online</div>
-                      <div className="mt-1 text-2xl font-bold text-[#00D4FF]">247</div>
+                    <div className="rounded-lg border border-[rgba(0,212,255,0.14)] bg-[rgba(7,29,51,0.74)] p-2.5">
+                      <div className="text-[9px] font-semibold uppercase tracking-[0.1em] text-[#94A3B8]">Devices online</div>
+                      <div className="mt-0.5 text-xl font-bold text-[#00D4FF]">247</div>
                     </div>
                   </div>
 
-                  <div className="mt-3 space-y-2.5">
-                    <div className="rounded-xl border border-[#F59E0B]/35 bg-[#F59E0B]/10 p-3">
+                  <div className="mt-2.5 space-y-2">
+                    <div className="rounded-lg border border-[#F59E0B]/35 bg-[#F59E0B]/10 p-2.5">
                       <div className="flex items-center justify-between gap-2">
-                        <div className="text-[11px] font-bold uppercase tracking-[0.1em] text-[#F59E0B]">Approval required</div>
+                        <div className="text-[10px] font-bold uppercase tracking-[0.1em] text-[#F59E0B]">Approval required</div>
                         <span className="rounded-full border border-[#F59E0B]/30 px-2 py-0.5 text-[9px] font-bold text-[#F59E0B]">No direct actions</span>
                       </div>
-                      <div className="mt-2 text-sm font-semibold">AI recommends isolating one endpoint after operator review.</div>
-                      <p className="mt-1 text-[11px] leading-5 text-[#94A3B8]">Policy blocks door, alarm, and switch-port control from AI execution.</p>
+                      <div className="mt-1.5 text-[13px] font-semibold">AI recommends isolating one endpoint after operator review.</div>
+                      <p className="mt-1 text-[10px] leading-4 text-[#94A3B8]">Policy blocks door, alarm, and switch-port control from AI execution.</p>
                     </div>
 
                     {[
                       { title: "Identity anomaly", detail: "Okta + EDR", status: "Critical", className: "border-[#EF4444] text-[#EF4444]" },
                       { title: "Camera offline", detail: "Lobby east", status: "Warning", className: "border-[#F59E0B] text-[#F59E0B]" },
-                      { title: "Door controller", detail: "Physical access", status: "Online", className: "border-[#00D4FF] text-[#00D4FF]" },
                     ].map((item) => (
-                      <div key={item.title} className="gvx-row-hover flex items-center justify-between gap-3 rounded-xl border border-[rgba(0,212,255,0.12)] bg-[rgba(7,29,51,0.58)] p-3">
+                      <div key={item.title} className="gvx-row-hover flex items-center justify-between gap-3 rounded-lg border border-[rgba(0,212,255,0.12)] bg-[rgba(7,29,51,0.58)] p-2.5">
                         <div className="min-w-0">
-                          <div className="truncate text-sm font-semibold">{item.title}</div>
-                          <div className="text-[11px] text-[#94A3B8]">{item.detail}</div>
+                          <div className="truncate text-[13px] font-semibold">{item.title}</div>
+                          <div className="text-[10px] text-[#94A3B8]">{item.detail}</div>
                         </div>
                         <span className={`shrink-0 rounded-full border px-2 py-0.5 text-[10px] font-bold ${item.className}`}>{item.status}</span>
                       </div>
                     ))}
                   </div>
 
-                  <div className="mt-3 rounded-xl border border-[rgba(0,212,255,0.14)] bg-[rgba(0,140,255,0.10)] p-3">
-                    <div className="flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.11em] text-[#00D4FF]">
+                  <div className="mt-2.5 rounded-lg border border-[rgba(0,212,255,0.14)] bg-[rgba(0,140,255,0.10)] p-2.5">
+                    <div className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.1em] text-[#00D4FF]">
                       <Lock size={13} weight="bold" />
                       Tenant scope enforced
                     </div>
-                    <p className="mt-1 text-[11px] leading-5 text-[#94A3B8]">Telemetry links cyber evidence to physical access events without granting autonomous control.</p>
+                    <p className="mt-1 text-[10px] leading-4 text-[#94A3B8]">Telemetry links cyber evidence to physical access events without granting autonomous control.</p>
                   </div>
                 </div>
               </div>
