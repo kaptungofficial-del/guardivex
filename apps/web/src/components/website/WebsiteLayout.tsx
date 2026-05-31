@@ -90,28 +90,28 @@ export function WebsiteLayout({ currentPage, onNavigate, onLogin }: WebsiteLayou
               <div className="flex flex-col gap-3 sm:gap-3.5">
                 <button 
                   onClick={() => onNavigate("product")}
-                  className="text-sm text-muted-foreground hover:text-primary dark:hover:text-cyan-300 hover:translate-x-1 transition-all text-left font-medium group flex items-center gap-2"
+                  className="text-sm text-muted-foreground hover:text-primary dark:hover:text-[var(--gvx-hero-accent-2)] hover:translate-x-1 transition-all text-left font-medium group flex items-center gap-2"
                 >
                   <span className="w-1 h-1 rounded-full bg-border group-hover:bg-primary transition-colors shrink-0" />
                   Features
                 </button>
                 <button 
                   onClick={() => onNavigate("enterprise")}
-                  className="text-sm text-muted-foreground hover:text-primary dark:hover:text-cyan-300 hover:translate-x-1 transition-all text-left font-medium group flex items-center gap-2"
+                  className="text-sm text-muted-foreground hover:text-primary dark:hover:text-[var(--gvx-hero-accent-2)] hover:translate-x-1 transition-all text-left font-medium group flex items-center gap-2"
                 >
                   <span className="w-1 h-1 rounded-full bg-border group-hover:bg-primary transition-colors shrink-0" />
                   Enterprise Solutions
                 </button>
                 <button 
                   onClick={() => onNavigate("download")}
-                  className="text-sm text-muted-foreground hover:text-primary dark:hover:text-cyan-300 hover:translate-x-1 transition-all text-left font-medium group flex items-center gap-2"
+                  className="text-sm text-muted-foreground hover:text-primary dark:hover:text-[var(--gvx-hero-accent-2)] hover:translate-x-1 transition-all text-left font-medium group flex items-center gap-2"
                 >
                   <span className="w-1 h-1 rounded-full bg-border group-hover:bg-primary transition-colors shrink-0" />
                   Download
                 </button>
                 <button 
                   onClick={() => onNavigate("licensing")}
-                  className="text-sm text-muted-foreground hover:text-primary dark:hover:text-cyan-300 hover:translate-x-1 transition-all text-left font-medium group flex items-center gap-2"
+                  className="text-sm text-muted-foreground hover:text-primary dark:hover:text-[var(--gvx-hero-accent-2)] hover:translate-x-1 transition-all text-left font-medium group flex items-center gap-2"
                 >
                   <span className="w-1 h-1 rounded-full bg-border group-hover:bg-primary transition-colors shrink-0" />
                   Pricing & Licensing
@@ -124,27 +124,27 @@ export function WebsiteLayout({ currentPage, onNavigate, onLogin }: WebsiteLayou
               <div className="flex flex-col gap-3 sm:gap-3.5">
                 <button 
                   onClick={() => onNavigate("documentation")}
-                  className="text-sm text-muted-foreground hover:text-primary dark:hover:text-cyan-300 hover:translate-x-1 transition-all text-left font-medium group flex items-center gap-2"
+                  className="text-sm text-muted-foreground hover:text-primary dark:hover:text-[var(--gvx-hero-accent-2)] hover:translate-x-1 transition-all text-left font-medium group flex items-center gap-2"
                 >
                   <span className="w-1 h-1 rounded-full bg-border group-hover:bg-primary transition-colors shrink-0" />
                   Documentation
                 </button>
                 <button 
                   onClick={() => onNavigate("support")}
-                  className="text-sm text-muted-foreground hover:text-primary dark:hover:text-cyan-300 hover:translate-x-1 transition-all text-left font-medium group flex items-center gap-2"
+                  className="text-sm text-muted-foreground hover:text-primary dark:hover:text-[var(--gvx-hero-accent-2)] hover:translate-x-1 transition-all text-left font-medium group flex items-center gap-2"
                 >
                   <span className="w-1 h-1 rounded-full bg-border group-hover:bg-primary transition-colors shrink-0" />
                   Support Center
                 </button>
-                <button onClick={() => onNavigate("documentation")} className="text-sm text-muted-foreground hover:text-primary dark:hover:text-cyan-300 hover:translate-x-1 transition-all font-medium group flex items-center gap-2 text-left">
+                <button onClick={() => onNavigate("documentation")} className="text-sm text-muted-foreground hover:text-primary dark:hover:text-[var(--gvx-hero-accent-2)] hover:translate-x-1 transition-all font-medium group flex items-center gap-2 text-left">
                   <span className="w-1 h-1 rounded-full bg-border group-hover:bg-primary transition-colors shrink-0" />
                   API Reference
                 </button>
-                <button onClick={() => onNavigate("support")} className="text-sm text-muted-foreground hover:text-primary dark:hover:text-cyan-300 hover:translate-x-1 transition-all font-medium group flex items-center gap-2 text-left">
+                <button onClick={() => onNavigate("support")} className="text-sm text-muted-foreground hover:text-primary dark:hover:text-[var(--gvx-hero-accent-2)] hover:translate-x-1 transition-all font-medium group flex items-center gap-2 text-left">
                   <span className="w-1 h-1 rounded-full bg-border group-hover:bg-primary transition-colors shrink-0" />
                   Contact Support
                 </button>
-                <button onClick={() => onNavigate("support")} className="text-sm text-muted-foreground hover:text-primary dark:hover:text-cyan-300 hover:translate-x-1 transition-all font-medium group flex items-center gap-2 text-left">
+                <button onClick={() => onNavigate("support")} className="text-sm text-muted-foreground hover:text-primary dark:hover:text-[var(--gvx-hero-accent-2)] hover:translate-x-1 transition-all font-medium group flex items-center gap-2 text-left">
                   <span className="w-1 h-1 rounded-full bg-border group-hover:bg-primary transition-colors shrink-0" />
                   System Status
                 </button>
@@ -154,23 +154,23 @@ export function WebsiteLayout({ currentPage, onNavigate, onLogin }: WebsiteLayou
             <div>
               <h4 className="font-heading font-bold text-[13px] uppercase tracking-[0.15em] mb-4 sm:mb-5 text-foreground">Company</h4>
               <div className="flex flex-col gap-3 sm:gap-3.5">
-                <button onClick={() => onNavigate("support")} className="text-sm text-muted-foreground hover:text-primary dark:hover:text-cyan-300 hover:translate-x-1 transition-all font-medium group flex items-center gap-2 text-left">
+                <button onClick={() => onNavigate("support")} className="text-sm text-muted-foreground hover:text-primary dark:hover:text-[var(--gvx-hero-accent-2)] hover:translate-x-1 transition-all font-medium group flex items-center gap-2 text-left">
                   <span className="w-1 h-1 rounded-full bg-border group-hover:bg-primary transition-colors shrink-0" />
                   About Guardivex
                 </button>
-                <a href="mailto:research@guardivex.com" className="text-sm text-muted-foreground hover:text-primary dark:hover:text-cyan-300 hover:translate-x-1 transition-all font-medium group flex items-center gap-2">
+                <a href="mailto:research@guardivex.com" className="text-sm text-muted-foreground hover:text-primary dark:hover:text-[var(--gvx-hero-accent-2)] hover:translate-x-1 transition-all font-medium group flex items-center gap-2">
                   <span className="w-1 h-1 rounded-full bg-border group-hover:bg-primary transition-colors shrink-0" />
                   Contact Sales
                 </a>
-                <button onClick={() => onNavigate("documentation")} className="text-sm text-muted-foreground hover:text-primary dark:hover:text-cyan-300 hover:translate-x-1 transition-all font-medium group flex items-center gap-2 text-left">
+                <button onClick={() => onNavigate("documentation")} className="text-sm text-muted-foreground hover:text-primary dark:hover:text-[var(--gvx-hero-accent-2)] hover:translate-x-1 transition-all font-medium group flex items-center gap-2 text-left">
                   <span className="w-1 h-1 rounded-full bg-border group-hover:bg-primary transition-colors shrink-0" />
                   Documentation
                 </button>
-                <a href="mailto:security@guardivex.com" className="text-sm text-muted-foreground hover:text-primary dark:hover:text-cyan-300 hover:translate-x-1 transition-all font-medium group flex items-center gap-2">
+                <a href="mailto:security@guardivex.com" className="text-sm text-muted-foreground hover:text-primary dark:hover:text-[var(--gvx-hero-accent-2)] hover:translate-x-1 transition-all font-medium group flex items-center gap-2">
                   <span className="w-1 h-1 rounded-full bg-border group-hover:bg-primary transition-colors shrink-0" />
                   Security Contact
                 </a>
-                <button onClick={() => onNavigate("documentation")} className="text-sm text-muted-foreground hover:text-primary dark:hover:text-cyan-300 hover:translate-x-1 transition-all font-medium group flex items-center gap-2 text-left">
+                <button onClick={() => onNavigate("documentation")} className="text-sm text-muted-foreground hover:text-primary dark:hover:text-[var(--gvx-hero-accent-2)] hover:translate-x-1 transition-all font-medium group flex items-center gap-2 text-left">
                   <span className="w-1 h-1 rounded-full bg-border group-hover:bg-primary transition-colors shrink-0" />
                   Trust Center
                 </button>
@@ -184,16 +184,16 @@ export function WebsiteLayout({ currentPage, onNavigate, onLogin }: WebsiteLayou
                 &copy; 2026 Guardivex. All rights reserved.
               </div>
               <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 md:gap-8 text-xs text-muted-foreground font-medium order-1 md:order-2">
-                <button onClick={() => onNavigate("documentation")} className="hover:text-primary dark:hover:text-cyan-300 transition-colors hover:underline decoration-primary decoration-2 underline-offset-4">
+                <button onClick={() => onNavigate("documentation")} className="hover:text-primary dark:hover:text-[var(--gvx-hero-accent-2)] transition-colors hover:underline decoration-primary decoration-2 underline-offset-4">
                   Privacy Policy
                 </button>
-                <button onClick={() => onNavigate("documentation")} className="hover:text-primary dark:hover:text-cyan-300 transition-colors hover:underline decoration-primary decoration-2 underline-offset-4">
+                <button onClick={() => onNavigate("documentation")} className="hover:text-primary dark:hover:text-[var(--gvx-hero-accent-2)] transition-colors hover:underline decoration-primary decoration-2 underline-offset-4">
                   Terms of Service
                 </button>
-                <button onClick={() => onNavigate("documentation")} className="hover:text-primary dark:hover:text-cyan-300 transition-colors hover:underline decoration-primary decoration-2 underline-offset-4 hidden sm:inline">
+                <button onClick={() => onNavigate("documentation")} className="hover:text-primary dark:hover:text-[var(--gvx-hero-accent-2)] transition-colors hover:underline decoration-primary decoration-2 underline-offset-4 hidden sm:inline">
                   Security
                 </button>
-                <button onClick={() => onNavigate("documentation")} className="hover:text-primary dark:hover:text-cyan-300 transition-colors hover:underline decoration-primary decoration-2 underline-offset-4 hidden sm:inline">
+                <button onClick={() => onNavigate("documentation")} className="hover:text-primary dark:hover:text-[var(--gvx-hero-accent-2)] transition-colors hover:underline decoration-primary decoration-2 underline-offset-4 hidden sm:inline">
                   Governance
                 </button>
               </div>
@@ -230,12 +230,6 @@ function HomePage({ onNavigate }: { onNavigate: (page: string) => void }) {
     ["Tenant scope", "Isolated"],
   ]
 
-  const caseRows = [
-    { label: "Credential abuse campaign", source: "Identity + endpoint", status: "Review" },
-    { label: "PowerShell execution chain", source: "EDR telemetry", status: "Evidence" },
-    { label: "Suspicious infrastructure", source: "Threat intel", status: "Mapped" },
-  ]
-
   const capabilityPillars = [
     { icon: Database, title: "Evidence Workspace", detail: "Bring telemetry, IOCs, identities, notes, and approvals into one defensible case record." },
     { icon: Lock, title: "Governed AI", detail: "Use AI for summaries and recommendations while execution remains policy-controlled and human-reviewed." },
@@ -251,27 +245,27 @@ function HomePage({ onNavigate }: { onNavigate: (page: string) => void }) {
 
   return (
     <div className="relative guardivex-home-typography overflow-x-hidden bg-[var(--gvx-hero-bg)] pb-24 text-[var(--gvx-hero-text)] sm:pb-0">
-      <section className="relative isolate overflow-hidden border-b border-[var(--gvx-hero-border)] bg-[linear-gradient(180deg,#F8FAFC_0%,#EEF8FF_100%)] px-4 py-8 dark:bg-[linear-gradient(180deg,#021526_0%,#071D33_100%)] sm:px-6 sm:py-16 lg:px-8">
+      <section className="relative isolate overflow-hidden border-b border-[var(--gvx-hero-border)] bg-[linear-gradient(180deg,#F8FAFC_0%,rgba(0,212,255,0.08)_100%)] px-4 py-7 dark:bg-[linear-gradient(180deg,#021526_0%,#071D33_100%)] sm:px-6 sm:py-16 lg:px-8">
         <div className="gvx-grid-drift absolute inset-0 -z-10 bg-[linear-gradient(rgba(0,140,255,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(0,140,255,0.08)_1px,transparent_1px)] bg-[size:64px_64px] opacity-20 dark:bg-[linear-gradient(rgba(0,212,255,0.13)_1px,transparent_1px),linear-gradient(90deg,rgba(0,212,255,0.13)_1px,transparent_1px)] dark:opacity-15 sm:bg-[size:80px_80px] sm:opacity-45 dark:sm:opacity-20" />
 
-        <div className="mx-auto grid max-w-7xl grid-cols-1 gap-8 lg:grid-cols-[minmax(0,0.86fr)_minmax(440px,1fr)] lg:items-center lg:gap-10">
+        <div className="mx-auto grid max-w-7xl grid-cols-1 gap-7 lg:grid-cols-[minmax(0,0.86fr)_minmax(340px,0.74fr)] lg:items-center lg:gap-12">
           <div className="min-w-0 max-w-3xl">
-            <Badge variant="outline" className="gvx-animate-in mb-5 rounded-sm border-cyan-500/25 bg-cyan-500/8 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.14em] text-[var(--gvx-hero-accent)]">
+            <Badge variant="outline" className="gvx-animate-in mb-5 rounded-sm border-[var(--gvx-hero-border-strong)] bg-[var(--gvx-hero-accent-soft)] px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.14em] text-[var(--gvx-hero-accent)]">
               Governed security operations
             </Badge>
-            <h1 className="gvx-animate-in gvx-delay-1 max-w-full font-heading text-[clamp(2.4rem,12vw,3.4rem)] font-extrabold leading-[0.95] text-[var(--gvx-hero-text)] [text-wrap:balance] sm:text-[3.4rem] sm:leading-[1.03] lg:text-[4.15rem]">
+            <h1 className="gvx-animate-in gvx-delay-1 max-w-full font-heading text-[clamp(2.12rem,10.5vw,3rem)] font-extrabold leading-[0.98] text-[var(--gvx-hero-text)] [text-wrap:balance] sm:text-[3.35rem] sm:leading-[1.03] lg:text-[4.05rem]">
               Enterprise security work, without autonomous physical action.
             </h1>
             <p className="gvx-animate-in gvx-delay-2 mt-4 max-w-full text-base leading-[1.7] text-[var(--gvx-hero-muted)] sm:mt-5 sm:max-w-2xl sm:text-lg">
-              Guardivex gives security teams a controlled operations workspace for telemetry, evidence, incident research, and AI-assisted recommendations that stay behind human approval.
+              Guardivex unifies alerts, evidence, and AI recommendations in one governed workspace. Operators approve every high-risk action.
             </p>
 
             <div className="gvx-animate-in gvx-delay-3 mt-6 flex flex-col gap-3 sm:mt-7 sm:flex-row">
-              <Button size="lg" onClick={() => onNavigate("download")} className="gvx-hover-lift h-12 w-full rounded-md border border-cyan-500/35 bg-[linear-gradient(90deg,#00D4FF,#008CFF)] px-5 text-sm font-semibold text-white shadow-[0_18px_42px_-30px_rgba(0,212,255,0.72)] hover:brightness-95 sm:h-11 sm:w-auto">
+              <Button size="lg" onClick={() => onNavigate("download")} className="gvx-hover-lift h-12 w-full rounded-md border border-[var(--gvx-hero-border-strong)] bg-[linear-gradient(90deg,#00D4FF,#008CFF)] px-5 text-sm font-semibold text-[var(--guardivex-text)] shadow-[0_18px_42px_-30px_rgba(0,212,255,0.72)] hover:brightness-95 sm:h-11 sm:w-auto">
                 <CloudArrowDown size={16} className="mr-2" weight="bold" />
                 Deploy Research Server
               </Button>
-              <Button size="lg" variant="outline" onClick={() => onNavigate("product")} className="gvx-hover-lift h-12 w-full rounded-md border-[var(--gvx-hero-border)] bg-[var(--gvx-hero-card)] px-5 text-sm font-semibold text-[var(--gvx-hero-text)] hover:border-cyan-500/35 hover:bg-cyan-500/8 sm:h-11 sm:w-auto">
+              <Button size="lg" variant="outline" onClick={() => onNavigate("product")} className="gvx-hover-lift h-12 w-full rounded-md border-[var(--gvx-hero-border)] bg-[var(--gvx-hero-card)] px-5 text-sm font-semibold text-[var(--gvx-hero-text)] hover:border-[var(--gvx-hero-border-strong)] hover:bg-[var(--gvx-hero-accent-soft)] sm:h-11 sm:w-auto">
                 <Monitor size={16} className="mr-2" weight="bold" />
                 View Product
               </Button>
@@ -287,43 +281,78 @@ function HomePage({ onNavigate }: { onNavigate: (page: string) => void }) {
             </div>
           </div>
 
-          <div className="gvx-animate-in gvx-delay-4 gvx-review-panel min-w-0 max-w-full overflow-hidden rounded-lg border border-[var(--gvx-hero-border)] bg-[var(--gvx-hero-card)] shadow-[0_22px_64px_-52px_rgba(0,140,255,0.36)] dark:shadow-[0_30px_90px_-66px_rgba(0,0,0,0.72)]">
-            <div className="flex flex-wrap items-center justify-between gap-2 border-b border-[var(--gvx-hero-border)] px-3 py-3 sm:px-4">
-              <div className="flex min-w-0 items-center gap-2 text-sm font-semibold text-[var(--gvx-hero-text)]">
-                <ShieldCheck size={17} weight="duotone" className="text-[var(--gvx-hero-accent)]" />
-                <span className="truncate">Operations review queue</span>
-              </div>
-              <span className="gvx-status-chip rounded-sm border border-cyan-500/20 bg-cyan-500/8 px-2 py-1 text-[10px] font-semibold uppercase tracking-[0.12em] text-[var(--gvx-hero-accent)]">Live case view</span>
-            </div>
-
-            <div className="grid grid-cols-1 border-b border-[var(--gvx-hero-border)] min-[390px]:grid-cols-3">
-              {operatingMetrics.map(([label, value]) => (
-                <div key={label} className="min-w-0 border-b border-[var(--gvx-hero-border)] px-3 py-2.5 last:border-b-0 min-[390px]:border-b-0 min-[390px]:border-r min-[390px]:last:border-r-0 sm:px-4 sm:py-3">
-                  <div className="text-[9px] font-semibold uppercase tracking-[0.1em] text-[var(--gvx-hero-muted)] sm:text-[10px] sm:tracking-[0.12em]">{label}</div>
-                  <div className="mt-1 font-heading text-base font-bold text-[var(--gvx-hero-text)] sm:text-lg">{value}</div>
-                </div>
-              ))}
-            </div>
-
-            <div className="divide-y divide-[var(--gvx-hero-border)]">
-              {caseRows.map((row) => (
-                <div key={row.label} className="gvx-row-hover grid min-w-0 gap-1.5 px-3 py-3 sm:grid-cols-[minmax(0,1fr)_132px_84px] sm:items-center sm:gap-2 sm:px-4">
-                  <div className="min-w-0">
-                    <div className="truncate text-sm font-semibold text-[var(--gvx-hero-text)]">{row.label}</div>
-                    <div className="text-xs text-[var(--gvx-hero-muted)]">{row.source}</div>
+          <div className="gvx-animate-in gvx-delay-4 flex min-w-0 justify-center lg:justify-end">
+            <div className="gvx-phone-frame relative w-full max-w-[340px] lg:max-w-[360px]">
+              <div className="relative overflow-hidden rounded-[2.15rem] border border-[rgba(0,212,255,0.18)] bg-[#021526] p-2 shadow-[0_28px_80px_-56px_rgba(0,140,255,0.78)]">
+                <div className="absolute left-1/2 top-2 z-20 h-5 w-28 -translate-x-1/2 rounded-b-2xl bg-[#021526]" />
+                <div className="gvx-phone-reflection pointer-events-none absolute inset-2 z-30 rounded-[1.7rem]" />
+                <div className="relative overflow-hidden rounded-[1.7rem] border border-[rgba(0,212,255,0.14)] bg-[linear-gradient(180deg,#071D33_0%,#021526_100%)] p-4 text-[#F8FAFC]">
+                  <div className="flex items-center justify-between pt-3 text-[10px] font-semibold text-[#94A3B8]">
+                    <span>09:41</span>
+                    <div className="flex items-center gap-1.5">
+                      <span className="h-1.5 w-5 rounded-full border border-[rgba(0,212,255,0.35)]" />
+                      <span className="h-2.5 w-1.5 rounded-[2px] bg-[#00D4FF]" />
+                    </div>
                   </div>
-                  <div className="hidden text-xs font-medium text-[var(--gvx-hero-muted)] sm:block">Human approval</div>
-                  <div className="text-xs font-semibold text-[var(--gvx-hero-accent)]">{row.status}</div>
-                </div>
-              ))}
-            </div>
 
-            <div className="grid min-w-0 gap-3 border-t border-[var(--gvx-hero-border)] bg-[var(--gvx-hero-bg-soft)] p-3 sm:grid-cols-[minmax(0,1fr)_180px] sm:items-center sm:gap-4 sm:p-4">
-              <div className="min-w-0">
-                <div className="text-[10px] font-semibold uppercase tracking-[0.13em] text-[var(--gvx-hero-muted)]">AI operating boundary</div>
-                <p className="mt-1 text-sm leading-6 text-[var(--gvx-hero-muted)]">AI prepares recommendations. Operators approve action. Policy writes the audit trail.</p>
+                  <div className="mt-5 flex items-center justify-between">
+                    <div className="flex min-w-0 items-center gap-2.5">
+                      <div className="flex h-9 w-9 items-center justify-center rounded-xl border border-[rgba(0,212,255,0.18)] bg-[rgba(0,212,255,0.08)]">
+                        <ShieldCheck size={18} weight="duotone" className="text-[#00D4FF]" />
+                      </div>
+                      <div className="min-w-0">
+                        <div className="truncate text-sm font-bold">Guardivex SOC</div>
+                        <div className="text-[10px] font-semibold uppercase tracking-[0.12em] text-[#94A3B8]">Tenant: Northwind HQ</div>
+                      </div>
+                    </div>
+                    <span className="gvx-status-chip rounded-full border border-[rgba(0,212,255,0.22)] bg-[rgba(0,212,255,0.10)] px-2 py-1 text-[10px] font-bold text-[#00D4FF]">Live</span>
+                  </div>
+
+                  <div className="mt-4 grid grid-cols-2 gap-2">
+                    <div className="rounded-xl border border-[rgba(0,212,255,0.14)] bg-[rgba(7,29,51,0.74)] p-3">
+                      <div className="text-[10px] font-semibold uppercase tracking-[0.11em] text-[#94A3B8]">Live alerts</div>
+                      <div className="mt-1 text-2xl font-bold text-[#F8FAFC]">18</div>
+                    </div>
+                    <div className="rounded-xl border border-[rgba(0,212,255,0.14)] bg-[rgba(7,29,51,0.74)] p-3">
+                      <div className="text-[10px] font-semibold uppercase tracking-[0.11em] text-[#94A3B8]">Devices online</div>
+                      <div className="mt-1 text-2xl font-bold text-[#00D4FF]">247</div>
+                    </div>
+                  </div>
+
+                  <div className="mt-3 space-y-2.5">
+                    <div className="rounded-xl border border-[#F59E0B]/35 bg-[#F59E0B]/10 p-3">
+                      <div className="flex items-center justify-between gap-2">
+                        <div className="text-[11px] font-bold uppercase tracking-[0.1em] text-[#F59E0B]">Approval required</div>
+                        <span className="rounded-full border border-[#F59E0B]/30 px-2 py-0.5 text-[9px] font-bold text-[#F59E0B]">No direct actions</span>
+                      </div>
+                      <div className="mt-2 text-sm font-semibold">AI recommends isolating one endpoint after operator review.</div>
+                      <p className="mt-1 text-[11px] leading-5 text-[#94A3B8]">Policy blocks door, alarm, and switch-port control from AI execution.</p>
+                    </div>
+
+                    {[
+                      { title: "Identity anomaly", detail: "Okta + EDR", status: "Critical", className: "border-[#EF4444] text-[#EF4444]" },
+                      { title: "Camera offline", detail: "Lobby east", status: "Warning", className: "border-[#F59E0B] text-[#F59E0B]" },
+                      { title: "Door controller", detail: "Physical access", status: "Online", className: "border-[#00D4FF] text-[#00D4FF]" },
+                    ].map((item) => (
+                      <div key={item.title} className="gvx-row-hover flex items-center justify-between gap-3 rounded-xl border border-[rgba(0,212,255,0.12)] bg-[rgba(7,29,51,0.58)] p-3">
+                        <div className="min-w-0">
+                          <div className="truncate text-sm font-semibold">{item.title}</div>
+                          <div className="text-[11px] text-[#94A3B8]">{item.detail}</div>
+                        </div>
+                        <span className={`shrink-0 rounded-full border px-2 py-0.5 text-[10px] font-bold ${item.className}`}>{item.status}</span>
+                      </div>
+                    ))}
+                  </div>
+
+                  <div className="mt-3 rounded-xl border border-[rgba(0,212,255,0.14)] bg-[rgba(0,140,255,0.10)] p-3">
+                    <div className="flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.11em] text-[#00D4FF]">
+                      <Lock size={13} weight="bold" />
+                      Tenant scope enforced
+                    </div>
+                    <p className="mt-1 text-[11px] leading-5 text-[#94A3B8]">Telemetry links cyber evidence to physical access events without granting autonomous control.</p>
+                  </div>
+                </div>
               </div>
-              <img src="/ai-boundary.svg" alt="AI recommendation boundary with human approval" className="h-24 w-full max-w-full rounded-md border border-[var(--gvx-hero-border)] bg-[var(--gvx-hero-card)] object-contain p-2 sm:h-28" loading="eager" decoding="async" />
             </div>
           </div>
         </div>
@@ -339,7 +368,7 @@ function HomePage({ onNavigate }: { onNavigate: (page: string) => void }) {
             {capabilityPillars.map((item) => (
               <Card key={item.title} className="gvx-animate-in gvx-hover-lift min-w-0 border-[var(--gvx-hero-border)] bg-[var(--gvx-hero-card)] shadow-none">
                 <CardHeader className="p-5">
-                  <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-md border border-cyan-500/20 bg-cyan-500/10">
+                  <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-md border border-[var(--gvx-hero-border)] bg-[var(--gvx-hero-accent-soft)]">
                     <item.icon size={19} weight="duotone" className="text-primary" />
                   </div>
                   <CardTitle className="text-base text-foreground">{item.title}</CardTitle>
@@ -610,7 +639,7 @@ function LicensingPage() {
               <ul className="space-y-2 text-sm">
                 {plan.features.map((feature, j) => (
                   <li key={j} className="flex items-center gap-2">
-                    <CheckCircle size={16} className="text-cyan-500 shrink-0" />
+                    <CheckCircle size={16} className="text-[var(--gvx-hero-accent-2)] shrink-0" />
                     <span>{feature}</span>
                   </li>
                 ))}

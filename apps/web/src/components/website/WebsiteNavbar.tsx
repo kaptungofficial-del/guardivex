@@ -362,7 +362,7 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
         <div className="max-w-[1440px] mx-auto px-3 min-[390px]:px-4 sm:px-8 xl:px-14 2xl:px-16">
           <div className="flex h-6 items-center justify-between sm:h-7">
             <div className="flex min-w-0 items-center gap-2.5 text-[10.5px] font-medium text-[var(--gvx-hero-muted)] sm:gap-3">
-              <HeaderStatusBadge label="Research Lab" className="inline-flex border-cyan-500/20 bg-cyan-500/8 text-cyan-600 dark:text-cyan-300" />
+              <HeaderStatusBadge label="Research Lab" className="inline-flex" />
               <div className="hidden items-center gap-1.5 border-l border-[var(--gvx-hero-border)] pl-3 md:flex">
                 <CloudCheck size={13} weight="duotone" className="text-[var(--gvx-hero-accent)]" />
                 <span>Governed AI Recommendations</span>
@@ -490,8 +490,8 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
               <div className="hidden lg:block absolute left-1/2 top-full z-[100] w-[min(720px,calc(100vw-48px))] -translate-x-1/2 pt-2">
                 <div className={desktopDropdownClass}>
                   <div className="mb-2.5">
-                    <h3 className="mb-1 text-sm font-semibold text-[#07111F] dark:text-white">{activeDesktopDropdown.title}</h3>
-                    <p className="text-xs text-[#64748B] dark:text-[#C7D6E8]">{activeDesktopDropdown.subtitle}</p>
+                    <h3 className="mb-1 text-sm font-semibold text-[var(--gvx-hero-text)]">{activeDesktopDropdown.title}</h3>
+                    <p className="text-xs text-[var(--gvx-hero-muted)]">{activeDesktopDropdown.subtitle}</p>
                   </div>
                   <div className="grid grid-cols-1 gap-1.5 md:grid-cols-2">
                     {activeDesktopDropdown.data.map((feature) => (
@@ -513,8 +513,8 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
                           <feature.icon size={16} weight="bold" className={feature.color} />
                         </div>
                         <div className="flex-1 min-w-0">
-                          <div className="mb-0.5 break-words text-[13px] font-medium text-[#07111F] dark:text-white">{feature.title}</div>
-                          <div className="break-words text-[11px] leading-relaxed text-[#64748B] dark:text-[#C7D6E8]">{feature.description}</div>
+                          <div className="mb-0.5 break-words text-[13px] font-medium text-[var(--gvx-hero-text)]">{feature.title}</div>
+                          <div className="break-words text-[11px] leading-relaxed text-[var(--gvx-hero-muted)]">{feature.description}</div>
                         </div>
                       </button>
                     ))}
@@ -579,7 +579,7 @@ export function WebsiteNavbar({ currentPage, onNavigate, onLogin, onOpenLiveChat
                     <a
                       key={social.label}
                       href={social.url}
-                      className="w-9 h-9 sm:w-11 sm:h-11 flex items-center justify-center rounded-lg text-muted-foreground hover:text-primary hover:bg-cyan-500/8 active:bg-cyan-500/12 border border-cyan-500/20 hover:border-primary/30 transition-all duration-200 active:scale-95"
+                      className="w-9 h-9 sm:w-11 sm:h-11 flex items-center justify-center rounded-lg border border-[var(--gvx-hero-border)] text-[var(--gvx-hero-muted)] transition-all duration-200 hover:border-[var(--gvx-hero-border-strong)] hover:bg-[var(--gvx-hero-accent-soft)] hover:text-[var(--gvx-hero-accent)] active:scale-95 active:bg-[var(--gvx-hero-accent-soft)]"
                       aria-label={social.label}
                     >
                       <social.icon size={17} weight="bold" className="sm:w-5 sm:h-5" />

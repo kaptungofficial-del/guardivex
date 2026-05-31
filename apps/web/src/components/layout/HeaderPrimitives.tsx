@@ -3,10 +3,10 @@ import { Badge } from "@/components/ui/badge"
 import { cn } from "@/lib/utils"
 
 export const ENTERPRISE_COMMAND_STRIP_CLASS =
-  "border-b border-[var(--gvx-hero-border)] bg-[var(--gvx-menu-bg)] text-[var(--gvx-hero-muted)] shadow-[0_1px_0_rgba(255,255,255,0.18)_inset]"
+  "border-b border-[var(--gvx-hero-border)] bg-[var(--gvx-menu-bg)] text-[var(--gvx-hero-muted)] shadow-[0_1px_0_rgba(248,250,252,0.18)_inset]"
 
 export const ENTERPRISE_HEADER_SURFACE_CLASS =
-  "border-b border-[var(--gvx-hero-border)] bg-[var(--gvx-menu-bg)] text-[var(--gvx-hero-text)] shadow-[0_14px_34px_-32px_rgba(7,17,31,0.34),0_1px_0_rgba(255,255,255,0.16)_inset]"
+  "border-b border-[var(--gvx-hero-border)] bg-[var(--gvx-menu-bg)] text-[var(--gvx-hero-text)] shadow-[0_14px_34px_-32px_rgba(7,29,51,0.34),0_1px_0_rgba(248,250,252,0.16)_inset]"
 
 export const ENTERPRISE_CONTROL_CLASS =
   "inline-flex h-6 items-center gap-1.5 px-2 sm:px-2.5 rounded-sm border border-border bg-card/70 text-muted-foreground font-medium transition-all duration-150 hover:text-primary hover:border-primary/20 hover:bg-secondary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/25 focus-visible:ring-offset-2 focus-visible:ring-offset-background dark:border-[rgba(0,212,255,0.12)] dark:bg-[rgba(7,29,51,0.58)] dark:text-[#94A3B8] dark:hover:text-[#F8FAFC] dark:hover:border-[rgba(0,212,255,0.20)] dark:hover:bg-[rgba(7,29,51,0.72)]"
@@ -21,10 +21,10 @@ export const ENTERPRISE_NAV_ITEM_CLASS =
   "relative inline-flex items-center gap-1 rounded-md border whitespace-nowrap px-2.5 py-1.5 text-[12.5px] font-medium transition-all duration-200"
 
 export const ENTERPRISE_NAV_ITEM_ACTIVE_CLASS =
-  "text-[var(--gvx-hero-accent-2)] border-cyan-500/20 bg-cyan-500/8 shadow-[0_12px_26px_-24px_rgba(0,212,255,0.38)]"
+  "text-[var(--gvx-hero-accent-2)] border-[var(--gvx-hero-border-strong)] bg-[var(--gvx-hero-accent-soft)] shadow-[0_12px_26px_-24px_rgba(0,212,255,0.38)]"
 
 export const ENTERPRISE_NAV_ITEM_INACTIVE_CLASS =
-  "text-[var(--gvx-hero-muted)] border-transparent hover:-translate-y-px hover:text-[var(--gvx-hero-accent-2)] hover:border-cyan-500/20 hover:bg-cyan-500/8"
+  "text-[var(--gvx-hero-muted)] border-transparent hover:-translate-y-px hover:text-[var(--gvx-hero-accent-2)] hover:border-[var(--gvx-hero-border-strong)] hover:bg-[var(--gvx-hero-accent-soft)]"
 
 export const ENTERPRISE_DROPDOWN_PANEL_CLASS =
   "w-[min(720px,calc(100vw-32px))] max-w-[calc(100vw-2rem)] max-h-[70vh] overflow-y-auto overflow-x-hidden rounded-xl border border-[var(--gvx-menu-border)] bg-[var(--gvx-menu-bg)] p-2.5 opacity-100 shadow-[0_24px_70px_-50px_rgba(7,17,31,0.45)] dark:shadow-[0_24px_70px_-50px_rgba(0,0,0,0.74)]"
@@ -48,12 +48,12 @@ export function HeaderStatusBadge({ label, className }: HeaderStatusBadgeProps) 
     <Badge
       variant="outline"
       className={cn(
-        "inline-flex items-center gap-1.5 rounded-full border-cyan-500/20 bg-cyan-500/8 text-cyan-700 dark:text-cyan-300 text-[10px] uppercase tracking-[0.09em]",
+        "inline-flex items-center gap-1.5 rounded-full border-[var(--gvx-hero-border-strong)] bg-[var(--gvx-hero-accent-soft)] text-[var(--gvx-hero-accent)] text-[10px] uppercase tracking-[0.09em]",
         "font-medium",
         className,
       )}
     >
-      <Circle size={8} weight="fill" className="text-cyan-500 status-pulse" />
+      <Circle size={8} weight="fill" className="text-[var(--gvx-hero-accent-2)] status-pulse" />
       {label}
     </Badge>
   )
